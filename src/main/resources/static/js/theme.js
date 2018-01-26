@@ -93,8 +93,8 @@ $(function() {
 
         var bannerCarouselImgArr = bannerCarouselImg.data('images').split(',');
 
-        console.log("bannerCarouselImgArr : ")
-        console.log( bannerCarouselImgArr )
+//        console.log("bannerCarouselImgArr : ")
+//        console.log( bannerCarouselImgArr )
 
         var array1080 = []
         var array720 = []
@@ -271,8 +271,8 @@ $(function() {
         // Animate elements when in viewport
 
         $this.waypoint(function(direction) {
-            console.log( "adding animation " + animation + " to ")
-            console.log( $this )
+//            console.log( "adding animation " + animation + " to ")
+//            console.log( $this )
             $this.addClass(animation);
         }, {
             offset: '75%'
@@ -346,13 +346,13 @@ $(function() {
 
                 // Init countTo plugin
 
-                if ( $('section.active').is('.section_stats') ) {
-                    $('.stats__item__value:not(.finished)').countTo({
-                        onComplete: function() {
-                            $(this).addClass('finished');
-                        }
-                    });
-                }
+//                if ( $('section.active').is('.section_stats') ) {
+//                    $('.stats__item__value:not(.finished)').countTo({
+//                        onComplete: function() {
+//                            $(this).addClass('finished');
+//                        }
+//                    });
+//                }
 
             }
 
