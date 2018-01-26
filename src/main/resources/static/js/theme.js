@@ -129,18 +129,22 @@ $(function() {
 
             bannerCarouselImg.backstretch(
                 [[
-                 { width: 1080, url: "/img/strange.png" },
-                 { width: 720, url: "/img/strange.png" },
-                 { width: 320, url: "/img/strange.png" }
+                 { width: 1080, url: "/img/handsup.jpg" },
+                 { width: 720, url: "/img/handsup.jpg" },
+                 { width: 320, url: "/img/handsup.jpg" }
                ],[
-                { width: 1080, url: "/img/b.jpg" },
-                { width: 720, url: "/img/b.jpg" },
-                { width: 320, url: "/img/b.jpg" }
+                { width: 1080, url: "/img/middleeast.jpg" },
+                { width: 720, url: "/img/middleeast.jpg" },
+                { width: 320, url: "/img/middleeast.jpg" }
               ],[
-               { width: 1080, url: "/img/c.jpg" },
-               { width: 720, url: "/img/c.jpg" },
-               { width: 320, url: "/img/c.jpg" }
-             ]], {
+               { width: 1080, url: "/img/nhs.jpg" },
+               { width: 720, url: "/img/nhs.jpg" },
+               { width: 320, url: "/img/nhs.jpg" }
+             ],[
+                { width: 1080, url: "/img/sdf.jpg" },
+                { width: 720, url: "/img/sdf.jpg" },
+                { width: 320, url: "/img/sdf.jpg" }
+              ]], {
                     duration: 500,
                     fade: 750
                 });
