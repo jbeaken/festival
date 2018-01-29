@@ -1,0 +1,1 @@
+insert into ticket (id, name, code, description) values (1, "Ticket", "TCK", "A Ticket that gets you into marxism");

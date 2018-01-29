@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/ico/favicon.ico">
+
+    <title>Marxism 2018</title>
+
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" th:href="@{/plugins/ionicons/css/ionicons.min.css}">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+
+  </head>
+  <body class="no-settings" data-spy="scroll" data-target="#navbar_main" data-offset="80">
+
+    <!-- PRELOADER
+    ================================================== -->
+    <div class="preloader">
+      <img th:src="@{/img/spinner.svg}" alt="Loading..." class="preloader__spinner">
+    </div>
+
+    <!-- MODAL
+    ================================================== -->
+    <div class="modal fade" id="modal_portfolio" tabindex="-1" role="dialog" aria-labelledby="modal_portfolio__heading">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="modal_portfolio__heading"></h4>
+          </div>
+          <div class="modal-body">
+            <img id="modal_portfolio__img" class="img-responsive" th:src="@{/img/1.jpg}" alt="...">
+            <p id="modal_portfolio__content"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR
+    ================================================== -->
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+
+        <!-- Brand name -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_main" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Marxism 2018</a>
+        </div>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbar_main">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+              <a href="#section_banner">Welcome</a>
+            </li>
+            <li><a href="#section_features">Features</a></li>
+            <li><a href="#section_portfolio">Gallery</a></li>
+            <li><a href="#section_pricing">Pricing</a></li>
+            <li><a href="#section_team">Speakers</a></li>
+            <li><a href="#section_about">About</a></li>
+            <li><a href="#section_testimonials">Testimonials</a></li>
+            <li><a href="#section_news">Themes</a></li>
+            <li><a href="#section_contact">Contact</a></li>
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    
+
+
+    <!-- BOOKINGS
+    ================================================== -->
+    <section class="section_testimonials section_alt" id="section_testimonials">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+
+            <h2 class="page-header text-center">
+             Book your ticket here
+            </h2>
+            
+            <h3>Book before Wednesday 28th March for a £5 discount on your booking..!</h3>
+
+ <div class="row span8" >
+        <h1>Book your place at Marxism 2018</h1>
+        <h2>Please review and confirm your booking details:</h2>
+
+        <label class="span2">Your Name:</label>
+        <span class="input-xlarge uneditable-input" th:text="${booking.firstname + ' ' + booking.lastname}">test test</span>
+        <br/>
+
+                <label class="span2">Your School:</label>
+        <span class="input-xlarge uneditable-input" th:text="${booking.college}">te</span>
+        <br/>
+        
+        
+        
+        
+        
+        <label class="span2">Your Address:</label>
+        <span class="input-xlarge uneditable-input" style="height: auto;">
+            test<br/>            est<br/>             et<br/>                         test         </span>
+        <br/>
+
+
+        
+                <label class="span2">Email:</label>
+        <span class="input-xlarge uneditable-input" th:text="${booking.email}">test@tet.com</span>
+        <br/>
+        
+        <label class="span2">Accommodation:</label>
+        <span class="input-xlarge uneditable-input"  style="height: auto;">
+            Required: No<br/>
+                            
+        </span>
+        <br/>
+
+
+        <label class="span2">Childcare:</label>
+                <span class="input-xlarge uneditable-input">Required: No</span>
+                <br/>
+
+                <label class="span2">Ticket Type:</label>
+        <span class="input-xlarge uneditable-input">Full Event - Waged, £55</span>
+        <br/>
+        
+        
+            
+                
+    <label class="span2">Total Cost:</label>
+    <span class="input-xlarge uneditable-input" style="height: auto; width: 400px;">
+        £50.00                Including £5 early advance discount.
+            </span>
+
+    <div class="row">
+      <div class="span2 offset3">
+          <form action="https://www.marxismfestival.org.uk/booking/details" target="_top" method="post" accept-charset="utf-8">
+          <button type="submit" class="btn span2 btn-marxism"><i class="icon-backward icon-white"></i> Edit Booking</button>        
+          </form>      </div>
+      <div class="span3">
+          <form action="https://socialistworker.co.uk/barclays/encrypt" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="IGNORE_SOURCE" value="MARXISM">
+          <input type="hidden" name="ORDERID" value="MXM34729586">
+          <input type="hidden" name="AMOUNT" value="5000">    
+          <input type="hidden" name="CN" value="test test" >
+          <input type="hidden" name="EMAIL" value="test@tet.com">
+          <input type="hidden" name="IGNORE_TEST" value="true" >
+          <!-- <input type="hidden" name="OWNERADDRESS" value="test" >
+          <input type="hidden" name="OWNERTOWN" value="et" >
+          <input type="hidden" name="OWNERZIP" value="test">
+          <input type="hidden" name="OWNERCTY" value="et" > -->
+          <input type="hidden" name="ACCEPTURL" value="https://www.marxismfestival.org.uk/booking/response/accept  ">
+          <input type="hidden" name="CANCELURL" value="https://www.marxismfestival.org.uk/booking/response/cancel  ">
+          <input type="hidden" name="DECLINEURL" value="https://www.marxismfestival.org.uk/booking/response/decline  ">
+          
+          <button type="submit" class="btn btn-marxism"><i class="icon-forward icon-white"></i> Proceed to Payment</button>        
+          </form>      </div>
+  </div>
+</div>
+
+          </div>
+    
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+    
+
+    <!-- FOOTER
+    ================================================== -->
+    <footer class="section_footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+
+            <p class="footer__copyright">
+              <span id="footer__year">2017</span> &copy; Wolfram theme by <a href="http://simpleqode.com/" target="_blank">Simpleqode.com</a> | Purchase via <a href="https://wrapbootstrap.com/theme/wolfram-multipurpose-one-page-template-WB0915821" target="_blank">Wrapbootstrap.com</a>
+            </p>
+
+          </div>
+          <div class="col-sm-3">
+
+            <ul class="footer__social">
+              <li>
+                <a class="twitter" href="#">
+                  <i class="ion-social-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a class="facebook" href="#">
+                  <i class="ion-social-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a class="pinterest" href="#">
+                  <i class="ion-social-pinterest"></i>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </footer>
+
+    <!-- JAVASCRIPT
+    ================================================== -->
+
+    <!-- JS Global -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+    <!-- JS Plugins -->
+    <script th:src="@{/plugins/smoothscroll/smoothscroll.min.js}"></script>
+    <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
+    <script th:src="@{/plugins/countTo/jquery.countTo.js}"></script>
+    <script th:src="@{/plugins/contact-form/contact.js}"></script>
+    <script th:src="@{/plugins/waypoints/jquery.waypoints.min.js}"></script>
+
+    <!-- JS Custom -->
+    <script th:src="@{/js/theme.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
+    
+ <script>
+                $(function() {
+                }
+            </script>                
+
+  </body>
+
+<!-- Mirrored from simpleqode.com/preview/wolfram/3.0.1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 12 Jan 2018 19:26:14 GMT -->
+</html>
