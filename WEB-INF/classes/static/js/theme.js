@@ -109,52 +109,45 @@ $(function() {
         }
 
         // Init carousel
- 
-        //Low res
-//            bannerCarouselImg.backstretch(
-//                [[
-//                 { width: 1080, url: "/img/carousel/handsup.jpg" },
-//                 { width: 720, url: "/img/carousel/handsup.jpg" },
-//                 { width: 320, url: "/img/carousel/handsup.jpg" }
-//               ],[
-//                { width: 1080, url: "/img/carousel/middleeast.jpg" },
-//                { width: 720, url: "/img/carousel/middleeast.jpg" },
-//                { width: 320, url: "/img/carousel/middleeast.jpg" }
-//              ],[
-//               { width: 1080, url: "/img/carousel/nhs.jpg" },
-//               { width: 720, url: "/img/carousel/nhs.jpg" },
-//               { width: 320, url: "/img/carousel/nhs.jpg" }
-//             ],[
-//                { width: 1080, url: "/img/carousel/sdf.jpg" },
-//                { width: 720, url: "/img/carousel/sdf.jpg" },
-//                { width: 320, url: "/img/carousel/sdf.jpg" }
-//              ]], {
-//                    duration: 500,
-//                    fade: 750
-//                });
-            
-            //High res
+        // bannerCarouselImg.backstretch([
+        //     [
+        //       { width: 1080, url: "/img/revolution.jpg" },
+        //       { width: 720, url: "/img/revolution.jpg" },
+        //       { width: 320, url: "/img/revolution.jpg" }
+        //     ],[
+        //       { width: 1080, url: "/img/sword.jpg" },
+        //       { width: 720, url: "/img/sword.jpg" },
+        //       { width: 320, url: "/img/sword.jpg" }
+        //     ],[
+        //       { width: 1080, url: "/img/pokemon.jpg" },
+        //       { width: 720, url: "/img/pokemon.jpg" },
+        //       { width: 320, url: "/img/pokemon.jpg" }
+        //     ]], {
+        //         duration: 5000,
+        //         fade: 750
+        //     });
+
             bannerCarouselImg.backstretch(
-                    [[
-                     { width: 1080, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
-                     { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
-                     { width: 320, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" }
-                   ],[
-                    { width: 1080, url: "/img/carousel/women-protest.jpg" },
-                    { width: 720, url: "/img/carousel/women-protest.jpg" },
-                    { width: 320, url: "/img/carousel/women-protest.jpg" }
-                  ],[
-                   { width: 1080, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" },
-                   { width: 720, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" },
-                   { width: 320, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" }
-                 ],[
-                    { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
-                    { width: 720, url: "/img/carousel/midianinja-5.jpg" },
-                    { width: 320, url: "/img/carousel/midianinja-5.jpg" }
-                  ]], {
-                        duration: 500,
-                        fade: 750
-                    });            
+                [[
+                 { width: 1080, url: "/img/handsup.jpg" },
+                 { width: 720, url: "/img/handsup.jpg" },
+                 { width: 320, url: "/img/handsup.jpg" }
+               ],[
+                { width: 1080, url: "/img/middleeast.jpg" },
+                { width: 720, url: "/img/middleeast.jpg" },
+                { width: 320, url: "/img/middleeast.jpg" }
+              ],[
+               { width: 1080, url: "/img/nhs.jpg" },
+               { width: 720, url: "/img/nhs.jpg" },
+               { width: 320, url: "/img/nhs.jpg" }
+             ],[
+                { width: 1080, url: "/img/sdf.jpg" },
+                { width: 720, url: "/img/sdf.jpg" },
+                { width: 320, url: "/img/sdf.jpg" }
+              ]], {
+                    duration: 500,
+                    fade: 750
+                });
 
         bannerCarouselImg.backstretch('pause');
 
