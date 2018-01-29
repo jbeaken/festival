@@ -72,7 +72,7 @@
             <li><a href="#section_team">Speakers</a></li>
             <li><a href="#section_about">About</a></li>
             <li><a href="#section_testimonials">Testimonials</a></li>
-            <li><a href="#section_news">News</a></li>
+            <li><a href="#section_news">Themes</a></li>
             <li><a href="#section_contact">Contact</a></li>
           </ul>
 
@@ -630,7 +630,7 @@
           <div class="col-sm-6 col-sm-pull-6">
 
             <div class="about__img">
-              <img th:src="@{/img/about/1.jpg}" class="img-responsive" alt="...">
+              <img th:src="@{/img/about/1_max.jpg}" class="img-responsive" alt="..." style="padding:1px;border:1px solid #021a40;">
             </div>
 
           </div>
@@ -657,7 +657,7 @@
           <div class="col-sm-6">
 
             <div class="about__img">
-              <img th:src="@{/img/about/2.jpg}" class="img-responsive" alt="...">
+              <img th:src="@{/img/about/2_max.jpg}" class="img-responsive" alt="..." style="padding:1px;border:1px solid #021a40;">
             </div>
 
           </div>
@@ -735,7 +735,7 @@
       </div> <!-- / .container -->
     </section>
 
-    <!-- NEWS
+    <!-- THEMES
     ================================================== -->
     <section class="section_news" id="section_news">
       <div class="container">
@@ -743,28 +743,25 @@
           <div class="col-xs-12">
 
             <h2 class="page-header text-center">
-              Our latest <span>news</span>
+              Conference <span>Themes</span>
             </h2>
 
             <p class="page-subheader text-center">
-              Recent news and announcements about our company.
+              Click on themes below to see more
             </p>
 
           </div>
         </div> <!-- / .row -->
+        
         <div class="row">
           <div class="col-sm-4">
-
-            <a href="#" class="news__item animate-sm-step-0" data-animate="animate-up">
+			<a href="#modal_portfolio" class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
               <div class="news__item__img">
                 <img th:src="@{/img/2.jpg}" class="img-responsive" alt="...">
-                <time datetime="2017-01-12" class="news__item__img__date">
-                  Jan <span>12</span>
-                </time>
               </div>
               <div class="news__item__footer">
                 <h3 class="news__item__footer__heading">
-                  Lorem ipsum dolor sit
+                  Jeremy Corbyn, the Labour Party and the fight for socialism
                 </h3>
                 <div class="news__item__footer__content">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.
@@ -775,16 +772,13 @@
           </div>
           <div class="col-sm-4">
 
-            <a href="#" class="news__item animate-sm-step-1" data-animate="animate-up">
+            <a href="#modal_portfolio" class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
               <div class="news__item__img">
                 <img th:src="@{/img/5.jpg}" class="img-responsive" alt="...">
-                <time datetime="2017-02-17" class="news__item__img__date">
-                  Feb <span>17</span>
-                </time>
               </div>
               <div class="news__item__footer">
                 <h3 class="news__item__footer__heading">
-                  Lorem ipsum dolor sit
+                  Resisting the racist backlash and the rise of fascism across Europe
                 </h3>
                 <div class="news__item__footer__content">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.
@@ -795,16 +789,13 @@
           </div>
           <div class="col-sm-4">
 
-            <a href="#" class="news__item animate-sm-step-2" data-animate="animate-up">
+            <a href="#modal_portfolio" class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
               <div class="news__item__img">
                 <img th:src="@{/img/7.jpg}" class="img-responsive" alt="...">
-                <time datetime="2017-02-25" class="news__item__img__date">
-                  Feb <span>25</span>
-                </time>
               </div>
               <div class="news__item__footer">
                 <h3 class="news__item__footer__heading">
-                  Lorem ipsum dolor sit
+                  #Marx200 – was Marx right?
                 </h3>
                 <div class="news__item__footer__content">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.
@@ -814,6 +805,60 @@
 
           </div>
         </div> <!-- / .row -->
+        
+        <div class="row">
+          <div class="col-sm-4">
+			<a href="#modal_portfolio" class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+              <div class="news__item__img">
+                <img th:src="@{/img/2.jpg}" class="img-responsive" alt="...">
+              </div>
+              <div class="news__item__footer">
+                <h3 class="news__item__footer__heading">
+                  Capitalism and climate change
+                </h3>
+                <div class="news__item__footer__content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.
+                </div>
+              </div>
+            </a> <!-- / .news__item -->
+
+          </div>
+          <div class="col-sm-4">
+
+            <a href="#modal_portfolio" class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+              <div class="news__item__img">
+                <img th:src="@{/img/5.jpg}" class="img-responsive" alt="...">
+              </div>
+              <div class="news__item__footer">
+                <h3 class="news__item__footer__heading">
+                  #MeToo: challenging sexism and the system 
+                </h3>
+                <div class="news__item__footer__content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.
+                </div>
+              </div>
+            </a> <!-- / .news__item -->
+
+          </div>
+          <div class="col-sm-4">
+
+            <a href="#modal_portfolio" class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+              <div class="news__item__img">
+                <img th:src="@{/img/7.jpg}" class="img-responsive" alt="...">
+              </div>
+              <div class="news__item__footer">
+                <h3 class="news__item__footer__heading">
+                  War, imperialism, the Middle East and Palestine
+                </h3>
+                <div class="news__item__footer__content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.
+                </div>
+              </div>
+            </a> <!-- / .news__item -->
+
+          </div>
+        </div> <!-- / .row -->
+        
       </div> <!-- / .container -->
     </section>
 
