@@ -85,7 +85,11 @@ $(function() {
             if (target.length) {
                 $('html, body').animate({
                     scrollTop: target.offset().top - 80
-                }, 1000);
+                }, 1000, function() {
+                	 if(target.selector == '#section_booking') {
+                		 $('input#firstname').focus()
+                	 }
+                });
                 return false;
             }
 
