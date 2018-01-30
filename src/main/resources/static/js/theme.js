@@ -66,13 +66,22 @@ $(function() {
 
         // Close collapsed navbar on click
         navbarCollapse.collapse('hide');
-
-        // Smooths scroll to anchor
+        
+        // Smooths scroll to anchor. Check if section_booking, remove hidden class
         if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
 
             var target = $(this.hash);
+            
+            if(target.selector == '#section_booking') {
+            	$('section.section_booking').removeClass('hidden');
+            	
+//            	$('section.section_booking').show();
+            	//Cannot use here as ruins scrollTop
+//            	$('input#firstname').focus()
+            }
+            
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-
+            
             if (target.length) {
                 $('html, body').animate({
                     scrollTop: target.offset().top - 80

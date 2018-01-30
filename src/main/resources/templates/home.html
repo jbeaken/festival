@@ -14,6 +14,8 @@
 
     <!-- CSS Global -->
     <link rel="stylesheet" th:href="@{/css/theme.css}">
+    
+
 
   </head>
   <body class="no-settings" data-spy="scroll" data-target="#navbar_main" data-offset="80">
@@ -71,7 +73,7 @@
             <li><a href="#section_pricing">Pricing</a></li>
             <li><a href="#section_team">Speakers</a></li>
             <li><a href="#section_about">About</a></li>
-            <li><a th:href="@{/book}">Book</a></li>
+            <li><a href="#section_booking">Book</a></li>
             <li><a href="#section_news">Themes</a></li>
             <li><a href="#section_contact">Contact</a></li>
           </ul>
@@ -961,6 +963,8 @@
         </div> <!-- / .row -->
       </div> <!-- / .container -->
     </section>
+    
+    <div th:include="layouts/book"></div>
 
     <!-- FOOTER
     ================================================== -->
@@ -1016,6 +1020,69 @@
     <!-- JS Custom -->
     <script th:src="@{/js/theme.js}"></script>
     <script th:src="@{/js/custom.js}"></script>
+ <script>
+                $(function() {
+
+                   showDays();
+                   showSessionTickets();
+                   
+                    $('#bkTicketTypeDayTickets').change(function() {   
+                        $('.numeric-int').val('0');
+                        showDays();
+                        $('#bkTicketTypeFullEvent').val('');
+                        $('#bkTicketTypeFlexible').val('');                        
+                        
+                        showSessionTickets();
+                    });
+
+                    $('#bkTicketTypeFullEvent').change(function() {                        
+                        $('#bkTicketTypeDayTickets').val('');
+                        $('#bkTicketTypeFlexible').val('');  
+                        $('#FullDays').hide();
+                        $('#SessionTickets').hide();
+                        showSessionTickets();
+                    });
+
+                    $('#bkTicketTypeFlexible').change(function() {                        
+                        $('#bkTicketTypeDayTickets').val('');
+                        $('#bkTicketTypeFullEvent').val('');  
+                        $('#FullDays').hide();
+                        $('#SessionTickets').hide();
+                        showSessionTickets();
+                    });
+                    
+                    
+                    $( ".session_check" ).change(function() {
+                      $('#bkTicketTypeFullEvent').val('');
+                      $('#bkTicketTypeDayTickets').val('');
+                      $('#bkTicketTypeFlexible').val('');  
+                      $('#FullDays').hide();
+                    });
+                    
+                    $( ".DayTicket" ).change(function() {
+                        var myClass = this.classList;   
+//                        alert(myClass[1]);
+                            $('.checkbox.' + myClass[1] ).hide();
+                    });
+                    
+
+                });
+                function showDays() {
+                    if ($('#bkTicketTypeDayTickets').val()) {
+                        $('#FullDays').show();
+                    } else {
+                        $('#FullDays').hide();
+                    }
+                }
+                
+                function showSessionTickets(){
+                    if ($('#bkTicketTypeDayTickets').val() =='' && $('#bkTicketTypeFlexible').val() =='' && $('#bkTicketTypeFullEvent').val() =='' ) {
+                            $('#SessionTickets').show();
+                        }else{
+                            $('#SessionTickets').hide();
+                        }
+                }
+            </script>   
 
   </body>
 

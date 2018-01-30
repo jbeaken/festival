@@ -26,6 +26,8 @@ public class HomeController {
 		
 		logger.info("Received request for home");
 		
+		model.addAttribute(new Booking());
+		
 		return "home.html";
 	}
 	
