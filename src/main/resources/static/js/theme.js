@@ -121,6 +121,8 @@ $(function() {
         $(document).height(); // returns height of HTML document (same as pageHeight in screenshot)
         var width = $(window).width();   // returns width of browser viewport
         $(document).width();
+        
+        console.log("width : " + width + " height : " + height)
 
         // Init carousel
  
@@ -152,7 +154,7 @@ $(function() {
             //High res
             bannerCarouselImg.backstretch(
                     [[
-                      { width: 1080, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" },
+                      { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
                       { width: 720, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" },
                       { width: 320, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" }
                     ],[
@@ -457,10 +459,10 @@ $(function() {
     $('button#swipeBoxButton').click( function( e ) {
     	e.preventDefault();
     	$.swipebox( [
-    		{ href:'/img/conference/closing_rally.jpg', title:'My Caption' }, 
-    		{ href:'/img/conference/f_cc1.jpg', title:'My Second Caption' },
-    		{ href:'/img/conference/f_cc2.jpg', title:'My Caption' }, 
-    		{ href:'/img/conference/meeting2.jpg', title:'My Second Caption' }
+    		{ href:'/img/conference/closing_rally.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }, 
+    		{ href:'/img/conference/f_cc1.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/f_cc2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }, 
+    		{ href:'/img/conference/meeting2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
     	] );
     } );
     
