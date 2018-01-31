@@ -116,6 +116,11 @@ $(function() {
             array720.push( { width: 720, url: url } )
             array320.push( { width: 320, url: url } )
         }
+        
+        var height = $(window).height();   // returns height of browser viewport
+        $(document).height(); // returns height of HTML document (same as pageHeight in screenshot)
+        var width = $(window).width();   // returns width of browser viewport
+        $(document).width();
 
         // Init carousel
  
@@ -145,9 +150,9 @@ $(function() {
             //High res
             bannerCarouselImg.backstretch(
                     [[
-                      { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
-                      { width: 720, url: "/img/carousel/midianinja-5x461.jpg" },
-                      { width: 320, url: "/img/carousel/midianinja-5x461.jpg" }
+                      { width: 1080, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" },
+                      { width: 720, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" },
+                      { width: 320, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" }
                     ],[
                      { width: 1080, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
                      { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1x720.jpg" },
@@ -157,9 +162,9 @@ $(function() {
                     { width: 720, url: "/img/carousel/women-protestx720.jpg" },
                     { width: 320, url: "/img/carousel/women-protestx720.jpg" }
                   ],[
-                   { width: 1080, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" },
-                   { width: 720, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" },
-                   { width: 320, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" }
+                   { width: 1080, url: "/img/carousel/NHSstrike.jpg" },
+                   { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
+                   { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
                  ],[
                     { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
                     { width: 720, url: "/img/carousel/midianinja-5.jpg" },
