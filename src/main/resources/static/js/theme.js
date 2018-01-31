@@ -146,7 +146,9 @@ $(function() {
 //                    duration: 500,
 //                    fade: 750
 //                });
-            
+            //My screen at home
+        //http://marxismfestival.website/img/carousel/midianinja-5x1586x721.jpg
+        //my motorola g4 play 360x512
             //High res
             bannerCarouselImg.backstretch(
                     [[
