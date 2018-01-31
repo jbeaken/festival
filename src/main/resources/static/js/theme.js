@@ -149,6 +149,10 @@ $(function() {
             //High res
             bannerCarouselImg.backstretch(
                     [[
+                      { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
+                      { width: 720, url: "/img/carousel/midianinja-5.jpg" },
+                      { width: 320, url: "/img/carousel/midianinja-5.jpg" }
+                    ],[
                      { width: 1080, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
                      { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
                      { width: 320, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" }
@@ -438,5 +442,38 @@ $(function() {
         // Toggle button caption
         $this.find('span').toggleClass('show hidden');
     });
+    
+	//allow_resize: true, /* Resize the photos bigger than viewport. true/false */
+	//default_width: 500,
+	//default_height: 344,
+    
+    //Enable video
+    $("a#prettyPhotoVideo").prettyPhoto( {social_tools: false, modal : true, default_width: 700, default_height: 481} );
 
 });
+
+function openGalleryDefaultSettings() {
+	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg'];
+	api_titles = ['Title 1','Title 2','Title 3'];
+	api_descriptions = ['Description 1','Description 2','Description 3']
+	
+	$.fn.prettyPhoto( )
+	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}
+
+function openGallery( theme ) {
+	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg','/img/conference/meeting2.jpg'];
+	api_titles = [theme,'Title 2','Title 3','Title 4'];
+	api_descriptions = ['Description 1','Description 2','Description 3','Description 4']
+	
+	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
+	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}
+function openGalleryPicnic( theme ) {
+	api_images = ['/img/conference/students2.jpg','/img/conference/students3.jpg','/img/conference/students4.jpg','/img/conference/Marxism2014-WideAngle-GS.jpg'];
+	api_titles = [theme,'Title 2','Title 3','Title 4'];
+	api_descriptions = ['Description 1','Description 2','Description 3','Description 4']
+	
+	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
+	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}

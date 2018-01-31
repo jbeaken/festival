@@ -11,6 +11,7 @@
 
     <!-- CSS Plugins -->
     <link rel="stylesheet" th:href="@{/plugins/ionicons/css/ionicons.min.css}">
+    <link rel="stylesheet" th:href="@{/plugins/prettyPhoto/css/prettyPhoto.css}" type="text/css" media="screen" charset="utf-8" />
 
     <!-- CSS Global -->
     <link rel="stylesheet" th:href="@{/css/theme.css}">
@@ -326,7 +327,7 @@
           <div class="col-xs-12">
 
             <h2 class="page-header text-center sr-only">
-              A picture paints a <span>thousand</span> words
+              Click on the image below to see photos of <span>Marxism conferences</span> from previous years
             </h2>
 
           </div>
@@ -344,7 +345,7 @@
                     Lorem ipsum dolor site amet
                   </h3>
                   <div class="text-center">
-                    <a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/1.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+                    <a href="javascript:openGallery('pp_default')" class="btn btn-primary" role="button">
                       Open preview
                     </a>
                   </div>
@@ -363,7 +364,7 @@
                     Lorem ipsum dolor site amet
                   </h3>
                   <div class="text-center">
-                    <a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/2.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+                    <a href="javascript:openGalleryPicnic('facebook')" class="btn btn-primary" role="button">
                       Open preview
                     </a>
                   </div>
@@ -382,8 +383,8 @@
                     Lorem ipsum dolor site amet
                   </h3>
                   <div class="text-center">
-                    <a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/3.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
-                      Open preview
+                    <a href="javascript:openGallery('dark_square')" class="btn btn-primary" role="button">
+                      Open dark square
                     </a>
                   </div>
                 </div> <!-- / .portfolio__item__img__mask -->
@@ -401,8 +402,8 @@
                     Lorem ipsum dolor site amet
                   </h3>
                   <div class="text-center">
-                    <a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/4.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
-                      Open preview
+                    <a href="https://www.youtube.com/watch?v=6h02msZ_vYk" class="btn btn-primary" id="prettyPhotoVideo" title="">
+                      Open video
                     </a>
                   </div>
                 </div> <!-- / .portfolio__item__img__mask -->
@@ -420,8 +421,8 @@
                     Lorem ipsum dolor site amet
                   </h3>
                   <div class="text-center">
-                    <a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/5.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
-                      Open preview
+                    <a href="javascript:openGallery('dark_rounded')" class="btn btn-primary" role="button">
+                      Open dark rounded
                     </a>
                   </div>
                 </div> <!-- / .portfolio__item__img__mask -->
@@ -439,8 +440,8 @@
                     Lorem ipsum dolor site amet
                   </h3>
                   <div class="text-center">
-                    <a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/7.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
-                      Open preview
+                    <a href="javascript:openGallery('light_rounded')" class="btn btn-primary" role="button">
+                      Open light rounded
                     </a>
                   </div>
                 </div> <!-- / .portfolio__item__img__mask -->
@@ -1016,6 +1017,7 @@
     <script th:src="@{/plugins/countTo/jquery.countTo.js}"></script>
     <script th:src="@{/plugins/contact-form/contact.js}"></script>
     <script th:src="@{/plugins/waypoints/jquery.waypoints.min.js}"></script>
+    <script th:src="@{/plugins/prettyPhoto/js/jquery.prettyPhoto.js}" type="text/javascript" charset="utf-8"></script>
 
     <!-- JS Custom -->
     <script th:src="@{/js/theme.js}"></script>
