@@ -452,10 +452,50 @@ $(function() {
 
 });
 
+function sendEmail() {
+	console.log("sendEmail()")
+	var name = $('input#name').val().trim();
+	var message = $('textarea#message').val().trim();
+	var email = $('input#email').val().trim();
+	
+	//Validation
+	if(name === "") {
+		alert("Please enter a valid name")
+		return
+	}
+	if(message === "") {
+		alert("Please enter a valid message")
+		return
+	}
+	if(email === "") {
+		alert("Please enter a valid email")
+		return
+	}
+	
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	 
+	if (!filter.test(email)) {
+		alert("Please enter a valid email!")
+		return
+	}	
+	
+	$.post( "/sendEmail", { email: email, message: message, name : name } ).done(function( data ) {
+	    console.log( "Message sent to server, response : " + data );
+	    
+	    if(data === 'error') {
+	    	alert("There was an error sending your message. Please phone 0207 767????")
+	    }
+	    
+	    if(data === 'success') {
+	    	alert("Your message was sent successfully. We will respond as quickly as possible")
+	    }		    
+	});
+}
+
 function openGalleryDefaultSettings() {
 	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg'];
 	api_titles = ['Title 1','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
-	api_descriptions = ['Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
+	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
 	
 	$.fn.prettyPhoto( )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
@@ -464,7 +504,7 @@ function openGalleryDefaultSettings() {
 function openGallery( theme ) {
 	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg','/img/conference/meeting2.jpg'];
 	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
-	api_descriptions = ['Here is a description, photo credit by Guy Smallman 2017 <a href="test">blah</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
+	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
 	
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
@@ -472,7 +512,7 @@ function openGallery( theme ) {
 function openGalleryPicnic( theme ) {
 	api_images = ['/img/conference/students2.jpg','/img/conference/students3.jpg','/img/conference/students4.jpg','/img/conference/Marxism2014-WideAngle-GS.jpg'];
 	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
-	api_descriptions = ['Here is a description, photo credit by Guy Smallman 2017 <a href="test">blah</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
+	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by ','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
 	
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);

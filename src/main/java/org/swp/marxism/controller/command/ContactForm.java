@@ -41,4 +41,9 @@ public class ContactForm {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "ContactForm [email=" + email + ", message=" + message + ", name=" + name + "]";
+	}
 }
