@@ -147,11 +147,11 @@ $(function() {
                     [[
                       { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
                       { width: 720, url: "/img/carousel/midianinja-5.jpg" },
-                      { width: 320, url: "/img/carousel/midianinja-5.jpg" }
+                      { width: 320, url: "/img/carousel/midianinja-5x461.jpg" }
                     ],[
                      { width: 1080, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
                      { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
-                     { width: 320, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" }
+                     { width: 320, url: "/img/carousel/F-CC-LightBrigading-hands-up1x441.jpg" }
                    ],[
                     { width: 1080, url: "/img/carousel/women-protest.jpg" },
                     { width: 720, url: "/img/carousel/women-protest.jpg" },
