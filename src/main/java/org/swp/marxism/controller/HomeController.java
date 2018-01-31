@@ -15,6 +15,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -57,16 +59,20 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/book", method = RequestMethod.POST)
+	@ResponseBody
 	public String book(@Valid Booking booking, BindingResult bindingResult, Model model) {
 
 		logger.info("Received post request for booking {}", booking);
 
 		if (bindingResult.hasErrors()) {
-			logger.info("Failed validation {}", bindingResult);
+			logger.info("Booking failed validation {}", bindingResult);
 
 			model.addAttribute(booking);
+			
+			FieldError error = (FieldError) bindingResult.getAllErrors().get(0);
+			String message = error.getField() + " " + error.getDefaultMessage();
 
-			return "book.html";
+			return message;
 		}
 
 		logger.info("Passed validation, persisting");
@@ -77,7 +83,7 @@ public class HomeController {
 
 		model.addAttribute(booking);
 
-		return "confirm_booking.html";
+		return "success";
 	}
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)

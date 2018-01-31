@@ -10,6 +10,7 @@ public class ContactForm {
 	@NotNull
 	@Email
 	public String email;
+	
 	@NotNull
 	@NotBlank
 	private String message;

@@ -41,6 +41,7 @@ public class Booking {
 	private String swpBranch;
 	
 	@Email
+	@NotNull
 	private String email; 
 	
 	private String telephone;

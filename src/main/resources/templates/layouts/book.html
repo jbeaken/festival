@@ -10,51 +10,51 @@
             </h2>
             
             <div>
-            <form th:action="@{/book}" th:object="${booking}" method="post" class="form-horizontal" role="form">
+            <form action="/book" method="post" class="form-horizontal" role="form">
             
             <fieldset>            
                 <legend>Your Details</legend>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkFirstName">First Name:</label>
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{firstname}" class="form-control" value="" placeholder="First Name">
+                        <input type="text" id="booking_firstname" class="form-control" value="" placeholder="First Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkLastName">Last Name:</label>
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{lastname}"  class="form-control" value="" placeholder="Last Name">
+                        <input type="text" id="booking_lastname"  class="form-control" value="" placeholder="Last Name">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkSchool">Your school or college:</label>
                     <div class="col-sm-4">
-                        <input type="text" th:field="*{college}" class="form-control" value="" placeholder="Your school or college">
+                        <input type="text" id="booking_college" class="form-control" value="" placeholder="Your school or college">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkUnion">Your union:</label>
                     <div class="col-sm-4">
-                        <input type="text" th:field="*{tradeUnion}" class="form-control" value="" placeholder="Your union">
+                        <input type="text" id="booking_tradeUnion" class="form-control" value="" placeholder="Your union">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkSWPBranch">Your SWP branch:</label>
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{swpBranch}"  class="form-control" value="" placeholder="Your SWP branch. If you are not an SWP member, leave blank.">
+                        <input type="text" id="booking_swpBranch"  class="form-control" value="" placeholder="Your SWP branch. If you are not an SWP member, leave blank.">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkOtherMembership">Other membership:</label>
                     <div class="col-sm-4">
-                        <input type="text" th:field="*{otherMembership}" class="form-control" value="" placeholder="Other membership. If you are a member of another organisation, enter its name: if not, leave blank">
+                        <input type="text" id="booking_otherMembership" class="form-control" value="" placeholder="Other membership. If you are a member of another organisation, enter its name: if not, leave blank">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkHearAbout">How did you hear about Marxism?</label>
                     <div class="col-sm-9">
-                        <select th:field="*{hearAbout}" class="form-control">
+                        <select id="booking_hearAbout" class="form-control">
 <option value="" selected="selected">Please select one</option>
 <option value="BeenBefore">I have been to Marxism before</option>
 <option value="Browsing"> Online browsing</option>
@@ -75,49 +75,49 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkAdd1">Address Line 1:</label>
                     <div class="col-sm-9">
-                        <input type="text" id="bkAdd1"  name="bkAdd1" class="form-control" value="" placeholder="Address Line 1">
+                        <input type="text" id="booking_address1" class="form-control" value="" placeholder="Address Line 1">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkAdd2">Address Line 2:</label>
                     <div class="col-sm-9">
-                        <input type="text" id="bkAdd2"  name="bkAdd2" class="form-control" value="" placeholder="Address Line 2">
+                        <input type="text" id="booking_address2"  name="bkAdd2" class="form-control" value="" placeholder="Address Line 2">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkTown">Town or City:</label>
                     <div class="col-sm-9">
-                        <input type="text" id="bkTown"  name="bkTown" class="form-control" value="" placeholder="Town or City">
+                        <input type="text" id="booking_town"  name="bkTown" class="form-control" value="" placeholder="Town or City">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkCounty">County</label>
                     <div class="col-sm-9">
-                        <input type="text" id="bkCounty"  name="bkCounty" class="form-control" value="" placeholder="County">
+                        <input type="text" id="booking_country"  name="bkCounty" class="form-control" value="" placeholder="County">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkPostcode">Postcode:</label>
                     <div class="col-sm-3">
-                        <input type="text" id="bkPostcode"  name="bkPostcode" class="form-control" value="" placeholder="Postcode">
+                        <input type="text" id="booking_postcode"  class="form-control" value="" placeholder="Postcode">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkCountry">Country</label>
                     <div class="col-sm-9">
-                        <input type="text" id="bkCountry"  name="bkCountry" class="form-control" value="United Kingdom" placeholder="Country">
+                        <input type="text" id="booking_country" class="form-control" value="United Kingdom" placeholder="Country">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkPhone">Phone:</label>
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{telephone}" class="form-control" value="" placeholder="Phone">
+                        <input type="text" id="booking_telephone" class="form-control" value="" placeholder="Phone">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkEmail">Email:</label>
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{email}" class="form-control" value="" placeholder="Email">
+                        <input type="text" id="booking_email" class="form-control" value="" placeholder="Email">
                     </div>
                 </div>
 
@@ -183,7 +183,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="bkTicketTypeFullEvent">Full Event:</label>
                     <div class="col-sm-9">
-                        <select th:field="*{ticket.id}" class="form-control">
+                        <select id="booking_ticket.id" class="form-control">
 <option value="1" selected="selected">Please choose which ticket you want</option>
 <option value="2">Waged, £55</option>
 <option value="3">Waged + After party, £60</option>
@@ -316,7 +316,7 @@
 
                 <div class="controls controls-row offset2">
                     <label class="checkbox">
-                        <input type="checkbox" name="bkDPA" value="OK"  >
+                        <input type="checkbox" id="booking_data_protection" value="OK"  >
                         Okay to send you information on future events, including Marxism 2019?
                     </label>
                 </div>
@@ -325,7 +325,7 @@
                 <br/>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-marxism">Confirm Booking Details <i class="icon-forward icon-white"></i></button>
+                    <button type="button" onclick="javascript:sendBooking()" class="btn btn-marxism">Confirm Booking Details <i class="icon-forward icon-white"></i></button>
                 </div>
 
 

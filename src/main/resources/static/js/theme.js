@@ -74,10 +74,6 @@ $(function() {
             
             if(target.selector == '#section_booking') {
             	$('section.section_booking').removeClass('hidden');
-            	
-//            	$('section.section_booking').show();
-            	//Cannot use here as ruins scrollTop
-//            	$('input#firstname').focus()
             }
             
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -87,7 +83,7 @@ $(function() {
                     scrollTop: target.offset().top - 80
                 }, 1000, function() {
                 	 if(target.selector == '#section_booking') {
-                		 $('input#firstname').focus()
+                		 $('input#booking_firstname').focus()
                 	 }
                 });
                 return false;
@@ -452,11 +448,57 @@ $(function() {
 
 });
 
+function sendBooking() {
+	
+	console.log("sendBooking()")
+
+	var firstname = $('input#booking_firstname').val()
+	var lastname = $('input#booking_lastname').val()
+	var college = $('input#booking_college').val()
+	var tradeUnion = $('input#booking_tradeUnion').val()
+	var swpBranch = $('input#booking_swpBranch').val()
+	var otherMembership = $('input#booking_otherMembership').val()
+	var hearAbout = $('input#booking_hearAbout').val()
+	
+	var telephone = $('input#booking_telephone').val()
+	var email = $('input#booking_email').val()
+	
+	var address1 = $('input#booking_address1').val()
+	var address2 = $('input#booking_address2').val()
+	var town = $('input#booking_town').val()
+	var country = $('input#booking_country').val()
+	var postcode = $('input#booking_postcode').val()
+	
+	//Dummy values
+	firstname = "Jack"
+	lastname = "johnes"
+//	email = "jack747@gmail.com"
+	
+	var postData = {firstname : firstname, lastname : lastname, college : college, 'ticket.id' : '1' }
+	
+	$.post( "/book", postData ).done(function( data ) {
+	    console.log( "Booking was sent to server, response : " + data );
+	    
+	    if(data === 'error') {
+	    	
+	    }
+	    
+	    if(data === 'success') {
+	    	alert("Your message was sent successfully. We will respond as quickly as possible")
+	    } else {
+	    	alert("There was an error processing your booking. Please phone 0207 767???? quoting error : " + data)
+	    }		    
+	});
+
+}
+
 function sendEmail() {
+	
 	console.log("sendEmail()")
-	var name = $('input#name').val().trim();
-	var message = $('textarea#message').val().trim();
-	var email = $('input#email').val().trim();
+	
+	var name = $('input#contactFormName').val().trim();
+	var message = $('textarea#contactFormMessage').val().trim();
+	var email = $('input#contactFormEmail').val().trim();
 	
 	//Validation
 	if(name === "") {
@@ -472,9 +514,8 @@ function sendEmail() {
 		return
 	}
 	
-	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	 
-	if (!filter.test(email)) {
+	
+	if (!validateEmail( email )) {
 		alert("Please enter a valid email!")
 		return
 	}	
@@ -490,6 +531,16 @@ function sendEmail() {
 	    	alert("Your message was sent successfully. We will respond as quickly as possible")
 	    }		    
 	});
+}
+
+function validateEmail() {
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	
+	if (!filter.test(email)) {
+		return false
+	}
+	
+	return true
 }
 
 function openGalleryDefaultSettings() {
