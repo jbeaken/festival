@@ -454,8 +454,8 @@ $(function() {
 
 function openGalleryDefaultSettings() {
 	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg'];
-	api_titles = ['Title 1','Title 2','Title 3'];
-	api_descriptions = ['Description 1','Description 2','Description 3']
+	api_titles = ['Title 1','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
+	api_descriptions = ['Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
 	
 	$.fn.prettyPhoto( )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
@@ -463,16 +463,16 @@ function openGalleryDefaultSettings() {
 
 function openGallery( theme ) {
 	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg','/img/conference/meeting2.jpg'];
-	api_titles = [theme,'Title 2','Title 3','Title 4'];
-	api_descriptions = ['Description 1','Description 2','Description 3','Description 4']
+	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
+	api_descriptions = ['Here is a description, photo credit by Guy Smallman 2017 <a href="test">blah</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
 	
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
 }
 function openGalleryPicnic( theme ) {
 	api_images = ['/img/conference/students2.jpg','/img/conference/students3.jpg','/img/conference/students4.jpg','/img/conference/Marxism2014-WideAngle-GS.jpg'];
-	api_titles = [theme,'Title 2','Title 3','Title 4'];
-	api_descriptions = ['Description 1','Description 2','Description 3','Description 4']
+	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
+	api_descriptions = ['Here is a description, photo credit by Guy Smallman 2017 <a href="test">blah</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
 	
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
