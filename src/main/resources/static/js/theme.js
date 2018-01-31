@@ -452,7 +452,19 @@ $(function() {
     
     //Enable video
     $("a#prettyPhotoVideo").prettyPhoto( {social_tools: false, modal : true, default_width: 700, default_height: 481} );
-
+    
+    //Swipebox
+    $('button#swipeBoxButton').click( function( e ) {
+    	e.preventDefault();
+    	$.swipebox( [
+    		{ href:'/img/conference/closing_rally.jpg', title:'My Caption' }, 
+    		{ href:'/img/conference/f_cc1.jpg', title:'My Second Caption' },
+    		{ href:'/img/conference/f_cc2.jpg', title:'My Caption' }, 
+    		{ href:'/img/conference/meeting2.jpg', title:'My Second Caption' }
+    	] );
+    } );
+    
+    $( '.swipebox' ).swipebox();
 });
 
 function sendBooking() {
@@ -574,4 +586,8 @@ function openGalleryPicnic( theme ) {
 	
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}
+
+function openSwipeBox() {
+	
 }
