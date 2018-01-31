@@ -146,16 +146,16 @@ $(function() {
             bannerCarouselImg.backstretch(
                     [[
                       { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
-                      { width: 720, url: "/img/carousel/midianinja-5.jpg" },
+                      { width: 720, url: "/img/carousel/midianinja-5x461.jpg" },
                       { width: 320, url: "/img/carousel/midianinja-5x461.jpg" }
                     ],[
                      { width: 1080, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
-                     { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
+                     { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1x720.jpg" },
                      { width: 320, url: "/img/carousel/F-CC-LightBrigading-hands-up1x441.jpg" }
                    ],[
                     { width: 1080, url: "/img/carousel/women-protest.jpg" },
-                    { width: 720, url: "/img/carousel/women-protest.jpg" },
-                    { width: 320, url: "/img/carousel/women-protest.jpg" }
+                    { width: 720, url: "/img/carousel/women-protestx720.jpg" },
+                    { width: 320, url: "/img/carousel/women-protestx720.jpg" }
                   ],[
                    { width: 1080, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" },
                    { width: 720, url: "/img/carousel/NHSstrikeStThomas13-10-14b.jpg" },
