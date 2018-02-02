@@ -170,9 +170,9 @@ $(function() {
                    { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
                    { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
                  ],[
-                    { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
-                    { width: 720, url: "/img/carousel/midianinja-5.jpg" },
-                    { width: 320, url: "/img/carousel/midianinja-5.jpg" }
+                    { width: 1080, url: "/img/carousel/spain.jpg" },
+                    { width: 720, url: "/img/carousel/spain.jpg" },
+                    { width: 320, url: "/img/carousel/spain.jpg" }
                   ]], {
                         duration: 500,
                         fade: 750
