@@ -154,9 +154,9 @@ $(function() {
             //High res
             bannerCarouselImg.backstretch(
                     [[
-                      { width: 1080, url: "/img/carousel/midianinja-5.jpg" },
-                      { width: 720, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" },
-                      { width: 320, url: "/img/carousel/midianinja-5x" + width + "x" + height + ".jpg" }
+                      { width: 1080, url: "/img/carousel/midianinja-5.jpg?width=" + width + "&height=" + height },
+                      { width: 720, url: "/img/carousel/midianinja-5x461.jpg?width=" + width + "&height=" + height },
+                      { width: 320, url: "/img/carousel/midianinja-5x360.jpg?width=" + width + "&height=" + height }
                     ],[
                      { width: 1080, url: "/img/carousel/F-CC-LightBrigading-hands-up1.jpg" },
                      { width: 720, url: "/img/carousel/F-CC-LightBrigading-hands-up1x720.jpg" },
@@ -466,7 +466,7 @@ $(function() {
     	] );
     } );
     
-    $( '.swipebox' ).swipebox();
+    $( '.swipebox' ).swipebox( {autoplayVideos: true} );
 });
 
 function sendBooking() {
