@@ -22,13 +22,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
+import org.swp.marxism.domain.MarxismWebsiteContent;
 import org.swp.marxism.repository.BookingRepository;
+import org.swp.marxism.repository.MarxismWebsiteContentRepository;
 
 @Controller("/")
 public class HomeController {
 
 	@Autowired
 	private BookingRepository bookingRepository;
+	
+	@Autowired
+	private MarxismWebsiteContentRepository marxismWebsiteContentRepository;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -42,8 +47,12 @@ public class HomeController {
 	public String home(Model model) {
 
 		logger.info("Received request for home");
+		
+		MarxismWebsiteContent marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
+		
+		logger.debug("Have retrieved marxism website content {}", marxismWebsiteContent);
 
-		model.addAttribute(new Booking());
+		model.addAttribute(marxismWebsiteContent);
 
 		return "home.html";
 	}
