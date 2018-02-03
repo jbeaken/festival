@@ -5,6 +5,8 @@
 var $window = $(window);
 
 $window.load(function() {
+	
+	console.log("window.load call, booting preloader")
 
     // Theme: Preloader
     // ================
@@ -592,4 +594,10 @@ function openGalleryPicnic( theme ) {
 
 function openSwipeBox() {
 	
+}
+
+function showMoreSpeakers() {
+	$('div#third_row_speakers').show();
+	$('div#third_row_speakers').removeClass('hidden');
+	$('a#showMoreSpeakersAnchor').hide();
 }
