@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Speaker {
@@ -12,11 +13,17 @@ public class Speaker {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull
 	private String name;
 	
+	@NotNull
 	private String shortDescription;
 	
+	@NotNull
 	private String longDescription;
+	
+	@NotNull
+	private String imageUrl;
 
 	public Long getId() {
 		return id;
@@ -53,6 +60,14 @@ public class Speaker {
 	@Override
 	public String toString() {
 		return "Speaker [id=" + id + ", name=" + name + ", shortDescription=" + shortDescription + ", longDescription=" + longDescription + "]";
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 }

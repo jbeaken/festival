@@ -2,6 +2,7 @@ package org.swp.marxism.controller;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletContext;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -37,6 +38,9 @@ public class HomeController {
 
 	@Autowired
 	private JavaMailSender mailSender;
+	
+	@Autowired
+	private ServletContext context;
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
@@ -48,11 +52,22 @@ public class HomeController {
 
 		logger.info("Received request for home");
 		
-		MarxismWebsiteContent marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
+		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
 		
-		logger.debug("Have retrieved marxism website content {}", marxismWebsiteContent);
+		if(marxismWebsiteContent == null) {
+			
+			marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
+			
+			logger.info("Have loaded marxism website content {}", marxismWebsiteContent);
 
-		model.addAttribute(marxismWebsiteContent);
+			logger.info("Contains {} speakers", marxismWebsiteContent.getSpeakers().size());
+			
+			context.setAttribute("marxismWebsiteContent", marxismWebsiteContent);
+			
+			logger.info("Marxism website content placed into context");
+		}
+		
+		model.addAttribute("content", marxismWebsiteContent);
 
 		return "home.html";
 	}
