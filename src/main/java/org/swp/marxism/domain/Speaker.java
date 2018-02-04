@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Speaker {
 	
@@ -14,12 +16,15 @@ public class Speaker {
 	private Long id;
 	
 	@NotNull
+	@Length(max=30, min=3)
 	private String name;
 	
 	@NotNull
+	@Length(max=30, min=3)
 	private String shortDescription;
 	
 	@NotNull
+	@Length(max=1000, min=3)
 	private String longDescription;
 	
 	@NotNull
