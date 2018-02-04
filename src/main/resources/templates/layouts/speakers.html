@@ -1,5 +1,7 @@
 <section class="section_team section_alt" id="section_team">
+
 	<div class="container">
+	
 		<div class="row">
 			<div class="col-xs-12">
 
@@ -13,47 +15,20 @@
 		</div>
 		<!-- / .row -->
 
-		<div class="row" th:if="${#lists.size(content.speakers) > 0}">
+		<div class="row" th:each="i : ${#numbers.sequence( 1, #lists.size(content.speakers) / 3 )}">
 			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[0]} )"></div>
+				<div th:insert="fragments :: speaker( ${content.speakers[i + 0]} )"></div>
 			</div>
 			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[1]} )"></div>
+				<div th:insert="fragments :: speaker( ${content.speakers[i + 1]} )"></div>
 			</div>
 			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[2]} )"></div>
-			</div>
-		</div>
-		<!-- / .row -->
-
-		<div class="row" th:if="${#lists.size(content.speakers) > 3}">
-			<!-- 2nd row -->
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[3]} )"></div>
-			</div>
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[4]} )"></div>
-			</div>
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[5]} )"></div>
+				<div th:insert="fragments :: speaker( ${content.speakers[i + 2]} )"></div>
 			</div>
 		</div>
 		<!-- / .row -->
 
-		<div class="row hidden" id="third_row_speakers" th:if="${#lists.size(content.speakers) > 6}">
-			<!-- 3rd row hidden -->
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[6]} )"></div>
-			</div>
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[7]} )"></div>
-			</div>
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[8]} )"></div>
-			</div>
-		</div>
-		<!-- / .row -->
-
+		
 		<div class="row text-center" th:if="${#lists.size(content.speakers) > 6}">
 			<a href="javascript:showMoreSpeakers()" class="btn btn-primary" id="showMoreSpeakersAnchor">Show More Speakers</a>
 		</div>
