@@ -4,35 +4,32 @@
 	
 		<div class="row">
 			<div class="col-xs-12">
-
+	
 				<h2 class="page-header text-center">
 					Speakers at the <span>Marxism Festival</span> Festival
 				</h2>
-
+	
 				<p class="page-subheader text-center">blah blah</p>
-
+	
 			</div>
 		</div>
 		<!-- / .row -->
-
+	
 		<div class="row" th:each="i : ${#numbers.sequence( 1, #lists.size(content.speakers) / 3 )}">
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[i + 0]} )"></div>
-			</div>
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[i + 1]} )"></div>
-			</div>
-			<div class="col-sm-4">
-				<div th:insert="fragments :: speaker( ${content.speakers[i + 2]} )"></div>
-			</div>
+		
+			<div th:insert="fragments :: speaker( ${content.speakers[i + 0]} )"></div>
+			
+			<div th:insert="fragments :: speaker( ${content.speakers[i + 1]} )"></div>
+			
+			<div th:insert="fragments :: speaker( ${content.speakers[i + 2]} )"></div>
+			
 		</div>
 		<!-- / .row -->
-
+	
 		
 		<div class="row text-center" th:if="${#lists.size(content.speakers) > 6}">
 			<a href="javascript:showMoreSpeakers()" class="btn btn-primary" id="showMoreSpeakersAnchor">Show More Speakers</a>
 		</div>
-
-	</div>
-	<!-- / .container -->
+	
+	</div><!-- / .container -->
 </section>

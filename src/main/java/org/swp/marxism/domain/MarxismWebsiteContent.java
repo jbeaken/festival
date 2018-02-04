@@ -66,4 +66,28 @@ public class MarxismWebsiteContent {
 	public String toString() {
 		return "MarxismWebsiteContent [id=" + id + ", name=" + name + ", isLive=" + isLive + ", speakers=" + speakers + "]";
 	}
+
+	public Boolean getIsLive() {
+		return isLive;
+	}
+
+	public void setIsLive(Boolean isLive) {
+		this.isLive = isLive;
+	}
+
+	public List<Theme> getThemes() {
+		return themes;
+	}
+
+	public void setThemes(List<Theme> themes) {
+		this.themes = themes;
+	}
+
+	public List<CarouselItem> getCarouselItems() {
+		return carouselItems;
+	}
+
+	public void setCarouselItems(List<CarouselItem> carouselItems) {
+		this.carouselItems = carouselItems;
+	}
 }

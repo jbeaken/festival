@@ -2,6 +2,7 @@ insert into ticket (id, name, code, description) values (1, "Ticket", "TCK", "A 
 
 insert into marxism_website_content (id, name, is_live) values (1, '2018', true);
 
+-- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url) 
 values (1, 'Maz Saleem', 'Anti Racism Activist', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'maz-saleem-640.jpg');
 insert into speaker (id, name, short_description, long_description, image_url) 
@@ -21,3 +22,24 @@ insert into marxism_website_content_speakers (marxism_website_content_id, speake
 insert into marxism_website_content_speakers (marxism_website_content_id, speakers_id, speaker_index) values (1, 4, 3);
 insert into marxism_website_content_speakers (marxism_website_content_id, speakers_id, speaker_index) values (1, 5, 4);
 insert into marxism_website_content_speakers (marxism_website_content_id, speakers_id, speaker_index) values (1, 6, 5);
+
+-- THEMES
+insert into theme (id, name, short_description, long_description, image_url) 
+values (1, 'Corbyn', 'Jeremy Corbyn, the Labour Party and the fight for socialism', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'corbyn.jpg');
+insert into theme (id, name, short_description, long_description, image_url) 
+values (2, 'Racism', 'Resisting the racist backlash and the rise of fascism across Europe', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'sutr.jpg');
+insert into theme (id, name, short_description, long_description, image_url) 
+values (3, 'Marx', '#Marx200 Anniversary – was Marx right?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'marx.jpg');
+insert into theme (id, name, short_description, long_description, image_url) 
+values (4, 'Climate Change', 'Capitalism and climate change', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'climate.jpg');
+insert into theme (id, name, short_description, long_description, image_url) 
+values (5, 'Me Too', '#MeToo: challenging sexism and the system ', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'sexism-and-the-system-yussre-el-bardicy.jpg');
+insert into theme (id, name, short_description, long_description, image_url) 
+values (6, 'Imperialism', 'War, imperialism, the Middle East and Palestine', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'imperialism-.jpg');
+
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 1, 0);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 2, 1);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 3, 2);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 4, 3);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 5, 4);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 6, 5);

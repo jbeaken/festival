@@ -1,9 +1,13 @@
 package org.swp.marxism.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Theme {
@@ -12,11 +16,19 @@ public class Theme {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull
+	@Length(max=30, min=3)
+	@Column(unique=true)
 	private String name;
 	
+	@NotNull
 	private String shortDescription;
 	
+	@NotNull
 	private String longDescription;
+	
+	@NotNull
+	private String imageUrl;
 
 	public Long getId() {
 		return id;
@@ -53,6 +65,14 @@ public class Theme {
 	@Override
 	public String toString() {
 		return "Speaker [id=" + id + ", name=" + name + ", shortDescription=" + shortDescription + ", longDescription=" + longDescription + "]";
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 }
