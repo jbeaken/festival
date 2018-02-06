@@ -1,6 +1,6 @@
 insert into ticket (id, name, code, description) values (1, "Ticket", "TCK", "A Ticket that gets you into marxism");
 
-insert into marxism_website_content (id, name, is_live) values (1, '2018', true);
+insert into marxism_website_content (id, name, is_live, heading, sub_heading, sub_sub_heading, description) values (1, '2018', true, 'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'Nunc sed blandit dui. Phasellus lacinia iaculis justo nec elementum. Morbi vel urna velit. Nulla pharetra a erat in vestibulum.');
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url) 

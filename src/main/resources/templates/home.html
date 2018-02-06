@@ -17,11 +17,34 @@
     <!-- CSS Global -->
     <link rel="stylesheet" th:href="@{/css/theme.css}">
     
+	<script type="text/javascript">
+	    (function() {
+	        var trial = document.createElement('script');
+	        trial.type = 'text/javascript';
+	        trial.async = true;
+	        trial.src = 'https://easy.myfonts.net/v2/js?sid=155109(font-family=PiS+LIETZ+Lindham)&key=BihfyFUMHT';
+	        var head = document.getElementsByTagName("head")[0];
+	        console.log(trial)
+	        head.appendChild(trial);
+	    })();
+	</script>    
+    
     <style>
+    
+	#section_features, #section_features h2, h3.features__item__heading {    
+    
+    	font-family: 'PiS LIETZ Lindham';
+    	text-transform: none;
+    }
     
     	.team__item__footer__content {
     		height : 110px;
     	}
+    	
+		div.features__item__body {
+			text-align: left;
+			padding-left: 30px;
+		}
     	
 		@media(max-width:767px){
 			.h0 {

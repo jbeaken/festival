@@ -3,6 +3,7 @@ package org.swp.marxism.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,9 @@ public class MarxismWebsiteContent {
 	
 	@NotNull
 	private Boolean isLive;
+	
+	@Embedded
+	private MarxismAbout about;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@OrderColumn(name="speaker_index", nullable=false)
@@ -89,5 +93,13 @@ public class MarxismWebsiteContent {
 
 	public void setCarouselItems(List<CarouselItem> carouselItems) {
 		this.carouselItems = carouselItems;
+	}
+
+	public MarxismAbout getAbout() {
+		return about;
+	}
+
+	public void setAbout(MarxismAbout about) {
+		this.about = about;
 	}
 }
