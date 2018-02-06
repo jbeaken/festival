@@ -61,6 +61,8 @@ public class HomeController {
 			logger.info("Have loaded marxism website content {}", marxismWebsiteContent);
 
 			logger.info("Contains {} speakers", marxismWebsiteContent.getSpeakers().size());
+			logger.info("Contains {} themes", marxismWebsiteContent.getThemes().size());
+			logger.info("Contains {} carousel items", marxismWebsiteContent.getCarouselItems().size());
 			
 			context.setAttribute("marxismWebsiteContent", marxismWebsiteContent);
 			
