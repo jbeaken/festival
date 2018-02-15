@@ -106,11 +106,4 @@ public class MarxismWebsiteContent {
 		this.about = about;
 	}
 
-	public MarxismSpeakers getSpeakersContent() {
-		return speakersContent;
-	}
-
-	public void setSpeakersContent(MarxismSpeakers speakersContent) {
-		this.speakersContent = speakersContent;
-	}
 }
