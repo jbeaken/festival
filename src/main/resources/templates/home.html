@@ -221,6 +221,7 @@
 
 
                 });
+
                 function showDays() {
                     if ($('#bkTicketTypeDayTickets').val()) {
                         $('#FullDays').show();
@@ -236,6 +237,33 @@
                             $('#SessionTickets').hide();
                         }
                 }
+
+                function showScreen( screen ) {
+                  console.log("Call to showScreen " + screen)
+
+                  if(screen == 'accomodation') {
+                    if( $('input#accomdationRequiredNo').is(":checked") == true ) {
+                      screen = 'creche'
+                    }
+                  }
+
+                  if(screen == 'creche') {
+                    if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
+                      screen = 'ticket'
+                    }
+                  }
+
+                  screen = "#" + screen + "_screen"
+                  
+                  console.log("Post process screen = " + screen)
+                  $('.booking_screen').hide();
+                  $( screen ).removeClass( 'hidden' )
+                  $( screen ).show()
+                }
+
+                function nextScreen( index ) {
+                  
+                }                
             </script>
 
   </body>
