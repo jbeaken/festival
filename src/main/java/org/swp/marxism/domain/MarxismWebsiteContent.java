@@ -30,6 +30,9 @@ public class MarxismWebsiteContent {
 	@Embedded
 	private MarxismAbout about;
 	
+//	@Embedded
+//	private MarxismSpeakers speakersContent;	
+	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@OrderColumn(name="speaker_index", nullable=false)
 	private List<Speaker> speakers;
@@ -101,5 +104,13 @@ public class MarxismWebsiteContent {
 
 	public void setAbout(MarxismAbout about) {
 		this.about = about;
+	}
+
+	public MarxismSpeakers getSpeakersContent() {
+		return speakersContent;
+	}
+
+	public void setSpeakersContent(MarxismSpeakers speakersContent) {
+		this.speakersContent = speakersContent;
 	}
 }
