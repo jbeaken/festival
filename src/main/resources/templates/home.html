@@ -16,7 +16,7 @@
 
     <!-- CSS Global -->
     <link rel="stylesheet" th:href="@{/css/theme.css}">
-    
+
 	<script type="text/javascript">
 	    (function() {
 	        var trial = document.createElement('script');
@@ -27,25 +27,38 @@
 	        console.log(trial)
 	        head.appendChild(trial);
 	    })();
-	</script>    
-    
+	</script>
+
     <style>
-    
-		h2, h3, .page-header, div.speaker_short_description {    
-	    
-	    	font-family: 'PiS LIETZ Lindham';
-	    	text-transform: none;
-	    }
-    
-    	.team__item__footer__content {
-    		height : 110px;
-    	}
-    	
+
+		h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from {
+    	font-family: 'PiS LIETZ Lindham';
+    	text-transform: none;
+    }
+
+  	.team__item__footer__content {
+  		height : 110px;
+  	}
+
 		div.features__item__body {
 			text-align: left;
 			padding-left: 30px;
 		}
-    	
+
+    div.pricing_from_price {
+      font-size: 60px;
+      line-height: 1;
+      color: #FFAB00;
+    }
+    div.pricing_from {
+      color: #FFAB00;
+      font-size : 30px;
+      line-height: 1;
+    }
+    .section_pricing .pricing__item {
+      text-align: left;
+    }
+
 		@media(max-width:767px){
 			.h0 {
 				font-size: 24px;
@@ -56,7 +69,7 @@
 		@media(min-width:768px){}
 		@media(min-width:992px){}
 		@media(min-width:1200px){}
-    </style>
+  </style>
 
 
   </head>
@@ -126,86 +139,86 @@
 	<div th:include="layouts/carousel"></div>
 
 	<div th:include="layouts/about"></div>
-	
+
 	<div th:include="layouts/gallery"></div>
-	
+
 	<div th:include="layouts/pricing"></div>
-	
+
 	<div th:include="layouts/speakers"></div>
-	
+
 	<div th:include="layouts/themes"></div>
-	
+
 	<div th:include="layouts/contact"></div>
-    
-    <div th:include="layouts/book"></div>
-    
-    <div th:include="layouts/footer"></div>
+
+  <div th:include="layouts/book"></div>
+
+  <div th:include="layouts/footer"></div>
 
 
-    <!-- JAVASCRIPT
-    ================================================== -->
+  <!-- JAVASCRIPT
+  ================================================== -->
 
-    <!-- JS Global -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+  <!-- JS Global -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 
-    <!-- JS Plugins -->
-    <script th:src="@{/plugins/smoothscroll/smoothscroll.min.js}"></script>
-    <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
-    <script th:src="@{/plugins/countTo/jquery.countTo.js}"></script>
-    <script th:src="@{/plugins/contact-form/contact.js}"></script>
-    <script th:src="@{/plugins/waypoints/jquery.waypoints.min.js}"></script>
-    <script th:src="@{/plugins/prettyPhoto/js/jquery.prettyPhoto.js}" type="text/javascript" charset="utf-8"></script>
-    <script src="/plugins/swipebox/src/js/jquery.swipebox.js"></script>
+  <!-- JS Plugins -->
+  <script th:src="@{/plugins/smoothscroll/smoothscroll.min.js}"></script>
+  <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
+  <script th:src="@{/plugins/countTo/jquery.countTo.js}"></script>
+  <script th:src="@{/plugins/contact-form/contact.js}"></script>
+  <script th:src="@{/plugins/waypoints/jquery.waypoints.min.js}"></script>
+  <script th:src="@{/plugins/prettyPhoto/js/jquery.prettyPhoto.js}" type="text/javascript" charset="utf-8"></script>
+  <script src="/plugins/swipebox/src/js/jquery.swipebox.js"></script>
 
-    <!-- JS Custom -->
-    <script th:src="@{/js/theme.js}"></script>
-    <script th:src="@{/js/custom.js}"></script>
+  <!-- JS Custom -->
+  <script th:src="@{/js/theme.js}"></script>
+  <script th:src="@{/js/custom.js}"></script>
  	<script>
                 $(function() {
 
                    showDays();
                    showSessionTickets();
-                   
-                    $('#bkTicketTypeDayTickets').change(function() {   
+
+                    $('#bkTicketTypeDayTickets').change(function() {
                         $('.numeric-int').val('0');
                         showDays();
                         $('#bkTicketTypeFullEvent').val('');
-                        $('#bkTicketTypeFlexible').val('');                        
-                        
+                        $('#bkTicketTypeFlexible').val('');
+
                         showSessionTickets();
                     });
 
-                    $('#bkTicketTypeFullEvent').change(function() {                        
+                    $('#bkTicketTypeFullEvent').change(function() {
                         $('#bkTicketTypeDayTickets').val('');
-                        $('#bkTicketTypeFlexible').val('');  
+                        $('#bkTicketTypeFlexible').val('');
                         $('#FullDays').hide();
                         $('#SessionTickets').hide();
                         showSessionTickets();
                     });
 
-                    $('#bkTicketTypeFlexible').change(function() {                        
+                    $('#bkTicketTypeFlexible').change(function() {
                         $('#bkTicketTypeDayTickets').val('');
-                        $('#bkTicketTypeFullEvent').val('');  
+                        $('#bkTicketTypeFullEvent').val('');
                         $('#FullDays').hide();
                         $('#SessionTickets').hide();
                         showSessionTickets();
                     });
-                    
-                    
+
+
                     $( ".session_check" ).change(function() {
                       $('#bkTicketTypeFullEvent').val('');
                       $('#bkTicketTypeDayTickets').val('');
-                      $('#bkTicketTypeFlexible').val('');  
+                      $('#bkTicketTypeFlexible').val('');
                       $('#FullDays').hide();
                     });
-                    
+
                     $( ".DayTicket" ).change(function() {
-                        var myClass = this.classList;   
+                        var myClass = this.classList;
 //                        alert(myClass[1]);
                             $('.checkbox.' + myClass[1] ).hide();
                     });
-                    
+
 
                 });
                 function showDays() {
@@ -215,7 +228,7 @@
                         $('#FullDays').hide();
                     }
                 }
-                
+
                 function showSessionTickets(){
                     if ($('#bkTicketTypeDayTickets').val() =='' && $('#bkTicketTypeFlexible').val() =='' && $('#bkTicketTypeFullEvent').val() =='' ) {
                             $('#SessionTickets').show();
@@ -223,7 +236,7 @@
                             $('#SessionTickets').hide();
                         }
                 }
-            </script>   
+            </script>
 
   </body>
 </html>
