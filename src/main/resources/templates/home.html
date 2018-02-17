@@ -63,16 +63,34 @@
       text-align: left;
     }
 
-	@media(max-width:767px){
+	@media(max-width:767px) {
+	/*
 		.h0 {
 			font-size: 24px;
 			padding-bottom: 140px;
 			padding-top: 50px;
 		}
+		
+		*/
+		div#booking_form_container {
+			padding-bottom: 180%;
+		}
 	}
-	@media(min-width:768px){}
-	@media(min-width:992px){}
-	@media(min-width:1200px){}
+	@media(min-width:768px) {
+		div#booking_form_container {
+			padding-bottom: 180%;
+		}
+	}
+	@media(min-width:992px){
+			div#booking_form_container {
+			padding-bottom: 50%;
+		}
+	}
+	@media(min-width:1200px){
+		div#booking_form_container {
+			padding-bottom: 50%;
+		}
+	}
   </style>
 
 
@@ -278,14 +296,16 @@
                     	//Should never happen
                     } else if(currentScreen == 'address') {
                     	screen = 'contact'
-                    	//Special case
-                    	$( $('button#showPreviousButton') ).addClass( 'hidden' )
+                    	$('button#showPreviousButton').addClass( 'hidden' )
                     } else if(currentScreen == 'ticket') {
                     	screen = 'creche'
                     } else if(currentScreen == 'creche') {
                     	screen = 'accomodation'
                     } else if(currentScreen == 'accomodation') {
                     	screen = 'address'
+                    } else if(currentScreen == 'confirmation') {
+                    	$('button#showNextButton').html( 'Next' );
+                    	screen = 'ticket'
                     }
                     
                     if(screen == 'creche') {
@@ -313,12 +333,11 @@
                 function showNext( ) {
                     console.log("Call to showNext currentScreen = " + currentScreen)
                     
-                    //Show previous button
-                    $( $('button#showPreviousButton') ).removeClass( 'hidden' )
-                    
                     var screen = "";
+                    
                     if(currentScreen == 'contact') {
                     	screen = 'address'
+                    	$( $('button#showPreviousButton') ).removeClass( 'hidden' )
                     } else if(currentScreen == 'address') {
                     	screen = 'accomodation'
                     } else if(currentScreen == 'accomodation') {
@@ -327,6 +346,7 @@
                     	screen = 'ticket'
                     } else if(currentScreen == 'ticket') {
                     	screen = 'confirmation'
+                    	$('button#showNextButton').html( 'Go To Secure Payment Screen' );
                     }
 
                     if(screen == 'accomodation') {

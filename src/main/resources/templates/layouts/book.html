@@ -6,7 +6,7 @@
 
 				<h2 class="page-header text-center">Book before Wednesday 28th March for a £5 discount on your booking..!</h2>
 
-				<div id="booking_form_container" style="position: relative; width: 100%; padding-bottom: 50%; height: 0; overflow: hidden;">
+				<div id="booking_form_container" style="position: relative; width: 100%; height: 0; overflow: hidden;">
 					<form action="/book" method="post" class="form-horizontal" role="form">
 						<fieldset>
 
@@ -19,15 +19,17 @@
 							<div th:include="bookings/creche" id="creche_screen" class="booking_screen hidden" />
 
 							<div th:include="bookings/ticket" id="ticket_screen" class="booking_screen hidden" />
+							
+							<div th:include="bookings/confirmation" id="confirmation_screen" class="booking_screen hidden" />
 
 						</fieldset>
 					</form>
 				</div>
 
 				<div class="form-actions">
-					<button type="button" id="showPreviousButton" onclick="javascript:showPrevious()" class="btn btn-primary hidden">Previous Screen</button>
+					<button type="button" id="showPreviousButton" onclick="javascript:showPrevious()" class="btn btn-primary hidden">Previous</button>
 
-					<button type="button" id="showNextButton" onclick="javascript:showNext()" class="btn btn-primary pull-right">Next Screen</button>
+					<button type="button" id="showNextButton" onclick="javascript:showNext()" class="btn btn-primary pull-right">Next</button>
 				</div>
 
 			</div>
