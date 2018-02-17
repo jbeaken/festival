@@ -1,148 +1,122 @@
- <legend>Ticket Type:</legend>
+<legend>Ticket Type:</legend>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="bkTicketTypeFullEvent">Full Event:</label>
-                    <div class="col-sm-9">
-                        <select id="booking_ticket.id" class="form-control">
-<option value="1" selected="selected">Please choose which ticket you want</option>
-<option value="2">Waged, £55</option>
-<option value="3">Waged + After party, £60</option>
-<option value="4">Unwaged, £30</option>
-<option value="5">Unwaged + After party £35</option>
-<option value="6">HE Student, £30</option>
-<option value="7">HE Student + After party £35</option>
-<option value="8">-18 or FE, £20</option>
-<option value="9">-18 or FE + After party £25</option>
-</select>
-                    </div>
+<div class="form-group">
+	<label class="col-sm-3 control-label" for="bkTicketTypeFullEvent">Full Event:</label>
+	<div class="col-sm-9">
+		<select id="booking_ticket.id" class="form-control">
+			<option value="1" selected="selected">Please choose which ticket you want</option>
+			<option value="2">Waged, £55</option>
+			<option value="3">Waged + After party, £60</option>
+			<option value="4">Unwaged, £30</option>
+			<option value="5">Unwaged + After party £35</option>
+			<option value="6">HE Student, £30</option>
+			<option value="7">HE Student + After party £35</option>
+			<option value="8">-18 or FE, £20</option>
+			<option value="9">-18 or FE + After party £25</option>
+		</select>
+	</div>
 
-                    <br/>
-                    <br/>
+	<input type="hidden" value="" name="bkTicketTypeFlexible" />
+	<div style="display: none;">
+		<label class="col-sm-3 control-label" for="bkTicketTypeFlexible">Flexible Ticket:</label>
+		<div class="col-sm-9">
+			<select name="bkTicketTypeFlexible" id="bkTicketTypeFlexible" class="form-control">
+				<option value="" selected="selected">Please choose which ticket you want</option>
+				<option value="Flexible_Waged">Waged, £20</option>
+				<option value="Flexible_Unwaged">Unwaged, £15</option>
+				<option value="Flexible_HE">HE Student, £15</option>
+			</select>
+			<p class="help-block">Flexible Ticket are for five meetings across the event.</p>
+		</div>
+	</div>
 
-                
-                    <input type="hidden" value="" name="bkTicketTypeFlexible"/>
-                    <div style="display:none;" >    
-                        <label class="col-sm-3 control-label" for="bkTicketTypeFlexible">Flexible Ticket:</label>
-                        <div class="col-sm-9">
-                            <select name="bkTicketTypeFlexible" id="bkTicketTypeFlexible" class="form-control">
-<option value="" selected="selected">Please choose which ticket you want</option>
-<option value="Flexible_Waged">Waged, £20</option>
-<option value="Flexible_Unwaged">Unwaged, £15</option>
-<option value="Flexible_HE">HE Student, £15</option>
-</select>
-                             <p class="help-block">Flexible Ticket are for five meetings across the event.</p>
-                        </div> 
-                    </div>
+	<input type="hidden" value="" name="bkTicketTypeDay" />
+	<div style="display: none;">
+		<label class="col-sm-3 control-label" for="bkTicketType">Day Tickets:</label>
 
-                    <br/>
-                    <br/>
-                   
-                    
-                    <input type="hidden" value="" name="bkTicketTypeDay"/>
-                    <div style="display:none;" >
-                        <label class="col-sm-3 control-label" for="bkTicketType">Day Tickets:</label>
-                        
-                        <div class="col-sm-9">
-                            <select name="bkTicketTypeDay" id="bkTicketTypeDayTickets" class="form-control">
-<option value="" selected="selected">Please choose which ticket you want</option>
-<option value="Waged">Waged, £20</option>
-<option value="UnWagedHE">Unwaged / HE Student, £15</option>
-<option value="ChildSchoolFE">Under 18 / School / FE Student, £10</option>
-</select>
-                        </div>
-                    
-                        <div id="FullDays" style="display:none; height: 50px;">
-                            <br/>
-                            <br/>
-                            <label class="col-sm-3 control-label">Days:</label>
-                            <div class="col-sm-9"> 
-                                <span id="helpBlock" class="help-block">Please select the number of tickets you require for each day.</span>
+		<div class="col-sm-9">
+			<select name="bkTicketTypeDay" id="bkTicketTypeDayTickets" class="form-control">
+				<option value="" selected="selected">Please choose which ticket you want</option>
+				<option value="Waged">Waged, £20</option>
+				<option value="UnWagedHE">Unwaged / HE Student, £15</option>
+				<option value="ChildSchoolFE">Under 18 / School / FE Student, £10</option>
+			</select>
+		</div>
 
-                                <div class="row">
-                                    <label class="col-sm-3 control-label">Thursday:</label>
-                                    <select name="bkDayTicketThursday" id="bkDayTicketThursday" class="form-control day-ticket-qty numeric-int">
-<option value="0">-- None --</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-                                                                        
-                                    
-                                </div>
-                                <div class="row">
-                                    <label class="control-label col-sm-3">Friday:</label>
-                                    <select name="bkDayTicketFriday" id="bkDayTicketFriday" class="form-control day-ticket-qty numeric-int">
-<option value="0">-- None --</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-                                    
-                                </div>
-                                <div class="row">
-                                    <label class="control-label col-sm-3">Saturday:</label>
-                                    <select name="bkDayTicketSaturday" id="bkDayTicketSaturday" class="form-control day-ticket-qty numeric-int">
-<option value="0">-- None --</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-                                    
-                                </div>
-                                <div class="row">
-                                    <label class="control-label col-sm-3">Sunday:</label>
-                                    <select name="bkDayTicketSunday" id="bkDayTicketSunday" class="form-control day-ticket-qty numeric-int">
-<option value="0">-- None --</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-                                    
-                                </div>
-                                
-                            </div>
-                        </div>                        
-                    </div> 
-            
-                                                      
-                </div>
-              
-                                
-                <legend>Data Protection:</legend>
+		<div id="FullDays" style="display: none; height: 50px;">
+			<label class="col-sm-3 control-label">Days:</label>
+			<div class="col-sm-9">
+				<span id="helpBlock" class="help-block">Please select the number of tickets you require for each day.</span>
 
-                <div class="controls controls-row offset2">
-                    <label class="checkbox">
-                        <input type="checkbox" id="booking_data_protection" value="OK"  >
-                        Okay to send you information on future events, including Marxism 2019?
-                    </label>
-                </div>
+				<div class="row">
+					<label class="col-sm-3 control-label">Thursday:</label> <select name="bkDayTicketThursday" id="bkDayTicketThursday" class="form-control day-ticket-qty numeric-int">
+						<option value="0">-- None --</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+
+
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-3">Friday:</label> <select name="bkDayTicketFriday" id="bkDayTicketFriday" class="form-control day-ticket-qty numeric-int">
+						<option value="0">-- None --</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-3">Saturday:</label> <select name="bkDayTicketSaturday" id="bkDayTicketSaturday" class="form-control day-ticket-qty numeric-int">
+						<option value="0">-- None --</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+
+				</div>
+				<div class="row">
+					<label class="control-label col-sm-3">Sunday:</label> <select name="bkDayTicketSunday" id="bkDayTicketSunday" class="form-control day-ticket-qty numeric-int">
+						<option value="0">-- None --</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="form-actions">
-    <button type="button" onclick="javascript:showScreen( 'creche' )" class="btn btn-marxism">Previous Screen</button>
+	<button type="button" onclick="javascript:showPrevious( 'creche' )" class="btn btn-primary">Previous Screen</button>
 
-    <button type="button" onclick="javascript:showScreen( 'confirm' )" class="btn btn-marxism pull-right">Next Screen</button>
+	<button type="button" onclick="javascript:showNext( 'confirm' )" class="btn btn-primary pull-right">Next Screen</button>
 </div>

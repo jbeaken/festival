@@ -30,8 +30,12 @@
 	</script>
 
     <style>
+    
+    div#mfPreviewBar {
+    	display: none;
+    }
 
-		h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from {
+	h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from {
     	font-family: 'PiS LIETZ Lindham';
     	text-transform: none;
     }
@@ -40,10 +44,10 @@
   		height : 110px;
   	}
 
-		div.features__item__body {
-			text-align: left;
-			padding-left: 30px;
-		}
+	div.features__item__body {
+		text-align: left;
+		padding-left: 30px;
+	}
 
     div.pricing_from_price {
       font-size: 60px;
@@ -59,16 +63,16 @@
       text-align: left;
     }
 
-		@media(max-width:767px){
-			.h0 {
-				font-size: 24px;
-				padding-bottom: 140px;
-				padding-top: 50px;
-			}
+	@media(max-width:767px){
+		.h0 {
+			font-size: 24px;
+			padding-bottom: 140px;
+			padding-top: 50px;
 		}
-		@media(min-width:768px){}
-		@media(min-width:992px){}
-		@media(min-width:1200px){}
+	}
+	@media(min-width:768px){}
+	@media(min-width:992px){}
+	@media(min-width:1200px){}
   </style>
 
 
@@ -260,6 +264,52 @@
                   $( screen ).removeClass( 'hidden' )
                   $( screen ).show()
                 }
+                
+                function showPrevious( screen ) {
+                    console.log("Call to showPrevious " + screen)
+
+                    if(screen == 'creche') {
+                      if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
+                        screen = 'accomodation'
+                      }
+                    }
+
+                    if(screen == 'accomodation') {
+                      if( $('input#accomdationRequiredNo').is(":checked") == true ) {
+                        screen = 'address'
+                      }
+                    }
+
+                    screen = "#" + screen + "_screen"
+                    
+                    console.log("Post process screen = " + screen)
+                    $('.booking_screen').hide();
+                    $( screen ).removeClass( 'hidden' )
+                    $( screen ).show()
+                  }
+                
+                function showNext( screen ) {
+                    console.log("Call to showNext " + screen)
+
+                    if(screen == 'accomodation') {
+                      if( $('input#accomdationRequiredNo').is(":checked") == true ) {
+                        screen = 'creche'
+                      }
+                    }
+
+                    if(screen == 'creche') {
+                      if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
+                        screen = 'ticket'
+                      }
+                    }
+
+                    screen = "#" + screen + "_screen"
+                    
+                    console.log("Post process screen = " + screen)
+                    $('.booking_screen').hide();
+                    $( screen ).removeClass( 'hidden' )
+                    $( screen ).show()
+                  }                
 
                 function nextScreen( index ) {
                   
