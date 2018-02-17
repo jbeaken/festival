@@ -265,20 +265,40 @@
                   $( screen ).show()
                 }
                 
-                function showPrevious( screen ) {
-                    console.log("Call to showPrevious " + screen)
-
-                    if(screen == 'creche') {
-                      if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
-                        screen = 'accomodation'
-                      }
+                //Booking screen
+                
+                var currentScreen = "contact";
+                
+                function showPrevious() {
+                    console.log("Call to showPrevious currentScreen = " + currentScreen)
+                    
+                    var screen = "";
+                    
+                    if(currentScreen == 'contact') {
+                    	//Should never happen
+                    } else if(currentScreen == 'address') {
+                    	screen = 'contact'
+                    } else if(currentScreen == 'ticket') {
+                    	screen = 'creche'
+                    } else if(currentScreen == 'creche') {
+                    	screen = 'accomodation'
+                    } else if(currentScreen == 'accomodation') {
+                    	screen = 'address'
                     }
+                    
+                    if(screen == 'creche') {
+                        if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
+                          screen = 'accomodation'
+                        }
+                      }                    
 
                     if(screen == 'accomodation') {
                       if( $('input#accomdationRequiredNo').is(":checked") == true ) {
                         screen = 'address'
                       }
                     }
+
+                    currentScreen = screen
 
                     screen = "#" + screen + "_screen"
                     
@@ -288,8 +308,24 @@
                     $( screen ).show()
                   }
                 
-                function showNext( screen ) {
-                    console.log("Call to showNext " + screen)
+                function showNext( ) {
+                    console.log("Call to showNext currentScreen = " + currentScreen)
+                    
+                    //Show previous button
+                    $( $('button#showPreviousButton') ).removeClass( 'hidden' )
+                    
+                    var screen = "";
+                    if(currentScreen == 'contact') {
+                    	screen = 'address'
+                    } else if(currentScreen == 'address') {
+                    	screen = 'accomodation'
+                    } else if(currentScreen == 'accomodation') {
+                    	screen = 'creche'
+                    } else if(currentScreen == 'creche') {
+                    	screen = 'ticket'
+                    } else if(currentScreen == 'ticket') {
+                    	screen = 'confirmation'
+                    }
 
                     if(screen == 'accomodation') {
                       if( $('input#accomdationRequiredNo').is(":checked") == true ) {
@@ -302,6 +338,8 @@
                         screen = 'ticket'
                       }
                     }
+                    
+                    currentScreen = screen
 
                     screen = "#" + screen + "_screen"
                     

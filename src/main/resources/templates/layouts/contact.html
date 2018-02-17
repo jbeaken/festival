@@ -1,103 +1,88 @@
+<!-- CONTACT   ================================================== -->
+<section class="section_contact" id="section_contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
 
-   
+				<h2 class="page-header text-center">
+					Get in touch <span>with us</span>
+				</h2>
 
+				<p class="page-subheader text-white-muted text-center">Do not hesitate to drop us a couple of lines. 24/7 support guaranteed.</p>
 
-    <!-- CONTACT
-    ================================================== -->
-    <section class="section_contact" id="section_contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
+			</div>
+		</div>
+		<!-- / .row -->
+		<div class="row">
+			<div class="col-xs-12">
 
-            <h2 class="page-header text-center">
-              Get in touch <span>with us</span>
-            </h2>
+				<div class="contact__container">
+					<div class="row">
+						<div class="col-sm-8">
 
-            <p class="page-subheader text-white-muted text-center">
-              Do not hesitate to drop us a couple of lines. 24/7 support guaranteed.
-            </p>
+							<!-- Form -->
+							<form class="contact__container__form" id="form_sendemail">
 
-          </div>
-        </div> <!-- / .row -->
-        <div class="row">
-          <div class="col-xs-12">
+								<!-- Header -->
+								<div class="form-group">
+									<h3>Send us a message</h3>
+								</div>
 
-            <div class="contact__container">
-              <div class="row">
-                <div class="col-sm-8">
+								<!-- Alert message -->
+								<div class="alert" id="form_message" role="alert"></div>
 
-                  <!-- Form -->
-                  <form class="contact__container__form" id="form_sendemail">
+								<!-- Email -->
+								<div class="form-group">
+									<label for="email" class="sr-only">Email address *</label> <input type="email" class="form-control" id="contactFormEmail" placeholder="Enter your email address"> <span
+										class="help-block"></span>
+								</div>
 
-                    <!-- Header -->
-                    <div class="form-group">
-                      <h3>Send us a message</h3>
-                    </div>
+								<!-- Name -->
+								<div class="form-group">
+									<label for="name" class="sr-only">Name *</label> <input type="text" class="form-control" id="contactFormName" placeholder="Enter your name"> <span class="help-block"></span>
+								</div>
 
-                    <!-- Alert message -->
-                    <div class="alert" id="form_message" role="alert"></div>
+								<!-- Message -->
+								<div class="form-group">
+									<label for="message" class="sr-only">Message *</label>
+									<textarea class="form-control" id="contactFormMessage" placeholder="Enter your message"></textarea>
+									<span class="help-block"></span>
+								</div>
 
-                    <!-- Email -->
-                    <div class="form-group">
-                      <label for="email" class="sr-only">Email address *</label>
-                      <input type="email" class="form-control" id="contactFormEmail" placeholder="Enter your email address">
-                      <span class="help-block"></span>
-                    </div>
+								<!-- Submit -->
+								<button type="button" onclick="javascript:sendEmail()" class="btn btn-primary">Send Message</button>
 
-                    <!-- Name -->
-                    <div class="form-group">
-                      <label for="name" class="sr-only">Name *</label>
-                      <input type="text" class="form-control" id="contactFormName" placeholder="Enter your name">
-                      <span class="help-block"></span>
-                    </div>
+							</form>
 
-                    <!-- Message -->
-                    <div class="form-group">
-                      <label for="message" class="sr-only">Message *</label>
-                      <textarea class="form-control" id="contactFormMessage" placeholder="Enter your message"></textarea>
-                      <span class="help-block"></span>
-                    </div>
+						</div>
+						<div class="col-sm-4">
 
-                    <!-- Submit -->
-                    <button type="button" onclick="javascript:sendEmail()" class="btn btn-primary">
-                      Send Message
-                    </button>
+							<ul class="contact__container__info">
+								<li>
+									<h3>Contact info</h3>
+								</li>
+								<li><i class="ion-android-pin"></i>
+									<p>
+										Lorem ipsum dolor sit amet <br> Consectetur adipisicing elit
+									</p></li>
+								<li><i class="ion-android-call"></i>
+									<p>
+										<a href="tel:00000000000">+0 (000) 000-00-00</a>
+									</p></li>
+								<li><i class="ion-android-mail"></i>
+									<p>
+										<a href="mailto:admin@domain.com">admin@domain.com</a>
+									</p></li>
+							</ul>
 
-                  </form>
+						</div>
+					</div>
+					<!-- / .row -->
+				</div>
 
-                </div>
-                <div class="col-sm-4">
-
-                  <ul class="contact__container__info">
-                    <li>
-                      <h3>Contact info</h3>
-                    </li>
-                    <li>
-                      <i class="ion-android-pin"></i>
-                      <p>
-                        Lorem ipsum dolor sit amet <br>
-                        Consectetur adipisicing elit
-                      </p>
-                    </li>
-                    <li>
-                      <i class="ion-android-call"></i>
-                      <p>
-                        <a href="tel:00000000000">+0 (000) 000-00-00</a>
-                      </p>
-                    </li>
-                    <li>
-                      <i class="ion-android-mail"></i>
-                      <p>
-                        <a href="mailto:admin@domain.com">admin@domain.com</a>
-                      </p>
-                    </li>
-                  </ul>
-
-                </div>
-              </div> <!-- / .row -->
-            </div>
-
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-    </section>
+			</div>
+		</div>
+		<!-- / .row -->
+	</div>
+	<!-- / .container -->
+</section>
