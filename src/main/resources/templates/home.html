@@ -278,6 +278,8 @@
                     	//Should never happen
                     } else if(currentScreen == 'address') {
                     	screen = 'contact'
+                    	//Special case
+                    	$( $('button#showPreviousButton') ).addClass( 'hidden' )
                     } else if(currentScreen == 'ticket') {
                     	screen = 'creche'
                     } else if(currentScreen == 'creche') {
