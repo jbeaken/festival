@@ -1,4 +1,10 @@
-insert into ticket (id, name, code, description) values (1, "Ticket", "TCK", "A Ticket that gets you into marxism");
+insert into ticket (id, name, code, description, price) values (1, "Ticket", "WGD", "Waged, £55", 55);
+insert into ticket (id, name, code, description, price) values (2, "Ticket", "WGDAP", "Waged + After party, £60", 60);
+insert into ticket (id, name, code, description, price) values (3, "Ticket", "UNWGD", "Unwaged, £30", 30);
+insert into ticket (id, name, code, description, price) values (4, "Ticket", "UNWGDAP", "Unwaged + After party £35", 35);
+insert into ticket (id, name, code, description, price) values (5, "Ticket", "HESTD", "HE Student, £30", 30);
+insert into ticket (id, name, code, description, price) values (6, "Ticket", "HESTD", "HE Student + After party £35", 35);
+insert into ticket (id, name, code, description, price) values (7, "Ticket", "UNWGD", "-18 or FE, £20", 20);
 
 insert into marxism_website_content (id, name, is_live, heading, sub_heading, sub_sub_heading, description) values (1, '2018', true, 'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'Nunc sed blandit dui. Phasellus lacinia iaculis justo nec elementum. Morbi vel urna velit. Nulla pharetra a erat in vestibulum.');
 

@@ -492,12 +492,18 @@ function sendBooking() {
 	var country = $('input#booking_country').val()
 	var postcode = $('input#booking_postcode').val()
 	
+	var ticketId = $('select#booking_ticket').val()
+	
 	//Dummy values
 	firstname = "Jack"
 	lastname = "johnes"
 //	email = "jack747@gmail.com"
+		
+	console.log("postData")
 	
-	var postData = {firstname : firstname, lastname : lastname, college : college, 'ticket.id' : '1' }
+	var postData = {firstname : firstname, lastname : lastname, college : college, 'ticket.id' : ticketId, email : email }
+	
+	console.log(postData)
 	
 	$.post( "/book", postData ).done(function( data ) {
 	    console.log( "Booking was sent to server, response : " + data );

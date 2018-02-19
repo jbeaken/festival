@@ -69,6 +69,27 @@
     	height: 0; 
     	overflow: hidden;
     }
+    
+    /* About */
+    div#about_blurb {
+    	text-align : left;
+    }
+    
+    /* Error */
+    
+    i.warning_icon {
+    	display : none;
+    	color: red;
+    	font-size: 15px;
+    }
+    
+    .field-error, .field-error:focus {
+    	border-color: red !important;
+	}
+	
+	.error-block {
+    	color: red;
+	}
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
@@ -114,6 +135,9 @@
 		overflow: visible;
 		height : 100%;
 	}	
+ 	div#about_blurb {
+		/* padding-left: 30px; */
+    }	
 }
 
 	
@@ -285,121 +309,6 @@
                             $('#SessionTickets').hide();
                         }
                 }
-
-                function showScreen( screen ) {
-                  console.log("Call to showScreen " + screen)
-
-                  if(screen == 'accomodation') {
-                    if( $('input#accomdationRequiredNo').is(":checked") == true ) {
-                      screen = 'creche'
-                    }
-                  }
-
-                  if(screen == 'creche') {
-                    if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
-                      screen = 'ticket'
-                    }
-                  }
-
-                  screen = "#" + screen + "_screen"
-                  
-                  console.log("Post process screen = " + screen)
-                  $('.booking_screen').hide();
-                  $( screen ).removeClass( 'hidden' )
-                  $( screen ).show()
-                }
-                
-                //Booking screen
-                
-                var currentScreen = "contact";
-                
-                function showPrevious() {
-                    console.log("Call to showPrevious currentScreen = " + currentScreen)
-                    
-                    var screen = "";
-                    
-                    if(currentScreen == 'contact') {
-                    	//Should never happen
-                    } else if(currentScreen == 'address') {
-                    	screen = 'contact'
-                    	$('button#showPreviousButton').addClass( 'hidden' )
-                    } else if(currentScreen == 'ticket') {
-                    	screen = 'creche'
-                    } else if(currentScreen == 'creche') {
-                    	screen = 'accomodation'
-                    } else if(currentScreen == 'accomodation') {
-                    	screen = 'address'
-                    } else if(currentScreen == 'confirmation') {
-                    	$('button#showNextButton').html( 'Next' );
-                    	screen = 'ticket'
-                    }
-                    
-                    if(screen == 'creche') {
-                        if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
-                          screen = 'accomodation'
-                        }
-                      }                    
-
-                    if(screen == 'accomodation') {
-                      if( $('input#accomdationRequiredNo').is(":checked") == true ) {
-                        screen = 'address'
-                      }
-                    }
-
-                    currentScreen = screen
-
-                    screen = "#" + screen + "_screen"
-                    
-                    console.log("Post process screen = " + screen)
-                    $('.booking_screen').hide();
-                    $( screen ).removeClass( 'hidden' )
-                    $( screen ).show()
-                  }
-                
-                function showNext( ) {
-                    console.log("Call to showNext currentScreen = " + currentScreen)
-                    
-                    var screen = "";
-                    
-                    if(currentScreen == 'contact') {
-                    	screen = 'address'
-                    	$( $('button#showPreviousButton') ).removeClass( 'hidden' )
-                    } else if(currentScreen == 'address') {
-                    	screen = 'accomodation'
-                    } else if(currentScreen == 'accomodation') {
-                    	screen = 'creche'
-                    } else if(currentScreen == 'creche') {
-                    	screen = 'ticket'
-                    } else if(currentScreen == 'ticket') {
-                    	screen = 'confirmation'
-                    	$('button#showNextButton').html( 'Go To Secure Payment Screen' );
-                    }
-
-                    if(screen == 'accomodation') {
-                      if( $('input#accomdationRequiredNo').is(":checked") == true ) {
-                        screen = 'creche'
-                      }
-                    }
-
-                    if(screen == 'creche') {
-                      if( $('input#crecheRequiredRadioNo').is(":checked") == true ) {
-                        screen = 'ticket'
-                      }
-                    }
-                    
-                    currentScreen = screen
-
-                    screen = "#" + screen + "_screen"
-                    
-                    console.log("Post process screen = " + screen)
-                    $('.booking_screen').hide();
-                    $( screen ).removeClass( 'hidden' )
-                    $( screen ).show()
-                  }                
-
-                function nextScreen( index ) {
-                  
-                }                
             </script>
 
   </body>

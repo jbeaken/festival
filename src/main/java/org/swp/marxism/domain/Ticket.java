@@ -17,6 +17,8 @@ public class Ticket {
 	private String code;
 	
 	private String description;
+	
+	private Float price;
 
 	public Long getId() {
 		return id;
@@ -53,5 +55,13 @@ public class Ticket {
 	@Override
 	public String toString() {
 		return "Ticket [id=" + id + ", name=" + name + ", code=" + code + ", description=" + description + "]";
+	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 }
