@@ -38,8 +38,21 @@ function showNext() {
 		screen = 'confirmation'
 		$('button#showNextButton').html('Go To Secure Payment Screen');
 	} else if (currentScreen == 'confirmation') {
-		screen = 'thankyou'
-		sendBooking()
+		
+		var result = sendBooking()
+		
+		console.log("sendBooking result : ")
+		console.log(result)
+		
+	    if(result === 'error') {
+	    	console.log("There was an error processing your booking. Please phone 0207 767???? quoting error : " + result)
+	    }
+	    
+	    if(result === 'success') {
+	    	console.log("Your message was sent successfully. We will respond as quickly as possible")
+	    } 
+	    
+	    screen = 'thankyou'
 	}
 
 	if (screen == 'accomodation') {
@@ -162,5 +175,144 @@ function validateSelect(field, errors) {
 			error : ' must be given'
 		})
 	}
+}
+
+/*************/
+/** BOOKING **/
+/*************/
+
+function sendBooking() {
+	
+	console.log("sendBooking()")
+
+	var firstname = $('input#booking_firstname').val()
+	var lastname = $('input#booking_lastname').val()
+	var college = $('input#booking_college').val()
+	var tradeUnion = $('input#booking_tradeUnion').val()
+	var swpBranch = $('input#booking_swpBranch').val()
+	var otherMembership = $('input#booking_otherMembership').val()
+	var hearAbout = $('input#booking_hearAbout').val()
+	
+	var telephone = $('input#booking_telephone').val()
+	var email = $('input#booking_email').val()
+	
+	var address1 = $('input#booking_address1').val()
+	var address2 = $('input#booking_address2').val()
+	var town = $('input#booking_town').val()
+	var country = $('input#booking_country').val()
+	var postcode = $('input#booking_postcode').val()
+	
+	var ticketId = $('select#booking_ticket').val()
+	
+	//Dummy values
+	firstname = "Jack"
+	lastname = "johnes"
+//	email = "jack747@gmail.com"
+		
+	var postData = {firstname : firstname, lastname : lastname, college : college, 'ticket.id' : ticketId, email : email }
+	
+	console.log(postData)
+	
+	var result = ""
+	
+	$.post( "/book", postData ).done(function( data ) {
+	    console.log( "Booking was sent to server, response : " );
+	    console.log( data )
+	    
+	    return data
+	});
+}
+
+
+
+/***************/
+/** SEND EMAIL**/
+/***************/
+
+function sendEmail() {
+	
+	console.log("sendEmail()")
+	
+	var name = $('input#contactFormName').val().trim();
+	var message = $('textarea#contactFormMessage').val().trim();
+	var email = $('input#contactFormEmail').val().trim();
+	
+	//Validation
+	if(name === "") {
+		alert("Please enter a valid name")
+		return
+	}
+	if(message === "") {
+		alert("Please enter a valid message")
+		return
+	}
+	if(email === "") {
+		alert("Please enter a valid email")
+		return
+	}
+	
+	
+	if (!validateEmail( email )) {
+		alert("Please enter a valid email!")
+		return
+	}	
+	
+	$.post( "/sendEmail", { email: email, message: message, name : name } ).done(function( data ) {
+	    console.log( "Message sent to server, response : " + data );
+	    
+	    if(data === 'error') {
+	    	alert("There was an error sending your message. Please phone 0207 767????")
+	    }
+	    
+	    if(data === 'success') {
+	    	alert("Your message was sent successfully. We will respond as quickly as possible")
+	    }		    
+	});
+}
+
+function validateEmail() {
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	
+	if (!filter.test(email)) {
+		return false
+	}
+	
+	return true
+}
+
+function openGalleryDefaultSettings() {
+	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg'];
+	api_titles = ['Title 1','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
+	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
+	
+	$.fn.prettyPhoto( )
+	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}
+
+function openGallery( theme ) {
+	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg','/img/conference/meeting2.jpg'];
+	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
+	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
+	
+	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
+	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}
+function openGalleryPicnic( theme ) {
+	api_images = ['/img/conference/students2.jpg','/img/conference/students3.jpg','/img/conference/students4.jpg','/img/conference/Marxism2014-WideAngle-GS.jpg'];
+	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
+	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by ','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
+	
+	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
+	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
+}
+
+function openSwipeBox() {
+	
+}
+
+function showMoreSpeakers() {
+	$('div#third_row_speakers').show();
+	$('div#third_row_speakers').removeClass('hidden');
+	$('a#showMoreSpeakersAnchor').hide();
 }
 

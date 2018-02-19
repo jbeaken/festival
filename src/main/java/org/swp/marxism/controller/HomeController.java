@@ -21,6 +21,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.swp.marxism.controller.bean.BookingResult;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
 import org.swp.marxism.domain.MarxismWebsiteContent;
@@ -86,7 +87,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/book", method = RequestMethod.POST)
 	@ResponseBody
-	public String book(@Valid Booking booking, BindingResult bindingResult, Model model) {
+	public BookingResult book(@Valid Booking booking, BindingResult bindingResult, Model model) {
 
 		logger.info("Received post request for booking {}", booking);
 
@@ -98,18 +99,18 @@ public class HomeController {
 			FieldError error = (FieldError) bindingResult.getAllErrors().get(0);
 			String message = error.getField() + " " + error.getDefaultMessage();
 
-			return message;
+			return new BookingResult( message );
 		}
 
 		logger.info("Passed validation, persisting");
 
 		bookingRepository.save(booking);
 
-		logger.info("Booking persisted. Rendering confirmation page");
+		logger.info("Booking persisted. Returning booking object");
 
 		model.addAttribute(booking);
 
-		return "success";
+		return new BookingResult( booking );
 	}
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
