@@ -1,5 +1,6 @@
 package org.swp.marxism.domain;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,6 +26,9 @@ public class Booking {
 	@ManyToOne(optional=false)
 	@JoinColumn(name = "ticket_id")
 	private Ticket ticket;
+	
+	@Embedded
+	private Address address;
 	
 	@NotNull
 	@NotBlank
@@ -222,5 +226,13 @@ public class Booking {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

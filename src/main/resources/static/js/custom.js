@@ -39,9 +39,9 @@ function showNext() {
 		$('button#showNextButton').html('Go To Secure Payment Screen');
 	} else if (currentScreen == 'confirmation') {
 		
-		var result = sendBooking()
+		var result = saveBooking()
 		
-		console.log("sendBooking result : ")
+		console.log("saveBooking result : ")
 		console.log(result)
 		
 	    if(result === 'error') {
@@ -181,9 +181,9 @@ function validateSelect(field, errors) {
 /** BOOKING **/
 /*************/
 
-function sendBooking() {
+function saveBooking() {
 	
-	console.log("sendBooking()")
+	console.log("saveBooking()")
 
 	var firstname = $('input#booking_firstname').val()
 	var lastname = $('input#booking_lastname').val()
@@ -209,7 +209,21 @@ function sendBooking() {
 	lastname = "johnes"
 //	email = "jack747@gmail.com"
 		
-	var postData = {firstname : firstname, lastname : lastname, college : college, 'ticket.id' : ticketId, email : email }
+	var postData = {
+		firstname : firstname, 
+		lastname : lastname, 
+		email : email,
+		telephone : telephone,
+		
+		'ticket.id' : ticketId, 
+		
+		
+		'address.address1' : address1,
+		'address.address2' : address2,
+		'address.town' : town,
+		'address.postcode' : postcode,
+		'address.country' : country
+	}
 	
 	console.log(postData)
 	
