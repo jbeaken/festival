@@ -139,7 +139,6 @@ function validateMobile() {
 	validateField( 'telephone', errors )
 	validateField( 'email', errors )
 	validateField( 'address1', errors )
-	validateField( 'address1', errors )
 	validateField( 'town', errors )
 	validateField( 'postcode', errors )
 	validateField( 'country', errors )
@@ -184,7 +183,6 @@ function validate(screen) {
 		validateField( 'telephone', errors )
 		validateField( 'email', errors )
 	} else if (currentScreen == 'address') {
-		validateField( 'address1', errors )
 		validateField( 'address1', errors )
 		validateField( 'town', errors )
 		validateField( 'postcode', errors )
@@ -231,10 +229,17 @@ function validateSelect(field, errors) {
 function initBookingForMobile() {
 	console.log("initBookingForMobile()")
 	
-	$('section.section_booking').removeClass('hidden');
+	$('section#section_booking').removeClass('hidden');
 	$('.booking_screen').removeClass('hidden')
 	$('.booking_screen').show()
-	$('input#booking_firstname').focus()
+
+	//Scroll to booking
+	$('html, body').animate({
+        scrollTop: $('#section_booking').offset().top - 120
+    //}, 1000, function() {
+    	 //field.focus()
+    	 // $('#booking_' + field).next('.help-block').slideDown();
+    });	
 	
 	$('#thankyou_screen').hide()
 	$('#confirmation_screen').hide()
