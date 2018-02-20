@@ -1,0 +1,129 @@
+div#mfPreviewBar {
+    display: none;
+}
+
+h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from {
+  font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
+  text-transform: none;
+}
+
+.team__item__footer__content {
+  height : 110px;
+}
+
+div.features__item__body {
+  text-align: left;
+  padding-left: 30px;
+}
+
+div.pricing_from_price {
+  font-size: 60px;
+  line-height: 1;
+  color: #FFAB00;
+}
+div.pricing_from {
+  color: #FFAB00;
+  font-size : 30px;
+  line-height: 1;
+}
+.section_pricing .pricing__item {
+  text-align: left;
+}
+
+div#booking_form_container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+/* About */
+div#about_blurb {
+  text-align : left;
+}
+
+/* Error */
+
+i.warning_icon {
+  display : none;
+  color: red;
+  font-size: 15px;
+}
+
+.field-error, .field-error:focus {
+  border-color: red !important;
+}
+
+.error-block {
+  color: red;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  div#booking_form_container {
+    padding-bottom: 540px;
+  }
+  h2#booking_header {
+    color : black;
+    font-size: 24px;
+  }
+  section#section_booking {
+    padding-top: 30px;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  div#booking_form_container {
+    padding-bottom: 520px;
+  }
+  h2#booking_header {
+    font-size: 22px;
+  }
+  section#section_booking {
+    padding-top: 30px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  div#booking_form_container {
+  padding-bottom: 540px;
+  }
+  h2#booking_header {
+  font-size: 18px;
+  }
+  section#section_booking {
+  padding-top: 30px;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  div#booking_form_container {
+    position: static;
+    overflow: visible;
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  /*
+  .h0 {
+  font-size: 24px;
+  padding-bottom: 140px;
+  padding-top: 50px;
+  }
+  */
+  div#booking_form_container {
+    position: static;
+    overflow: visible;
+    height : 100%;
+  }
+  div#about_blurb {
+    /* padding-left: 30px; */
+  }
+  div.booking_radio_buttons {
+    padding-left: 10px;
+  }
+}
