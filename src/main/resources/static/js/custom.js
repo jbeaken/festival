@@ -124,6 +124,53 @@ function showPrevious() {
 /** VALIDATION **/
 /****************/
 
+function validateMobile() {
+
+	var booking = getBooking();
+
+	// reset
+	$(".form-control").removeClass('field-error')
+	$("i.warning_icon").hide()
+
+	var errors = []
+
+	validateField( 'firstname', errors )
+	validateField( 'lastname', errors )
+	validateField( 'telephone', errors )
+	validateField( 'email', errors )
+	validateField( 'address1', errors )
+	validateField( 'address1', errors )
+	validateField( 'town', errors )
+	validateField( 'postcode', errors )
+	validateField( 'country', errors )
+	validateField( 'ticket', errors )
+
+	console.log( errors )
+
+	if (errors.length > 0) {
+		var fieldId = errors[0].field
+		console.log("Adding error class to field " + fieldId)
+
+		var field = $('#booking_' + fieldId)
+
+		field.addClass('field-error')
+		$('#booking_' + fieldId + '_warning_icon').show();
+
+		//Scroll to error
+		$('html, body').animate({
+            scrollTop: field.offset().top - 120
+        //}, 1000, function() {
+        	 //field.focus()
+        	 // $('#booking_' + field).next('.help-block').slideDown();
+        });
+
+		
+		return false
+	}
+
+	return true
+}
+
 function validate(screen) {
 
 	// reset
@@ -194,6 +241,50 @@ function initBookingForMobile() {
 	
 	// Close collapsed navbar on click
     $('.navbar-collapse').collapse('hide');
+}
+
+function submitBookingForMobile() {
+
+	console.log("submitBookingForMobile()")
+
+	if(validateMobile() == false) {
+		console.log("Validation failed")
+		return;
+	}
+
+	saveBooking();
+}
+
+function getBooking() {
+	var booking = {}
+
+	booking.firstname = $('input#booking_firstname').val()
+	booking.lastname = $('input#booking_lastname').val()
+	booking.college = $('input#booking_college').val()
+	booking.tradeUnion = $('input#booking_tradeUnion').val()
+	booking.swpBranch = $('input#booking_swpBranch').val()
+	booking.otherMembership = $('input#booking_otherMembership').val()
+	booking.hearAbout = $('input#booking_hearAbout').val()
+	
+	booking.telephone = $('input#booking_telephone').val()
+	booking.email = $('input#booking_email').val()
+	
+	booking.address1 = $('input#booking_address1').val()
+	booking.address2 = $('input#booking_address2').val()
+	booking.town = $('input#booking_town').val()
+	booking.country = $('input#booking_country').val()
+	booking.postcode = $('input#booking_postcode').val()
+	
+	var ticket = {}
+	ticket.id = $('select#booking_ticket').val()
+
+	booking.ticket = ticket
+
+	console.log("getBooking() : ")
+	console.log(booking)
+
+	return booking
+
 }
 
 function saveBooking() {

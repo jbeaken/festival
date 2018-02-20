@@ -73,6 +73,8 @@ $(function() {
         if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
 
             var target = $(this.hash);
+
+            console.log( target )
             
             if(target.selector == '#section_booking') {
             	$('section.section_booking').removeClass('hidden');
