@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 
-				<h2 class="page-header text-center">Book before Wednesday 28th March for a £5 discount on your booking..!</h2>
+				<h2 id="booking_header" class="page-header text-center">Book before Wednesday 28th March for a £5 discount on your booking..!</h2>
 
 				<div id="booking_form_container">
 					<form action="/book" method="post" class="form-horizontal" role="form">
@@ -19,9 +19,9 @@
 							<div th:include="bookings/creche" id="creche_screen" class="booking_screen hidden" />
 
 							<div th:include="bookings/ticket" id="ticket_screen" class="booking_screen hidden" />
-							
+
 							<div th:include="bookings/confirmation" id="confirmation_screen" class="booking_screen hidden" />
-							
+
 							<div th:include="bookings/thankyou" id="thankyou_screen" class="booking_screen hidden" />
 
 						</fieldset>
@@ -33,10 +33,10 @@
 
 					<button type="button" id="showNextButton" onclick="javascript:showNext()" class="btn btn-primary pull-right">Next</button>
 				</div>
-				
+
 				<div class="form-actions hidden-md hidden-lg">
 					<button type="button" id="showNextButton" onclick="javascript:submitBookingForMobile()" class="btn btn-primary">Save</button>
-				</div>				
+				</div>
 
 			</div>
 

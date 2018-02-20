@@ -30,7 +30,7 @@
 	</script>
 
     <style>
-    
+
     div#mfPreviewBar {
     	display: none;
     }
@@ -62,31 +62,31 @@
     .section_pricing .pricing__item {
       text-align: left;
     }
-    
+
     div#booking_form_container {
-    	position: relative; 
-    	width: 100%; 
-    	height: 0; 
+    	position: relative;
+    	width: 100%;
+    	height: 0;
     	overflow: hidden;
     }
-    
+
     /* About */
     div#about_blurb {
     	text-align : left;
     }
-    
+
     /* Error */
-    
+
     i.warning_icon {
     	display : none;
     	color: red;
     	font-size: 15px;
     }
-    
+
     .field-error, .field-error:focus {
     	border-color: red !important;
 	}
-	
+
 	.error-block {
     	color: red;
 	}
@@ -96,6 +96,13 @@
 	div#booking_form_container {
 		padding-bottom: 540px;
 	}
+  h2#booking_header {
+    color : black;
+    font-size: 24px;
+  }
+  section#section_booking {
+    padding-top: 100px;
+  }
 }
 
 /* Landscape tablets and medium desktops */
@@ -103,6 +110,12 @@
 	div#booking_form_container {
 		padding-bottom: 540px;
 	}
+  h2#booking_header {
+    color : red;
+  }
+  section#section_booking {
+    padding-top: 50px;
+  }
 }
 
 /* Portrait tablets and small desktops */
@@ -110,6 +123,9 @@
 	div#booking_form_container {
 		padding-bottom: 540px;
 	}
+  h2#booking_header {
+    color : yellow;
+  }
 }
 
 /* Landscape phones and portrait tablets */
@@ -128,19 +144,18 @@
 			padding-bottom: 140px;
 			padding-top: 50px;
 		}
-		
 	*/
 	div#booking_form_container {
 		position: static;
 		overflow: visible;
 		height : 100%;
-	}	
+	}
  	div#about_blurb {
 		/* padding-left: 30px; */
-    }	
+    }
 }
 
-	
+
   </style>
 
 
@@ -171,7 +186,7 @@
         </div>
       </div>
     </div>
-    
+
     <div th:include="layouts/navbar"></div>
 
 	<div th:include="layouts/carousel"></div>
