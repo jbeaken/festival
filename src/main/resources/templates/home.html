@@ -171,42 +171,8 @@
         </div>
       </div>
     </div>
-
-    <!-- NAVBAR
-    ================================================== -->
-    <nav class="navbar navbar-fixed-top navbar-default">
-      <div class="container">
-
-        <!-- Brand name -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_main" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Marxism 2018</a>
-        </div>
-
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbar_main">
-
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active">
-              <a href="#section_banner">Welcome</a>
-            </li>
-            <li><a href="#section_features">About</a></li>
-            <li><a href="#section_portfolio">Gallery</a></li>
-            <li><a href="#section_pricing">Pricing</a></li>
-            <li><a href="#section_team">Speakers</a></li>
-            <li><a href="#section_booking">Book</a></li>
-            <li><a href="#section_news">Themes</a></li>
-            <li><a href="#section_contact">Contact</a></li>
-          </ul>
-
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav>
+    
+    <div th:include="layouts/navbar"></div>
 
 	<div th:include="layouts/carousel"></div>
 
@@ -222,9 +188,9 @@
 
 	<div th:include="layouts/contact"></div>
 
-  <div th:include="layouts/book"></div>
+  	<div th:include="layouts/book"></div>
 
-  <div th:include="layouts/footer"></div>
+  	<div th:include="layouts/footer"></div>
 
 
   <!-- JAVASCRIPT

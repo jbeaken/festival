@@ -181,6 +181,21 @@ function validateSelect(field, errors) {
 /** BOOKING **/
 /*************/
 
+function initBookingForMobile() {
+	console.log("initBookingForMobile()")
+	
+	$('section.section_booking').removeClass('hidden');
+	$('.booking_screen').removeClass('hidden')
+	$('.booking_screen').show()
+	$('input#booking_firstname').focus()
+	
+	$('#thankyou_screen').hide()
+	$('#confirmation_screen').hide()
+	
+	// Close collapsed navbar on click
+    $('.navbar-collapse').collapse('hide');
+}
+
 function saveBooking() {
 	
 	console.log("saveBooking()")
