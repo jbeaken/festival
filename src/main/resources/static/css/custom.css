@@ -37,6 +37,14 @@ div#booking_form_container {
   overflow: hidden;
 }
 
+/* Navbar */
+span#navbar_booking {
+	background-color: #FFAB00;
+	color : black;
+	padding : 5px;
+	border-radius: 5px;
+}
+
 /* About */
 div#about_blurb {
   text-align : left;
