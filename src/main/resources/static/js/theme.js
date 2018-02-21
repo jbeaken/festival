@@ -263,9 +263,9 @@ $(function() {
 
         modal.find('#modal_portfolio__heading').text(heading);
         modal.find('#modal_portfolio__img').attr('src', img);
-        modal.find('#modal_portfolio__content').text(content);
+        modal.find('#modal_portfolio__content').html(content);
     });
-
+ 
 
     // Stats: Count To
     // ===============

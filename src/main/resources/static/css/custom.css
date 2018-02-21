@@ -50,6 +50,11 @@ div#about_blurb {
   text-align : left;
 }
 
+div.about-read-more {
+	font-size-adjust: 70%;
+	font-family: 'PiS LIETZ Lindham'
+}
+
 /* Error */
 
 i.warning_icon {
