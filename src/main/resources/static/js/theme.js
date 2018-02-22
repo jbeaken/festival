@@ -5,7 +5,7 @@
 var $window = $(window);
 
 $window.load(function() {
-	
+
 	console.log("window.load call, booting preloader")
 
     // Theme: Preloader
@@ -22,7 +22,7 @@ $window.load(function() {
 });
 
 $(function() {
-	
+
 	console.log("Booting from theme.js")
 
     // Theme: Navbar
@@ -68,20 +68,20 @@ $(function() {
 
         // Close collapsed navbar on click
         navbarCollapse.collapse('hide');
-        
+
         // Smooths scroll to anchor. Check if section_booking, remove hidden class
         if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
 
             var target = $(this.hash);
 
             console.log( target )
-            
+
             if(target.selector == '#section_booking') {
             	$('section.section_booking').removeClass('hidden');
             }
-            
+
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            
+
             if (target.length) {
                 $('html, body').animate({
                     scrollTop: target.offset().top - 80
@@ -125,16 +125,16 @@ $(function() {
             array720.push( { width: 720, url: url } )
             array320.push( { width: 320, url: url } )
         }
-        
+
         var height = $(window).height();   // returns height of browser viewport
         $(document).height(); // returns height of HTML document (same as pageHeight in screenshot)
         var width = $(window).width();   // returns width of browser viewport
         $(document).width();
-        
+
         console.log("width : " + width + " height : " + height)
 
         // Init carousel
- 
+
         //Low res
 //            bannerCarouselImg.backstretch(
 //                [[
@@ -185,7 +185,7 @@ $(function() {
                   ]], {
                         duration: 500,
                         fade: 750
-                    });            
+                    });
 
         bannerCarouselImg.backstretch('pause');
 
@@ -256,19 +256,51 @@ $(function() {
 
     $('#modal_portfolio').on('show.bs.modal', function(event) {
         console.log("show.bs.modal for #modal_portfolio")
+
         var button = $(event.relatedTarget);
         var modal = $(this);
         var heading = button.data('heading');
         var img = button.data('img');
         var content = button.data('content');
+				var ajaxContent = button.data('ajax-content')
+
+				if(ajaxContent != null) {
+					console.log("Ajax call for " + ajaxContent)
+					$('#modal_portfolio__content').load("/modal/" + ajaxContent);
+				} else {
+					console.log("Non-ajax call, using content " + content)
+					modal.find('#modal_portfolio__content').html(content);
+				}
 
         modal.find('#modal_portfolio__heading').text(heading);
         modal.find('#modal_portfolio__img').attr('src', img);
-        modal.find('#modal_portfolio__content').html(content);
     });
+
+		$('#modal_no_img').on('show.bs.modal', function(event) {
+        console.log("show.bs.modal for #modal_no_img")
+
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var heading = button.data('heading');
+        var content = button.data('content');
+				var ajaxContent = button.data('ajax-content')
+
+				if(ajaxContent != null) {
+					console.log("Ajax call for " + ajaxContent)
+					$('#modal_no_img__content').load("/modal/" + ajaxContent);
+				} else {
+					console.log("Non-ajax call, using content " + content)
+					modal.find('#modal_no_img__content').html(content);
+				}
+
+        modal.find('#modal_no_img__heading').text(heading);
+    });
+
+
 
     $('#modal_small_image').on('show.bs.modal', function(event) {
         console.log("show.bs.modal for #modal_small_image")
+
         var button = $(event.relatedTarget);
         var modal = $(this);
         var heading = button.data('heading');
@@ -280,8 +312,8 @@ $(function() {
         modal.find('#modal_small_image__img').attr('src', img);
         modal.find('#modal_small_image__content').html(content);
         modal.find('#modal_small_image__side_content').html(sideContent);
-    });    
- 
+    });
+
 
     // Stats: Count To
     // ===============
@@ -472,24 +504,24 @@ $(function() {
         // Toggle button caption
         $this.find('span').toggleClass('show hidden');
     });
-    
+
 	//allow_resize: true, /* Resize the photos bigger than viewport. true/false */
 	//default_width: 500,
 	//default_height: 344,
-    
+
     //Enable video
     $("a#prettyPhotoVideo").prettyPhoto( {social_tools: false, modal : true, default_width: 700, default_height: 481} );
-    
+
     //Swipebox
     $('button#swipeBoxButton').click( function( e ) {
     	e.preventDefault();
     	$.swipebox( [
-    		{ href:'/img/conference/closing_rally.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }, 
+    		{ href:'/img/conference/closing_rally.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
     		{ href:'/img/conference/f_cc1.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/f_cc2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }, 
+    		{ href:'/img/conference/f_cc2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
     		{ href:'/img/conference/meeting2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
     	] );
     } );
-    
+
     $( '.swipebox' ).swipebox( {autoplayVideos: true} );
 });

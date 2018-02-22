@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.core.io.Resource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -33,13 +34,13 @@ public class HomeController {
 
 	@Autowired
 	private BookingRepository bookingRepository;
-	
+
 	@Autowired
 	private MarxismWebsiteContentRepository marxismWebsiteContentRepository;
 
 	@Autowired
 	private JavaMailSender mailSender;
-	
+
 	@Autowired
 	private ServletContext context;
 
@@ -52,24 +53,24 @@ public class HomeController {
 	public String home(Model model) {
 
 		logger.info("Received request for home");
-		
+
 		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
-		
+
 		if(marxismWebsiteContent == null) {
-			
+
 			marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
-			
+
 			logger.info("Have loaded marxism website content {}", marxismWebsiteContent);
 
 			logger.info("Contains {} speakers", marxismWebsiteContent.getSpeakers().size());
 			logger.info("Contains {} themes", marxismWebsiteContent.getThemes().size());
 			logger.info("Contains {} carousel items", marxismWebsiteContent.getCarouselItems().size());
-			
+
 			context.setAttribute("marxismWebsiteContent", marxismWebsiteContent);
-			
+
 			logger.info("Marxism website content placed into context");
 		}
-		
+
 		model.addAttribute("content", marxismWebsiteContent);
 
 		return "home.html";
@@ -85,6 +86,14 @@ public class HomeController {
 		return "book.html";
 	}
 
+	@RequestMapping(value = "/modal/{content}", method = RequestMethod.GET)
+	public String modalContent(@PathVariable String content, Model model) {
+
+		logger.info("Received request for modal {}", content);
+
+		return "/modal/" + content;
+	}
+
 	@RequestMapping(value = "/book", method = RequestMethod.POST)
 	@ResponseBody
 	public BookingResult book(@Valid Booking booking, BindingResult bindingResult, Model model) {
@@ -95,7 +104,7 @@ public class HomeController {
 			logger.info("Booking failed validation {}", bindingResult);
 
 			model.addAttribute(booking);
-			
+
 			FieldError error = (FieldError) bindingResult.getAllErrors().get(0);
 			String message = error.getField() + " " + error.getDefaultMessage();
 
