@@ -255,6 +255,7 @@ $(function() {
     // ================
 
     $('#modal_portfolio').on('show.bs.modal', function(event) {
+        console.log("show.bs.modal for #modal_portfolio")
         var button = $(event.relatedTarget);
         var modal = $(this);
         var heading = button.data('heading');
@@ -265,6 +266,21 @@ $(function() {
         modal.find('#modal_portfolio__img').attr('src', img);
         modal.find('#modal_portfolio__content').html(content);
     });
+
+    $('#modal_small_image').on('show.bs.modal', function(event) {
+        console.log("show.bs.modal for #modal_small_image")
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var heading = button.data('heading');
+        var img = button.data('img');
+        var content = button.data('content');
+        var sideContent = button.data('side-content')
+
+        modal.find('#modal_small_image__heading').text(heading);
+        modal.find('#modal_small_image__img').attr('src', img);
+        modal.find('#modal_small_image__content').html(content);
+        modal.find('#modal_small_image__side_content').html(sideContent);
+    });    
  
 
     // Stats: Count To

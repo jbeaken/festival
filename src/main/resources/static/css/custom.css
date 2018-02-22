@@ -2,7 +2,7 @@ div#mfPreviewBar {
     display: none;
 }
 
-h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from {
+h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham {
   font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
   text-transform: none;
 }
@@ -53,6 +53,19 @@ div#about_blurb {
 div.about-read-more {
 	font-size-adjust: 70%;
 	font-family: 'PiS LIETZ Lindham'
+}
+
+img.img-cover {
+  margin : 5px;
+  border:1px solid #021a40;
+}
+
+div.about-read {
+  padding : 5px;
+}
+
+div.about-read-header {
+  font-size: 15px;
 }
 
 /* Error */

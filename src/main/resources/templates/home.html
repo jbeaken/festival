@@ -56,33 +56,8 @@
         </div>
       </div>
     </div>
-    
-    <div class="modal fade" id="modal_swp" tabindex="-1" role="dialog" aria-labelledby="modal_portfolio__heading">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">Socialist Workers Party (SWP)</h4>
-          </div>
-          <div class="modal-body">
-            <img id="modal_swp__img" class="img-responsive" alt="...">
-            
-			<p>Marxism is organised by the Socialist Workers Party (SWP).</p>
-			
-			<ul>
-				<li>You can find out more at the <span style="text-decoration: underline;"><span style="color: #993366; text-decoration: underline;"><a href="http://www.swp.org.uk/" target="_blank"><span style="color: #993366; text-decoration: underline;">SWP website</span></a></span></span></li>
-				<li><span style="text-decoration: underline; color: #993366;"><a href="http://www.socialistworker.co.uk" target="_blank"><span style="color: #993366; text-decoration: underline;">Socialist Worker newspaper</span></a></span></li>
-				<li><span style="text-decoration: underline;"><span style="color: #993366; text-decoration: underline;"><a title="FB" href="https://www.facebook.com/SocialistWorkerBritain/" target="_blank"><span style="color: #993366; text-decoration: underline;">Facebook page</span></a></span></span></li>
-				<li><span style="text-decoration: underline;"><span style="color: #993366; text-decoration: underline;"><a href="https://twitter.com/SWP_Britain?ref_src=twsrc%5Etfw&amp;ref_url=http%3A%2F%2Fwww.swp.org.uk%2F" target="_blank"><span style="color: #993366; text-decoration: underline;">Twitter feed</span></a></span></span></li>
-				<li>Find your local <span style="text-decoration: underline;"><span style="color: #993366; text-decoration: underline;"><a href="http://socialistworker.co.uk/public/events" target="_blank"><span style="color: #993366; text-decoration: underline;">SWP branch</span></a></span></span></li>
-			</ul>   
-			     
-          </div>
-        </div>
-      </div>
-    </div>    
+
+    <div th:include="layouts/modal"></div>
 
     <div th:include="layouts/navbar"></div>
 
