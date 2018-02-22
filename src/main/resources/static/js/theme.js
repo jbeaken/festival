@@ -276,22 +276,23 @@ $(function() {
         modal.find('#modal_portfolio__img').attr('src', img);
     });
 
-		$('#modal_no_img').on('show.bs.modal', function(event) {
+	$('#modal_no_img').on('show.bs.modal', function(event) {
         console.log("show.bs.modal for #modal_no_img")
+        console.log(event)
 
         var button = $(event.relatedTarget);
         var modal = $(this);
         var heading = button.data('heading');
         var content = button.data('content');
-				var ajaxContent = button.data('ajax-content')
+		var ajaxContent = button.data('ajax-content')
 
-				if(ajaxContent != null) {
-					console.log("Ajax call for " + ajaxContent)
-					$('#modal_no_img__content').load("/modal/" + ajaxContent);
-				} else {
-					console.log("Non-ajax call, using content " + content)
-					modal.find('#modal_no_img__content').html(content);
-				}
+		if(ajaxContent != null) {
+			console.log("Ajax call for " + ajaxContent)
+			$('#modal_no_img__content').load("/modal/" + ajaxContent);
+		} else {
+			console.log("Non-ajax call, using content")
+			modal.find('#modal_no_img__content').html(content);
+		}
 
         modal.find('#modal_no_img__heading').text(heading);
     });
@@ -300,6 +301,7 @@ $(function() {
 
     $('#modal_small_image').on('show.bs.modal', function(event) {
         console.log("show.bs.modal for #modal_small_image")
+        console.log(event)
 
         var button = $(event.relatedTarget);
         var modal = $(this);

@@ -45,6 +45,10 @@ span#navbar_booking {
 	border-radius: 5px;
 }
 
+/* Modal */
+#modal_portfolio__img {
+}
+
 /* About */
 div#about_blurb {
   text-align : left;
