@@ -251,7 +251,7 @@ $(function() {
     }
 
 
-    // img: Modal
+    // Modals
     // ================
 
     $('#modal_img').on('show.bs.modal', function(event) {
