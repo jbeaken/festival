@@ -251,11 +251,11 @@ $(function() {
     }
 
 
-    // Portfolio: Modal
+    // img: Modal
     // ================
 
-    $('#modal_portfolio').on('show.bs.modal', function(event) {
-        console.log("show.bs.modal for #modal_portfolio")
+    $('#modal_img').on('show.bs.modal', function(event) {
+        console.log("show.bs.modal for #modal_img")
 
         var button = $(event.relatedTarget);
         var modal = $(this);
@@ -266,14 +266,14 @@ $(function() {
 
 				if(ajaxContent != null) {
 					console.log("Ajax call for " + ajaxContent)
-					$('#modal_portfolio__content').load("/modal/" + ajaxContent);
+					$('#modal_img__content').load("/modal/" + ajaxContent);
 				} else {
 					console.log("Non-ajax call, using content " + content)
-					modal.find('#modal_portfolio__content').html(content);
+					modal.find('#modal_img__content').html(content);
 				}
 
-        modal.find('#modal_portfolio__heading').text(heading);
-        modal.find('#modal_portfolio__img').attr('src', img);
+        modal.find('#modal_img__heading').text(heading);
+        modal.find('#modal_img__img').attr('src', img);
     });
 
 	$('#modal_no_img').on('show.bs.modal', function(event) {
@@ -295,25 +295,6 @@ $(function() {
 		}
 
         modal.find('#modal_no_img__heading').text(heading);
-    });
-
-
-
-    $('#modal_small_image').on('show.bs.modal', function(event) {
-        console.log("show.bs.modal for #modal_small_image")
-        console.log(event)
-
-        var button = $(event.relatedTarget);
-        var modal = $(this);
-        var heading = button.data('heading');
-        var img = button.data('img');
-        var content = button.data('content');
-        var sideContent = button.data('side-content')
-
-        modal.find('#modal_small_image__heading').text(heading);
-        modal.find('#modal_small_image__img').attr('src', img);
-        modal.find('#modal_small_image__content').html(content);
-        modal.find('#modal_small_image__side_content').html(sideContent);
     });
 
 

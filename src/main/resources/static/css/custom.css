@@ -46,7 +46,8 @@ span#navbar_booking {
 }
 
 /* Modal */
-#modal_portfolio__img {
+#modal_img__img {
+   margin-bottom: 25px;
 }
 
 /* About */
