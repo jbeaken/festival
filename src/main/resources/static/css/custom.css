@@ -73,6 +73,11 @@ div.about-read-header {
   font-size: 15px;
 }
 
+/* Contact */
+.section_contact:before {
+  background: url(../img/carousel/middleeast.jpg) no-repeat center center / cover;
+}
+
 /* Error */
 
 i.warning_icon {
