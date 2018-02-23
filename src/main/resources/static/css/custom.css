@@ -1,3 +1,13 @@
+/* Social */
+
+.social-icon {
+  font-size: 60px;
+  color : black;
+}
+div.social-container {
+  text-align: center;
+}
+
 div#mfPreviewBar {
     display: none;
 }
