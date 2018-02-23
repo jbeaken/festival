@@ -3,7 +3,7 @@
  */
 // Booking screen
 var currentScreen = "contact";
-var dev = true
+var dev = false
 
 function showNext() {
 	console.log("Call to showNext currentScreen = " + currentScreen)
@@ -191,20 +191,23 @@ function validate(screen) {
 		validateField( 'town', errors )
 		validateField( 'postcode', errors )
 		validateField( 'country', errors )
+	} else if (currentScreen == 'details') {
+		validateField( 'where_hear', errors )
 	} else if (currentScreen == 'accomodation') {
 	} else if (currentScreen == 'creche') {
 	} else if (currentScreen == 'ticket') {
-		validateField("ticket", errors)
+		validateField('ticket', errors)
 	}
 	
 	if(dev == true) return []; else return errors
 }
 
 function validateField(field, errors) {
-	var value = $('#booking_' + field).val().trim()
 
 	console.log(field + " : " + value)
 
+	var value = $('#booking_' + field).val().trim()
+	
 	if (value == '') {
 		errors.push({
 			field : field,
