@@ -26,8 +26,10 @@ function showNext() {
 	var screen = "";
 
 	if (currentScreen == 'contact') {
-		screen = 'address'
+		screen = 'details'
 		$($('button#showPreviousButton')).removeClass('hidden')
+	} else if (currentScreen == 'details') {
+		screen = 'address'
 	} else if (currentScreen == 'address') {
 		screen = 'accomodation'
 	} else if (currentScreen == 'accomodation') {
@@ -84,9 +86,11 @@ function showPrevious() {
 
 	if (currentScreen == 'contact') {
 		// Should never happen
-	} else if (currentScreen == 'address') {
+	} else if (currentScreen == 'details') {
 		screen = 'contact'
 		$('button#showPreviousButton').addClass('hidden')
+	} else if (currentScreen == 'address') {
+		screen = 'details'
 	} else if (currentScreen == 'ticket') {
 		screen = 'creche'
 	} else if (currentScreen == 'creche') {
