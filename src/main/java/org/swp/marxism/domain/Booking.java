@@ -1,5 +1,8 @@
 package org.swp.marxism.domain;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -23,11 +26,16 @@ public class Booking {
 	
 	private BookingStatus status = BookingStatus.UNCONFIRMED; 
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name = "ticket_id")
+	@Embedded
+	@NotNull
 	private Ticket ticket;
 	
+	@NotNull
+	//private LocalDateTime date = LocalDateTime.now();
+	private Date date = new Date();
+	
 	@Embedded
+	@NotNull
 	private Address address;
 	
 	@NotNull
@@ -53,8 +61,6 @@ public class Booking {
 	@Enumerated(EnumType.STRING)
 	private HearAbout hearAbout;
 	
-	private Boolean requiresAccomodation;
-	
 	private String accomodationNeeds;
 	
 	private String accomodationContact;
@@ -67,8 +73,41 @@ public class Booking {
 	
 	private Boolean allowEmails;
 
-	public String getAmount() {
-		return "4500";
+	public Integer getPrice() {
+		
+		Integer price = null;
+		
+		TicketPricing pricing = getTicket().getPricing();
+		
+		switch(getTicket().getType()) {
+		case FULL : 
+			 if(pricing == TicketPricing.WAGED) price = 55;
+			 if(pricing == TicketPricing.UNWAGED) price = 30;
+			 if(pricing == TicketPricing.STUDENT_HE) price = 30;
+			 if(pricing == TicketPricing.STUDENT_FE) price = 20;
+			 break;
+		 case DAY:
+			 Integer noOfDays = getTicket().getNoOfDaysSelected();
+			 if(pricing == TicketPricing.WAGED) price = 20;
+			 if(pricing == TicketPricing.UNWAGED) price = 15;
+			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
+			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
+			 price = price * noOfDays;
+			 break;
+		 case FLEXI:
+			 if(pricing == TicketPricing.WAGED) price = 20;
+			 if(pricing == TicketPricing.UNWAGED) price = 15;
+			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
+			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
+			 break;		 
+		}
+		
+		//After party
+		if(getTicket().getAfterParty() != null && getTicket().getAfterParty() == true) {
+			price += 5;
+		}
+		
+		return price;
 	}
 	
 	public String getFullname() {
@@ -121,14 +160,6 @@ public class Booking {
 
 	public void setOtherMembership(String otherMembership) {
 		this.otherMembership = otherMembership;
-	}
-
-	public Boolean getRequiresAccomodation() {
-		return requiresAccomodation;
-	}
-
-	public void setRequiresAccomodation(Boolean requiresAccomodation) {
-		this.requiresAccomodation = requiresAccomodation;
 	}
 
 	public String getAccomodationNeeds() {
@@ -203,13 +234,6 @@ public class Booking {
 		this.tradeUnion = tradeUnion;
 	}
 
-	@Override
-	public String toString() {
-		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout
-				+ ", requiresAccomodation=" + requiresAccomodation + ", accomodationNeeds=" + accomodationNeeds + ", accomodationContact=" + accomodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
-				+ ", children5YearsTo11years=" + children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -233,4 +257,20 @@ public class Booking {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	@Override
+	public String toString() {
+		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", address=" + address + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", email=" + email + ", telephone=" + telephone + ", otherMembership="
+				+ otherMembership + ", hearAbout=" + hearAbout + ", accomodationNeeds=" + accomodationNeeds + ", accomodationContact=" + accomodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years + ", children5YearsTo11years="
+				+ children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 }

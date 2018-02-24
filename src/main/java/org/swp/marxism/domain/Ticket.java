@@ -1,67 +1,131 @@
 package org.swp.marxism.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Embeddable
 public class Ticket {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	@Enumerated(EnumType.STRING)
+	@Column(name="ticket_type", nullable=false)
+	@NotNull
+	private TicketType type;
 	
-	private String name;
+	@Enumerated(EnumType.STRING)
+	@Column(name="ticket_pricing", nullable=false)
+	@NotNull
+	private TicketPricing pricing;
 	
-	private String code;
+	@Column(name="ticket_web_price")
+	@NotNull
+	private String webPrice;
 	
-	private String description;
+	private Integer thursday;
 	
-	private Float price;
-
-	public Long getId() {
-		return id;
+	private Integer friday;
+	
+	private Integer saturday;
+	
+	private Integer sunday;
+	
+	private Boolean afterParty;
+	
+	public String getDays() {
+		StringBuilder days = new StringBuilder();
+		
+		if(thursday != null) days.append("T ");
+		if(friday != null) days.append("F ");
+		if(saturday != null) days.append("Sa ");
+		if(sunday != null) days.append("Su");
+		
+		return days.toString();
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public TicketType getType() {
+		return type;
 	}
 
-	public String getName() {
-		return name;
+	public void setType(TicketType type) {
+		this.type = type;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public TicketPricing getPricing() {
+		return pricing;
 	}
 
-	public String getCode() {
-		return code;
+	public void setPricing(TicketPricing pricing) {
+		this.pricing = pricing;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public Integer getThursday() {
+		return thursday;
 	}
 
-	public String getDescription() {
-		return description;
+	public void setThursday(Integer thursday) {
+		this.thursday = thursday;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public Integer getFriday() {
+		return friday;
+	}
+
+	public void setFriday(Integer friday) {
+		this.friday = friday;
+	}
+
+	public Integer getSaturday() {
+		return saturday;
+	}
+
+	public void setSaturday(Integer saturday) {
+		this.saturday = saturday;
+	}
+
+	public Integer getSunday() {
+		return sunday;
+	}
+
+	public void setSunday(Integer sunday) {
+		this.sunday = sunday;
+	}
+
+	public Boolean getAfterParty() {
+		return afterParty;
+	}
+
+	public void setAfterParty(Boolean afterParty) {
+		this.afterParty = afterParty;
+	}
+
+	public Integer getNoOfDaysSelected() {
+		int noOfDaysSelected = 0;
+		if(thursday != null) noOfDaysSelected += thursday;
+		if(friday != null) noOfDaysSelected += friday;
+		if(saturday != null) noOfDaysSelected += saturday;
+		if(sunday != null) noOfDaysSelected += sunday;
+		
+		return noOfDaysSelected;
+	}
+
+	public String getWebPrice() {
+		return webPrice;
+	}
+
+	public void setWebPrice(String webPrice) {
+		this.webPrice = webPrice;
 	}
 
 	@Override
 	public String toString() {
-		return "Ticket [id=" + id + ", name=" + name + ", code=" + code + ", description=" + description + "]";
+		return "Ticket [type=" + type + ", pricing=" + pricing + ", webPrice=" + webPrice + ", thursday=" + thursday + ", friday=" + friday + ", saturday=" + saturday + ", sunday=" + sunday + ", afterParty=" + afterParty + "]";
 	}
 
-	public Float getPrice() {
-		return price;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
-	}
+	
 }

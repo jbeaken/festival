@@ -46,20 +46,8 @@ function showNext() {
 		
 	} else if (currentScreen == 'confirmation') {
 		
-		var result = saveBooking()
-		
-		console.log("saveBooking result : ")
-		console.log(result)
-		
-	    if(result === 'error') {
-	    	console.log("There was an error processing your booking. Please phone 0207 767???? quoting error : " + result)
-	    }
+		$('form#booking-form').submit();
 	    
-	    if(result === 'success') {
-	    	console.log("Your booking was saved successfully")
-	    } 
-	    
-	    //End of process
 	    return;
 	}
 
@@ -88,8 +76,7 @@ function showNext() {
 function fillConfirmation() {
 	var booking = getBooking();
 	
-	$('div#confirmation_firstname').text(booking.firstname)
-	$('div#confirmation_lastname').text(booking.lastname)
+	$('div#confirmation_fullname').text(booking.firstname + " " + booking.lastname)
 	$('div#confirmation_college').text(booking.college)
 	$('div#confirmation_tradeUnion').text(booking.tradeUnion)
 	$('div#confirmation_otherMembership').text(booking.otherMembership)
@@ -122,12 +109,11 @@ function fillConfirmation() {
 		$('div#confirmation_accommodation').hide()
 	}
 	
-
+	var price = calculatePrice()
 	
+	var intPrice = Math.round ( price * 100 )
 	
-	//var ticket = {}
-//	ticket.id = $('select#booking_ticket').val()
-	//booking.ticket = ticket
+	$('input#ticketWebPrice').val( intPrice )
 }
 
 function showPrevious() {
@@ -253,10 +239,22 @@ function validate( screen ) {
 	} else if (currentScreen == 'accomodation') {
 	} else if (currentScreen == 'creche') {
 	} else if (currentScreen == 'ticket') {
-		validateField('ticket', errors)
+		validateTicket(errors)
 	}
 	
 	if(dev == true) return []; else return errors
+}
+
+function validateTicket(errors) {
+	var price = calculatePrice()
+	
+	if(price == 0) {
+		errors.push({
+			field : 'ticket_id',
+			error : ' must be given'
+		})
+		alert("Please select a valid ticket type")
+	}
 }
 
 function validateField( field, errors ) {
@@ -405,8 +403,6 @@ function getBooking() {
 	ticket.id = $('select#booking_ticket').val()
 	booking.ticket = ticket
 	
-	booking.amount = calculateAmount( ticket )
-	
 	booking.id = $('input#booking_id').val()
 	
 	console.log("getBooking() : ")
@@ -414,11 +410,6 @@ function getBooking() {
 
 	return booking
 
-}
-
-function calculateAmount( ticket ) {
-	if(ticket.id == 1) return "5500";
-	if(ticket.id == 2) return "4400";
 }
 
 function saveBooking() {
@@ -471,8 +462,6 @@ function saveBooking() {
 	});
 	
 }
-
-
 
 /***************/
 /** SEND EMAIL**/
@@ -563,5 +552,114 @@ function showMoreSpeakers() {
 	$('div#third_row_speakers').show();
 	$('div#third_row_speakers').removeClass('hidden');
 	$('a#showMoreSpeakersAnchor').hide();
+}
+
+
+/**********************/
+/** TICKET SELECTION **/
+/**********************/
+
+function toggleTickets() {
+	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
+	var ticketType = $('input[name="ticket.type"]:checked').val()
+	
+	console.log("selected ticketPricing : " + ticketPricing)
+	console.log("selected ticketType : " + ticketType)
+	
+	if(ticketPricing == null) {
+		$('div#ticketPricingContainer').show();
+		return
+	}
+	
+	switch (ticketType) {
+		 case "FULL" :
+			 $('div#ticketAfterPartyContainer').show();
+			 $('div#ticketDayContainer').hide();
+			 break;
+		 case "DAY" :
+			 $('div#ticketDayContainer').show();
+			 $('div#ticketAfterPartyContainer').show();
+			 if(isDaySelected() == false) {
+				 $('div#ticketPriceContainer').hide()
+				 $('div#ticketAfterPartyContainer').hide();
+				 return;
+			 }
+			 break;
+		 case "FLEXI" :
+			 $('div#ticketDayContainer').hide();
+			 $('div#ticketAfterPartyContainer').show();
+			 break;		 
+		 default:
+	}	
+	
+	var price = calculatePrice()
+	
+	$('div#ticket-price').html('&pound;' + price.toFixed(2));
+	
+	$('div#ticketPriceContainer').show()
+}
+
+
+
+function calculatePrice() {
+	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
+	var ticketType = $('input[name="ticket.type"]:checked').val()
+	var afterParty = $('input#afterPartyCheckbox:checked').val()
+	
+	var price = 0;
+	
+	switch (ticketType) {
+		 case "FULL":
+			 if(ticketPricing == 'WAGED') price = 55;
+			 if(ticketPricing == 'UNWAGED') price = 30;
+			 if(ticketPricing == 'STUDENT-HE') price = 30;
+			 if(ticketPricing == 'STUDENT-FE') price = 20;
+			 break;
+		 case "DAY":
+			 var noOfDays = getNoOfDaysSelected();
+			 if(ticketPricing == 'WAGED') price = 20;
+			 if(ticketPricing == 'UNWAGED') price = 15;
+			 if(ticketPricing == 'STUDENT-HE') price = 15;
+			 if(ticketPricing == 'STUDENT-FE') price = 10;
+			 price = price * noOfDays
+			 break;
+		 case "FLEXI":
+			 if(ticketPricing == 'WAGED') price = 20;
+			 if(ticketPricing == 'UNWAGED') price = 15;
+			 if(ticketPricing == 'STUDENT-HE') price = 15;
+			 if(ticketPricing == 'STUDENT-FE') price = 10;
+			 break;		 
+		 default:
+		break;
+	}
+	
+	if(afterParty == 'on') price = price + 5;
+	
+	console.log("price : " + price)
+	
+	return price
+}
+
+function isDaySelected() {
+	var thursday = $('select#dayTicketThursday').val()
+	var friday = $('select#dayTicketFriday').val()
+	var saturday = $('select#dayTicketSaturday').val()
+	var sunday = $('select#dayTicketSunday').val()
+	
+	if(thursday == '0' && friday == '0' && saturday == '0' && sunday == '0') return false;
+	
+	return true
+}
+
+
+function getNoOfDaysSelected() {
+	var thursday = parseInt( $('select#dayTicketThursday').val() )
+	var friday = parseInt( $('select#dayTicketFriday').val() )
+	var saturday = parseInt( $('select#dayTicketSaturday').val() )
+	var sunday = parseInt( $('select#dayTicketSunday').val() )
+	
+	var noOfDays = thursday + friday + saturday + sunday
+	
+	return noOfDays
 }
 

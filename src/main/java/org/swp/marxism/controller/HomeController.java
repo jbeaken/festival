@@ -26,6 +26,7 @@ import org.swp.marxism.controller.bean.BookingResult;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
 import org.swp.marxism.domain.MarxismWebsiteContent;
+import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteContentRepository;
 
@@ -108,6 +109,13 @@ public class HomeController {
 			String message = error.getField() + " " + error.getDefaultMessage();
 
 			return "error.html";
+		}
+		
+		//Sanity check
+		logger.info("Checking {} equals {} ", booking.getPrice(), booking.getTicket().getWebPrice());
+		String backendPrice = (booking.getPrice() * 100) + "";
+		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
+			throw new MarxismException("Web and backend prices do not match");
 		}
 
 		logger.info("Passed validation, persisting");
