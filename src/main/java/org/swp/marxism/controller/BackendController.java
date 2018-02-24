@@ -32,7 +32,8 @@ import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteContentRepository;
 
-@Controller("/backend")
+@RequestMapping("/bookings")
+@Controller
 public class BackendController {
 
 	@Autowired
@@ -49,7 +50,7 @@ public class BackendController {
 
 	protected static final Logger logger = LoggerFactory.getLogger(BackendController.class);
 
-	@RequestMapping(value = "/start", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 
 		logger.info("Received request for admin home");
@@ -62,4 +63,18 @@ public class BackendController {
 
 		return "admin/home.html";
 	}
+	
+	@RequestMapping(value = "/charts", method = RequestMethod.GET)
+	public String charts(Model model) {
+
+		logger.info("Received request for admin charts");
+		
+		List<Booking> bookings = bookingRepository.findAll();
+		
+		logger.info("Retrieved {} bookings", bookings.size());
+		
+		model.addAttribute(bookings);
+
+		return "admin/charts.html";
+	}	
 }
