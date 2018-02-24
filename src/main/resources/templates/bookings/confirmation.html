@@ -1,8 +1,169 @@
-<legend>Ticket Details</legend>
+<legend>Confirmation</legend>
 
-Confirmation
+<div class="row">
+	<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-4">
+				<label>First Name <a class="edit-booking" href="javascript:editBooking( 'details' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_firstname"></div>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<label>Last Name <a class="edit-booking" href="javascript:editBooking( 'details' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_lastname"></div>
+			</div>	
+		</div>
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>Email <a class="edit-booking" href="javascript:editBooking( 'details' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_email"></div>
+			</div>							
+		</div>
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>Telephone <a class="edit-booking" href="javascript:editBooking( 'details' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_telephone"></div>
+			</div>							
+		</div>		
+	</div>
+	
+	<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-4">
+				<label>Address 1 <a class="edit-booking" href="javascript:editBooking( 'accomodation' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_address1"></div>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<label>Address2 <a class="edit-booking" href="javascript:editBooking( 'accomodation' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_address2"></div>
+			</div>	
+		</div>
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>Town <a class="edit-booking" href="javascript:editBooking( 'accomodation' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_town"></div>
+			</div>							
+		</div>
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>Postcode <a class="edit-booking" href="javascript:editBooking( 'accomodation' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_postcode"></div>
+			</div>							
+		</div>	
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>Country <a class="edit-booking" href="javascript:editBooking( 'accomodation' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_country"></div>
+			</div>							
+		</div>				
+	</div>	
+</div>
 
-Confirmation<br/>
-Confirmation<br/>
+<hr/>
 
-Confirmation<br/>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-4">
+				<label>Trade Union <a class="edit-booking" href="javascript:editBooking( 'address' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_tradeUnion"></div>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<label>College <a class="edit-booking" href="javascript:editBooking( 'address' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_college"></div>
+			</div>	
+		</div>
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>Other Membership <a class="edit-booking" href="javascript:editBooking( 'address' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_otherMembership"></div>
+			</div>							
+		</div>
+		<div class="row">	
+			<div class="col-sm-4">
+				<label>How did you hear about Marxism?  <a class="edit-booking" href="javascript:editBooking( 'address' )"> edit</a></label>
+			</div>
+			<div class="col-sm-8">
+				<div id="confirmation_where_hear"></div>
+			</div>							
+		</div>		
+	</div>
+	
+	<div class="col-sm-6">
+		<div id="confirmation_creche" style="display : none;">
+			<div class="row">
+				<div class="col-sm-4">
+					<label>Creche Children under 18 months<a class="edit-booking" href="javascript:editBooking( 'ticket' )"> edit</a></label>
+				</div>
+				<div class="col-sm-8">
+					<div id="confirmation_creche_under18months"></div>
+				</div>	
+			</div>
+			<div class="row">	
+				<div class="col-sm-4">
+					<label>Creche Children 18 months to 5 years <a class="edit-booking" href="javascript:editBooking( 'ticket' )"> edit</a></label>
+				</div>
+				<div class="col-sm-8">
+					<div id="confirmation_creche_upto5Years"></div>
+				</div>							
+			</div>
+			<div class="row">	
+				<div class="col-sm-4">
+					<label>Creche Children 5 to 11 years <a class="edit-booking" href="javascript:editBooking( 'ticket' )"> edit</a></label>
+				</div>
+				<div class="col-sm-8">
+					<div id="confirmation_creche_from5to11Years"></div>
+				</div>							
+			</div>	
+		</div>
+		<div id="confirmation_accommodation" style="display : none;">
+			<div class="row">	
+				<div class="col-sm-4">
+					<label>Accommodation Needs <a class="edit-booking" href="javascript:editBooking( 'creche' )"> edit</a></label>
+				</div>
+				<div class="col-sm-8">
+					<div id="confirmation_accommodation_needs"></div>
+				</div>							
+			</div>
+			<div class="row">	
+				<div class="col-sm-4">
+					<label>Accommodation Friend To Stay With <a class="edit-booking" href="javascript:editBooking( 'creche' )"> edit</a></label>
+				</div>
+				<div class="col-sm-8">
+					<div id="confirmation_accommodation_friend"></div>
+				</div>							
+			</div>	
+		</div>						
+	</div>	
+</div>
+
+

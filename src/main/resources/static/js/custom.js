@@ -9,7 +9,7 @@ function showNext() {
 	console.log("Call to showNext currentScreen = " + currentScreen)
 
 	// Validate
-	var errors = validate(currentScreen)
+	var errors = validate( currentScreen )
 
 	console.log(errors)
 
@@ -38,6 +38,7 @@ function showNext() {
 		screen = 'ticket'
 	} else if (currentScreen == 'ticket') {
 		screen = 'confirmation'
+		fillConfirmation();
 		$('button#showNextButton').html('Go To Secure Payment Screen');
 	} else if (currentScreen == 'confirmation') {
 		
@@ -77,6 +78,49 @@ function showNext() {
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
 	$(screen).show()
+}
+
+function fillConfirmation() {
+	var booking = getBooking();
+	
+	$('div#confirmation_firstname').text(booking.firstname)
+	$('div#confirmation_lastname').text(booking.lastname)
+	$('div#confirmation_college').text(booking.college)
+	$('div#confirmation_tradeUnion').text(booking.tradeUnion)
+	$('div#confirmation_otherMembership').text(booking.otherMembership)
+	$('div#confirmation_hearAbout').text(booking.hearAbout)
+	
+	$('div#confirmation_telephone').text(booking.telephone)
+	$('div#confirmation_email').text(booking.email)
+	
+	$('div#confirmation_address1').text(booking.address1)
+	$('div#confirmation_address2').text(booking.address2)
+	$('div#confirmation_town').text(booking.town)
+	$('div#confirmation_country').text(booking.country)
+	$('div#confirmation_postcode').text(booking.postcode)
+	
+	console.log(booking.creche)
+	
+	if(booking.creche != null) {
+		$('div#confirmation_creche_under18months').text(booking.creche.under18months)
+		$('div#confirmation_creche_upto5Years').text(booking.creche.upto5Years)
+		$('div#confirmation_creche_from5to11Years').text(booking.creche.from5to11Years)
+		$('div#confirmation_creche').show()
+	} else {
+		$('div#confirmation_creche').hide()
+	}
+	
+	if(booking.accommodation != null) {
+		$('div#confirmation_accommodation_needs').text(booking.accommodation.needs)
+		$('div#confirmation_accommodation_friend').text(booking.accommodation.friend)
+		$('div#confirmation_accommodation').show()
+	} else {
+		$('div#confirmation_accommodation').hide()
+	}
+	
+	//var ticket = {}
+	//ticket.id = $('select#booking_ticket').val()
+	//booking.ticket = ticket
 }
 
 function showPrevious() {
@@ -174,7 +218,7 @@ function validateMobile() {
 	return true
 }
 
-function validate(screen) {
+function validate( screen ) {
 
 	// reset
 	$(".form-control").removeClass('field-error')
@@ -185,12 +229,18 @@ function validate(screen) {
 		validateField( 'firstname', errors )
 		validateField( 'lastname', errors )
 		validateField( 'telephone', errors )
-		validateField( 'email', errors )
+		validateEmail( 'email', errors )
 	} else if (currentScreen == 'address') {
 		validateField( 'address1', errors )
 		validateField( 'town', errors )
 		validateField( 'postcode', errors )
 		validateField( 'country', errors )
+	} else if (currentScreen == 'creche') {
+		//validateField( 'under18months', errors )
+		//validateField( 'upto5Years', errors )
+		//validateField( 'from5to11Years', errors )
+	} else if (currentScreen == 'accomodation') {
+		validateField( 'accommodation_needs', errors )
 	} else if (currentScreen == 'details') {
 		validateField( 'where_hear', errors )
 	} else if (currentScreen == 'accomodation') {
@@ -202,16 +252,50 @@ function validate(screen) {
 	if(dev == true) return []; else return errors
 }
 
-function validateField(field, errors) {
-
-	console.log(field + " : " + value)
+function validateField( field, errors ) {
 
 	var value = $('#booking_' + field).val().trim()
+	
+	console.log(field + " : " + value)
 	
 	if (value == '') {
 		errors.push({
 			field : field,
 			error : ' must be given'
+		})
+	}
+}
+
+function validateEmail( field, errors ) {
+	var value = $('#booking_' + field).val().trim()
+	
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+	if( re.test( String( value ).toLowerCase() ) == false ) {
+    	errors.push({
+			field : field,
+			error : ' invalid email'
+		})
+    };
+}
+
+function validateNumber(field, errors) {
+
+	var value = $('#booking_' + field).val()
+	
+	console.log(field + " : " + value)
+	
+	if (value == '') {
+		errors.push({
+			field : field,
+			error : ' must be given'
+		})
+	}
+	
+	if( !isNaN(parseFloat(value)) && isFinite(value) ) {
+		errors.push({
+			field : field,
+			error : ' is not a valid number'
 		})
 	}
 }
@@ -232,6 +316,12 @@ function validateSelect(field, errors) {
 /*************/
 /** BOOKING **/
 /*************/
+
+function editBooking( screen ) {
+	currentScreen = screen
+	$('button#showNextButton').html('Next');
+	showPrevious();
+}
 
 function initBookingForMobile() {
 	console.log("initBookingForMobile()")
@@ -274,7 +364,6 @@ function getBooking() {
 	booking.lastname = $('input#booking_lastname').val()
 	booking.college = $('input#booking_college').val()
 	booking.tradeUnion = $('input#booking_tradeUnion').val()
-	booking.swpBranch = $('input#booking_swpBranch').val()
 	booking.otherMembership = $('input#booking_otherMembership').val()
 	booking.hearAbout = $('input#booking_hearAbout').val()
 	
@@ -287,11 +376,28 @@ function getBooking() {
 	booking.country = $('input#booking_country').val()
 	booking.postcode = $('input#booking_postcode').val()
 	
+	console.log( $('input#crecheRequiredRadioYes').is(":checked") )
+	
+	if ($('input#crecheRequiredRadioYes').is(":checked") == true) {
+		console.log("buidling crech")
+		var creche = {}
+		creche.under18months = $('select#booking_under18months').val()
+		creche.upto5Years = $('select#booking_upto5Years').val()
+		creche.from5to11Years = $('select#booking_from5to11Years').val()
+		booking.creche = creche
+	}
+
+	if ($('input#accomdationRequiredYes').is(":checked") == true) {
+		var accommodation = {}
+		accommodation.friend = $('input#booking_accommodation_friend').val()
+		accommodation.needs = $('textarea#booking_accommodation_needs').val()
+		booking.accommodation = accommodation
+	}
+	
 	var ticket = {}
 	ticket.id = $('select#booking_ticket').val()
-
 	booking.ticket = ticket
-
+	
 	console.log("getBooking() : ")
 	console.log(booking)
 
@@ -384,7 +490,7 @@ function sendEmail() {
 	}
 	
 	
-	if (!validateEmail( email )) {
+	if (!validateContactEmail( email )) {
 		alert("Please enter a valid email!")
 		return
 	}	
@@ -402,7 +508,7 @@ function sendEmail() {
 	});
 }
 
-function validateEmail() {
+function validateContactEmail() {
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	
 	if (!filter.test(email)) {

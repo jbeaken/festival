@@ -47,6 +47,11 @@ div#booking_form_container {
   height: 0;
   overflow: hidden;
 }
+a.edit-booking {
+	text-decoration: underline;
+	text-transform: none;
+	font-size: 0.9em;
+}
 
 span.help-block {
   margin-left: 20px;
