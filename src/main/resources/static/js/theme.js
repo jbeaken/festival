@@ -496,11 +496,15 @@ $(function() {
     $("a#prettyPhotoVideo").prettyPhoto( {social_tools: false, modal : true, default_width: 700, default_height: 481} );
 
     //Swipebox
-    $('button#swipeBoxButton').click( function( e ) {
+    $('a#swipeBoxButton').click( function( e ) {
     	e.preventDefault();
     	$.swipebox( [
     		{ href:'/img/conference/closing_rally.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
     		{ href:'/img/conference/f_cc1.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/students2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/students3.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/students4.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/Marxism2014-WideAngle-GS.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
     		{ href:'/img/conference/f_cc2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
     		{ href:'/img/conference/meeting2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
     	] );

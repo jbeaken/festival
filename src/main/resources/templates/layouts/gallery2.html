@@ -1,0 +1,151 @@
+<!-- Gallery ================================================== -->
+<style>
+.section_gallery {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 0 !important;
+}
+
+	.block {
+		height : 30%;
+		margin : 10px;
+		padding: 5px;
+		color : black;
+		border: 1px solid #eee;
+	}
+	
+	.block:hover, .gallery-block:hover {
+		box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
+	}
+	
+	.video-block {
+	 	height : 400px;
+		transition: all .25s;
+		cursor: pointer;	 
+	
+	}
+	
+	.video-text {
+		height : 50%;
+		position :relative;
+	}
+	
+	.video-image {
+	 	margin-top: 10px;
+		height : 50%;
+	}
+	.video-title {
+		padding: 5px 5px 0px 15px;
+		font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
+		font-size : 1.3em;
+		line-height: 1.2;
+		color : black;
+	}
+	
+	.video-icon {
+		padding-left: 15px;
+		padding-top : 0px;
+	}
+	
+	.camera-icon, .video-icon {
+		color : #FFAB00;
+	}
+	
+	.camera-icon {
+		font-size: 8em;
+	}
+	
+	a.video-anchor:hover, a.video-anchor:focus {
+    	color: #d99100;
+    	text-decoration: none;
+    }
+}
+</style>
+
+<section class="section_gallery section_alt" id="section_portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+
+				<h2 class="page-header text-center">
+					Galleries and <span>videos</span>
+				</h2>
+
+			</div>
+		</div>
+		<!-- / .row -->
+	</div>
+	
+	<div class="container">
+		<div class="row">
+		
+			<div class="col-sm-4 video-block gallery-block">
+				<a id="swipeBoxButton">
+					<div class="video-image">
+						<img th:src="@{/img/conference/closing_rally.jpg}" class="img-responsive" alt="...">
+					</div>
+					<div class="camera-icon" style="text-align: center;">
+	                	<i class="ion-ios-camera"></i>
+					</div>
+				</a>
+			</div>
+			
+			<div class="col-sm-4 video-block">
+				<div class="block">
+					<a class="swipebox video-anchor" href="https://www.youtube.com/watch?v=6h02msZ_vYk&autoplay=1">
+						<div class="video-title">The Suffragettes - Paul Foot - audio only</div>
+						<div class="video-icon">
+							<i class="ion-ios-videocam" style="font-size : 2em;"></i>
+						</div>
+					</a>
+				</div>
+				<div class="block">
+					<a class="swipebox video-anchor" href="https://www.youtube.com/watch?v=6h02msZ_vYk&autoplay=1">
+						<div class="video-title">A tribute to John Berger - John Molyneux</div>
+						<div class="video-icon">
+							<i class="ion-ios-videocam" style="font-size : 2em;"></i>
+						</div>
+					</a>
+				</div>
+				<div class="block">
+					<a class="swipebox video-anchor" href="https://www.youtube.com/watch?v=nIi-dMHYC6c">
+						<div class="video-title">Haringey residents fight the HDV</div>
+						<div class="video-icon">
+							<i class="ion-ios-videocam" style="font-size : 2em;"></i>
+						</div>
+					</a>
+				</div>
+			</div>
+			
+			<div class="col-sm-4 video-block">
+				<div class="block">
+					<a class="swipebox video-anchor" href="https://www.youtube.com/watch?v=D-wSrNWeeOQ">
+						<div class="video-title">Corbyn in power: what would a Labour government look like? - Charlie Kimber</div>
+						<div class="video-icon">
+							<i class="ion-ios-videocam" style="font-size : 2em;"></i>
+						</div>
+					</a>
+				</div>
+				<div class="block">
+					<a class="swipebox video-anchor" href="https://www.youtube.com/watch?v=6h02msZ_vYk&autoplay=1">
+						<div class="video-title">Neoliberalism in the Workplace: The Political economy of Bullshit</div>
+						<div class="video-icon">
+							<i class="ion-ios-videocam" style="font-size : 2em;"></i>
+						</div>
+					</a>
+				</div>
+				<div class="block">
+					<a class="swipebox video-anchor" href="https://www.youtube.com/watch?v=6h02msZ_vYk&autoplay=1">
+						<div class="video-title">Economic crisis and the long depression - Michael Roberts</div>
+						<div class="video-icon">
+							<i class="ion-ios-videocam" style="font-size : 2em;"></i>
+						</div>
+					</a>
+				</div>	
+			</div>
+			
+		</div>
+		<!-- / .row -->
+	</div>
+	<!-- / .container-fluid -->
+</section>
