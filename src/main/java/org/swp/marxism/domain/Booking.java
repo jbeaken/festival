@@ -42,8 +42,6 @@ public class Booking {
 	
 	private String tradeUnion;
 	
-	private String swpBranch;
-	
 	@Email
 	@NotNull
 	private String email; 
@@ -69,6 +67,14 @@ public class Booking {
 	
 	private Boolean allowEmails;
 
+	public String getAmount() {
+		return "4500";
+	}
+	
+	public String getFullname() {
+		return getFirstname() + " " + getLastname();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -173,14 +179,6 @@ public class Booking {
 		this.allowEmails = allowEmails;
 	}
 
-	public String getSwpBranch() {
-		return swpBranch;
-	}
-
-	public void setSwpBranch(String swpBranch) {
-		this.swpBranch = swpBranch;
-	}
-
 	public HearAbout getHearAbout() {
 		return hearAbout;
 	}
@@ -207,7 +205,7 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", swpBranch=" + swpBranch + ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout
+		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout
 				+ ", requiresAccomodation=" + requiresAccomodation + ", accomodationNeeds=" + accomodationNeeds + ", accomodationContact=" + accomodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
 				+ ", children5YearsTo11years=" + children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
 	}

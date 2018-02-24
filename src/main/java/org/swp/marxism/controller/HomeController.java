@@ -95,8 +95,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/book", method = RequestMethod.POST)
-	@ResponseBody
-	public BookingResult book(@Valid Booking booking, BindingResult bindingResult, Model model) {
+	public String book(@Valid Booking booking, BindingResult bindingResult, Model model) {
 
 		logger.info("Received post request for booking {}", booking);
 
@@ -108,7 +107,7 @@ public class HomeController {
 			FieldError error = (FieldError) bindingResult.getAllErrors().get(0);
 			String message = error.getField() + " " + error.getDefaultMessage();
 
-			return new BookingResult( message );
+			return "error.html";
 		}
 
 		logger.info("Passed validation, persisting");
@@ -119,7 +118,7 @@ public class HomeController {
 
 		model.addAttribute(booking);
 
-		return new BookingResult( booking );
+		return "barclays.html";
 	}
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)

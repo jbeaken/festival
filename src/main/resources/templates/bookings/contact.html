@@ -1,5 +1,7 @@
 <legend>Your Details</legend>
 
+<input type="hidden" id="booking_id"/>
+
 <div class="form-group">
 	
 	<label class="col-sm-3 control-label" for="firstname">
@@ -7,7 +9,7 @@
 	</label>
 	
 	<div class="col-sm-9">
-		<input type="text" id="booking_firstname" class="form-control" value="" placeholder="First Name">
+		<input type="text" id="booking_firstname" name="firstname" class="form-control" value="Jack" placeholder="First Name">
 		<span class="error-block" style="display: none;">Please enter your first name.</span>
 	</div>
 	
@@ -20,7 +22,7 @@
 	</label>
 	
 	<div class="col-sm-9">
-		<input type="text" id="booking_lastname" class="form-control" value="" placeholder="Last Name">
+		<input type="text" id="booking_lastname" class="form-control" name="lastname" value="Beaken" placeholder="Last Name">
 		<span class="error-block" style="display: none;">Please enter your last name.</span>
 	</div>
 </div>
@@ -29,7 +31,7 @@
 	<label class="col-sm-3 control-label" for="telephone">
 	<i class="ion-android-warning warning_icon" id="booking_telephone_warning_icon"></i> Phone:</label>
 	<div class="col-sm-9">
-		<input type="text" id="booking_telephone" class="form-control" value="" placeholder="Phone">
+		<input type="text" id="booking_telephone" name="telephone" class="form-control" value="07448782571" placeholder="Phone">
 		<span class="error-block" style="display: none;">Please enter your telephone number.</span>
 	</div>
 </div>
@@ -38,7 +40,7 @@
 	<label class="col-sm-3 control-label" for="email">
 	<i class="ion-android-warning warning_icon" id="booking_email_warning_icon"></i> Email:</label>
 	<div class="col-sm-9">
-		<input type="text" id="booking_email" class="form-control" value="" placeholder="Email">
+		<input type="text" id="booking_email" name="email" class="form-control" value="jack@gmail.com" placeholder="Email">
 		<span class="error-block" style="display: none;">Please enter your email address.</span> 
 	</div>
 </div>

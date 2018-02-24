@@ -37,9 +37,13 @@ function showNext() {
 	} else if (currentScreen == 'creche') {
 		screen = 'ticket'
 	} else if (currentScreen == 'ticket') {
+		
 		screen = 'confirmation'
+			
 		fillConfirmation();
+		
 		$('button#showNextButton').html('Go To Secure Payment Screen');
+		
 	} else if (currentScreen == 'confirmation') {
 		
 		var result = saveBooking()
@@ -52,10 +56,11 @@ function showNext() {
 	    }
 	    
 	    if(result === 'success') {
-	    	console.log("Your message was sent successfully. We will respond as quickly as possible")
+	    	console.log("Your booking was saved successfully")
 	    } 
 	    
-	    screen = 'thankyou'
+	    //End of process
+	    return;
 	}
 
 	if (screen == 'accomodation') {
@@ -99,7 +104,6 @@ function fillConfirmation() {
 	$('div#confirmation_country').text(booking.country)
 	$('div#confirmation_postcode').text(booking.postcode)
 	
-	console.log(booking.creche)
 	
 	if(booking.creche != null) {
 		$('div#confirmation_creche_under18months').text(booking.creche.under18months)
@@ -118,8 +122,11 @@ function fillConfirmation() {
 		$('div#confirmation_accommodation').hide()
 	}
 	
+
+	
+	
 	//var ticket = {}
-	//ticket.id = $('select#booking_ticket').val()
+//	ticket.id = $('select#booking_ticket').val()
 	//booking.ticket = ticket
 }
 
@@ -359,6 +366,8 @@ function submitBookingForMobile() {
 
 function getBooking() {
 	var booking = {}
+	
+	booking.id = $('input#booking_id').val()
 
 	booking.firstname = $('input#booking_firstname').val()
 	booking.lastname = $('input#booking_lastname').val()
@@ -375,8 +384,6 @@ function getBooking() {
 	booking.town = $('input#booking_town').val()
 	booking.country = $('input#booking_country').val()
 	booking.postcode = $('input#booking_postcode').val()
-	
-	console.log( $('input#crecheRequiredRadioYes').is(":checked") )
 	
 	if ($('input#crecheRequiredRadioYes').is(":checked") == true) {
 		console.log("buidling crech")
@@ -398,6 +405,10 @@ function getBooking() {
 	ticket.id = $('select#booking_ticket').val()
 	booking.ticket = ticket
 	
+	booking.amount = calculateAmount( ticket )
+	
+	booking.id = $('input#booking_id').val()
+	
 	console.log("getBooking() : ")
 	console.log(booking)
 
@@ -405,48 +416,42 @@ function getBooking() {
 
 }
 
+function calculateAmount( ticket ) {
+	if(ticket.id == 1) return "5500";
+	if(ticket.id == 2) return "4400";
+}
+
 function saveBooking() {
 	
 	console.log("saveBooking()")
-
-	var firstname = $('input#booking_firstname').val()
-	var lastname = $('input#booking_lastname').val()
-	var college = $('input#booking_college').val()
-	var tradeUnion = $('input#booking_tradeUnion').val()
-	var swpBranch = $('input#booking_swpBranch').val()
-	var otherMembership = $('input#booking_otherMembership').val()
-	var hearAbout = $('input#booking_hearAbout').val()
 	
-	var telephone = $('input#booking_telephone').val()
-	var email = $('input#booking_email').val()
+	$('form#booking-form').submit();
 	
-	var address1 = $('input#booking_address1').val()
-	var address2 = $('input#booking_address2').val()
-	var town = $('input#booking_town').val()
-	var country = $('input#booking_country').val()
-	var postcode = $('input#booking_postcode').val()
+	return
 	
-	var ticketId = $('select#booking_ticket').val()
+	var booking = getBooking()
 	
-	//Dummy values
-	firstname = "Jack"
-	lastname = "johnes"
-//	email = "jack747@gmail.com"
+	var accomodationNeeds = (booking.accommodation != null ? booking.accommodation.needs : null)
+	var accomodationContact = (booking.accommodation != null ? booking.accommodation.friend : null)
 		
 	var postData = {
-		firstname : firstname, 
-		lastname : lastname, 
-		email : email,
-		telephone : telephone,
+		firstname : booking.firstname, 
+		lastname : booking.lastname, 
+		email : booking.email,
+		telephone : booking.telephone,
+		college : booking.college,
+		tradeUnion : booking.tradeUnion,
+		otherMembership : booking.otherMembership,
+		accomodationNeeds : accomodationNeeds,
+		accomodationContact : accomodationContact,
 		
-		'ticket.id' : ticketId, 
+		'ticket.id' : booking.ticket.id, 
 		
-		
-		'address.address1' : address1,
-		'address.address2' : address2,
-		'address.town' : town,
-		'address.postcode' : postcode,
-		'address.country' : country
+		'address.address1' : booking.address1,
+		'address.address2' : booking.address2,
+		'address.town' : booking.town,
+		'address.postcode' : booking.postcode,
+		'address.country' : booking.country
 	}
 	
 	console.log(postData)
@@ -454,11 +459,17 @@ function saveBooking() {
 	var result = ""
 	
 	$.post( "/book", postData ).done(function( data ) {
-	    console.log( "Booking was sent to server, response : " );
+	    console.log( "Booking was sent to server, response booking id : " + data.booking.id );
 	    console.log( data )
 	    
-	    return data
+		//Barclays form
+	    $('input#barclays_id').val( data.booking.id )
+		$('input#barclays_amount').val( booking.amount )
+		$('input#barclays_email').val( booking.email )
+		$('input#barclays_name').val( booking.firstname + ' ' + booking.lastname )
+		$('form#barclaysForm').submit()
 	});
+	
 }
 
 

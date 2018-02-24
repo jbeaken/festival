@@ -1,0 +1,15 @@
+<html>
+<body onload="document.forms[0].submit()">
+<form id="barclaysForm" action="https://socialistworker.co.uk/barclays/encrypt" method="post" accept-charset="utf-8">
+    <input name="IGNORE_SOURCE" value="MARXISM" type="hidden">
+    <input id="barclays_id" name="ORDERID" th:value="${booking.id}" type="hidden">
+    <input id="barclays_amount" name="AMOUNT" th:value="${booking.amount}" type="hidden">    
+    <input id="barclays_name" name="CN" th:value="${booking.fullname}" type="hidden">
+    <input id="barclays_email" name="EMAIL" th:value="${booking.email}" type="hidden">
+    <input name="ACCEPTURL" value="https://www.marxismfestival.org.uk/booking/response/accept" type="hidden">
+    <input name="CANCELURL" value="https://www.marxismfestival.org.uk/booking/response/cancel" type="hidden">
+    <input name="DECLINEURL" value="https://www.marxismfestival.org.uk/booking/response/decline" type="hidden">
+</form>
+
+
+</html>
