@@ -153,7 +153,7 @@
                 <tr th:each="booking : ${bookingList}">
                   <th th:text="${booking.orderId}">id</th>
                   <th th:text="${booking.status}">status</th>
-                  <th th:text="${#dates.format(booking.date, 'dd-MMM-yyyy hh:mm')}">date</th>
+                  <th th:text="${#dates.format(booking.date, 'dd MMM hh:mm')}">date</th>
                   <th th:text="${booking.fullname}">fullname</th>
                   <th th:text="${booking.email}">email</th>
                   <th th:text="${booking.telephone}">telephone</th>
