@@ -147,7 +147,7 @@ i.warning_icon {
   }
   h2#booking_header {
     color : black;
-    font-size: 24px;
+    font-size: 0.8em;
   }
   section#section_booking {
     padding-top: 30px;
@@ -246,10 +246,17 @@ i.warning_icon {
 }
 
 /* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 767px) {
   div#booking_form_container {
     position: static;
     overflow: visible;
+  }
+  h2#booking_header {
+    font-size: 1em;
+  }  
+  section#section_booking {
+  	padding-bottom: 30px;
+  	padding-top: 30px;
   }
 }
 
@@ -262,6 +269,13 @@ i.warning_icon {
   padding-top: 50px;
   }
   */
+  h2#booking_header {
+    font-size: 1em;
+  } 
+  section#section_booking {
+  	padding-bottom: 30px;
+  	padding-top: 30px;
+  } 
   div#booking_form_container {
     position: static;
     overflow: visible;
