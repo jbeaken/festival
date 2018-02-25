@@ -612,22 +612,22 @@ function calculatePrice() {
 		 case "FULL":
 			 if(ticketPricing == 'WAGED') price = 55;
 			 if(ticketPricing == 'UNWAGED') price = 30;
-			 if(ticketPricing == 'STUDENT-HE') price = 30;
-			 if(ticketPricing == 'STUDENT-FE') price = 20;
+			 if(ticketPricing == 'STUDENT_HE') price = 30;
+			 if(ticketPricing == 'STUDENT_FE') price = 20;
 			 break;
 		 case "DAY":
 			 var noOfDays = getNoOfDaysSelected();
 			 if(ticketPricing == 'WAGED') price = 20;
 			 if(ticketPricing == 'UNWAGED') price = 15;
-			 if(ticketPricing == 'STUDENT-HE') price = 15;
-			 if(ticketPricing == 'STUDENT-FE') price = 10;
+			 if(ticketPricing == 'STUDENT_HE') price = 15;
+			 if(ticketPricing == 'STUDENT_FE') price = 10;
 			 price = price * noOfDays
 			 break;
 		 case "FLEXI":
 			 if(ticketPricing == 'WAGED') price = 20;
 			 if(ticketPricing == 'UNWAGED') price = 15;
-			 if(ticketPricing == 'STUDENT-HE') price = 15;
-			 if(ticketPricing == 'STUDENT-FE') price = 10;
+			 if(ticketPricing == 'STUDENT_HE') price = 15;
+			 if(ticketPricing == 'STUDENT_FE') price = 10;
 			 break;		 
 		 default:
 		break;

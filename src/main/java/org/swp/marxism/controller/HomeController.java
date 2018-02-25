@@ -119,12 +119,14 @@ public class HomeController {
 		}
 
 		logger.info("Passed validation, persisting");
-
+		
 		bookingRepository.save(booking);
 
 		logger.info("Booking persisted. Returning booking object");
 
 		model.addAttribute(booking);
+		model.addAttribute("amount", backendPrice);
+		model.addAttribute("orderId", booking.getOrderId());
 
 		return "barclays.html";
 	}

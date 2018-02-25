@@ -24,6 +24,8 @@ public class Booking {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull
+	@Enumerated(EnumType.STRING)
 	private BookingStatus status = BookingStatus.UNCONFIRMED; 
 	
 	@Embedded
@@ -258,19 +260,23 @@ public class Booking {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", address=" + address + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", email=" + email + ", telephone=" + telephone + ", otherMembership="
-				+ otherMembership + ", hearAbout=" + hearAbout + ", accomodationNeeds=" + accomodationNeeds + ", accomodationContact=" + accomodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years + ", children5YearsTo11years="
-				+ children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
-	}
-
 	public Date getDate() {
 		return date;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getOrderId() {
+		return "MRX" + getId();
+	}
+
+	@Override
+	public String toString() {
+		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", date=" + date + ", address=" + address + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", email=" + email + ", telephone=" + telephone
+				+ ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout + ", accomodationNeeds=" + accomodationNeeds + ", accomodationContact=" + accomodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
+				+ ", children5YearsTo11years=" + children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
 	}
 
 }

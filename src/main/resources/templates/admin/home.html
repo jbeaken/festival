@@ -269,6 +269,7 @@
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Status</th>
                   <th>Booking Date</th>
                   <th>Full Name</th>
                   <th>Email</th>
@@ -281,7 +282,8 @@
               </thead>
               <tbody>
                 <tr th:each="booking : ${bookingList}">
-                  <th th:text="${booking.id}">id</th>
+                  <th th:text="${booking.orderId}">id</th>
+                  <th th:text="${booking.status}">status</th>
                   <th th:text="${#dates.format(booking.date, 'dd-MMM-yyyy hh:mm')}">date</th>
                   <th th:text="${booking.fullname}">fullname</th>
                   <th th:text="${booking.email}">email</th>
@@ -340,8 +342,11 @@
     <script th:src="@{/admin/vendor/datatables/dataTables.bootstrap4.js}"></script>
     <!-- Custom scripts for all pages-->
     <script th:src="@{/admin/js/sb-admin.min.js}"></script>
-    <!-- Custom scripts for this page-->
-    <script th:src="@{/admin/js/sb-admin-datatables.min.js}"></script>
+    <script>
+    	$(document).ready(function(){
+    		$("#dataTable").DataTable()
+    	});
+    </script>
     <script th:src="@{/admin/js/sb-admin-charts.min.js}"></script>
   </div>
 </body>
