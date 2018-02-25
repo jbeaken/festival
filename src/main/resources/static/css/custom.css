@@ -40,6 +40,17 @@ div.pricing_from {
 .section_pricing .pricing__item {
   text-align: left;
 }
+
+/* Speakers */
+.section_team .team__item {
+    color: #777;
+}
+
+.section_team .team__item, .section_team .team__item:active, .section_team .team__item:focus {
+    text-decoration: none;
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
+}
+
 /* Booking form */
 div#booking_form_container {
   position: relative;
