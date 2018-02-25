@@ -248,7 +248,7 @@ function validate( screen ) {
 function validateTicket(errors) {
 	var price = calculatePrice()
 	
-	if(price == 0) {
+	if( isNaN( price ) ) {
 		errors.push({
 			field : 'ticket_id',
 			error : ' must be given'
@@ -606,7 +606,7 @@ function calculatePrice() {
 	var ticketType = $('input[name="ticket.type"]:checked').val()
 	var afterParty = $('input#afterPartyCheckbox:checked').val()
 	
-	var price = 0;
+	var price;
 	
 	switch (ticketType) {
 		 case "FULL":
@@ -617,6 +617,7 @@ function calculatePrice() {
 			 break;
 		 case "DAY":
 			 var noOfDays = getNoOfDaysSelected();
+			 if(noOfDays == 0) return NaN;
 			 if(ticketPricing == 'WAGED') price = 20;
 			 if(ticketPricing == 'UNWAGED') price = 15;
 			 if(ticketPricing == 'STUDENT_HE') price = 15;
@@ -646,19 +647,30 @@ function isDaySelected() {
 	var saturday = $('select#dayTicketSaturday').val()
 	var sunday = $('select#dayTicketSunday').val()
 	
-	if(thursday == '0' && friday == '0' && saturday == '0' && sunday == '0') return false;
+	if(thursday == '' && friday == '' && saturday == '' && sunday == '') return false;
 	
 	return true
 }
 
 
 function getNoOfDaysSelected() {
+	var noOfDays = 0
+	
 	var thursday = parseInt( $('select#dayTicketThursday').val() )
 	var friday = parseInt( $('select#dayTicketFriday').val() )
 	var saturday = parseInt( $('select#dayTicketSaturday').val() )
 	var sunday = parseInt( $('select#dayTicketSunday').val() )
 	
-	var noOfDays = thursday + friday + saturday + sunday
+	if(!isNaN( thursday )) noOfDays += thursday
+	if(!isNaN( friday )) noOfDays += friday
+	if(!isNaN( saturday )) noOfDays += saturday
+	if(!isNaN( sunday )) noOfDays += sunday
+	
+	console.log("thursday : " + thursday)
+	console.log("friday : " + friday)
+	console.log("saturday : " + saturday)
+	console.log("sunday : " + sunday)
+	console.log("getNoOfDaysSelected : " + noOfDays)
 	
 	return noOfDays
 }

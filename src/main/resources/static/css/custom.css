@@ -1,12 +1,16 @@
-/* Social */
+/* Core */
 
-.social-icon {
-  font-size: 2.5em;
-  /*color : #cb0a0a;*/
-  color : black;
+a.read-more {
+    text-decoration: none !important;
+    border-bottom: 0.0625rem solid #dcdcdc;
+    -webkit-transition: border-color .15s ease-out;
+    transition: border-color .15s ease-out;
+    font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
+    cursor: pointer;
 }
-div.social-container {
-  text-align: center;
+
+a.read-more:hover {
+    border-bottom: solid 0.0625rem #FFAB00;
 }
 
 div#mfPreviewBar {
@@ -16,6 +20,17 @@ div#mfPreviewBar {
 h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham {
   font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
   text-transform: none;
+}
+
+/* Social */
+
+.social-icon {
+  font-size: 2.5em;
+  /*color : #cb0a0a;*/
+  color : black;
+}
+div.social-container {
+  text-align: center;
 }
 
 .team__item__footer__content {
@@ -217,13 +232,13 @@ i.warning_icon {
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
   div#booking_form_container {
-  padding-bottom: 540px;
+  	padding-bottom: 540px;
   }
   h2#booking_header {
-  font-size: 18px;
+  	font-size: 18px;
   }
   section#section_booking {
-  padding-top: 30px;
+  	padding-top: 30px;
   }
   .video-title {
 		font-size : 0.9em;
@@ -257,5 +272,9 @@ i.warning_icon {
   }
   div.booking_radio_buttons {
     padding-left: 10px;
+  }
+  
+  button#showPreviousButton, button#showNextButton {
+  	font-size : 0.8em;
   }
 }
