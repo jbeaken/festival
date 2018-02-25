@@ -344,8 +344,47 @@
     <script th:src="@{/admin/js/sb-admin.min.js}"></script>
     <script>
     	$(document).ready(function(){
-    		$("#dataTable").DataTable()
-    	});
+    		$("#dataTable").DataTable( {
+    	        "columnDefs": [
+                  {
+                      "render": function ( data, type, row ) {
+                    	  var alert = 'secondary'
+                    	  
+                    	  if( data == 'UNCONFIRMED') alert = 'primary';
+                    	  if( data == 'PAID') alert = 'success';
+                    	  if( data == 'CANCELLED') alert = 'danger';
+                    	  
+                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
+                      },
+                      "targets": 1
+                  },
+                  {
+                      "render": function ( data, type, row ) {
+                    	  var alert = 'secondary'
+                    	  
+                    	  if( data == 'FULL') alert = 'primary';
+                    	  if( data == 'DAY') alert = 'success';
+                    	  
+                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
+                      },
+                      "targets": 6
+                  },
+                  {
+                      "render": function ( data, type, row ) {
+                    	  var alert = 'secondary'
+                    	  
+                    	  if( data == 'WAGED') alert = 'primary';
+                    	  if( data == 'UNWAGED') alert = 'success';
+                    	  if( data == 'STUDENT_FE') alert = 'danger';
+                    	  if( data == 'STUDENT_HE') alert = 'warning';
+                    	  
+                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
+                      },
+                      "targets": 7
+                  }                  
+              ]
+          } );
+      } );
     </script>
     <script th:src="@{/admin/js/sb-admin-charts.min.js}"></script>
   </div>
