@@ -67,6 +67,10 @@ div.pricing_from {
 }
 
 /* Booking form */
+h2#booking_header {
+  color : black;
+  font-size: 1.6em;
+}
 div#booking_form_container {
   position: relative;
   width: 100%;
@@ -119,6 +123,69 @@ div.about-read-header {
   font-size: 15px;
 }
 
+
+/* Gallery */
+.video-title {
+	padding: 5px 5px 0px 15px;
+	font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
+	font-size : 1.1em;
+	line-height: 1.2;
+	color : black;
+}
+.section_gallery {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 0 !important;
+}
+
+.block {
+	height : 30%;
+	margin : 10px;
+	padding: 5px;
+	color : black;
+	border: 1px solid #eee;
+}
+
+.block:hover, .gallery-block:hover {
+	box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
+}
+
+.video-block {
+ 	height : 400px;
+	transition: all .25s;
+	cursor: pointer;	 
+
+}
+
+.video-text {
+	height : 50%;
+}
+
+.video-image {
+ 	margin-top: 10px;
+	height : 50%;
+	/*border: 1px solid #000;*/
+}
+
+
+.video-icon {
+	padding-left: 15px;
+	padding-top : 0px;
+}
+
+.camera-icon, .video-icon {
+	color : #FFAB00;
+}
+
+.camera-icon {
+	font-size: 8em;
+}
+
+a.video-anchor:hover, a.video-anchor:focus {
+   	color: #d99100;
+   	text-decoration: none;
+   }	
+
 /* Contact */
 .section_contact:before {
   background: url(../img/carousel/middleeast.jpg) no-repeat center center / cover;
@@ -145,10 +212,6 @@ i.warning_icon {
   div#booking_form_container {
     padding-bottom: 540px;
   }
-  h2#booking_header {
-    color : black;
-    font-size: 0.8em;
-  }
   section#section_booking {
     padding-top: 30px;
   }
@@ -159,75 +222,11 @@ i.warning_icon {
   div#booking_form_container {
     padding-bottom: 520px;
   }
-  h2#booking_header {
-    font-size: 22px;
-  }
   section#section_booking {
     padding-top: 30px;
   }
 }
 
-/* Gallery */
-	.video-title {
-		padding: 5px 5px 0px 15px;
-		font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
-		font-size : 1.1em;
-		line-height: 1.2;
-		color : black;
-	}
-	.section_gallery {
-	    padding-top: 50px;
-	    padding-bottom: 50px;
-	    border-top: 0 !important;
-	}
-
-	.block {
-		height : 30%;
-		margin : 10px;
-		padding: 5px;
-		color : black;
-		border: 1px solid #eee;
-	}
-	
-	.block:hover, .gallery-block:hover {
-		box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
-	}
-	
-	.video-block {
-	 	height : 400px;
-		transition: all .25s;
-		cursor: pointer;	 
-	
-	}
-	
-	.video-text {
-		height : 50%;
-	}
-	
-	.video-image {
-	 	margin-top: 10px;
-		height : 50%;
-		/*border: 1px solid #000;*/
-	}
-
-	
-	.video-icon {
-		padding-left: 15px;
-		padding-top : 0px;
-	}
-	
-	.camera-icon, .video-icon {
-		color : #FFAB00;
-	}
-	
-	.camera-icon {
-		font-size: 8em;
-	}
-	
-	a.video-anchor:hover, a.video-anchor:focus {
-    	color: #d99100;
-    	text-decoration: none;
-    }	
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -245,11 +244,15 @@ i.warning_icon {
   }
 }
 
+
 /* Landscape phones and portrait tablets */
 @media (min-width: 481px) and (max-width: 767px) {
   div#booking_form_container {
     position: static;
     overflow: visible;
+  }
+  div#booking_form_container legend {
+  	display : none;
   }
   h2#booking_header {
     font-size: 1em;
@@ -280,6 +283,9 @@ i.warning_icon {
     position: static;
     overflow: visible;
     height : 100%;
+  }
+  div#booking_form_container legend {
+  	display : none;
   }
   div#about_blurb {
     /* padding-left: 30px; */
