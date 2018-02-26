@@ -3,7 +3,7 @@
  */
 // Booking screen
 var currentScreen = "contact";
-var dev = true
+var dev = false
 
 function showNext() {
 	console.log("Call to showNext currentScreen = " + currentScreen)

@@ -41,7 +41,10 @@ div.features__item__body {
   text-align: left;
   padding-left: 30px;
 }
-
+/* Pricing */
+span.pricing_pound_symbol {
+    font-size: 0.9em;
+}
 div.pricing_from_price {
   font-size: 60px;
   line-height: 1;
