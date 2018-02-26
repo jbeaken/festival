@@ -30,10 +30,13 @@
 		</a>
 	</label>
     <div class="col-sm-9">
-        <label class="radio-inline"> <input type="radio" name="ticket.type" id="ticketTypeFull" value="FULL" onclick="javascript:toggleTickets()"> Full Event </label>
-        <label class="radio-inline"> <input type="radio" name="ticket.type" id="ticketTypeDay" value="DAY" onclick="javascript:toggleTickets()"> Day Ticket </label>
-        <label class="radio-inline"> <input type="radio" name="ticket.type" id="ticketTypeFlexi" value="FLEXI" onclick="javascript:toggleTickets()"> Flexi Ticket </label>
-    </div>
+		<select id="ticketType" name="ticket.type" class="form-control" onchange="javascript:toggleTickets()">
+			<option value="">-- Select Ticket Type --</option>
+			<option value="FULL">Full Event</option>
+			<option value="DAY">Day Ticket</option>
+			<option value="FLEXI">Flexi Ticket</option>
+		</select>
+	</div>
 </div>
 
 <div id="ticketPricingContainer" class="form-group" style="display : none;">
@@ -124,8 +127,7 @@
 	    	class="ticket-help"
 			data-toggle="modal" 
 			data-heading="Marxism Festival 2018 After Party"
-			data-content="<p>We provide a free crèche with a range of activities available for children of different ages up to 11 years.</p>
-			<p>This must be booked by Monday 18 June.</p>">
+			data-content="<p>lopsum dipsum metro trad</p>">
 			<i class="ion-ios-help"></i>
 		</a>
 	</label>

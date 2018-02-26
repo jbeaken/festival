@@ -3,7 +3,7 @@
  */
 // Booking screen
 var currentScreen = "contact";
-var dev = false
+var dev = true
 
 function showNext() {
 	console.log("Call to showNext currentScreen = " + currentScreen)
@@ -561,7 +561,7 @@ function showMoreSpeakers() {
 
 function toggleTickets() {
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
-	var ticketType = $('input[name="ticket.type"]:checked').val()
+	var ticketType = $('select#ticketType').val()
 	
 	console.log("selected ticketPricing : " + ticketPricing)
 	console.log("selected ticketType : " + ticketType)
@@ -603,7 +603,7 @@ function toggleTickets() {
 
 function calculatePrice() {
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
-	var ticketType = $('input[name="ticket.type"]:checked').val()
+	var ticketType = $('select#ticketType').val()
 	var afterParty = $('input#afterPartyCheckbox:checked').val()
 	
 	var price;
