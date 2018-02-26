@@ -157,21 +157,19 @@ $(function() {
 //                    duration: 500,
 //                    fade: 750
 //                });
-            //My screen at home
-        //http://marxismfestival.website/img/carousel/midianinja-5x1586x721.jpg
-        //my motorola g4 play 360x512
+        
             //High res
-            bannerCarouselImg.backstretch(
-                    [[
+            bannerCarouselImg.backstretch([
+                  [
                       { width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
                       { width: 461, url: "/img/carousel/brazil-461x768.jpg?width=" + width + "&height=" + height },
                       { width: 360, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
                       { width: 320, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height }
-                    ],[
+                  ],[
                      { width: 1080, url: "/img/carousel/handsup-1024x768.jpg" },
                      { width: 720, url: "/img/carousel/handsup-505x762.jpg" },
                      { width: 441, url: "/img/carousel/handsup-441x765.jpg" }
-                   ],[
+                  ],[
                     { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
                     { width: 720, url: "/img/carousel/women-protestx720.jpg" },
                     { width: 360, url: "/img/carousel/egypt-360x748.jpg" }
@@ -179,14 +177,15 @@ $(function() {
                    { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
                    { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
                    { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
-                 ],[
+                  ],[
                     { width: 1080, url: "/img/carousel/spain-1024x768.jpg" },
                     { width: 720, url: "/img/carousel/spain.jpg" },
                     { width: 320, url: "/img/carousel/spain.jpg" }
-                  ]], {
-                        duration: 500,
-                        fade: 750
-                    });
+                  ]
+            ], {
+                duration: 500,
+                fade: 750
+            });
 
         bannerCarouselImg.backstretch('pause');
 
