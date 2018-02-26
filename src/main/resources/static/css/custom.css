@@ -191,7 +191,7 @@ a.video-anchor:hover, a.video-anchor:focus {
 
 /* Contact */
 .section_contact:before {
-  background: url(../img/carousel/middleeast.jpg) no-repeat center center / cover;
+  background: url(../img/carousel/egypt-1024x768.jpg) no-repeat center center / cover;
 }
 
 /* Error */
@@ -300,4 +300,14 @@ i.warning_icon {
   button#showPreviousButton, button#showNextButton {
   	font-size : 0.8em;
   }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 320px) {
+  .h0 {
+	  font-size: 2em;
+	  padding-bottom: 100px;
+	  padding-top: 20px;
+  }
+
 }
