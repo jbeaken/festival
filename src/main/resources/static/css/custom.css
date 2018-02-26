@@ -15,7 +15,7 @@ a.read-more:hover {
     border-bottom: solid 0.0625rem #FFAB00;
 }
 
-h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham {
+h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham, .video-title {
   font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
   text-transform: none;
 }
@@ -128,7 +128,6 @@ div.about-read-header {
 /* Gallery */
 .video-title {
 	padding: 5px 5px 0px 15px;
-	font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
 	font-size : 1.1em;
 	line-height: 1.2;
 	color : black;
