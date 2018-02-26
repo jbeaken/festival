@@ -1,3 +1,5 @@
+@font-face {font-family: 'PiSLIETZLindham';src: url('/fonts/35E6EA_0_0.eot');src: url('/fonts/35E6EA_0_0.eot?#iefix') format('embedded-opentype'),url('/fonts/35E6EA_0_0.woff2') format('woff2'),url('/fonts/35E6EA_0_0.woff') format('woff'),url('/fonts/35E6EA_0_0.ttf') format('truetype');}
+
 /* Core */
 
 a.read-more {
@@ -5,7 +7,7 @@ a.read-more {
     border-bottom: 0.0625rem solid #dcdcdc;
     -webkit-transition: border-color .15s ease-out;
     transition: border-color .15s ease-out;
-    font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
+    font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
     cursor: pointer;
 }
 
@@ -13,12 +15,8 @@ a.read-more:hover {
     border-bottom: solid 0.0625rem #FFAB00;
 }
 
-div#mfPreviewBar {
-    display: none;
-}
-
 h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham {
-  font-family: 'PiS LIETZ Lindham', 'Arial', 'sans-serif';
+  font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
   text-transform: none;
 }
 
@@ -209,6 +207,9 @@ i.warning_icon {
 .error-block {
   color: red;
 }
+/****************
+/** MEDIA QUERIES
+/****************
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
@@ -300,14 +301,4 @@ i.warning_icon {
   button#showPreviousButton, button#showNextButton {
   	font-size : 0.8em;
   }
-}
-
-/* Portrait phones and smaller */
-@media (max-width: 320px) {
-  .h0 {
-	  font-size: 2em;
-	  padding-bottom: 100px;
-	  padding-top: 20px;
-  }
-
 }

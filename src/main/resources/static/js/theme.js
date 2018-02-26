@@ -165,7 +165,8 @@ $(function() {
                     [[
                       { width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
                       { width: 461, url: "/img/carousel/brazil-461x768.jpg?width=" + width + "&height=" + height },
-                      { width: 360, url: "/img/carousel/brazil-360x748.jpg?width=" + width + "&height=" + height }
+                      { width: 360, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
+                      { width: 320, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height }
                     ],[
                      { width: 1080, url: "/img/carousel/handsup-1024x768.jpg" },
                      { width: 720, url: "/img/carousel/handsup-505x762.jpg" },
