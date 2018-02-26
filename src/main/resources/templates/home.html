@@ -27,25 +27,6 @@
       <img th:src="@{/img/spinner.svg}" alt="Loading..." class="preloader__spinner">
     </div>
 
-    <!-- MODAL
-    ================================================== -->
-    <div class="modal fade" id="modal_portfolio" tabindex="-1" role="dialog" aria-labelledby="modal_portfolio__heading">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="modal_portfolio__heading"></h4>
-          </div>
-          <div class="modal-body">
-            <img id="modal_portfolio__img" class="img-responsive" th:src="@{/img/1.jpg}" alt="...">
-            <p id="modal_portfolio__content"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div th:include="layouts/modal"></div>
 
     <div th:include="layouts/navbar"></div>

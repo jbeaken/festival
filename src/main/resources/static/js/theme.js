@@ -263,15 +263,15 @@ $(function() {
         var heading = button.data('heading');
         var img = button.data('img');
         var content = button.data('content');
-				var ajaxContent = button.data('ajax-content')
+		var ajaxContent = button.data('ajax-content')
 
-				if(ajaxContent != null) {
-					console.log("Ajax call for " + ajaxContent)
-					$('#modal_img__content').load("/modal/" + ajaxContent);
-				} else {
-					console.log("Non-ajax call, using content " + content)
-					modal.find('#modal_img__content').html(content);
-				}
+		if(ajaxContent != null) {
+			console.log("Ajax call for " + ajaxContent)
+			$('#modal_img__content').load("/modal/" + ajaxContent);
+		} else {
+			console.log("Non-ajax call, using content " + content)
+			modal.find('#modal_img__content').html(content);
+		}
 
         modal.find('#modal_img__heading').text(heading);
         modal.find('#modal_img__img').attr('src', img);
@@ -299,7 +299,7 @@ $(function() {
     });
 
 
-    // Stats: Count To
+    // Stats: Count To TO-DELETE
     // ===============
 
     var statsItem = $('.stats__item__value');
@@ -351,7 +351,7 @@ $(function() {
     });
 
 
-    // Screenshots: Owl carousel
+    // Screenshots: Owl carousel TO-DELETE
     // =========================
 
     var screenshotsOwlCarousel = $('.screenshots__carousel');
@@ -363,7 +363,7 @@ $(function() {
         })
     }
 
-    // Theme: Fullpage
+    // Theme: Fullpage TO-DELETE
     // ===============
 
     var fullPageContainer = $('#fullpage');
