@@ -350,17 +350,6 @@ function initBookingForMobile() {
     $('.navbar-collapse').collapse('hide');
 }
 
-function submitBookingForMobile() {
-
-	console.log("submitBookingForMobile()")
-
-	if(validateMobile() == false) {
-		console.log("Validation failed")
-		return;
-	}
-
-	saveBooking();
-}
 
 function getBooking() {
 	var booking = {}
@@ -410,57 +399,6 @@ function getBooking() {
 
 	return booking
 
-}
-
-function saveBooking() {
-	
-	console.log("saveBooking()")
-	
-	$('form#booking-form').submit();
-	
-	return
-	
-	var booking = getBooking()
-	
-	var accomodationNeeds = (booking.accommodation != null ? booking.accommodation.needs : null)
-	var accomodationContact = (booking.accommodation != null ? booking.accommodation.friend : null)
-		
-	var postData = {
-		firstname : booking.firstname, 
-		lastname : booking.lastname, 
-		email : booking.email,
-		telephone : booking.telephone,
-		college : booking.college,
-		tradeUnion : booking.tradeUnion,
-		otherMembership : booking.otherMembership,
-		accomodationNeeds : accomodationNeeds,
-		accomodationContact : accomodationContact,
-		
-		'ticket.id' : booking.ticket.id, 
-		
-		'address.address1' : booking.address1,
-		'address.address2' : booking.address2,
-		'address.town' : booking.town,
-		'address.postcode' : booking.postcode,
-		'address.country' : booking.country
-	}
-	
-	console.log(postData)
-	
-	var result = ""
-	
-	$.post( "/book", postData ).done(function( data ) {
-	    console.log( "Booking was sent to server, response booking id : " + data.booking.id );
-	    console.log( data )
-	    
-		//Barclays form
-	    $('input#barclays_id').val( data.booking.id )
-		$('input#barclays_amount').val( booking.amount )
-		$('input#barclays_email').val( booking.email )
-		$('input#barclays_name').val( booking.firstname + ' ' + booking.lastname )
-		$('form#barclaysForm').submit()
-	});
-	
 }
 
 /***************/

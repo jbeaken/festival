@@ -77,6 +77,45 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<plugin>
+				<groupId>com.samaxes.maven</groupId>
+				<artifactId>minify-maven-plugin</artifactId>
+				<version>1.7.6</version>
+				<executions>
+					<execution>
+						<id>default-minify</id>
+						<configuration>
+
+							<charset>UTF-8</charset>
+							
+							<webappSourceDir>${project.basedir}/src/main/resources/static/</webappSourceDir>
+							<webappTargetDir>${project.build.directory}/classes/static</webappTargetDir>
+
+							<cssSourceDir>css</cssSourceDir>
+							<cssSourceFiles>
+								<cssSourceFile>custom.css</cssSourceFile>
+								<cssSourceFile>theme.css</cssSourceFile>
+							</cssSourceFiles>
+							<cssFinalFile>marxism.css</cssFinalFile>
+
+							<jsSourceDir>js</jsSourceDir>
+							<jsSourceFiles>
+								<jsSourceFile>theme.js</jsSourceFile>
+								<jsSourceFile>custom.js</jsSourceFile>
+							</jsSourceFiles>
+							<jsFinalFile>marxism.js</jsFinalFile>
+
+							<jsEngine>CLOSURE</jsEngine>
+
+						</configuration>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+						
 		</plugins>
 	</build>
 

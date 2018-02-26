@@ -74,8 +74,6 @@ $(function() {
 
             var target = $(this.hash);
 
-            console.log( target )
-
             if(target.selector == '#section_booking') {
             	$('section.section_booking').removeClass('hidden');
             }
