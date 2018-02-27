@@ -5,13 +5,13 @@
       <div class="col-xs-12">
 
         <h2 class="page-header text-center">
-          Conference <span>Themes</span>
+          Marxism Festival 2018 <span>Themes</span>
         </h2>
 
       </div>
     </div> <!-- / .row -->
     
-    <div class="row" th:each="i : ${#numbers.sequence( 1, #lists.size(content.speakers) / 3 )}">
+    <div class="row" th:each="i : ${#numbers.sequence( 0, #lists.size(content.speakers), 3 )}">
       
       <div th:insert="fragments :: theme ( ${content.themes[i + 0]} )"></div>
       

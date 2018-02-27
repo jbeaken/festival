@@ -24,15 +24,15 @@
 
 <div th:fragment="theme( theme )" class="col-sm-4 theme-holder">
 
-	<a class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+	<a class="news__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="to do">
 		
 		<div class="news__item__img">
 		  <img th:attr="src=@{/img/themes/{imageUrl}(imageUrl=${theme.imageUrl})}" class="img-responsive" alt="...">
 		</div>
 		
 		<div class="news__item__footer">
-		  <h3 class="news__item__footer__heading" th:text="${theme.shortDescription}"/>
-		  <div class="news__item__footer__content" th:text="${theme.longDescription}"/>
+		  <h3 class="news__item__footer__heading" th:utext="${theme.shortDescription}"/>
+		  <div class="news__item__footer__content" th:utext="${theme.longDescription}"/>
 		</div>
 	
 	</a>

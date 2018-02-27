@@ -42,17 +42,34 @@ insert into marxism_website_content_speakers (marxism_website_content_id, speake
 
 -- THEMES
 insert into theme (id, name, short_description, long_description, image_url)
-values (1, 'Corbyn', 'Jeremy Corbyn, the Labour Party and the fight for socialism', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'corbyn.jpg');
+values (1, 'Corbyn', 'Jeremy Corbyn, the Labour Party and the fight for socialism', 
+	'Jeremy Corbyn&apos;s success at last year&apos;s general election shattered the Tories and transformed the political situation here in Britain. Meetings at Marxism Festival will debate the issues facing Corbyn and Labour and discuss how we can mobilise to bring about fundamental change.', 'corbyn.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (2, 'Racism', 'Resisting the racist backlash and the rise of fascism across Europe', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'sutr.jpg');
+values (2, 'Racism', 
+	'Resisting the racist backlash and the rise of fascism across Europe', 
+	'Far right and fascist forces have grown across Europe and the bigoted presidency of Donald Trump adds to the instability across the globe.  Meanwhile hundreds of refugees continue to die as they flee war and persecution. At Marxism Festival we will discuss how best to respond to these challenges.', 'sutr.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (3, 'Marx', '#Marx200 Anniversary – was Marx right?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'marx.jpg');
+values (3, 'Marx', 
+	'#Marx200 Anniversary – was Marx right?', 
+	'Karl Marx was an anti-capitalist and revolutionary. But 200 years on from his birth are his ideas still relevant today? We will explore Marx&apos;s economic insights for a system in crisis as well as his method for understanding the world today.', 'marx.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (4, 'Climate Change', 'Capitalism and climate change', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'climate.jpg');
+values (4, 'Climate Change', 'Capitalism and climate change', 
+	'With a climate change denier in the White House and fossil fuel use locked into capitalism - how can we act to stop catastrophic climate change?  We will discuss how Marxist ideas help shed light on an understanding of nature, ecology and the environment.', 'climate.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (5, 'Me Too', '#MeToo: challenging sexism and the system ', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'sexism-and-the-system-yussre-el-bardicy.jpg');
+values (5, 'Me Too', '#MeToo: challenging sexism and the system', 
+	'Headlines about the issue of sexual harassment have led to the #MeToo campaign with millions of women sharing their experiences.  There is a growing movement challenging ideas about gender and sexuality. But how can we build a collective response to the sexism structured into our society?', 'sexism-and-the-system-yussre-el-bardicy.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (6, 'Imperialism', 'War, imperialism, the Middle East and Palestine', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam omnis.', 'imperialism-.jpg');
+values (6, 'Imperialism', 'War, imperialism, the Middle East and Palestine', 
+	'From Syria to Palestine the Middle East is on fire – a terrible consequence of western colonialism and imperialism.  We will look at how war is endemic to capitalism, discuss the latest developments in the carve up of the world and crucially ask how we can organise to stop the bloodshed.', 'imperialism-.jpg');
+insert into theme (id, name, short_description, long_description, image_url)
+values (7, 'LGBT', 'Marxism, Trans politics and the fight for LGBT+ liberation', 
+	'From Syria to Palestine the Middle East is on fire – a terrible consequence of western colonialism and imperialism.  We will look at how war is endemic to capitalism, discuss the latest developments in the carve up of the world and crucially ask how we can organise to stop the bloodshed.', 'imperialism-.jpg');
+insert into theme (id, name, short_description, long_description, image_url)
+values (8, 'Trump', 'Donald Trump, the US and resistance', 
+	'The election as US president of an openly misogynistic, transphobic bigot who built his campaign on racist scapegoating has driven those who want to challenge oppression out onto the streets. We will discuss developments in the US and the potential for resistance to take on Trump.', 'imperialism-.jpg');
+insert into theme (id, name, short_description, long_description, image_url)
+values (9, 'Class', 'Class, struggle and the trade unions today', 
+	'How can we resist the Tories offensive on working class people? Has the working class lost its power? How should we organise at work? And is there even a future of work or will robots take over? These are just some of the questions we will seek to address at Marxism Festival.', 'imperialism-.jpg');
 
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 1, 0);
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 2, 1);
@@ -60,3 +77,6 @@ insert into marxism_website_content_themes (marxism_website_content_id, themes_i
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 4, 3);
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 5, 4);
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 6, 5);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 7, 6);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 8, 7);
+insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 9, 8);

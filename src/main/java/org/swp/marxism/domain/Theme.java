@@ -22,9 +22,12 @@ public class Theme {
 	private String name;
 	
 	@NotNull
+	@Length(max=255, min=3)
 	private String shortDescription;
 	
 	@NotNull
+	@Column(columnDefinition = "text")
+	@Length(max=1000, min=3)
 	private String longDescription;
 	
 	@NotNull
