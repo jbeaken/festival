@@ -63,7 +63,7 @@ values (6, 'Imperialism', 'War, imperialism, the Middle East and Palestine',
 	'From Syria to Palestine the Middle East is on fire – a terrible consequence of western colonialism and imperialism.  We will look at how war is endemic to capitalism, discuss the latest developments in the carve up of the world and crucially ask how we can organise to stop the bloodshed.', 'imperialism-.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
 values (7, 'LGBT', 'Marxism, Trans politics and the fight for LGBT+ liberation', 
-	'From Syria to Palestine the Middle East is on fire – a terrible consequence of western colonialism and imperialism.  We will look at how war is endemic to capitalism, discuss the latest developments in the carve up of the world and crucially ask how we can organise to stop the bloodshed.', 'imperialism-.jpg');
+	'There is an offensive against transgender people – with attacks from the right wing media and the tripling of transphobic hate crime in the last five years. Meetings will discuss the fight for LGBT+ liberation, how trans people have fought as part of the wider movement for sexual liberation, and why trans rights are a demand every socialist and trade unionist should support.', 'imperialism-.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
 values (8, 'Trump', 'Donald Trump, the US and resistance', 
 	'The election as US president of an openly misogynistic, transphobic bigot who built his campaign on racist scapegoating has driven those who want to challenge oppression out onto the streets. We will discuss developments in the US and the potential for resistance to take on Trump.', 'imperialism-.jpg');
