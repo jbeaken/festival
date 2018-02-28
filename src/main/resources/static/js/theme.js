@@ -136,7 +136,15 @@ $(function() {
              { width: 1080, url: "/img/carousel/kings.jpg" },
              { width: 720, url: "/img/carousel/kings.jpg" },
              { width: 320, url: "/img/carousel/kings.jpg" }
-           ]
+           ],[
+              { width: 1080, url: "/img/carousel/ucu-strike.jpg" },
+              { width: 720, url: "/img/carousel/ucu-strike.jpg" },
+              { width: 320, url: "/img/carousel/ucu-strike.jpg" }
+            ],[
+               { width: 1080, url: "/img/carousel/blm.jpg" },
+               { width: 720, url: "/img/carousel/blm.jpg" },
+               { width: 320, url: "/img/carousel/blm.jpg" }
+             ]
     ], {
         duration: 500,
         fade: 750
