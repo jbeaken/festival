@@ -105,89 +105,45 @@ $(function() {
 
     var bannerCarouselImg = $('.banner__carousel__img');
 
-    if ( bannerCarouselImg.length ) {
+    var height = $(window).height();   // returns height of browser viewport
+    var width = $(window).width();   // returns width of browser viewport
 
-        var bannerCarouselImgArr = bannerCarouselImg.data('images').split(',');
+    console.log("width : " + width + " height : " + height)
 
-//        console.log("bannerCarouselImgArr : ")
-//        console.log( bannerCarouselImgArr )
+    bannerCarouselImg.backstretch([
+          [
+              { width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
+              { width: 461, url: "/img/carousel/brazil-461x768.jpg?width=" + width + "&height=" + height },
+              { width: 360, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
+              { width: 320, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height }
+          ],[
+             { width: 1080, url: "/img/carousel/handsup-1024x768.jpg" },
+             { width: 720, url: "/img/carousel/handsup-505x762.jpg" },
+             { width: 441, url: "/img/carousel/handsup-441x765.jpg" }
+          ],[
+            { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
+            { width: 720, url: "/img/carousel/women-protestx720.jpg" },
+            { width: 360, url: "/img/carousel/egypt-360x748.jpg" }
+          ],[
+           { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
+           { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
+           { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
+          ],[
+            { width: 1080, url: "/img/carousel/greek.jpg" },
+            { width: 720, url: "/img/carousel/greek.jpg" },
+            { width: 320, url: "/img/carousel/greek.jpg" }
+          ],[
+             { width: 1080, url: "/img/carousel/kings.jpg" },
+             { width: 720, url: "/img/carousel/kings.jpg" },
+             { width: 320, url: "/img/carousel/kings.jpg" }
+           ]
+    ], {
+        duration: 500,
+        fade: 750
+    });
 
-        var array1080 = []
-        var array720 = []
-        var array320 = []
+    bannerCarouselImg.backstretch('pause');
 
-
-        for (var i = 0; i < bannerCarouselImgArr.length; i++) {
-            var url = bannerCarouselImgArr[i]
-            array1080.push( { width: 1080, url: url } )
-            array720.push( { width: 720, url: url } )
-            array320.push( { width: 320, url: url } )
-        }
-
-        var height = $(window).height();   // returns height of browser viewport
-        $(document).height(); // returns height of HTML document (same as pageHeight in screenshot)
-        var width = $(window).width();   // returns width of browser viewport
-        $(document).width();
-
-        console.log("width : " + width + " height : " + height)
-
-        // Init carousel
-
-        //Low res
-//            bannerCarouselImg.backstretch(
-//                [[
-//                 { width: 1080, url: "/img/carousel/handsup.jpg" },
-//                 { width: 720, url: "/img/carousel/handsup.jpg" },
-//                 { width: 320, url: "/img/carousel/handsup.jpg" }
-//               ],[
-//                { width: 1080, url: "/img/carousel/middleeast.jpg" },
-//                { width: 720, url: "/img/carousel/middleeast.jpg" },
-//                { width: 320, url: "/img/carousel/middleeast.jpg" }
-//              ],[
-//               { width: 1080, url: "/img/carousel/nhs.jpg" },
-//               { width: 720, url: "/img/carousel/nhs.jpg" },
-//               { width: 320, url: "/img/carousel/nhs.jpg" }
-//             ],[
-//                { width: 1080, url: "/img/carousel/sdf.jpg" },
-//                { width: 720, url: "/img/carousel/sdf.jpg" },
-//                { width: 320, url: "/img/carousel/sdf.jpg" }
-//              ]], {
-//                    duration: 500,
-//                    fade: 750
-//                });
-        
-            //High res
-            bannerCarouselImg.backstretch([
-                  [
-                      { width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
-                      { width: 461, url: "/img/carousel/brazil-461x768.jpg?width=" + width + "&height=" + height },
-                      { width: 360, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
-                      { width: 320, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height }
-                  ],[
-                     { width: 1080, url: "/img/carousel/handsup-1024x768.jpg" },
-                     { width: 720, url: "/img/carousel/handsup-505x762.jpg" },
-                     { width: 441, url: "/img/carousel/handsup-441x765.jpg" }
-                  ],[
-                    { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
-                    { width: 720, url: "/img/carousel/women-protestx720.jpg" },
-                    { width: 360, url: "/img/carousel/egypt-360x748.jpg" }
-                  ],[
-                   { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
-                   { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
-                   { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
-                  ],[
-                    { width: 1080, url: "/img/carousel/spain-1024x768.jpg" },
-                    { width: 720, url: "/img/carousel/spain.jpg" },
-                    { width: 320, url: "/img/carousel/spain.jpg" }
-                  ]
-            ], {
-                duration: 500,
-                fade: 750
-            });
-
-        bannerCarouselImg.backstretch('pause');
-
-    }
 
     var bannerCarousel = $('.banner__carousel');
 
@@ -285,14 +241,14 @@ $(function() {
     $('a#swipeBoxButton').click( function( e ) {
     	e.preventDefault();
     	$.swipebox( [
-    		{ href:'/img/conference/closing_rally.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/f_cc1.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/students2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/students3.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/students4.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/Marxism2014-WideAngle-GS.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/f_cc2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/meeting2.jpg', title:'Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
+    		{ href:'/img/conference/closing_rally.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/f_cc1.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/students2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/students3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/students4.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/Marxism2014-WideAngle-GS.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/f_cc2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    		{ href:'/img/conference/meeting2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
     	] );
     } );
 
