@@ -43,7 +43,7 @@ insert into marxism_website_content_speakers (marxism_website_content_id, speake
 -- THEMES
 insert into theme (id, name, short_description, long_description, image_url)
 values (1, 'Corbyn', 'Jeremy Corbyn, the Labour Party and the fight for socialism', 
-	'Jeremy Corbyn&apos;s success at last year&apos;s general election shattered the Tories and transformed the political situation here in Britain. Meetings at Marxism Festival will debate the issues facing Corbyn and Labour and discuss how we can mobilise to bring about fundamental change.', 'corbyn.jpg');
+	'Jeremy Corbyn&apos;s success at last year&apos;s general election shattered the Tories and transformed the political situation here in Britain. Meetings at Marxism Festival will debate the issues facing Corbyn and Labour and discuss how we can mobilise to bring about fundamental change.', 'corbyn_meetingx360.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
 values (2, 'Racism', 
 	'Resisting the racist backlash and the rise of fascism across Europe', 

@@ -14,7 +14,8 @@
     <link rel="stylesheet" th:href="@{/plugins/ionicons/css/ionicons.min.css}">
 
     <!-- CSS Global -->
-    <link rel="stylesheet" th:href="@{/css/marxism.min.css}">
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
 
   </head>
   <body data-spy="scroll" data-target="#navbar_main" data-offset="80">
@@ -34,8 +35,6 @@
     <div th:include="layouts/about"></div>
 
     <div th:include="layouts/themes"></div>
-
-    <div th:include="layouts/speakers"></div>
 
     <div th:include="layouts/pricing"></div>
 
@@ -66,7 +65,8 @@
   <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
 
   <!-- JS Custom -->
-  <script th:src="@{/js/marxism.min.js}"></script>
+  <script th:src="@{/js/custom.js}"></script>
+  <script th:src="@{/js/theme.js}"></script>
 
   </body>
 </html>

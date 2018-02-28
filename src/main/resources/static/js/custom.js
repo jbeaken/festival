@@ -24,18 +24,24 @@ function showNext() {
 	}
 
 	var screen = "";
+	var field = "";
 
 	if (currentScreen == 'contact') {
 		screen = 'details'
+		field = '#booking_tradeUnion'
 		$($('button#showPreviousButton')).removeClass('hidden')
 	} else if (currentScreen == 'details') {
 		screen = 'address'
+		field = '#booking_address1'
 	} else if (currentScreen == 'address') {
 		screen = 'accomodation'
+		field = '#bookingaccommodation_needs'
 	} else if (currentScreen == 'accomodation') {
 		screen = 'creche'
+		field = '#booking_under18months'
 	} else if (currentScreen == 'creche') {
 		screen = 'ticket'
+		field = '#booking_ticketType'
 	} else if (currentScreen == 'ticket') {
 		
 		screen = 'confirmation'
@@ -70,7 +76,9 @@ function showNext() {
 	console.log("Post process screen = " + screen)
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
+	
 	$(screen).show()
+	$( field ).focus()
 }
 
 function fillConfirmation() {
@@ -499,7 +507,7 @@ function showMoreSpeakers() {
 
 function toggleTickets() {
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
-	var ticketType = $('select#ticketType').val()
+	var ticketType = $('select#booking_ticketType').val()
 	
 	console.log("selected ticketPricing : " + ticketPricing)
 	console.log("selected ticketType : " + ticketType)
@@ -541,7 +549,7 @@ function toggleTickets() {
 
 function calculatePrice() {
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
-	var ticketType = $('select#ticketType').val()
+	var ticketType = $('select#booking_ticketType').val()
 	var afterParty = $('input#afterPartyCheckbox:checked').val()
 	
 	var price;
