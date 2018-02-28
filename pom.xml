@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>		
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,7 +63,7 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Additional -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -77,7 +77,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+			<!--
 			<plugin>
 				<groupId>com.samaxes.maven</groupId>
 				<artifactId>minify-maven-plugin</artifactId>
@@ -88,7 +88,7 @@
 						<configuration>
 
 							<charset>UTF-8</charset>
-							
+
 							<webappSourceDir>${project.basedir}/src/main/resources/static/</webappSourceDir>
 							<webappTargetDir>${project.build.directory}/classes/static</webappTargetDir>
 
@@ -115,7 +115,8 @@
 					</execution>
 				</executions>
 			</plugin>
-						
+		-->
+
 		</plugins>
 	</build>
 

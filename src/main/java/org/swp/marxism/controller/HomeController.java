@@ -43,7 +43,7 @@ public class HomeController {
 
 	@Autowired
 	private JavaMailSender mailSender;
-	
+
 	@Autowired
 	private Environment environment;
 
@@ -115,7 +115,7 @@ public class HomeController {
 
 			return "error.html";
 		}
-		
+
 		//Sanity check
 		logger.info("Checking {} equals {} ", booking.getPrice(), booking.getTicket().getWebPrice());
 		String backendPrice = (booking.getPrice() * 100) + "";
@@ -124,25 +124,26 @@ public class HomeController {
 		}
 
 		logger.info("Passed validation, persisting");
-		
+
 		bookingRepository.save(booking);
 
 		logger.info("Booking persisted. Sending email");
 		try {
-		
+
 			final Context ctx = new Context();
 			ctx.setVariable("booking", booking);
-	
+
 			final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
-			final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8"); 
-	
+			final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8");
+
 			// BCC depending on profile
 			String[] profiles = environment.getActiveProfiles();
-			
+
 //			if (profiles[0].equals("default") || profiles[0].equals("test")) {
 				// For test and dev
-				message.setTo("jack747@gmail.com");
-				message.setSubject("TEST - Your Marxism Booking Confirmation");
+				//message.setTo("jack747@gmail.com");
+				message.setTo(booking.getEmail());
+				message.setSubject("Your Marxism Booking Confirmation");
 				message.setFrom("info@marxismfestival.org.uk");
 //			} else {
 //				message.setSubject("Marxism Booking");
@@ -150,21 +151,21 @@ public class HomeController {
 //				message.setFrom("info@marxismfestival.org.uk");
 //				message.setTo(booking.getEmail());
 //			}
-	
+
 			// Create the HTML body using Thymeleaf
 			String html = "<h1>Thank you for booking a ticket for Marxism Festival 2018.</h1><p>Your ticket will be sent out to you in the post in June.</p><p>Marxism Festival starts at 12 noon on Thurs 5 July and finishes at 6.30pm on Sun 8 July.</p>";
 			html += "<p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>";
 			html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
-					
+
 			message.setText(html, true); // true = isHtml
-	
+
 			this.mailSender.send(mimeMessage);
-		} catch(MessagingException e) {
+
+			logger.info("Mail successfuly sent!");
+
+		} catch(Exception e) {
 			logger.error("Cannot send booking message", e);
 		}
-
-		logger.info("Sent!");
-		
 
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);

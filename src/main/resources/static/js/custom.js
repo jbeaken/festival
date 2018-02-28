@@ -42,18 +42,19 @@ function showNext() {
 	} else if (currentScreen == 'creche') {
 		screen = 'ticket'
 		field = '#booking_ticketType'
+		toggleTickets()
 	} else if (currentScreen == 'ticket') {
-		
+
 		screen = 'confirmation'
-			
+
 		fillConfirmation();
-		
+
 		$('button#showNextButton').html('Go To Secure Payment Screen');
-		
+
 	} else if (currentScreen == 'confirmation') {
-		
+
 		$('form#booking-form').submit();
-	    
+
 	    return;
 	}
 
@@ -66,6 +67,7 @@ function showNext() {
 	if (screen == 'creche') {
 		if ($('input#crecheRequiredRadioNo').is(":checked") == true) {
 			screen = 'ticket'
+			toggleTickets()
 		}
 	}
 
@@ -76,30 +78,30 @@ function showNext() {
 	console.log("Post process screen = " + screen)
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
-	
+
 	$(screen).show()
 	$( field ).focus()
 }
 
 function fillConfirmation() {
 	var booking = getBooking();
-	
+
 	$('div#confirmation_fullname').text(booking.firstname + " " + booking.lastname)
 	$('div#confirmation_college').text(booking.college)
 	$('div#confirmation_tradeUnion').text(booking.tradeUnion)
 	$('div#confirmation_otherMembership').text(booking.otherMembership)
 	$('div#confirmation_hearAbout').text(booking.hearAbout)
-	
+
 	$('div#confirmation_telephone').text(booking.telephone)
 	$('div#confirmation_email').text(booking.email)
-	
+
 	$('div#confirmation_address1').text(booking.address1)
 	$('div#confirmation_address2').text(booking.address2)
 	$('div#confirmation_town').text(booking.town)
 	$('div#confirmation_country').text(booking.country)
 	$('div#confirmation_postcode').text(booking.postcode)
-	
-	
+
+
 	if(booking.creche != null) {
 		$('div#confirmation_creche_under18months').text(booking.creche.under18months)
 		$('div#confirmation_creche_upto5Years').text(booking.creche.upto5Years)
@@ -108,7 +110,7 @@ function fillConfirmation() {
 	} else {
 		$('div#confirmation_creche').hide()
 	}
-	
+
 	if(booking.accommodation != null) {
 		$('div#confirmation_accommodation_needs').text(booking.accommodation.needs)
 		$('div#confirmation_accommodation_friend').text(booking.accommodation.friend)
@@ -116,11 +118,11 @@ function fillConfirmation() {
 	} else {
 		$('div#confirmation_accommodation').hide()
 	}
-	
+
 	var price = calculatePrice()
-	
+
 	var intPrice = Math.round ( price * 100 )
-	
+
 	$('input#ticketWebPrice').val( intPrice )
 }
 
@@ -212,7 +214,7 @@ function validateMobile() {
         	 // $('#booking_' + field).next('.help-block').slideDown();
         });
 
-		
+
 		return false
 	}
 
@@ -249,13 +251,13 @@ function validate( screen ) {
 	} else if (currentScreen == 'ticket') {
 		validateTicket(errors)
 	}
-	
+
 	if(dev == true) return []; else return errors
 }
 
 function validateTicket(errors) {
 	var price = calculatePrice()
-	
+
 	if( isNaN( price ) ) {
 		errors.push({
 			field : 'ticket_id',
@@ -268,9 +270,9 @@ function validateTicket(errors) {
 function validateField( field, errors ) {
 
 	var value = $('#booking_' + field).val().trim()
-	
+
 	console.log(field + " : " + value)
-	
+
 	if (value == '') {
 		errors.push({
 			field : field,
@@ -281,9 +283,9 @@ function validateField( field, errors ) {
 
 function validateEmail( field, errors ) {
 	var value = $('#booking_' + field).val().trim()
-	
+
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
+
 	if( re.test( String( value ).toLowerCase() ) == false ) {
     	errors.push({
 			field : field,
@@ -295,16 +297,16 @@ function validateEmail( field, errors ) {
 function validateNumber(field, errors) {
 
 	var value = $('#booking_' + field).val()
-	
+
 	console.log(field + " : " + value)
-	
+
 	if (value == '') {
 		errors.push({
 			field : field,
 			error : ' must be given'
 		})
 	}
-	
+
 	if( !isNaN(parseFloat(value)) && isFinite(value) ) {
 		errors.push({
 			field : field,
@@ -338,7 +340,7 @@ function editBooking( screen ) {
 
 function initBookingForMobile() {
 	console.log("initBookingForMobile()")
-	
+
 	$('section#section_booking').removeClass('hidden');
 	$('.booking_screen').removeClass('hidden')
 	$('.booking_screen').show()
@@ -349,11 +351,11 @@ function initBookingForMobile() {
     //}, 1000, function() {
     	 //field.focus()
     	 // $('#booking_' + field).next('.help-block').slideDown();
-    });	
-	
+    });
+
 	$('#thankyou_screen').hide()
 	$('#confirmation_screen').hide()
-	
+
 	// Close collapsed navbar on click
     $('.navbar-collapse').collapse('hide');
 }
@@ -361,7 +363,7 @@ function initBookingForMobile() {
 
 function getBooking() {
 	var booking = {}
-	
+
 	booking.id = $('input#booking_id').val()
 
 	booking.firstname = $('input#booking_firstname').val()
@@ -370,16 +372,16 @@ function getBooking() {
 	booking.tradeUnion = $('input#booking_tradeUnion').val()
 	booking.otherMembership = $('input#booking_otherMembership').val()
 	booking.hearAbout = $('input#booking_hearAbout').val()
-	
+
 	booking.telephone = $('input#booking_telephone').val()
 	booking.email = $('input#booking_email').val()
-	
+
 	booking.address1 = $('input#booking_address1').val()
 	booking.address2 = $('input#booking_address2').val()
 	booking.town = $('input#booking_town').val()
 	booking.country = $('input#booking_country').val()
 	booking.postcode = $('input#booking_postcode').val()
-	
+
 	if ($('input#crecheRequiredRadioYes').is(":checked") == true) {
 		console.log("buidling crech")
 		var creche = {}
@@ -395,13 +397,13 @@ function getBooking() {
 		accommodation.needs = $('textarea#booking_accommodation_needs').val()
 		booking.accommodation = accommodation
 	}
-	
+
 	var ticket = {}
 	ticket.id = $('select#booking_ticket').val()
 	booking.ticket = ticket
-	
+
 	booking.id = $('input#booking_id').val()
-	
+
 	console.log("getBooking() : ")
 	console.log(booking)
 
@@ -414,13 +416,13 @@ function getBooking() {
 /***************/
 
 function sendEmail() {
-	
+
 	console.log("sendEmail()")
-	
+
 	var name = $('input#contactFormName').val().trim();
 	var message = $('textarea#contactFormMessage').val().trim();
 	var email = $('input#contactFormEmail').val().trim();
-	
+
 	//Validation
 	if(name === "") {
 		alert("Please enter a valid name")
@@ -434,33 +436,33 @@ function sendEmail() {
 		alert("Please enter a valid email")
 		return
 	}
-	
-	
+
+
 	if (!validateContactEmail( email )) {
 		alert("Please enter a valid email!")
 		return
-	}	
-	
+	}
+
 	$.post( "/sendEmail", { email: email, message: message, name : name } ).done(function( data ) {
 	    console.log( "Message sent to server, response : " + data );
-	    
+
 	    if(data === 'error') {
 	    	alert("There was an error sending your message. Please phone 0207 767????")
 	    }
-	    
+
 	    if(data === 'success') {
 	    	alert("Your message was sent successfully. We will respond as quickly as possible")
-	    }		    
+	    }
 	});
 }
 
 function validateContactEmail() {
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	
+
 	if (!filter.test(email)) {
 		return false
 	}
-	
+
 	return true
 }
 
@@ -468,7 +470,7 @@ function openGalleryDefaultSettings() {
 	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg'];
 	api_titles = ['Title 1','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
 	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
-	
+
 	$.fn.prettyPhoto( )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
 }
@@ -477,7 +479,7 @@ function openGallery( theme ) {
 	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg','/img/conference/meeting2.jpg'];
 	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
 	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
-	
+
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
 }
@@ -485,13 +487,13 @@ function openGalleryPicnic( theme ) {
 	api_images = ['/img/conference/students2.jpg','/img/conference/students3.jpg','/img/conference/students4.jpg','/img/conference/Marxism2014-WideAngle-GS.jpg'];
 	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
 	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by ','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
-	
+
 	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
 }
 
 function openSwipeBox() {
-	
+
 }
 
 function showMoreSpeakers() {
@@ -506,17 +508,34 @@ function showMoreSpeakers() {
 /**********************/
 
 function toggleTickets() {
+	console.log("toggleTickets()")
+
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
 	var ticketType = $('select#booking_ticketType').val()
-	
+
 	console.log("selected ticketPricing : " + ticketPricing)
 	console.log("selected ticketType : " + ticketType)
-	
-	if(ticketPricing == null) {
-		$('div#ticketPricingContainer').show();
+
+	if(ticketType == '' || typeof ticketType == 'undefined') {
+		console.log("ticketType is unselected")
+		$('div#ticketDayContainer').hide();
+		$('div#ticketPricingContainer').hide();
+		$('div#ticketAfterPartyContainer').hide();
+		$('div#ticketPriceContainer').hide()
 		return
 	}
-	
+
+	if(ticketPricing == ''  || typeof ticketPricing == 'undefined') {
+		console.log("ticketPricing is unselected")
+		$('div#ticketPricingContainer').show();
+		$('div#ticketDayContainer').hide();
+		$('div#ticketAfterPartyContainer').hide();
+		$('div#ticketPriceContainer').hide()
+		return
+	}
+
+	$('div#ticketPricingContainer').show();
+
 	switch (ticketType) {
 		 case "FULL" :
 			 $('div#ticketAfterPartyContainer').show();
@@ -534,14 +553,14 @@ function toggleTickets() {
 		 case "FLEXI" :
 			 $('div#ticketDayContainer').hide();
 			 $('div#ticketAfterPartyContainer').show();
-			 break;		 
+			 break;
 		 default:
-	}	
-	
+	}
+
 	var price = calculatePrice()
-	
+
 	$('div#ticket-price').html('&pound;' + price.toFixed(2));
-	
+
 	$('div#ticketPriceContainer').show()
 }
 
@@ -551,9 +570,9 @@ function calculatePrice() {
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
 	var ticketType = $('select#booking_ticketType').val()
 	var afterParty = $('input#afterPartyCheckbox:checked').val()
-	
+
 	var price;
-	
+
 	switch (ticketType) {
 		 case "FULL":
 			 if(ticketPricing == 'WAGED') price = 55;
@@ -575,15 +594,18 @@ function calculatePrice() {
 			 if(ticketPricing == 'UNWAGED') price = 15;
 			 if(ticketPricing == 'STUDENT_HE') price = 15;
 			 if(ticketPricing == 'STUDENT_FE') price = 10;
-			 break;		 
+			 break;
 		 default:
 		break;
 	}
-	
+
 	if(afterParty == 'on') price = price + 5;
-	
+
 	console.log("price : " + price)
-	
+
+	//Apply discount till March 28
+	price = price - 5
+
 	return price
 }
 
@@ -592,32 +614,31 @@ function isDaySelected() {
 	var friday = $('select#dayTicketFriday').val()
 	var saturday = $('select#dayTicketSaturday').val()
 	var sunday = $('select#dayTicketSunday').val()
-	
+
 	if(thursday == '' && friday == '' && saturday == '' && sunday == '') return false;
-	
+
 	return true
 }
 
 
 function getNoOfDaysSelected() {
 	var noOfDays = 0
-	
+
 	var thursday = parseInt( $('select#dayTicketThursday').val() )
 	var friday = parseInt( $('select#dayTicketFriday').val() )
 	var saturday = parseInt( $('select#dayTicketSaturday').val() )
 	var sunday = parseInt( $('select#dayTicketSunday').val() )
-	
+
 	if(!isNaN( thursday )) noOfDays += thursday
 	if(!isNaN( friday )) noOfDays += friday
 	if(!isNaN( saturday )) noOfDays += saturday
 	if(!isNaN( sunday )) noOfDays += sunday
-	
+
 	console.log("thursday : " + thursday)
 	console.log("friday : " + friday)
 	console.log("saturday : " + saturday)
 	console.log("sunday : " + sunday)
 	console.log("getNoOfDaysSelected : " + noOfDays)
-	
+
 	return noOfDays
 }
-

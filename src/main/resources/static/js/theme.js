@@ -121,8 +121,8 @@ $(function() {
              { width: 320, url: "/img/carousel/handsup-320x240.jpg" }
           ],[
             { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
-            { width: 720, url: "/img/carousel/women-protestx720.jpg" },
-            { width: 360, url: "/img/carousel/egypt-360x748.jpg" }
+            { width: 720, url: "/img/carousel/egypt-1024x768.jpg" },
+            { width: 360, url: "/img/carousel/egypt-1024x768.jpg" }
           ],[
            { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
            { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },

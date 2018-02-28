@@ -19,70 +19,70 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Booking {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	private BookingStatus status = BookingStatus.UNCONFIRMED; 
-	
+	private BookingStatus status = BookingStatus.UNCONFIRMED;
+
 	@Embedded
 	@NotNull
 	private Ticket ticket;
-	
+
 	@NotNull
 	//private LocalDateTime date = LocalDateTime.now();
 	private Date date = new Date();
-	
+
 	@Embedded
 	@NotNull
 	private Address address;
-	
+
 	@NotNull
 	@NotBlank
 	private String firstname;
-	
+
 	@NotNull
 	@NotBlank
 	private String lastname;
-	
+
 	private String college;
-	
+
 	private String tradeUnion;
-	
+
 	@Email
 	@NotNull
-	private String email; 
-	
+	private String email;
+
 	private String telephone;
-	
+
 	private String otherMembership;
-	
+
 	@Enumerated(EnumType.STRING)
 	private HearAbout hearAbout;
-	
+
 	private String accomodationNeeds;
-	
+
 	private String accomodationContact;
-	
+
 	private Integer childrenUnder18Months;
-	
+
 	private Integer children18MonthsTo5Years;
-	
+
 	private Integer children5YearsTo11years;
-	
+
 	private Boolean allowEmails;
 
 	public Integer getPrice() {
-		
+
 		Integer price = null;
-		
+
 		TicketPricing pricing = getTicket().getPricing();
-		
+
 		switch(getTicket().getType()) {
-		case FULL : 
+		case FULL :
 			 if(pricing == TicketPricing.WAGED) price = 55;
 			 if(pricing == TicketPricing.UNWAGED) price = 30;
 			 if(pricing == TicketPricing.STUDENT_HE) price = 30;
@@ -101,21 +101,24 @@ public class Booking {
 			 if(pricing == TicketPricing.UNWAGED) price = 15;
 			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
 			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
-			 break;		 
+			 break;
 		}
-		
+
 		//After party
 		if(getTicket().getAfterParty() != null && getTicket().getAfterParty() == true) {
 			price += 5;
 		}
-		
+
+		//discount till eo March
+		price -= 5;
+
 		return price;
 	}
-	
+
 	public String getFullname() {
 		return getFirstname() + " " + getLastname();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
