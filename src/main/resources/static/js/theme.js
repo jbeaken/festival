@@ -113,13 +113,12 @@ $(function() {
     bannerCarouselImg.backstretch([
           [
               { width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
-              { width: 461, url: "/img/carousel/brazil-461x768.jpg?width=" + width + "&height=" + height },
-              { width: 360, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
-              { width: 320, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height }
+              { width: 612, url: "/img/carousel/brazil-612x460.jpg?width=" + width + "&height=" + height },
+              { width: 320, url: "/img/carousel/brazil-320x240.jpg?width=" + width + "&height=" + height }
           ],[
-             { width: 1080, url: "/img/carousel/handsup-1024x768.jpg" },
-             { width: 720, url: "/img/carousel/handsup-505x762.jpg" },
-             { width: 441, url: "/img/carousel/handsup-441x765.jpg" }
+             { width: 1024, url: "/img/carousel/handsup-1024x768.jpg" },
+             { width: 612, url: "/img/carousel/handsup-612x460.jpg" },
+             { width: 320, url: "/img/carousel/handsup-320x240.jpg" }
           ],[
             { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
             { width: 720, url: "/img/carousel/women-protestx720.jpg" },
