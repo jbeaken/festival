@@ -17,7 +17,7 @@ values (4, 'CANCELLED', now(), "Susan", "Sontag", "sstotag@gmail.com", "07334353
 insert into booking (id, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday, saturday, sunday)
 values (5, 'PAID', now(), "Sarah", "Higgins", "sstotag@gmail.com", "0733435343", "10 Filpot Street", null, "Preston", "P3 3ED", "United Kingdom", "DAY", "STUDENT_HE", 1, null, 1, 1);
 
-insert into marxism_website_content (id, name, is_live, heading, sub_heading, sub_sub_heading, description) values (1, '2018', true, 'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'Nunc sed blandit dui. Phasellus lacinia iaculis justo nec elementum. Morbi vel urna velit. Nulla pharetra a erat in vestibulum.');
+insert into marxism_website_content (id, name, is_live, heading, sub_heading, sub_sub_heading, description, video_url) values (1, '2018', true, 'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'Nunc sed blandit dui. Phasellus lacinia iaculis justo nec elementum. Morbi vel urna velit. Nulla pharetra a erat in vestibulum.', 'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1');
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url)

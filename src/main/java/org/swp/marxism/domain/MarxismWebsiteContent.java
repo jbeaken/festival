@@ -30,6 +30,9 @@ public class MarxismWebsiteContent {
 	@Embedded
 	private MarxismAbout about;
 	
+	@NotNull
+	private String videoUrl;
+	
 //	@Embedded
 //	private MarxismSpeakers speakersContent;	
 	
@@ -104,6 +107,14 @@ public class MarxismWebsiteContent {
 
 	public void setAbout(MarxismAbout about) {
 		this.about = about;
+	}
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
 	}
 
 }

@@ -447,11 +447,15 @@ function sendEmail() {
 	    console.log( "Message sent to server, response : " + data );
 
 	    if(data === 'error') {
-	    	alert("There was an error sending your message. Please phone 0207 767????")
+	    	alert("There was an error sending your message. Please phone 020 7840 5620")
 	    }
 
 	    if(data === 'success') {
 	    	alert("Your message was sent successfully. We will respond as quickly as possible")
+	    	//Reset
+	    	$('input#contactFormName').val('')
+	    	$('textarea#contactFormMessage').val('')
+	    	$('input#contactFormEmail').val('')	    	
 	    }
 	});
 }
