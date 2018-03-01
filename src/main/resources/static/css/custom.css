@@ -31,7 +31,7 @@ a.read-more:hover {
     border-bottom: solid 0.0625rem #FFAB00;
 }
 
-h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham, .video-title {
+h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham, .video-title, #modal_img__heading, #modal_no_img__heading {
   font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
   text-transform: none;
 }
