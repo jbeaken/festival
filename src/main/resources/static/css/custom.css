@@ -156,6 +156,24 @@ div.gallery-icon {
   background: url(../img/carousel/egypt-1024x768.jpg) no-repeat center center / cover;
 }
 
+/* Pricing / Ticket */
+
+.ticket-help > i {
+	font-size: 1.5em;
+}
+.ticket-help {
+	text-transform: none;
+	color : black;
+}
+.ticket-help, .ticket-help:focus, .ticket-help:active, .ticket-help:hover  {
+	border : none;
+}	
+#ticket-price {
+	padding-top: 5px;
+	font-size: 2em;
+	color : #FFAB00;
+}
+
 /* Error */
 
 i.warning_icon {
