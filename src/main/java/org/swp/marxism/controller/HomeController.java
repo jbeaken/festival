@@ -181,6 +181,7 @@ public class HomeController {
 		logger.info("Received post request for sendEmail {}", contactForm);
 
 		if (bindingResult.hasErrors()) {
+			//Should never happen, js validation
 			logger.info("Failed validation {}", bindingResult);
 
 			return "error";
@@ -194,11 +195,13 @@ public class HomeController {
 
 			MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
 
-			message.setSubject("Someone has contacted us using the marxism website.");
+			message.setSubject("Someone has contacted us using the Marxism website.");
 
 			message.setFrom(contactForm.getEmail());
 
 			message.setTo(emailTo);
+			
+			message.setBcc("jack747@gmail.com");
 
 			message.setText(contactForm.getMessage(), false);
 
