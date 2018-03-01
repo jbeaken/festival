@@ -12,7 +12,7 @@
 /* Core */
 
 /* remove border around navbar */
-.navbar-nav a:active, .navbar-nav a:focus {
+.navbar-nav a:active, .navbar-nav a:focus, a.navbar-brand:active, a.navbar-brand:focus {
   outline: 0;
   border: none;
   -moz-outline-style: none
