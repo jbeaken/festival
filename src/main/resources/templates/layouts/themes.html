@@ -1,6 +1,6 @@
 <section class="section_news section_alt" id="section_news">
   <div class="container">
-  
+
     <div class="row">
       <div class="col-xs-12">
 
@@ -10,16 +10,16 @@
 
       </div>
     </div> <!-- / .row -->
-    
+
     <div class="row" th:each="i : ${#numbers.sequence( 0, #lists.size(content.speakers), 3 )}">
-      
-      <div th:insert="fragments :: theme ( ${content.themes[i + 0]} )"></div>
-      
-      <div th:insert="fragments :: theme ( ${content.themes[i + 1]} )"></div>
-      
-      <div th:insert="fragments :: theme ( ${content.themes[i + 2]} )"></div>
-      
+
+      <div th:replace="fragments :: theme ( ${content.themes[i + 0]} )"></div>
+
+      <div th:replace="fragments :: theme ( ${content.themes[i + 1]} )"></div>
+
+      <div th:replace="fragments :: theme ( ${content.themes[i + 2]} )"></div>
+
     </div> <!-- / .row -->
-            
+
   </div> <!-- / .container -->
 </section>
