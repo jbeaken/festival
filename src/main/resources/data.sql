@@ -42,34 +42,43 @@ insert into marxism_website_content_speakers (marxism_website_content_id, speake
 
 -- THEMES
 insert into theme (id, name, short_description, long_description, image_url)
-values (1, 'Corbyn', 'Jeremy Corbyn, the Labour Party and the fight for socialism', 
-	'Jeremy Corbyn&apos;s success at last year&apos;s general election shattered the Tories and transformed the political situation here in Britain. Meetings at Marxism Festival will debate the issues facing Corbyn and Labour and discuss how we can mobilise to bring about fundamental change.', 'corbyn-360x240.jpg');
+values (1, 'Corbyn', 'Jeremy Corbyn, the Labour Party and the fight for socialism',
+	'Jeremy Corbyn&apos;s success at last year&apos;s general election shattered the Tories and transformed the political situation here in Britain. Meetings at Marxism Festival will debate the issues facing Corbyn and Labour and discuss how we can mobilise to bring about fundamental change.',
+	'labour-corbyn-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (2, 'Racism', 
-	'Resisting the racist backlash and the rise of fascism across Europe', 
-	'Far right and fascist forces have grown across Europe and the bigoted presidency of Donald Trump adds to the instability across the globe.  Meanwhile hundreds of refugees continue to die as they flee war and persecution. At Marxism Festival we will discuss how best to respond to these challenges.', 'sutr.jpg');
+values (2, 'Racism',
+	'Resisting the racist backlash and the rise of fascism across Europe',
+	'Far right and fascist forces have grown across Europe and the bigoted presidency of Donald Trump adds to the instability across the globe.  Meanwhile hundreds of refugees continue to die as they flee war and persecution. At Marxism Festival we will discuss how best to respond to these challenges.',
+	'racism-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (3, 'Marx', 
-	'#Marx200 Anniversary – was Marx right?', 
-	'Karl Marx was an anti-capitalist and revolutionary. But 200 years on from his birth are his ideas still relevant today? We will explore Marx&apos;s economic insights for a system in crisis as well as his method for understanding the world today.', 'marx-360x240.jpg');
+values (3, 'Marx',
+	'#Marx200 Anniversary – was Marx right?',
+	'Karl Marx was an anti-capitalist and revolutionary. But 200 years on from his birth are his ideas still relevant today? We will explore Marx&apos;s economic insights for a system in crisis as well as his method for understanding the world today.',
+	'marx-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (4, 'Climate Change', 'Capitalism and climate change', 
-	'With a climate change denier in the White House and fossil fuel use locked into capitalism - how can we act to stop catastrophic climate change?  We will discuss how Marxist ideas help shed light on an understanding of nature, ecology and the environment.', 'climate-360x240.jpg');
+values (4, 'Climate Change', 'Capitalism and climate change',
+	'With a climate change denier in the White House and fossil fuel use locked into capitalism - how can we act to stop catastrophic climate change?  We will discuss how Marxist ideas help shed light on an understanding of nature, ecology and the environment.',
+	'climate-change-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (5, 'Me Too', '#MeToo: challenging sexism and the system', 
-	'Headlines about the issue of sexual harassment have led to the #MeToo campaign with millions of women sharing their experiences.  There is a growing movement challenging ideas about gender and sexuality. But how can we build a collective response to the sexism structured into our society?', 'sexism-and-the-system-yussre-el-bardicy.jpg');
+values (5, 'Me Too', '#MeToo: challenging sexism and the system',
+	'Headlines about the issue of sexual harassment have led to the #MeToo campaign with millions of women sharing their experiences.  There is a growing movement challenging ideas about gender and sexuality. But how can we build a collective response to the sexism structured into our society?',
+	'MeToo-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (6, 'Imperialism', 'War, imperialism, the Middle East and Palestine', 
-	'From Syria to Palestine the Middle East is on fire – a terrible consequence of western colonialism and imperialism.  We will look at how war is endemic to capitalism, discuss the latest developments in the carve up of the world and crucially ask how we can organise to stop the bloodshed.', 'imperialism-360x240.jpg');
+values (6, 'Imperialism', 'War, imperialism, the Middle East and Palestine',
+	'From Syria to Palestine the Middle East is on fire – a terrible consequence of western colonialism and imperialism.  We will look at how war is endemic to capitalism, discuss the latest developments in the carve up of the world and crucially ask how we can organise to stop the bloodshed.',
+	'imperialism-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (7, 'LGBT', 'Marxism, Trans politics and the fight for LGBT+ liberation', 
-	'There is an offensive against transgender people – with attacks from the right wing media and the tripling of transphobic hate crime in the last five years. Meetings will discuss the fight for LGBT+ liberation, how trans people have fought as part of the wider movement for sexual liberation, and why trans rights are a demand every socialist and trade unionist should support.', 'lgbt-360x240.jpg');
+values (7, 'LGBT', 'Marxism, Trans politics and the fight for LGBT+ liberation',
+	'There is an offensive against transgender people – with attacks from the right wing media and the tripling of transphobic hate crime in the last five years. Meetings will discuss the fight for LGBT+ liberation, how trans people have fought as part of the wider movement for sexual liberation, and why trans rights are a demand every socialist and trade unionist should support.',
+	'trans-lgbt-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (8, 'Trump', 'Donald Trump, the US and resistance', 
-	'The election as US president of an openly misogynistic, transphobic bigot who built his campaign on racist scapegoating has driven those who want to challenge oppression out onto the streets. We will discuss developments in the US and the potential for resistance to take on Trump.', 'imperialism-.jpg');
+values (8, 'Trump', 'Donald Trump, the US and resistance',
+	'The election as US president of an openly misogynistic, transphobic bigot who built his campaign on racist scapegoating has driven those who want to challenge oppression out onto the streets. We will discuss developments in the US and the potential for resistance to take on Trump.',
+	'Trump-image-360-x-240px.jpg');
 insert into theme (id, name, short_description, long_description, image_url)
-values (9, 'Class', 'Class, struggle and the trade unions today', 
-	'How can we resist the Tories offensive on working class people? Has the working class lost its power? How should we organise at work? And is there even a future of work or will robots take over? These are just some of the questions we will seek to address at Marxism Festival.', 'imperialism-.jpg');
+values (9, 'Class', 'Class, struggle and the trade unions today',
+	'How can we resist the Tories offensive on working class people? Has the working class lost its power? How should we organise at work? And is there even a future of work or will robots take over? These are just some of the questions we will seek to address at Marxism Festival.',
+	'class-struggle-image-360-x-240px.jpg');
 
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 1, 0);
 insert into marxism_website_content_themes (marxism_website_content_id, themes_id, theme_index) values (1, 2, 1);

@@ -171,6 +171,7 @@ i.warning_icon {
 .error-block {
   color: red;
 }
+
 /****************
 /** MEDIA QUERIES
 /****************
@@ -183,6 +184,10 @@ i.warning_icon {
   section#section_booking {
     padding-top: 30px;
   }
+  /* Themes */
+  .news__item__footer {
+      height: 400px;
+  }
 }
 
 /* Landscape tablets and medium desktops */
@@ -193,8 +198,11 @@ i.warning_icon {
   section#section_booking {
     padding-top: 30px;
   }
+  /* Themes */
+  .news__item__footer {
+      height: 450px;
+  }
 }
-
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -210,6 +218,10 @@ i.warning_icon {
   .video-title {
 		font-size : 0.9em;
   }
+  /* Themes */
+  .news__item__footer {
+      height: 620px;
+  }
 }
 
 
@@ -224,7 +236,7 @@ i.warning_icon {
   }
   h2#booking_header {
     font-size: 1em;
-  }  
+  }
   section#section_booking {
   	padding-bottom: 30px;
   	padding-top: 30px;
@@ -242,11 +254,11 @@ i.warning_icon {
   */
   h2#booking_header {
     font-size: 1em;
-  } 
+  }
   section#section_booking {
   	padding-bottom: 30px;
   	padding-top: 30px;
-  } 
+  }
   div#booking_form_container {
     position: static;
     overflow: visible;
@@ -261,7 +273,7 @@ i.warning_icon {
   div.booking_radio_buttons {
     padding-left: 10px;
   }
-  
+
   button#showPreviousButton, button#showNextButton {
   	font-size : 0.8em;
   }
