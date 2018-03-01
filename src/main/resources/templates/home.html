@@ -26,25 +26,25 @@
       <img th:src="@{/img/spinner.svg}" alt="Loading..." class="preloader__spinner">
     </div>
 
-    <div th:include="layouts/modal"></div>
+    <div th:replace="layouts/modal"></div>
 
-    <div th:include="layouts/navbar"></div>
+    <div th:replace="layouts/navbar"></div>
 
-    <div th:include="layouts/carousel"></div>
+    <div th:replace="layouts/carousel"></div>
 
-    <div th:include="layouts/about"></div>
+    <div th:replace="layouts/about"></div>
 
-    <div th:include="layouts/themes"></div>
+    <div th:replace="layouts/themes"></div>
 
-    <div th:include="layouts/pricing"></div>
+    <div th:replace="layouts/pricing"></div>
 
-    <div th:include="layouts/gallery2"></div>
-    
-    <div th:include="layouts/contact"></div>
+    <div th:replace="layouts/gallery2"></div>
 
-    <div th:include="layouts/book"></div>
+    <div th:replace="layouts/contact"></div>
 
-    <div th:include="layouts/footer"></div>
+    <div th:replace="layouts/book"></div>
+
+    <div th:replace="layouts/footer"></div>
 
 
   <!-- JAVASCRIPT
@@ -55,12 +55,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!-- JS Plugins -->
-  <!-- 
+  <!--
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
   <script th:src="@{/plugins/swipebox/src/js/jquery.swipebox.js}"></script>
   -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"></script>
-  
+
   <script th:src="@{/plugins/waypoints/jquery.waypoints.min.js}"></script>
   <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
 
