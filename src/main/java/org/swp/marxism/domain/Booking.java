@@ -63,9 +63,9 @@ public class Booking {
 	@Enumerated(EnumType.STRING)
 	private HearAbout hearAbout;
 
-	private String accomodationNeeds;
+	private String accommodationNeeds;
 
-	private String accomodationContact;
+	private String accommodationContact;
 
 	private Integer childrenUnder18Months;
 
@@ -167,20 +167,20 @@ public class Booking {
 		this.otherMembership = otherMembership;
 	}
 
-	public String getAccomodationNeeds() {
-		return accomodationNeeds;
+	public String getAccommodationNeeds() {
+		return accommodationNeeds;
 	}
 
-	public void setAccomodationNeeds(String accomodationNeeds) {
-		this.accomodationNeeds = accomodationNeeds;
+	public void setAccommodationNeeds(String accommodationNeeds) {
+		this.accommodationNeeds = accommodationNeeds;
 	}
 
-	public String getAccomodationContact() {
-		return accomodationContact;
+	public String getAccommodationContact() {
+		return accommodationContact;
 	}
 
-	public void setAccomodationContact(String accomodationContact) {
-		this.accomodationContact = accomodationContact;
+	public void setAccommodationContact(String accommodationContact) {
+		this.accommodationContact = accommodationContact;
 	}
 
 	public Integer getChildrenUnder18Months() {
@@ -278,7 +278,7 @@ public class Booking {
 	@Override
 	public String toString() {
 		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", date=" + date + ", address=" + address + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", email=" + email + ", telephone=" + telephone
-				+ ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout + ", accomodationNeeds=" + accomodationNeeds + ", accomodationContact=" + accomodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
+				+ ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout + ", accommodationNeeds=" + accommodationNeeds + ", accommodationContact=" + accommodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
 				+ ", children5YearsTo11years=" + children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
 	}
 

@@ -34,9 +34,9 @@ function showNext() {
 		screen = 'address'
 		field = '#booking_address1'
 	} else if (currentScreen == 'address') {
-		screen = 'accomodation'
-		field = '#bookingaccommodation_needs'
-	} else if (currentScreen == 'accomodation') {
+		screen = 'accommodation'
+		field = '#booking_accommodation_needs'
+	} else if (currentScreen == 'accommodation') {
 		screen = 'creche'
 		field = '#booking_under18months'
 	} else if (currentScreen == 'creche') {
@@ -58,7 +58,7 @@ function showNext() {
 	    return;
 	}
 
-	if (screen == 'accomodation') {
+	if (screen == 'accommodation') {
 		if ($('input#accomdationRequiredNo').is(":checked") == true) {
 			screen = 'creche'
 		}
@@ -113,7 +113,7 @@ function fillConfirmation() {
 
 	if(booking.accommodation != null) {
 		$('div#confirmation_accommodation_needs').text(booking.accommodation.needs)
-		$('div#confirmation_accommodation_friend').text(booking.accommodation.friend)
+		$('div#confirmation_accommodation_contact').text(booking.accommodation.friend)
 		$('div#confirmation_accommodation').show()
 	} else {
 		$('div#confirmation_accommodation').hide()
@@ -141,8 +141,8 @@ function showPrevious() {
 	} else if (currentScreen == 'ticket') {
 		screen = 'creche'
 	} else if (currentScreen == 'creche') {
-		screen = 'accomodation'
-	} else if (currentScreen == 'accomodation') {
+		screen = 'accommodation'
+	} else if (currentScreen == 'accommodation') {
 		screen = 'address'
 	} else if (currentScreen == 'confirmation') {
 		$('button#showNextButton').html('Next');
@@ -151,11 +151,11 @@ function showPrevious() {
 
 	if (screen == 'creche') {
 		if ($('input#crecheRequiredRadioNo').is(":checked") == true) {
-			screen = 'accomodation'
+			screen = 'accommodation'
 		}
 	}
 
-	if (screen == 'accomodation') {
+	if (screen == 'accommodation') {
 		if ($('input#accomdationRequiredNo').is(":checked") == true) {
 			screen = 'address'
 		}
@@ -242,11 +242,11 @@ function validate( screen ) {
 		//validateField( 'under18months', errors )
 		//validateField( 'upto5Years', errors )
 		//validateField( 'from5to11Years', errors )
-	} else if (currentScreen == 'accomodation') {
+	} else if (currentScreen == 'accommodation') {
 		validateField( 'accommodation_needs', errors )
 	} else if (currentScreen == 'details') {
-		validateField( 'where_hear', errors )
-	} else if (currentScreen == 'accomodation') {
+		validateField( 'hear_about', errors )
+	} else if (currentScreen == 'accommodation') {
 	} else if (currentScreen == 'creche') {
 	} else if (currentScreen == 'ticket') {
 		validateTicket(errors)
@@ -393,7 +393,7 @@ function getBooking() {
 
 	if ($('input#accomdationRequiredYes').is(":checked") == true) {
 		var accommodation = {}
-		accommodation.friend = $('input#booking_accommodation_friend').val()
+		accommodation.friend = $('input#booking_accommodation_contact').val()
 		accommodation.needs = $('textarea#booking_accommodation_needs').val()
 		booking.accommodation = accommodation
 	}
