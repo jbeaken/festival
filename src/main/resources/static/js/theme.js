@@ -142,7 +142,7 @@ $(function() {
          ],[
             { width: 1080, url: "/img/carousel/blm-731x548.jpg" },
             { width: 720, url: "/img/carousel/blm-731x548.jpg" },
-            { width: 320, url: "/img/carousel/blm-731x548.jpg" }
+            { width: 320, url: "/img/carousel/blm-320x480.jpg", cover : 'fit' }
          ]
     ], {
         duration: 500,
