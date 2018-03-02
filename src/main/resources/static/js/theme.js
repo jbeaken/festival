@@ -111,39 +111,39 @@ $(function() {
     console.log("width : " + width + " height : " + height)
 
     bannerCarouselImg.backstretch([
-          [
-              { width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
-              { width: 612, url: "/img/carousel/brazil-612x460.jpg?width=" + width + "&height=" + height },
-              { width: 320, url: "/img/carousel/brazil-320x240.jpg?width=" + width + "&height=" + height }
-          ],[
-             { width: 1024, url: "/img/carousel/handsup-1024x768.jpg" },
-             { width: 612, url: "/img/carousel/handsup-612x460.jpg" },
-             { width: 320, url: "/img/carousel/handsup-320x240.jpg" }
-          ],[
+         [
+           	{ width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
+            { width: 612, url: "/img/carousel/brazil-612x460.jpg?width=" + width + "&height=" + height },
+            { width: 320, url: "/img/carousel/brazil-320x240.jpg?width=" + width + "&height=" + height }
+         ],[
+            { width: 1024, url: "/img/carousel/handsup-1024x768.jpg" },
+            { width: 612, url: "/img/carousel/handsup-612x460.jpg" },
+            { width: 320, url: "/img/carousel/handsup-320x240.jpg" }
+         ],[
             { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
             { width: 720, url: "/img/carousel/egypt-1024x768.jpg" },
             { width: 360, url: "/img/carousel/egypt-1024x768.jpg" }
-          ],[
-           { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
-           { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
-           { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
-          ],[
+         ],[
+            { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
+            { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
+            { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
+         ],[
             { width: 1080, url: "/img/carousel/greek.jpg" },
             { width: 720, url: "/img/carousel/greek.jpg" },
             { width: 320, url: "/img/carousel/greek.jpg" }
-          ],[
-             { width: 1080, url: "/img/carousel/kings.jpg" },
-             { width: 720, url: "/img/carousel/kings.jpg" },
-             { width: 320, url: "/img/carousel/kings.jpg" }
-           ],[
-              { width: 1080, url: "/img/carousel/ucu-strike.jpg" },
-              { width: 720, url: "/img/carousel/ucu-strike.jpg" },
-              { width: 320, url: "/img/carousel/ucu-strike.jpg" }
-            ],[
-               { width: 1080, url: "/img/carousel/blm.jpg" },
-               { width: 720, url: "/img/carousel/blm.jpg" },
-               { width: 320, url: "/img/carousel/blm.jpg" }
-             ]
+         ],[
+            { width: 1080, url: "/img/carousel/kings.jpg" },
+            { width: 720, url: "/img/carousel/kings.jpg" },
+            { width: 320, url: "/img/carousel/kings.jpg" }
+         ],[
+            { width: 1080, url: "/img/carousel/ucu-strike.jpg" },
+            { width: 720, url: "/img/carousel/ucu-strike.jpg" },
+            { width: 320, url: "/img/carousel/ucu-strike.jpg" }
+         ],[
+            { width: 1080, url: "/img/carousel/blm-731x548.jpg" },
+            { width: 720, url: "/img/carousel/blm-731x548.jpg" },
+            { width: 320, url: "/img/carousel/blm-731x548.jpg" }
+         ]
     ], {
         duration: 500,
         fade: 750
