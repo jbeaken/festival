@@ -116,10 +116,6 @@ $(function() {
             { width: 612, url: "/img/carousel/brazil-612x460.jpg?width=" + width + "&height=" + height },
             { width: 320, url: "/img/carousel/brazil-320x240.jpg?width=" + width + "&height=" + height }
          ],[
-            { width: 1024, url: "/img/carousel/handsup-1024x768.jpg" },
-            { width: 612, url: "/img/carousel/handsup-612x460.jpg" },
-            { width: 320, url: "/img/carousel/handsup-320x240.jpg" }
-         ],[
             { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
             { width: 720, url: "/img/carousel/egypt-1024x768.jpg" },
             { width: 360, url: "/img/carousel/egypt-1024x768.jpg" }
@@ -250,11 +246,10 @@ $(function() {
     	$.swipebox( [
         		{ href:'/img/conference/closing_rally.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
         		{ href:'/img/conference/f_cc1.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-        		{ href:'/img/conference/students2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
         		{ href:'/img/conference/students3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-        		{ href:'/img/conference/students4.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
         		{ href:'/img/conference/Marxism2014-WideAngle-GS.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
         		{ href:'/img/conference/f_cc2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/black-panther-mtg-south-london.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
         		{ href:'/img/conference/meeting2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
         	],
             {
