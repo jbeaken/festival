@@ -248,15 +248,19 @@ $(function() {
     $('a#swipeBoxButton').click( function( e ) {
     	e.preventDefault();
     	$.swipebox( [
-    		{ href:'/img/conference/closing_rally.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/f_cc1.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/students2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/students3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/students4.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/Marxism2014-WideAngle-GS.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/f_cc2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-    		{ href:'/img/conference/meeting2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
-    	] );
+        		{ href:'/img/conference/closing_rally.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/f_cc1.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/students2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/students3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/students4.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/Marxism2014-WideAngle-GS.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/f_cc2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+        		{ href:'/img/conference/meeting2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
+        	],
+            {
+                hideBarsDelay : 0 // 0 to always show caption and action bar
+            }
+        );
     } );
 
     $( '.swipebox' ).swipebox( {autoplayVideos: true} );
