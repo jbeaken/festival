@@ -55,6 +55,7 @@ div.features__item__body {
   text-align: left;
   padding-left: 30px;
 }
+
 /* Pricing */
 span.pricing_pound_symbol {
     font-size: 0.9em;
@@ -64,6 +65,9 @@ div.pricing_from_price {
   line-height: 1;
   color: #FFAB00;
 }
+.section_pricing .pricing__item__heading {
+  font-size : 30px;
+}
 div.pricing_from {
   color: #FFAB00;
   font-size : 30px;
@@ -71,6 +75,11 @@ div.pricing_from {
 }
 .section_pricing .pricing__item {
   text-align: left;
+}
+
+.section_pricing a.btn-book-now {
+	display : inline;
+	padding: 15px 65px;
 }
 
 /* Speakers */
@@ -159,7 +168,7 @@ div.gallery-icon {
 /* Pricing / Ticket */
 
 .ticket-help > i {
-	font-size: 1.5em;
+	font-size: 0.8em;
 }
 .ticket-help {
 	text-transform: none;
@@ -173,6 +182,7 @@ div.gallery-icon {
 	font-size: 2em;
 	color : #FFAB00;
 }
+
 
 /* Error */
 
