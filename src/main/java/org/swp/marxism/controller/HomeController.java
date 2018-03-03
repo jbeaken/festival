@@ -1,5 +1,8 @@
 package org.swp.marxism.controller;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
@@ -97,13 +100,21 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
-	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model) {
+	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model) throws NoSuchAlgorithmException {
 
 		logger.info("Received feeback {} ", feedback);
 		
 		Long id = Long.parseLong( feedback.getOrderid().replace("MRX", "") );
 		
 		logger.info("Extracted booking id {}", id);
+		
+		boolean shaCheck = feedback.checkSha( "saltthisisasalTasd" );
+		
+		logger.info("shaCheck = {}", shaCheck);
+		
+		if(shaCheck == false) {
+			return new ResponseEntity<String>("sha failure", HttpStatus.NOT_ACCEPTABLE);
+		}
 		
 		Booking booking = bookingRepository.findOne( id );
 		
@@ -264,4 +275,6 @@ public class HomeController {
 
 		return "success";
 	}
+	
+
 }

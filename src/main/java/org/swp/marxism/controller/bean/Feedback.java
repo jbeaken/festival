@@ -1,5 +1,8 @@
 package org.swp.marxism.controller.bean;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Feedback {
 	
 	private String orderid;
@@ -57,4 +60,24 @@ public class Feedback {
 	public String toString() {
 		return "Feedback [orderid=" + orderid + ", name=" + name + ", barclaysStatus=" + barclaysStatus + ", amount=" + amount + ", sha=" + sha + "]";
 	}
+
+	private String getShaText(String salt) {
+		return orderid + barclaysStatus + salt;
+	}
+
+	public boolean checkSha(String salt) throws NoSuchAlgorithmException {
+		String thisSha = sha512(getShaText( salt ));
+		if(thisSha.equals(sha)) return true;
+		return false;
+	}
+	
+	protected String sha512(String input) throws NoSuchAlgorithmException {
+		MessageDigest mDigest = MessageDigest.getInstance("SHA-512");
+		byte[] result = mDigest.digest(input.getBytes());
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < result.length; i++) {
+			sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+		}
+		return sb.toString();
+	}	
 }
