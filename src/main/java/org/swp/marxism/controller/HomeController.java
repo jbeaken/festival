@@ -202,8 +202,14 @@ public class HomeController {
 			message.setTo(emailTo);
 			
 			message.setBcc("jack747@gmail.com");
+			
+			StringBuilder builder = new StringBuilder();
+			builder.append("Name : " + contactForm.getName() + "<br/>");
+			builder.append("Email : " + contactForm.getEmail() + "<br/>");
+			builder.append("Message : " + contactForm.getMessage() + "<br/>");
+			
 
-			message.setText(contactForm.getMessage(), false);
+			message.setText(builder.toString(), true);
 
 			this.mailSender.send(mimeMessage);
 
