@@ -108,7 +108,7 @@ public class HomeController {
 		
 		logger.info("Extracted booking id {}", id);
 		
-		boolean shaCheck = feedback.checkSha( "saltthisisasalTasd" );
+		boolean shaCheck = feedback.checkSha( "435dhsgidcddT4g" );
 		
 		logger.info("shaCheck = {}", shaCheck);
 		
