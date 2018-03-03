@@ -81,15 +81,23 @@ public class HomeController {
 
 		return "home.html";
 	}
+	
+	@RequestMapping(value = "/booking/details", method = RequestMethod.GET)
+	public String redirectFromOldUrls(Model model) {
+
+		logger.info("Received request from old website /booking/details");
+
+		return "redirect:/";
+	}	
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public String book(Model model) {
 
 		logger.info("Received get request for book");
 
-		model.addAttribute(new Booking());
+		model.addAttribute("showBookingForm", Boolean.TRUE);
 
-		return "book.html";
+		return "home.html";
 	}
 
 	@RequestMapping(value = "/modal/{content}", method = RequestMethod.GET)
