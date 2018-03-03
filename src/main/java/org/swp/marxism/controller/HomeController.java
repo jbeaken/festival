@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
@@ -22,10 +25,13 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.swp.marxism.controller.bean.BookingResult;
+import org.swp.marxism.controller.bean.Feedback;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
+import org.swp.marxism.domain.BookingStatus;
 import org.swp.marxism.domain.MarxismWebsiteContent;
 import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
@@ -88,16 +94,46 @@ public class HomeController {
 		logger.info("Received request from old website /booking/details");
 
 		return "redirect:/";
-	}	
+	}
+	
+	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
+	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model) {
+
+		logger.info("Received feeback {} ", feedback);
+		
+		Long id = Long.parseLong( feedback.getOrderid().replace("MRX", "") );
+		
+		logger.info("Extracted booking id {}", id);
+		
+		Booking booking = bookingRepository.findOne( id );
+		
+		if(booking == null) {
+			return new ResponseEntity<String>("Cannot find booking " + id, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		logger.info("Got booking {}", booking);
+		
+		if(feedback.getBarclaysStatus().equals("5")) {
+			logger.info("Updating status to paid");
+			bookingRepository.updateStatus(id, BookingStatus.PAID);
+		};
+		
+		if(feedback.getBarclaysStatus().equals("1")) {
+			logger.info("Updating status to cancelled");
+			bookingRepository.updateStatus(id, BookingStatus.CANCELLED);
+		};		
+
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+	}		
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public String book(Model model) {
 
 		logger.info("Received get request for book");
 
-		model.addAttribute("showBookingForm", Boolean.TRUE);
+//		model.addAttribute("showBookingForm", Boolean.TRUE);
 
-		return "home.html";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/modal/{content}", method = RequestMethod.GET)
