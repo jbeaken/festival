@@ -228,6 +228,18 @@ public class HomeController {
 
 		return "barclays.html";
 	}
+	
+	@RequestMapping(value = "/thankYou", method = RequestMethod.GET)
+	public String thankYou(Model model) {
+
+		logger.info("Received thankYou");
+		
+		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
+
+		model.addAttribute("content", marxismWebsiteContent);
+		
+		return "home.html";
+	}	
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
 	@ResponseBody

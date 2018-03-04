@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:title" content="Marxism Festival 2018"/>
+	<meta property="og:url" content="https://marxismfestival.org.uk/"/>
+	<meta property="og:description" content="Marxism Festival - a five day political festival in London in July, hosted by the SWP"/>
+	<meta property="og:site_name" content="Marxism Festival 2018"/>
+	<meta property="og:type" content="website"/>
+	
+	<meta property="og:image" content="https://marxismfestival.org.uk/img/fb/event.jpg"/>
+	<meta property="og:image:secure_url" content="https://marxismfestival.org.uk/img/fb/event.jpg"/>
+	<meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="630"/>
+	
+	<!-- Schema.org markup for Google+ -->
+	<meta itemprop="name" content="Marxism Festival 2018">
+	<meta itemprop="description" content="Marxism Festival - a five day political festival in London in July, hosted by the SWP">
+	<meta itemprop="image" content="https://marxismfestival.org.uk/img/fb/event.jpg"> 	
+	
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@MarxismFestival">
+	<meta name="twitter:title" content="Marxism Festival 2018">
+	<meta name="twitter:description" content="Marxism Festival - a five day political festival in London in July, hosted by the SWP">
+	<meta name="twitter:creator" content="@MarxismFestival">
+	<meta name="twitter:image" content="https://marxismfestival.org.uk/img/twitter/event.jpg"> 		
+
+	<script data-schema="WebPage" type="application/ld+json">
+        {"@id":"https://marxismfestival.org.uk/","@type":"WebPage","@context":"http://schema.org"}
+	</script>	
+
+	<meta name="description" content="Marxism Festival - a five day political festival in London in July, hosted by the SWP">
+    <meta name="keywords" content="Marxism, SWP, Socialist Workers Party, politics, revolt, revolution, anti-Tory, cuts, unions, strikes, protest, students, workers, occupy, socialism, anti-capitalist">
+        
+	<link rel="canonical" href="https://marxismfestival.org.uk/" />
+    <link rel="shortcut icon" href="/favicon.ico">
+	
+    <title>Marxism Festival 2018</title>
+
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" th:href="@{/plugins/swipebox/src/css/swipebox.css}">
+    <link rel="stylesheet" th:href="@{/plugins/ionicons/css/ionicons.min.css}">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    
+    <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	    ga('create', 'UA-115019473-1', 'auto');
+	    ga('send', 'pageview');
+    </script>
+    
+  </head>
+  <body data-spy="scroll" data-target="#navbar_main" data-offset="80">
+
+    <!-- PRELOADER
+    ================================================== -->
+    <div class="preloader">
+      <img th:src="@{/img/spinner.svg}" alt="Loading..." class="preloader__spinner">
+    </div>
+
+    <div th:replace="layouts/modal"></div>
+
+    <div th:replace="layouts/navbar"></div>
+
+    <div th:replace="layouts/carousel"></div>
+
+    <div th:replace="layouts/about"></div>
+
+    <div th:replace="layouts/themes"></div>
+
+    <div th:replace="layouts/pricing"></div>
+
+    <div th:replace="layouts/gallery"></div>
+
+    <div th:replace="layouts/contact"></div>
+
+    <div th:replace="layouts/book"></div>
+
+    <div th:replace="layouts/footer"></div>
+
+
+  <!-- JAVASCRIPT
+  ================================================== -->
+
+  <!-- JS Global -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- JS Plugins -->
+  <!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script th:src="@{/plugins/swipebox/src/js/jquery.swipebox.js}"></script>
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"></script>
+
+  <script th:src="@{/plugins/waypoints/jquery.waypoints.min.js}"></script>
+  <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
+
+  <!-- JS Custom -->
+  <script th:src="@{/js/custom.js}"></script>
+  <script th:src="@{/js/theme.js}"></script>
+
+  </body>
+</html>
