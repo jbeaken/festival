@@ -272,45 +272,14 @@ i.warning_icon {
 }
 
 /* Portrait phones and smaller */
-@media (min-width: 321px) and (max-width: 480px) {
+@media (max-width: 480px) {
+  /*
   .h0 {
-	  padding-top: 80px;
-	  padding-bottom: 60px;
+  font-size: 24px;
+  padding-bottom: 140px;
+  padding-top: 50px;
   }
-  h2#booking_header {
-    font-size: 1em;
-  }
-  section#section_booking {
-  	padding-bottom: 30px;
-  	padding-top: 30px;
-  }
-  div#booking_form_container {
-    position: static;
-    overflow: visible;
-    height : 100%;
-  }
-  div#booking_form_container legend {
-  	display : none;
-  }
-  div#about_blurb {
-    /* padding-left: 30px; */
-  }
-  div.booking_radio_buttons {
-    padding-left: 10px;
-  }
-
-  button#showPreviousButton, button#showNextButton {
-  	font-size : 0.8em;
-  }
-}
-
-/* Portrait phones and smaller */
-@media (max-width: 320px) {
-  .h0 {
-	  font-size: 3em;
-	  padding-top: 40px;
-	  padding-bottom : 20px
-  }
+  */
   h2#booking_header {
     font-size: 1em;
   }

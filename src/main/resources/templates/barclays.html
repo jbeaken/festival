@@ -1,15 +1,14 @@
 <html>
-<body onload="document.forms[0].submit()">
-<form id="barclaysForm" action="https://socialistworker.co.uk/barclays/encrypt" method="post" accept-charset="utf-8">
-    <input name="IGNORE_SOURCE" value="MARXISM" type="hidden">
-    <input id="barclays_id" name="ORDERID" th:value="${orderId}" type="hidden">
-    <input id="barclays_amount" name="AMOUNT" th:value="${amount}" type="hidden">    
-    <input id="barclays_name" name="CN" th:value="${booking.fullname}" type="hidden">
-    <input id="barclays_email" name="EMAIL" th:value="${booking.email}" type="hidden">
-    <input name="ACCEPTURL" value="https://www.marxismfestival.org.uk/thankYou" type="hidden">
-    <input name="CANCELURL" value="https://www.marxismfestival.org.uk/thankYou" type="hidden">
-    <input name="DECLINEURL" value="https://www.marxismfestival.org.uk/thankYou" type="hidden">
-</form>
-
-
+	<body onload="document.forms[0].submit()">
+		<form id="barclaysForm" action="https://socialistworker.co.uk/barclays/encrypt" method="post" accept-charset="utf-8">
+		    <input name="IGNORE_SOURCE" value="MARXISM" type="hidden">
+		    <input id="barclays_id" name="ORDERID" th:value="${orderId}" type="hidden">
+		    <input id="barclays_amount" name="AMOUNT" th:value="${amount}" type="hidden">    
+		    <input id="barclays_name" name="CN" th:value="${booking.fullname}" type="hidden">
+		    <input id="barclays_email" name="EMAIL" th:value="${booking.email}" type="hidden">
+		    <input name="ACCEPTURL" value="https://www.marxismfestival.org.uk/thankYou" type="hidden">
+		    <input name="CANCELURL" value="https://www.marxismfestival.org.uk/thankYou" type="hidden">
+		    <input name="DECLINEURL" value="https://www.marxismfestival.org.uk/thankYou" type="hidden">
+		</form>
+	</body>
 </html>
