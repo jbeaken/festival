@@ -117,20 +117,20 @@ $(function() {
             { width: 320, url: "/img/carousel/brazil-320x240.jpg?width=" + width + "&height=" + height }
          ],[
             { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
-            { width: 720, url: "/img/carousel/egypt-1024x768.jpg" },
-            { width: 360, url: "/img/carousel/egypt-1024x768.jpg" }
+            { width: 720, url: "/img/carousel/eqypt-720x540.jpg" },
+            { width: 360, url: "/img/carousel/eqypt-720x540.jpg" }
          ],[
             { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
             { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
             { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
          ],[
             { width: 1080, url: "/img/carousel/greek.jpg" },
-            { width: 720, url: "/img/carousel/greek.jpg" },
-            { width: 320, url: "/img/carousel/greek.jpg" }
+            { width: 720, url: "/img/carousel/greek-720x540.jpg" },
+            { width: 320, url: "/img/carousel/greek-720x540.jpg" }
          ],[
-            { width: 1080, url: "/img/conference/f_cc3.jpg" },
-            { width: 720, url: "/img/carousel/kings.jpg" },
-            { width: 320, url: "/img/carousel/kings.jpg" }
+            { width: 1080, url: "/img/carousel/kings-1024x768.jpg" },
+            { width: 720, url: "/img/carousel/kings-720x540.jpg" },
+            { width: 320, url: "/img/carousel/kings-720x540.jpg" }
          ],[
             { width: 1080, url: "/img/carousel/ucu-strike.jpg" },
             { width: 720, url: "/img/carousel/ucu-strike.jpg" },
@@ -138,7 +138,7 @@ $(function() {
          ],[
             { width: 1080, url: "/img/carousel/blm-731x548.jpg" },
             { width: 720, url: "/img/carousel/blm-731x548.jpg" },
-            { width: 320, url: "/img/carousel/blm-320x480.jpg", cover : 'fit' }
+            { width: 320, url: "/img/carousel/blm-320x480.jpg" }
          ]
     ], {
         duration: 500,
