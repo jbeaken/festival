@@ -169,7 +169,7 @@ function showPrevious() {
 
 	screen = "#" + screen + "_screen"
 
-	console.log("Post process screen = " + screen)
+//	console.log("Post process screen = " + screen)
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
 	$(screen).show()
@@ -199,11 +199,11 @@ function validateMobile() {
 	validateField( 'country', errors )
 	validateField( 'ticket', errors )
 
-	console.log( errors )
+//	console.log( errors )
 
 	if (errors.length > 0) {
 		var fieldId = errors[0].field
-		console.log("Adding error class to field " + fieldId)
+//		console.log("Adding error class to field " + fieldId)
 
 		var field = $('#booking_' + fieldId)
 
@@ -275,7 +275,7 @@ function validateField( field, errors ) {
 
 	var value = $('#booking_' + field).val().trim()
 
-	console.log(field + " : " + value)
+//	console.log(field + " : " + value)
 
 	if (value == '') {
 		errors.push({
@@ -302,7 +302,7 @@ function validateNumber(field, errors) {
 
 	var value = $('#booking_' + field).val()
 
-	console.log(field + " : " + value)
+//	console.log(field + " : " + value)
 
 	if (value == '') {
 		errors.push({
@@ -322,7 +322,7 @@ function validateNumber(field, errors) {
 function validateSelect(field, errors) {
 	var value = $('#booking_' + field).val()
 
-	console.log(field + " : " + value)
+//	console.log(field + " : " + value)
 
 	if (value == '') {
 		errors.push({
@@ -341,29 +341,6 @@ function editBooking( screen ) {
 	$('button#showNextButton').html('Next');
 	showPrevious();
 }
-
-function initBookingForMobile() {
-	console.log("initBookingForMobile()")
-
-	$('section#section_booking').removeClass('hidden');
-	$('.booking_screen').removeClass('hidden')
-	$('.booking_screen').show()
-
-	//Scroll to booking
-	$('html, body').animate({
-        scrollTop: $('#section_booking').offset().top - 120
-    //}, 1000, function() {
-    	 //field.focus()
-    	 // $('#booking_' + field).next('.help-block').slideDown();
-    });
-
-	$('#thankyou_screen').hide()
-	$('#confirmation_screen').hide()
-
-	// Close collapsed navbar on click
-    $('.navbar-collapse').collapse('hide');
-}
-
 
 function getBooking() {
 	var booking = {}
@@ -408,8 +385,8 @@ function getBooking() {
 
 	booking.id = $('input#booking_id').val()
 
-	console.log("getBooking() : ")
-	console.log(booking)
+//	console.log("getBooking() : ")
+//	console.log(booking)
 
 	return booking
 
@@ -421,7 +398,7 @@ function getBooking() {
 
 function sendEmail() {
 
-	console.log("sendEmail()")
+//	console.log("sendEmail()")
 
 	var name = $('input#contactFormName').val().trim();
 	var message = $('textarea#contactFormMessage').val().trim();
@@ -462,6 +439,8 @@ function sendEmail() {
 	    	$('input#contactFormEmail').val('')	    	
 	    }
 	});
+	
+	sendGA( '/sendEmail' ) 
 }
 
 function validateContactEmail( email ) {
@@ -516,16 +495,15 @@ function showMoreSpeakers() {
 /**********************/
 
 function toggleTickets() {
-	console.log("toggleTickets()")
+//	console.log("toggleTickets()")
 
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
 	var ticketType = $('select#booking_ticketType').val()
 
-	console.log("selected ticketPricing : " + ticketPricing)
-	console.log("selected ticketType : " + ticketType)
+//	console.log("selected ticketPricing : " + ticketPricing)
+//	console.log("selected ticketType : " + ticketType)
 
 	if(ticketType == '' || typeof ticketType == 'undefined') {
-		console.log("ticketType is unselected")
 		$('div#ticketDayContainer').hide();
 		$('div#ticketPricingContainer').hide();
 		$('div#ticketAfterPartyContainer').hide();
@@ -534,7 +512,6 @@ function toggleTickets() {
 	}
 
 	if(ticketPricing == ''  || typeof ticketPricing == 'undefined') {
-		console.log("ticketPricing is unselected")
 		$('div#ticketPricingContainer').show();
 		$('div#ticketDayContainer').hide();
 		$('div#ticketAfterPartyContainer').hide();
@@ -609,7 +586,7 @@ function calculatePrice() {
 
 	if(afterParty == 'on') price = price + 5;
 
-	console.log("price : " + price)
+//	console.log("price : " + price)
 
 	//Apply discount till March 28
 	price = price - 5
@@ -642,11 +619,11 @@ function getNoOfDaysSelected() {
 	if(!isNaN( saturday )) noOfDays += saturday
 	if(!isNaN( sunday )) noOfDays += sunday
 
-	console.log("thursday : " + thursday)
-	console.log("friday : " + friday)
-	console.log("saturday : " + saturday)
-	console.log("sunday : " + sunday)
-	console.log("getNoOfDaysSelected : " + noOfDays)
+//	console.log("thursday : " + thursday)
+//	console.log("friday : " + friday)
+//	console.log("saturday : " + saturday)
+//	console.log("sunday : " + sunday)
+//	console.log("getNoOfDaysSelected : " + noOfDays)
 
 	return noOfDays
 }
