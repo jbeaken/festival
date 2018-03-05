@@ -51,7 +51,7 @@ div.social-container {
   height : 110px;
 }
 
-div.features__item__body {
+div.about__item__body {
   text-align: left;
   padding-left: 30px;
 }
@@ -213,7 +213,7 @@ i.warning_icon {
     padding-top: 30px;
   }
   /* Themes */
-  .news__item__footer {
+  .themes__item__footer {
       height: 400px;
   }
 }
@@ -227,7 +227,7 @@ i.warning_icon {
     padding-top: 30px;
   }
   /* Themes */
-  .news__item__footer {
+  .themes__item__footer {
       height: 450px;
   }
 }
@@ -247,7 +247,7 @@ i.warning_icon {
 		font-size : 0.9em;
   }
   /* Themes */
-  .news__item__footer {
+  .themes__item__footer {
       height: 620px;
   }
 }
