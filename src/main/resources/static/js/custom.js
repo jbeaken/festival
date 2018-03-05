@@ -4,14 +4,15 @@
 // Booking screen
 var currentScreen = "contact";
 var dev = false
+var gaAlreadySent = [];
 
 function showNext() {
-	console.log("Call to showNext currentScreen = " + currentScreen)
+	//console.log("Call to showNext currentScreen = " + currentScreen)
 
 	// Validate
 	var errors = validate( currentScreen )
 
-	console.log(errors)
+	//console.log(errors)
 
 	if (errors.length > 0) {
 		var field = errors[0].field
@@ -75,12 +76,15 @@ function showNext() {
 
 	screen = "#" + screen + "_screen"
 
-	console.log("Post process screen = " + screen)
+	//console.log("Post process screen = " + screen)
+	
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
 
 	$(screen).show()
 	$( field ).focus()
+	
+	sendGA( "/book/" + currentScreen )
 }
 
 function fillConfirmation() {
@@ -645,4 +649,22 @@ function getNoOfDaysSelected() {
 	console.log("getNoOfDaysSelected : " + noOfDays)
 
 	return noOfDays
+}
+
+function sendGA( page ) {
+	
+	var alreadySent = (gaAlreadySent.indexOf(page) === -1 ? false : true)
+	
+	console.log("ga send to " + page + ", alreadySent = " + alreadySent)
+	
+	//Don't ga for localhost
+	if (document.location.hostname.search("marxismfestival.org.uk") !== -1 || !alreadySent) {
+    	
+    	console.log("At marxismfestival.org.uk, sending to  " + page)
+        
+        //Send to google analytics
+        ga('send', 'pageview', page);
+    	
+    	gaAlreadySent.push( page )
+	}  
 }

@@ -38,7 +38,7 @@
     <meta name="keywords" content="Marxism, SWP, Socialist Workers Party, politics, revolt, revolution, anti-Tory, cuts, unions, strikes, protest, students, workers, occupy, socialism, anti-capitalist">
         
 	<link rel="canonical" href="https://marxismfestival.org.uk/" />
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 	
     <title>Marxism Festival 2018</title>
 
@@ -57,7 +57,8 @@
 	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	
 	    ga('create', 'UA-115019473-1', 'auto');
-	    ga('send', 'pageview');
+	    var host = window.location.hostname;
+	    if(host != "localhost") { ga('send', 'pageview'); }
     </script>
     
   </head>

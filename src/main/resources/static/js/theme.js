@@ -6,11 +6,7 @@ var $window = $(window);
 
 $window.load(function() {
 
-	console.log("window.load call, booting preloader")
-
     // Theme: Preloader
-    // ================
-
     var preloader = $('.preloader');
 
     preloader.addClass('active');
@@ -23,14 +19,9 @@ $window.load(function() {
 
 $(function() {
 
-	console.log("Booting from theme.js")
-
     // Theme: Navbar
-    // =============
-
     var navbar = $('.navbar');
     var navbarCollapse = $('.navbar-collapse');
-    var navbarLinks = $('.navbar-nav > li > a');
 
     // Toggle navbar on page load if needed
     var scrollTop = $window.scrollTop();
@@ -81,7 +72,8 @@ $(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
             if (target.length) {
-                $('html, body').animate({
+                
+            	$('html, body').animate({
                     scrollTop: target.offset().top - 80
                 }, 1000, function() {
                 	 if(target.selector == '#section_booking') {
@@ -93,9 +85,13 @@ $(function() {
                 		 currentScreen = "contact";
                 	 }
                 });
+            	
+            	var page = "/" + target.selector.replace('#section_', '');           	
+            	
+            	sendGA( page )
+                
                 return false;
             }
-
         }
     });
 
