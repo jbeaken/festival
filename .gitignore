@@ -1,3 +1,4 @@
+src/main/etc/wolfram/node_modules/
 src/main/etc/wolfram/app/
 target/
 !.mvn/wrapper/maven-wrapper.jar
