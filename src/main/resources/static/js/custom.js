@@ -658,7 +658,7 @@ function sendGA( page ) {
 	console.log("ga send to " + page + ", alreadySent = " + alreadySent)
 	
 	//Don't ga for localhost
-	if (document.location.hostname.search("marxismfestival.org.uk") !== -1 || !alreadySent) {
+	if (document.location.hostname.search("marxismfestival.org.uk") !== -1 && !alreadySent) {
     	
     	console.log("At marxismfestival.org.uk, sending to  " + page)
         
