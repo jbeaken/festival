@@ -64,9 +64,10 @@
                   <th>Email</th>
                   <th>Telephone</th>
                   <th>Ticket</th>
-                  <th>A/C</th>
+                  <th>Info</th>
                   <th style="display : none;">Ticket Pricing</th>
                   <th style="display : none;">Ticket Pricing</th>
+                  <th style="display : none;">After Party</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,8 +80,9 @@
                   <th th:text="${booking.telephone}">telephone</th>
                   <th th:text="${booking.ticket.type}">type</th>
                   <th th:text="${booking.ticket.pricing}">info</th>
-                  <th th:text="${booking.accommodationNeeds}" style="display : none;">pricing</th>
-                  <th th:text="${booking.requiresCreche}" style="display : none;">pricing</th>
+                  <th th:text="${booking.accommodationNeeds}" style="display : none;">accommodation</th>
+                  <th th:text="${booking.requiresCreche}" style="display : none;">creche</th>
+                  <th th:text="${booking.ticket.afterParty}" style="display : none;">after party</th>
                 </tr>
               </tbody>
             </table>
@@ -136,18 +138,18 @@
                         var ticketType = row[6]
                         var ticketPricing = row[7]
 
-                    	  var ticketTypeAlert = 'secondary'
+                    	var ticketTypeAlert = 'secondary'
                         var ticketPricingAlert = 'secondary'
 
-                    	  if( ticketType == 'FULL') ticketTypeAlert = 'primary';
-                    	  if( ticketType == 'DAY') ticketTypeAlert = 'success';
+                    	if( ticketType == 'FULL') ticketTypeAlert = 'primary';
+                    	if( ticketType == 'DAY') ticketTypeAlert = 'danger';
 
                         if( ticketPricing == 'WAGED') ticketPricingAlert = 'primary';
-                    	  if( ticketPricing == 'UNWAGED') ticketPricingAlert = 'success';
-                    	  if( ticketPricing == 'STUDENT_FE') ticketPricingAlert = 'danger';
-                    	  if( ticketPricing == 'STUDENT_HE') ticketPricingAlert = 'warning';
+                    	if( ticketPricing == 'UNWAGED') ticketPricingAlert = 'success';
+                    	if( ticketPricing == 'STUDENT_FE') ticketPricingAlert = 'danger';
+                    	if( ticketPricing == 'STUDENT_HE') ticketPricingAlert = 'warning';
 
-                        var html = '<div class="small-alert alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType +'-' + ticketPricing + '</div>'
+                        var html = '<div class="small-alert alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType +' ' + ticketPricing + '</div>'
                         //html += '&nbsp;<div class="alert alert-' + ticketPricingAlert + '" role="alert">' + ticketPricing +'</div>'
                         return html
                       },
@@ -157,6 +159,7 @@
                       "render": function ( data, type, row ) {
                         var accommodationNeeds = row[8]
                         var requiresCreche = row[9]
+                        var afterParty = row[10]
 
                         console.log( accommodationNeeds )
                         console.log( requiresCreche )
@@ -164,10 +167,13 @@
                         var html = ''
 
                         if(accommodationNeeds != '') {
-                          html = '<i class="fa fa-home" aria-hidden="true"></i>';
+                          html = '<i class="fa fa-home fa-lg" aria-hidden="true"></i>';
                         }
                         if(requiresCreche === 'true') {
-                          html += ' <i class="fa fa-child"></i>';
+                          html += ' <i class="fa fa-child fa-lg"></i>';
+                        }
+                        if(afterParty === 'true') {
+                           html += ' <i class="fa fa-music fa-lg"></i>';
                         }
                         console.log( html )
                         return html

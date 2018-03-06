@@ -255,5 +255,5 @@ $(function() {
         );
     } );
 
-    $( '.swipebox' ).swipebox( {autoplayVideos: true} );
+    $( '.swipebox' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
 });
