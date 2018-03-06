@@ -175,7 +175,6 @@ $(function() {
     // ================
 
     $('#modal_img').on('show.bs.modal', function(event) {
-        console.log("show.bs.modal for #modal_img")
 
         var button = $(event.relatedTarget);
         var modal = $(this);
@@ -183,38 +182,38 @@ $(function() {
         var img = button.data('img');
         var content = button.data('content');
 		var ajaxContent = button.data('ajax-content')
-
+		var page = button.data('ga')
+		
 		if(ajaxContent != null) {
-			console.log("Ajax call for " + ajaxContent)
 			$('#modal_img__content').load("/modal/" + ajaxContent);
 		} else {
-			console.log("Non-ajax call, using content " + content)
 			modal.find('#modal_img__content').html(content);
 		}
 
         modal.find('#modal_img__heading').text(heading);
         modal.find('#modal_img__img').attr('src', img);
+        
+        sendGA( '/modal/' + page)
     });
 
 	$('#modal_no_img').on('show.bs.modal', function(event) {
-        console.log("show.bs.modal for #modal_no_img")
-        console.log(event)
 
         var button = $(event.relatedTarget);
         var modal = $(this);
         var heading = button.data('heading');
         var content = button.data('content');
 		var ajaxContent = button.data('ajax-content')
+		var page = button.data('ga')
 
 		if(ajaxContent != null) {
-			console.log("Ajax call for " + ajaxContent)
 			$('#modal_no_img__content').load("/modal/" + ajaxContent);
 		} else {
-			console.log("Non-ajax call, using content")
 			modal.find('#modal_no_img__content').html(content);
 		}
 
         modal.find('#modal_no_img__heading').text(heading);
+        
+        sendGA( '/modal/' + page)
     });
 
 
