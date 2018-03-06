@@ -14,6 +14,12 @@
   <link th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.css}" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link th:href="@{/admin/css/sb-admin.css}" rel="stylesheet">
+
+  <style>
+  .small-alert {
+    font-size: 0.7em;
+  }
+  </style>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -101,6 +107,10 @@
     <script th:src="@{/admin/js/sb-admin.min.js}"></script>
     <script>
     	$(document).ready(function(){
+
+        //Close nav bar
+        $("#sidenavToggler").click();        
+
     		$("#dataTable").DataTable( {
     	        "columnDefs": [
                 {
@@ -117,7 +127,7 @@
                     	  if( data == 'PAID') alert = 'success';
                     	  if( data == 'CANCELLED') alert = 'danger';
 
-                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
+                          return '<div class="small-alert alert alert-' + alert + '" role="alert">' + data +'</div>'
                       },
                       "targets": 1
                   },
@@ -137,8 +147,8 @@
                     	  if( ticketPricing == 'STUDENT_FE') ticketPricingAlert = 'danger';
                     	  if( ticketPricing == 'STUDENT_HE') ticketPricingAlert = 'warning';
 
-                        var html = '<div class="alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType +'</div>'
-                        html += '&nbsp;<div class="alert alert-' + ticketPricingAlert + '" role="alert">' + ticketPricing +'</div>'
+                        var html = '<div class="small-alert alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType +'-' + ticketPricing + '</div>'
+                        //html += '&nbsp;<div class="alert alert-' + ticketPricingAlert + '" role="alert">' + ticketPricing +'</div>'
                         return html
                       },
                       "targets": 6
@@ -147,16 +157,19 @@
                       "render": function ( data, type, row ) {
                         var accommodationNeeds = row[8]
                         var requiresCreche = row[9]
+
                         console.log( accommodationNeeds )
                         console.log( requiresCreche )
 
                         var html = ''
-                        if(accommodationNeeds !== '') {
-                          html = '<i class="fas fa-chess-rook"></i>';
+
+                        if(accommodationNeeds != '') {
+                          html = '<i class="fa fa-home" aria-hidden="true"></i>';
                         }
                         if(requiresCreche === 'true') {
-                          html += ' <i class="fas fa-child"></i>';
+                          html += ' <i class="fa fa-child"></i>';
                         }
+                        console.log( html )
                         return html
                       },
                       "targets": 7

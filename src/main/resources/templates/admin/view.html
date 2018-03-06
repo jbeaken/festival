@@ -9,7 +9,7 @@
   <!-- Bootstrap core CSS-->
   <link th:href="@{/admin/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link th:href="@{/admin/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Custom styles for this template-->
   <link th:href="@{/admin/css/sb-admin.css}" rel="stylesheet">
 
@@ -61,7 +61,7 @@
       </div><!-- /.card -->
 
       <div class="card mb-3">
-        <div class="card-header"><i class="fa fa-table"></i> Ticket Details</div>
+        <div class="card-header"><i class="fa fa-ticket"></i> Ticket Details</div>
         <div class="card-body">
 
           <div class="row">
@@ -77,7 +77,8 @@
       </div><!-- /.card -->
 
       <div class="card mb-3" th:if="${booking.accommodationNeeds != null or booking.accommodationContact != null}">
-        <div class="card-header"><i class="fa fa-table"></i> Accommodation</div>
+        <div class="card-header"><i class="fa fa-home" aria-hidden="true"></i>
+ Accommodation</div>
         <div class="card-body">
 
           <h3>Accommodation Needs : <span th:text="${booking.accommodationNeeds}">needs</span></h3>
@@ -88,7 +89,7 @@
       </div><!-- /.card -->
 
       <div class="card mb-3" th:if="${booking.childrenUnder18Months != null or booking.children18MonthsTo5Years != null or booking.children5YearsTo11years != null}">
-        <div class="card-header"><i class="fa fa-table"></i> Creche</div>
+        <div class="card-header"><i class="fa fa-child"></i> Creche</div>
         <div class="card-body">
 
           <h3>Children under 18 months: <span th:text="${booking.childrenUnder18Months}"></span></h3>
