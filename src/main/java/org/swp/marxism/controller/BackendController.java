@@ -54,27 +54,41 @@ public class BackendController {
 	public String home(Model model) {
 
 		logger.info("Received request for admin home");
-		
+
 		List<Booking> bookings = bookingRepository.findAll();
-		
+
 		logger.info("Retrieved {} bookings", bookings.size());
-		
+
 		model.addAttribute(bookings);
 
 		return "admin/home.html";
 	}
-	
+
+	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+	public String home(@PathVariable Long id, Model model) {
+
+		logger.info("Received request for view {}", id);
+
+		Booking booking = bookingRepository.findOne(id);
+
+		logger.info("Found booking {}", booking);
+
+		model.addAttribute(booking);
+
+		return "admin/view.html";
+	}
+
 	@RequestMapping(value = "/charts", method = RequestMethod.GET)
 	public String charts(Model model) {
 
 		logger.info("Received request for admin charts");
-		
+
 		List<Booking> bookings = bookingRepository.findAll();
-		
+
 		logger.info("Retrieved {} bookings", bookings.size());
-		
+
 		model.addAttribute(bookings);
 
 		return "admin/charts.html";
-	}	
+	}
 }
