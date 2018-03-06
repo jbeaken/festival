@@ -75,6 +75,11 @@ public class Booking {
 
 	private Boolean allowEmails;
 
+	public Boolean getRequiresCreche() {
+		if(childrenUnder18Months != null || children18MonthsTo5Years != null || children5YearsTo11years != null) return true;
+		return false;
+	}
+
 	public Integer getPrice() {
 
 		Integer price = null;

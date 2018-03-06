@@ -57,10 +57,10 @@
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Telephone</th>
-                  <th>Ticket Type</th>
-                  <th>Ticket Pricing</th>
-                  <th>Price</th>
-                  <th>Days</th>
+                  <th>Ticket</th>
+                  <th>A/C</th>
+                  <th style="display : none;">Ticket Pricing</th>
+                  <th style="display : none;">Ticket Pricing</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,9 +72,9 @@
                   <th th:text="${booking.email}">email</th>
                   <th th:text="${booking.telephone}">telephone</th>
                   <th th:text="${booking.ticket.type}">type</th>
-                  <th th:text="${booking.ticket.pricing}">pricing</th>
-                  <th th:text="${new java.text.DecimalFormat('£#,##0.00;£-#,##0.00').format(booking.price)}">webPrice</th>
-                  <th th:text="${booking.ticket.days}">days</th>
+                  <th th:text="${booking.ticket.pricing}">info</th>
+                  <th th:text="${booking.accommodationNeeds}" style="display : none;">pricing</th>
+                  <th th:text="${booking.requiresCreche}" style="display : none;">pricing</th>
                 </tr>
               </tbody>
             </table>
@@ -123,25 +123,41 @@
                   },
                   {
                       "render": function ( data, type, row ) {
-                    	  var alert = 'secondary'
+                        var ticketType = row[6]
+                        var ticketPricing = row[7]
 
-                    	  if( data == 'FULL') alert = 'primary';
-                    	  if( data == 'DAY') alert = 'success';
+                    	  var ticketTypeAlert = 'secondary'
+                        var ticketPricingAlert = 'secondary'
 
-                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
+                    	  if( ticketType == 'FULL') ticketTypeAlert = 'primary';
+                    	  if( ticketType == 'DAY') ticketTypeAlert = 'success';
+
+                        if( ticketPricing == 'WAGED') ticketPricingAlert = 'primary';
+                    	  if( ticketPricing == 'UNWAGED') ticketPricingAlert = 'success';
+                    	  if( ticketPricing == 'STUDENT_FE') ticketPricingAlert = 'danger';
+                    	  if( ticketPricing == 'STUDENT_HE') ticketPricingAlert = 'warning';
+
+                        var html = '<div class="alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType +'</div>'
+                        html += '&nbsp;<div class="alert alert-' + ticketPricingAlert + '" role="alert">' + ticketPricing +'</div>'
+                        return html
                       },
                       "targets": 6
                   },
                   {
                       "render": function ( data, type, row ) {
-                    	  var alert = 'secondary'
+                        var accommodationNeeds = row[8]
+                        var requiresCreche = row[9]
+                        console.log( accommodationNeeds )
+                        console.log( requiresCreche )
 
-                    	  if( data == 'WAGED') alert = 'primary';
-                    	  if( data == 'UNWAGED') alert = 'success';
-                    	  if( data == 'STUDENT_FE') alert = 'danger';
-                    	  if( data == 'STUDENT_HE') alert = 'warning';
-
-                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
+                        var html = ''
+                        if(accommodationNeeds !== '') {
+                          html = '<i class="fas fa-chess-rook"></i>';
+                        }
+                        if(requiresCreche === 'true') {
+                          html += ' <i class="fas fa-child"></i>';
+                        }
+                        return html
                       },
                       "targets": 7
                   }
@@ -149,7 +165,6 @@
           } );
       } );
     </script>
-    <script th:src="@{/admin/js/sb-admin-charts.min.js}"></script>
   </div>
 </body>
 

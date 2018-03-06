@@ -51,7 +51,7 @@ public class BackendController {
 	protected static final Logger logger = LoggerFactory.getLogger(BackendController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String bookings(Model model) {
 
 		logger.info("Received request for admin home");
 
@@ -61,11 +61,11 @@ public class BackendController {
 
 		model.addAttribute(bookings);
 
-		return "admin/home.html";
+		return "admin/bookings.html";
 	}
 
 	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
-	public String home(@PathVariable Long id, Model model) {
+	public String view(@PathVariable Long id, Model model) {
 
 		logger.info("Received request for view {}", id);
 
