@@ -178,53 +178,6 @@ function showPrevious() {
 /****************/
 /** VALIDATION **/
 /****************/
-
-function validateMobile() {
-
-	var booking = getBooking();
-
-	// reset
-	$(".form-control").removeClass('field-error')
-	$("i.warning_icon").hide()
-
-	var errors = []
-
-	validateField( 'firstname', errors )
-	validateField( 'lastname', errors )
-	validateField( 'telephone', errors )
-	validateField( 'email', errors )
-	validateField( 'address1', errors )
-	validateField( 'town', errors )
-	validateField( 'postcode', errors )
-	validateField( 'country', errors )
-	validateField( 'ticket', errors )
-
-//	console.log( errors )
-
-	if (errors.length > 0) {
-		var fieldId = errors[0].field
-//		console.log("Adding error class to field " + fieldId)
-
-		var field = $('#booking_' + fieldId)
-
-		field.addClass('field-error')
-		$('#booking_' + fieldId + '_warning_icon').show();
-
-		//Scroll to error
-		$('html, body').animate({
-            scrollTop: field.offset().top - 120
-        //}, 1000, function() {
-        	 //field.focus()
-        	 // $('#booking_' + field).next('.help-block').slideDown();
-        });
-
-
-		return false
-	}
-
-	return true
-}
-
 function validate( screen ) {
 
 	// reset
