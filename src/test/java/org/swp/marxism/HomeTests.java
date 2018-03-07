@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class MarxismApplicationTests {
+public class HomeTests {
 	
 	@Autowired
 	private MockMvc mvc;
@@ -96,5 +96,4 @@ public class MarxismApplicationTests {
 		.param("email","email@gmail.com"))
 		.andExpect(status().isOk()).andExpect(content().string( "success" ));
 	}	
-
 }
