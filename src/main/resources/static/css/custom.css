@@ -129,6 +129,8 @@ span#navbar_booking {
 /* About */
 div#about_blurb {
   text-align : left;
+  margin : 0 auto; 
+  width : 45%;
 }
 
 div.about-read-more {
@@ -295,13 +297,12 @@ i.warning_icon {
   div#booking_form_container legend {
   	display : none;
   }
-  div#about_blurb {
-    /* padding-left: 30px; */
-  }
   div.booking_radio_buttons {
     padding-left: 10px;
   }
-
+  div#about_blurb {
+    width : 85%;
+  }
   button#showPreviousButton, button#showNextButton {
   	font-size : 0.8em;
   }
