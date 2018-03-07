@@ -19,6 +19,9 @@
   .small-alert {
     font-size: 0.7em;
   }
+  .ticket {
+  	display: inline;
+  }
   </style>
 </head>
 
@@ -49,6 +52,7 @@
                   <th style="display : none;">Ticket Pricing</th>
                   <th style="display : none;">Ticket Pricing</th>
                   <th style="display : none;">After Party</th>
+                  <th style="display : none;">Sort date</th>
                 </tr>
               </thead>
               <tbody>
@@ -64,6 +68,7 @@
                   <th th:text="${booking.accommodationNeeds}" style="display : none;">accommodation</th>
                   <th th:text="${booking.requiresCreche}" style="display : none;">creche</th>
                   <th th:text="${booking.ticket.afterParty}" style="display : none;">after party</th>
+                  <th th:text="${#dates.format(booking.date, 'yyyy-MM-dd-HH-mm')}" style="display : none;">sort date</th>
                 </tr>
               </tbody>
             </table>
@@ -95,7 +100,10 @@
         $("#sidenavToggler").click();        
 
     		$("#dataTable").DataTable( {
-    	        "columnDefs": [
+    			"order": [
+    			          [ 11, "desc" ]
+    			         ],
+    			"columnDefs": [
                 {
                     "render": function ( data, type, row ) {
                       return '<a href="/bookings/view/' + data + '">MRX' + data +'</a>'
@@ -110,7 +118,7 @@
                     	  if( data == 'PAID') alert = 'success';
                     	  if( data == 'CANCELLED') alert = 'danger';
 
-                          return '<div class="small-alert alert alert-' + alert + '" role="alert">' + data +'</div>'
+                          return '<div class="alert alert-' + alert + '" role="alert">' + data +'</div>'
                       },
                       "targets": 1
                   },
@@ -130,8 +138,8 @@
                     	if( ticketPricing == 'STUDENT_FE') ticketPricingAlert = 'danger';
                     	if( ticketPricing == 'STUDENT_HE') ticketPricingAlert = 'warning';
 
-                        var html = '<div class="small-alert alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType +' ' + ticketPricing + '</div>'
-                        //html += '&nbsp;<div class="alert alert-' + ticketPricingAlert + '" role="alert">' + ticketPricing +'</div>'
+                        var html = '<div class="ticket small-alert alert alert-' + ticketTypeAlert + '" role="alert">' + ticketType + '</div>'
+                        html += '&nbsp;<div class="ticket small-alert alert alert-' + ticketPricingAlert + '" role="alert">' + ticketPricing +'</div>'
                         return html
                       },
                       "targets": 6
