@@ -28,8 +28,28 @@ public class MarxismApplicationTests {
 	@Test
 	public void testHome() throws Exception {
 		this.mvc.perform(get("/").accept(MediaType.TEXT_HTML))
-		.andExpect(status().isOk()).andExpect(content().string(containsString( "Marxism Festival" )));
+		.andExpect(status().isOk())
+		.andExpect(view().name("home.html"))
+		.andExpect(model().attributeExists("content"))
+		.andExpect(content().string(containsString( "Marxism Festival" )));
 	}
+	
+	@Test
+	public void testThankYou() throws Exception {
+		this.mvc.perform(get("/thankYou").accept(MediaType.TEXT_HTML))
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("content"))
+		.andExpect(view().name("home.html"));     
+	}	
+	
+	@Test
+	public void testFeedbackInvalidSha() throws Exception {
+		this.mvc.perform(post("/feedback")
+				.accept(MediaType.TEXT_HTML)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{ \"orderid\" : \"2\", \"name\" : \"name\", \"barclaysStatus\" : \"1\", \"amount\" : \"200\", \"sha\" : \"adf\" }"))
+		.andExpect(status().isNotAcceptable()).andExpect(content().string( "sha failure" ));
+	}	
 	
 	@Test
 	public void testRedirectForOldUrl() throws Exception {
@@ -61,7 +81,20 @@ public class MarxismApplicationTests {
 		.param("ticket.webPrice","3000")
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("booking", "amount", "orderId"))
+		.andExpect(model().attribute("orderId", "MRX9"))
+		.andExpect(model().attribute("amount", "3000"))
+		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
-	}		
+	}
+	
+	@Test
+	public void testSendEmail() throws Exception {
+		this.mvc.perform(post("/sendEmail").accept(MediaType.TEXT_HTML)
+		.param("name","name")
+		.param("message","message")
+		.param("email","email@gmail.com"))
+		.andExpect(status().isOk()).andExpect(content().string( "success" ));
+	}	
 
 }
