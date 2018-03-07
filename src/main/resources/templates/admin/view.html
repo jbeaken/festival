@@ -89,7 +89,7 @@
         </div>
       </div><!-- /.card -->
 
-      <div class="card mb-3" th:if="${booking.childrenUnder18Months != null or booking.children18MonthsTo5Years != null or booking.children5YearsTo11years != null}">
+      <div class="card mb-3" th:if="${booking.requiresCreche == true}">
         <div class="card-header"><i class="fa fa-child"></i> Creche</div>
         <div class="card-body">
 
@@ -111,16 +111,10 @@
 
     <div th:replace="admin/footer"></div>
 
-    <!-- Bootstrap core JavaScript-->
     <script th:src="@{/admin/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-    <!-- Core plugin JavaScript-->
     <script th:src="@{/admin/vendor/jquery-easing/jquery.easing.min.js}"></script>
-    <!-- Page level plugin JavaScript-->
-    <script th:src="@{/admin/vendor/chart.js/Chart.min.js}"></script>
-    <script th:src="@{/admin/vendor/datatables/jquery.dataTables.js}"></script>
     <script th:src="@{/admin/vendor/datatables/dataTables.bootstrap4.js}"></script>
-    <!-- Custom scripts for all pages-->
     <script th:src="@{/admin/js/sb-admin.min.js}"></script>
     <script>
     	$(document).ready(function(){
