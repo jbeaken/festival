@@ -73,8 +73,6 @@ public class Booking {
 
 	private Integer children5YearsTo11years;
 
-	private Boolean allowEmails;
-
 	public Boolean getRequiresCreche() {
 		if((childrenUnder18Months != null && childrenUnder18Months > 0) 
 				|| (children18MonthsTo5Years != null && children18MonthsTo5Years > 0)
@@ -214,14 +212,6 @@ public class Booking {
 		this.children5YearsTo11years = children5YearsTo11years;
 	}
 
-	public Boolean getAllowEmails() {
-		return allowEmails;
-	}
-
-	public void setAllowEmails(Boolean allowEmails) {
-		this.allowEmails = allowEmails;
-	}
-
 	public HearAbout getHearAbout() {
 		return hearAbout;
 	}
@@ -286,7 +276,6 @@ public class Booking {
 	public String toString() {
 		return "Booking [id=" + id + ", status=" + status + ", ticket=" + ticket + ", date=" + date + ", address=" + address + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", email=" + email + ", telephone=" + telephone
 				+ ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout + ", accommodationNeeds=" + accommodationNeeds + ", accommodationContact=" + accommodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
-				+ ", children5YearsTo11years=" + children5YearsTo11years + ", allowEmails=" + allowEmails + "]";
+				+ ", children5YearsTo11years=" + children5YearsTo11years + "]";
 	}
-
 }

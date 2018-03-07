@@ -152,8 +152,6 @@ public class HomeController {
 
 		logger.info("Received get request for book");
 
-//		model.addAttribute("showBookingForm", Boolean.TRUE);
-
 		return "redirect:/";
 	}
 
@@ -182,7 +180,7 @@ public class HomeController {
 		}
 
 		//Sanity check
-		logger.info("Checking booking price {} equals webprice {} ", booking.getPrice(), booking.getTicket().getWebPrice());
+		logger.info("Checking booking price {} equals ticket.webPrice {} ", booking.getPrice(), booking.getTicket().getWebPrice());
 		String backendPrice = (booking.getPrice() * 100) + "";
 		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
 			throw new MarxismException("Web and backend prices do not match");
