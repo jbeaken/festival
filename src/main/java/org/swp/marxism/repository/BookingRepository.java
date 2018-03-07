@@ -1,5 +1,7 @@
 package org.swp.marxism.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +18,6 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	@Transactional
     @Query("update Booking b set b.status = :status where b.id = :id")
 	void updateStatus(@Param("id")Long id, @Param("status") BookingStatus status);
-
+	
+	List<Booking> findAllByOrderByIdDesc();
 }

@@ -55,7 +55,7 @@ public class BackendController {
 
 		logger.info("Received request for admin home");
 
-		List<Booking> bookings = bookingRepository.findAll();
+		List<Booking> bookings = bookingRepository.findAllByOrderByIdDesc();
 
 		logger.info("Retrieved {} bookings", bookings.size());
 
