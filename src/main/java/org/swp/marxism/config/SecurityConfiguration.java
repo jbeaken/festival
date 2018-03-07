@@ -9,8 +9,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -21,18 +21,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("user").password("blah").authorities("ROLE_MARXISM");
 	}
 	
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers("/css/**");
-	    web.ignoring().antMatchers("/plugins/**");
-	}	
+//	@Override
+//	public void configure(WebSecurity web) throws Exception {
+//	    web.ignoring().antMatchers("/css/**");
+//	    web.ignoring().antMatchers("/plugins/**");
+//	}	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests().anyRequest().permitAll();
+		http.authorizeRequests().anyRequest().permitAll();
 		
-		http.authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
+//		http.authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
 
-//		http.antMatcher("/bookings/**").authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
+		http.antMatcher("/bookings/**").authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
 	}
 }
