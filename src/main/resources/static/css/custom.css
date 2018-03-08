@@ -36,6 +36,7 @@ h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div
   text-transform: none;
 }
 
+/* Carousel */
 /* Social */
 
 .social-icon {
@@ -129,7 +130,7 @@ span#navbar_booking {
 /* About */
 div#about_blurb {
   text-align : left;
-  margin : 0 auto; 
+  margin : 0 auto;
   width : 45%;
 }
 
@@ -178,7 +179,7 @@ div.gallery-icon {
 }
 .ticket-help, .ticket-help:focus, .ticket-help:active, .ticket-help:hover  {
 	border : none;
-}	
+}
 #ticket-price {
 	padding-top: 5px;
 	font-size: 2em;
@@ -275,13 +276,10 @@ i.warning_icon {
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
-  /*
+  /* Ensure all carousel item texts break over 3 lines */
   .h0 {
-  font-size: 24px;
-  padding-bottom: 140px;
-  padding-top: 50px;
+    font-size: 46px;
   }
-  */
   h2#booking_header {
     font-size: 1em;
   }
