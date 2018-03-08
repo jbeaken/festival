@@ -106,19 +106,21 @@ $(function() {
 
     console.log("width : " + width + " height : " + height)
 
+    var dimensions = "?width=" + width + "&height=" + height
+
     bannerCarouselImg.backstretch([
          [
-           	{ width: 1024, url: "/img/carousel/brazil-1024x768.jpg?width=" + width + "&height=" + height },
-            { width: 612, url: "/img/carousel/brazil-612x460.jpg?width=" + width + "&height=" + height },
-            { width: 320, url: "/img/carousel/brazil-320x240.jpg?width=" + width + "&height=" + height }
+           	{ width: 1024, url: "/img/carousel/test/midianinjaB-1024.jpg" + dimensions },
+            { width: 720, url: "/img/carousel/test/midianinjaB-720.jpg" + dimensions },
+            { width: 320, url: "/img/carousel/test/midianinjaB-320.jpg" + dimensions }
          ],[
-            { width: 1080, url: "/img/carousel/egypt-1024x768.jpg" },
-            { width: 720, url: "/img/carousel/eqypt-720x540.jpg" },
-            { width: 360, url: "/img/carousel/eqypt-720x540.jpg" }
+            { width: 1024, url: "/img/carousel/test/women-protest-1024.jpg" },
+            { width: 720, url: "/img/carousel/test/women-protest-720.jpg" },
+            { width: 320, url: "/img/carousel/test/women-protest-320.jpg" }
          ],[
-            { width: 1080, url: "/img/carousel/soas-stike-1024x768.jpg" },
-            { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
-            { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
+            { width: 1024, url: "/img/carousel/test/UNISON-SOAS-Cleaners-GS-1024.jpg" },
+            { width: 720, url: "/img/carousel/test/UNISON-SOAS-Cleaners-GS-720.jpg" },
+            { width: 320, url: "/img/carousel/test/UNISON-SOAS-Cleaners-GS-320.jpg" }
          ],[
             { width: 1024,deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-1024x768.jpg?width=" + width + "&height=" + height },
             { width: 720, deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-720x540.jpg?width=" + width + "&height=" + height },
@@ -127,17 +129,17 @@ $(function() {
             { width: 480, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-480x720.jpg?width=" + width + "&height=" + height },
             { width: 210, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-210x320.jpg?width=" + width + "&height=" + height }
          ],[
-            { width: 1080, url: "/img/carousel/kings-1024x768.jpg" },
-            { width: 720, url: "/img/carousel/kings-720x540.jpg" },
-            { width: 320, url: "/img/carousel/kings-720x540.jpg" }
+            { width: 1024, url: "/img/carousel/test/NHSstrikeKings-GS-1024.jpg" },
+            { width: 720, url: "/img/carousel/test/NHSstrikeKings-GS-720.jpg" },
+            { width: 320, url: "/img/carousel/test/NHSstrikeKings-GS-320.jpg" }
          ],[
-            { width: 1080, url: "/img/carousel/ucu-strike.jpg" },
-            { width: 720, url: "/img/carousel/ucu-strike.jpg" },
-            { width: 320, url: "/img/carousel/ucu-strike.jpg" }
+            { width: 1080, url: "/img/carousel/test/London-demo-february-GS-UCU-1080.jpg" },
+            { width: 720, url: "/img/carousel/test/London-demo-february-GS-UCU-720.jpg" },
+            { width: 320, url: "/img/carousel/test/London-demo-february-GS-UCU-320.jpg" }
          ],[
-            { width: 1080, url: "/img/carousel/blm-731x548.jpg" },
-            { width: 720, url: "/img/carousel/blm-731x548.jpg" },
-            { width: 320, url: "/img/carousel/blm-320x480.jpg" }
+            { width: 1080, url: "/img/carousel/test/black-lives-Lightbrigading-1080.jpg" },
+            { width: 720, url: "/img/carousel/test/black-lives-Lightbrigading-720.jpg" },
+            { width: 320, url: "/img/carousel/test/black-lives-Lightbrigading-320.jpg" }
          ]
     ], {
         duration: 500,
