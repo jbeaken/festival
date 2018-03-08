@@ -137,7 +137,7 @@ $(function() {
             { width: 720, url: "/img/carousel/test/London-demo-february-GS-UCU-720.jpg" },
             { width: 320, url: "/img/carousel/test/London-demo-february-GS-UCU-320.jpg" }
          ],[
-            { width: 1080, url: "/img/carousel/test/black-lives-Lightbrigading-1080.jpg" },
+            { width: 1024, url: "/img/carousel/test/black-lives-Lightbrigading-1024.jpg" },
             { width: 720, url: "/img/carousel/test/black-lives-Lightbrigading-720.jpg" },
             { width: 320, url: "/img/carousel/test/black-lives-Lightbrigading-320.jpg" }
          ]
