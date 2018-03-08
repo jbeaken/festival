@@ -67,11 +67,9 @@ public class BookingsController {
 	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
 	public String view(@PathVariable Long id, Model model) {
 
-		logger.info("Received request for view {}", id);
-
 		Booking booking = bookingRepository.findOne(id);
 
-		logger.info("Found booking {}", booking);
+		logger.info("Request view booking {}", booking);
 
 		model.addAttribute(booking);
 

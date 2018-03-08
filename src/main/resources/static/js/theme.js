@@ -72,7 +72,7 @@ $(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
             if (target.length) {
-                
+
             	$('html, body').animate({
                     scrollTop: target.offset().top - 80
                 }, 1000, function() {
@@ -85,11 +85,11 @@ $(function() {
                 		 currentScreen = "contact";
                 	 }
                 });
-            	
-            	var page = "/" + target.selector.replace('#section_', '');           	
-            	
+
+            	var page = "/" + target.selector.replace('#section_', '');
+
             	sendGA( page )
-                
+
                 return false;
             }
         }
@@ -120,9 +120,12 @@ $(function() {
             { width: 720, url: "/img/carousel/NHSstrikex720.jpg" },
             { width: 320, url: "/img/carousel/NHSstrikex720.jpg" }
          ],[
-            { width: 1080, url: "/img/carousel/greek.jpg" },
-            { width: 720, url: "/img/carousel/greek-720x540.jpg" },
-            { width: 320, url: "/img/carousel/greek-720x540.jpg" }
+            { width: 1024,deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-1024x768.jpg?width=" + width + "&height=" + height },
+            { width: 720, deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-720x540.jpg?width=" + width + "&height=" + height },
+            { width: 320, deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-320x240.jpg?width=" + width + "&height=" + height },
+            { width: 700, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-700x1060.jpg?width=" + width + "&height=" + height },
+            { width: 480, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-480x720.jpg?width=" + width + "&height=" + height },
+            { width: 210, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-210x320.jpg?width=" + width + "&height=" + height }
          ],[
             { width: 1080, url: "/img/carousel/kings-1024x768.jpg" },
             { width: 720, url: "/img/carousel/kings-720x540.jpg" },
@@ -183,7 +186,7 @@ $(function() {
         var content = button.data('content');
 		var ajaxContent = button.data('ajax-content')
 		var page = button.data('ga')
-		
+
 		if(ajaxContent != null) {
 			$('#modal_img__content').load("/modal/" + ajaxContent);
 		} else {
@@ -192,7 +195,7 @@ $(function() {
 
         modal.find('#modal_img__heading').text(heading);
         modal.find('#modal_img__img').attr('src', img);
-        
+
         sendGA( '/modal/' + page)
     });
 
@@ -212,7 +215,7 @@ $(function() {
 		}
 
         modal.find('#modal_no_img__heading').text(heading);
-        
+
         sendGA( '/modal/' + page)
     });
 
