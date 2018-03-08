@@ -276,10 +276,6 @@ i.warning_icon {
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
-  /* Ensure all carousel item texts break over 3 lines */
-  .h0 {
-    font-size: 46px;
-  }
   h2#booking_header {
     font-size: 1em;
   }
@@ -303,5 +299,12 @@ i.warning_icon {
   }
   button#showPreviousButton, button#showNextButton {
   	font-size : 0.8em;
+  }
+}
+
+/* Smaller phones and smaller, also executes 480px above  */
+@media (max-width: 320px) {
+  .h0 {
+	  font-size: 50px;
   }
 }
