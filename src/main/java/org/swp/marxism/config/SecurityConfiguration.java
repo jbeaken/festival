@@ -23,18 +23,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser( username ).password( password ).authorities("ROLE_MARXISM");
 	}
 	
-//	@Override
-//	public void configure(WebSecurity web) throws Exception {
-//	    web.ignoring().antMatchers("/css/**");
-//	    web.ignoring().antMatchers("/plugins/**");
-//	}	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+	    web.ignoring().antMatchers("/img/**","/css/**","/plugins/**","/js/**","/","fonts/**");
+	}	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
 		http.authorizeRequests().anyRequest().permitAll();
 		
-//		http.authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
-
 		http.antMatcher("/bookings/**").authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
 	}
 }

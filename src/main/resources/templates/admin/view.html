@@ -72,10 +72,10 @@
             <div class="col-sm-6">
               <div>Price : <span th:text="${new java.text.DecimalFormat('£#,##0.00;£-#,##0.00').format(booking.price)}">price</span></div>
               <div th:if="${booking.ticket.afterParty == true}">After Party : <i class="fa fa-check fa-lg" aria-hidden="true"></i></div>
-              <div th:if="${booking.ticket.thursday != null}">Thursday : <span th:text="${booking.ticket.thursday}"></span> tickets </div>
-              <div th:if="${booking.ticket.friday != null}">Friday : <span th:text="${booking.ticket.friday}"></span> tickets </div>
-              <div th:if="${booking.ticket.saturday != null}">Saturday : <span th:text="${booking.ticket.saturday}"></span> tickets </div>
-              <div th:if="${booking.ticket.sunday != null}">Sunday : <span th:text="${booking.ticket.sunday}"></span> tickets </div>
+              <div th:if="${booking.ticket.thursday != null}">Thursday : <span th:text="${booking.ticket.thursday}"></span> ticket(s) </div>
+              <div th:if="${booking.ticket.friday != null}">Friday : <span th:text="${booking.ticket.friday}"></span> ticket(s) </div>
+              <div th:if="${booking.ticket.saturday != null}">Saturday : <span th:text="${booking.ticket.saturday}"></span> ticket(s) </div>
+              <div th:if="${booking.ticket.sunday != null}">Sunday : <span th:text="${booking.ticket.sunday}"></span> ticket(s) </div>
             </div>
           </div><!--/.row -->
 
