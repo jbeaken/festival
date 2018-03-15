@@ -53,8 +53,9 @@
           <div class="row search-row">
             <div class="col-sm-6">
               <select id="isActionedSelect" class="form-control" onchange="javascript:search()">
-                <option th:value="true" th:selected="${isActioned == true}">Actioned</option>
-                <option th:value="false" th:selected="${isActioned == false}">Unactioned</option>
+                <option th:value="1" th:selected="${actioned == '1'}">Actioned</option>
+                <option th:value="2" th:selected="${actioned == '2'}">Unactioned</option>
+                <option th:value="3" th:selected="${actioned == '3'}">All</option>
               </select>
             </div>
           </div>
@@ -121,7 +122,7 @@
 
       function search() {
         var isActioned = $('select#isActionedSelect').val()
-        window.location.href = '/bookings/?isActioned=' + isActioned
+        window.location.href = '/bookings/?actioned=' + isActioned
       }
       $(document).ready(function(){
 
@@ -178,12 +179,12 @@
                         var accommodationNeeds = row[8]
                         var requiresCreche = row[9]
                         var afterParty = row[10]
-                        var isActioned = row[11]
+                        var actioned = row[12]
 
-                        console.log( isActioned )
+                        console.log( "actioned " + actioned )
 
                         var html = ''
-                        if(isActioned != '') {
+                        if(actioned == 'true') {
                           html = '<i class="fa fa-check fa-lg" aria-hidden="true"></i>';
                         }
                         if(accommodationNeeds == 'true') {
@@ -195,7 +196,6 @@
                         if(afterParty === 'true') {
                            html += ' <i class="fa fa-music fa-lg"></i>';
                         }
-                        console.log( html )
                         return html
                       },
                       "targets": 7

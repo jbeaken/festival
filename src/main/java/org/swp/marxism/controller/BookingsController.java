@@ -43,18 +43,28 @@ public class BookingsController {
 	protected static final Logger logger = LoggerFactory.getLogger(BookingsController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String bookings(Boolean isActioned, Model model) {
+	public String bookings(String actioned, Model model) {
 
-		logger.info("Received request for admin home, isActioned : {}", isActioned);
+		logger.info("Received request for admin home, actioned : {}", actioned);
 
-		if(isActioned == null) isActioned = false;
+		List<Booking> bookings = null;
 
-		List<Booking> bookings = bookingRepository.findAllByActioned( isActioned );
+		if(actioned == null) {
+			actioned = "2";	
+		} 
 
-		logger.info("Retrieved {} bookings, isActioned : {}", bookings.size(), isActioned);
+		if(actioned.equals("1")) {
+			bookings = bookingRepository.findAllByActioned( true );
+		} else if(actioned.equals("2")) {
+			bookings = bookingRepository.findAllByActioned( false );
+		} else {
+			bookings = bookingRepository.findAll();
+		}
+
+		logger.info("Retrieved {} bookings", bookings.size(), actioned);
 
 		model.addAttribute(bookings);
-		model.addAttribute("isActioned", isActioned);
+		model.addAttribute("actioned", actioned);
 
 		return "admin/bookings.html";
 	}
