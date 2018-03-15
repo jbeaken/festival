@@ -1,0 +1,1 @@
+alter table booking add column is_actioned bit(1) not null;

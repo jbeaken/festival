@@ -24,6 +24,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.swp.marxism.controller.bean.BookingResult;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
@@ -42,15 +43,18 @@ public class BookingsController {
 	protected static final Logger logger = LoggerFactory.getLogger(BookingsController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String bookings(Model model) {
+	public String bookings(Boolean isActioned, Model model) {
 
-		logger.info("Received request for admin home");
+		logger.info("Received request for admin home, isActioned : {}", isActioned);
 
-		List<Booking> bookings = bookingRepository.findAllByOrderByIdDesc();
+		if(isActioned == null) isActioned = false;
 
-		logger.info("Retrieved {} bookings", bookings.size());
+		List<Booking> bookings = bookingRepository.findAllByActioned( isActioned );
+
+		logger.info("Retrieved {} bookings, isActioned : {}", bookings.size(), isActioned);
 
 		model.addAttribute(bookings);
+		model.addAttribute("isActioned", isActioned);
 
 		return "admin/bookings.html";
 	}
@@ -66,6 +70,16 @@ public class BookingsController {
 
 		return "admin/view.html";
 	}
+
+	@RequestMapping(value = "/action/{isActioned}/{id}", method = RequestMethod.GET)
+	public String view(@PathVariable Boolean isActioned, @PathVariable Long id, Model model) {
+
+		logger.info("Request action booking {} {}", id, isActioned);
+
+		bookingRepository.updateIsActioned(id, isActioned);
+
+		return "redirect:/bookings/";
+	}	
 
 	@RequestMapping(value = "/charts", method = RequestMethod.GET)
 	public String charts(Model model) {

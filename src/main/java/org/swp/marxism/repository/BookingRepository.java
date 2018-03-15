@@ -18,6 +18,14 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	@Transactional
     @Query("update Booking b set b.status = :status where b.id = :id")
 	void updateStatus(@Param("id")Long id, @Param("status") BookingStatus status);
+
+	@Modifying
+	@Transactional
+    @Query("update Booking b set b.isActioned = :isActioned where b.id = :id")
+	void updateIsActioned(@Param("id")Long id, @Param("isActioned") Boolean isActioned);	
 	
 	List<Booking> findAllByOrderByIdDesc();
+
+	@Query("select b from Booking b where b.isActioned = :isActioned")
+	List<Booking> findAllByActioned(@Param("isActioned") Boolean isActioned);
 }

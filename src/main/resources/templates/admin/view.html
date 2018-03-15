@@ -108,7 +108,8 @@
 
       <div class="btn-row">
         <a href="javascript:window.print();" class="btn btn-secondary">Print</a>
-        <a th:href="@{/bookings/action/{id}(id=${booking.id})}" style="display : none;" class="btn btn-secondary">Action</a>
+        <a th:href="@{/bookings/action/false/{id}(id=${booking.id})}" class="btn btn-secondary" th:if="${booking.isActioned == true}">Unaction</a>
+        <a th:href="@{/bookings/action/true/{id}(id=${booking.id})}" class="btn btn-primary" th:if="${booking.isActioned == false}">Action</a>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -118,7 +119,6 @@
     <script th:src="@{/admin/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/admin/vendor/jquery-easing/jquery.easing.min.js}"></script>
-    <script th:src="@{/admin/vendor/datatables/dataTables.bootstrap4.js}"></script>
     <script th:src="@{/admin/js/sb-admin.min.js}"></script>
     <script>
     	$(document).ready(function(){

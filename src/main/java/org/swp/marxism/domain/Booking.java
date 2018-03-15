@@ -36,6 +36,9 @@ public class Booking {
 	//private LocalDateTime date = LocalDateTime.now();
 	private Date date = new Date();
 
+	@NotNull
+	private Boolean isActioned = false;
+
 	@Embedded
 	@NotNull
 	private Address address;
@@ -122,6 +125,14 @@ public class Booking {
 
 	public String getFullname() {
 		return getFirstname() + " " + getLastname();
+	}
+
+	public Boolean getIsActioned() {
+		return isActioned;
+	}
+
+	public void setIsActioned(Boolean isActioned) {
+		this.isActioned = isActioned;
 	}
 
 	public Long getId() {
