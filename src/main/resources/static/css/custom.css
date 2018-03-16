@@ -58,6 +58,11 @@ div.about__item__body {
 }
 
 /* Pricing */
+#section_pricing h2.booking-discount {
+  margin-bottom: 10px; 
+  font-weight: 400; 
+  color : #808080;
+}
 span.pricing_pound_symbol {
     font-size: 0.9em;
 }
