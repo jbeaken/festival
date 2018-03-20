@@ -1,6 +1,5 @@
 package org.swp.marxism.controller;
 
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.mail.MessagingException;
@@ -14,13 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -29,12 +21,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.swp.marxism.controller.bean.BookingResult;
 import org.swp.marxism.controller.bean.Feedback;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
@@ -137,6 +130,11 @@ public class HomeController {
 		if(feedback.getBarclaysStatus().equals("5")) {
 			logger.info("Updating status to paid");
 			bookingRepository.updateStatus(id, BookingStatus.PAID);
+			try {
+				sendEmail(booking);
+			} catch(Exception e) {
+				logger.error("Cannot send booking email", e);
+			}
 		};
 		
 		if(feedback.getBarclaysStatus().equals("1")) {
@@ -190,46 +188,8 @@ public class HomeController {
 
 		bookingRepository.save(booking);
 
-		logger.info("Booking persisted. Sending email");
-		try {
-
-			final Context ctx = new Context();
-			ctx.setVariable("booking", booking);
-
-			final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
-			final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8");
-
-			// BCC depending on profile
-			String[] profiles = environment.getActiveProfiles();
-
-//			if (profiles[0].equals("default") || profiles[0].equals("test")) {
-				// For test and dev
-				//message.setTo("jack747@gmail.com");
-				message.setTo(booking.getEmail());
-				message.setSubject("Your Marxism Booking Confirmation");
-				message.setFrom("info@marxismfestival.org.uk");
-//			} else {
-//				message.setSubject("Marxism Booking");
-//				message.setBcc("info@marxismfestival.org.uk");
-//				message.setFrom("info@marxismfestival.org.uk");
-//				message.setTo(booking.getEmail());
-//			}
-
-			// Create the HTML body using Thymeleaf
-			String html = "<h1>Thank you for booking a ticket for Marxism Festival 2018.</h1><p>Your ticket will be sent out to you in the post in June.</p><p>Marxism Festival starts at 12 noon on Thurs 5 July and finishes at 6.30pm on Sun 8 July.</p>";
-			html += "<p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>";
-			html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
-
-			message.setText(html, true); // true = isHtml
-
-			this.mailSender.send(mimeMessage);
-
-			logger.info("Mail successfuly sent!");
-
-		} catch(Exception e) {
-			logger.error("Cannot send booking message", e);
-		}
-
+		logger.info("Booking persisted. All done!");
+		
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);
 		model.addAttribute("orderId", booking.getOrderId());
@@ -294,6 +254,44 @@ public class HomeController {
 		}
 
 		return "success";
+	}
+	
+	private void sendEmail(Booking booking) throws MessagingException {
+		
+		logger.info("Sending booking confirmation");
+		
+		final Context ctx = new Context();
+		ctx.setVariable("booking", booking);
+
+		final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
+		final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8");
+
+		// BCC depending on profile
+		String[] profiles = environment.getActiveProfiles();
+
+//		if (profiles[0].equals("default") || profiles[0].equals("test")) {
+			// For test and dev
+			message.setTo(booking.getEmail());
+			message.setBcc("jack747@gmail.com");
+			message.setSubject("Your Marxism Booking Confirmation");
+			message.setFrom("info@marxismfestival.org.uk");
+//		} else {
+//			message.setSubject("Marxism Booking");
+//			message.setBcc("info@marxismfestival.org.uk");
+//			message.setFrom("info@marxismfestival.org.uk");
+//			message.setTo(booking.getEmail());
+//		}
+
+		// Create the HTML body using Thymeleaf
+		String html = "<h1>Thank you for booking a ticket for Marxism Festival 2018.</h1><p>Your ticket will be sent out to you in the post in June.</p><p>Marxism Festival starts at 12 noon on Thurs 5 July and finishes at 6.30pm on Sun 8 July.</p>";
+		html += "<p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>";
+		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
+
+		message.setText(html, true); // true = isHtml
+
+		this.mailSender.send(mimeMessage);
+
+		logger.info("Mail successfuly sent!");
 	}
 	
 

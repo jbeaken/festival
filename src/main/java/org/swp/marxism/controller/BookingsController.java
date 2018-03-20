@@ -39,15 +39,6 @@ public class BookingsController {
 	@Autowired
 	private BookingRepository bookingRepository;
 
-	@Autowired
-	private MarxismWebsiteContentRepository marxismWebsiteContentRepository;
-
-	@Autowired
-	private JavaMailSender mailSender;
-
-	@Autowired
-	private ServletContext context;
-
 	protected static final Logger logger = LoggerFactory.getLogger(BookingsController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
