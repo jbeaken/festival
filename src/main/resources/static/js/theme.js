@@ -260,9 +260,13 @@ $(function() {
     } );
 
     $( '.swipebox' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
-    
+
     //Back button
-    window.onbeforeunload = function() { return "Are you sure, this will leave this website and prevent any booking?"; };
+    window.onbeforeunload = function() {
+      var firstname = $('input#booking_firstname').val()
+      console.log("checking for trace of booking : " + firstname)
+      if(firstname !== '') return "Are you sure, this will leave this website and prevent any booking?";
+    };
 //    history.pushState(null, null, document.URL);
 //    window.addEventListener('popstate', function () {
 //        history.pushState(null, null, document.URL);
