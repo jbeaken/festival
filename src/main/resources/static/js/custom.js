@@ -5,6 +5,7 @@
 var currentScreen = "contact";
 var dev = false
 var gaAlreadySent = [];
+var bookingPassedValidation = false;
 
 function showNext() {
 	//console.log("Call to showNext currentScreen = " + currentScreen)
@@ -53,7 +54,7 @@ function showNext() {
 		$('button#showNextButton').html('Go To Secure Payment Screen');
 
 	} else if (currentScreen == 'confirmation') {
-
+		bookingPassedValidation = true
 		$('form#booking-form').submit();
 
 	    return;

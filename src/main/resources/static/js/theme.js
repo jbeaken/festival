@@ -82,6 +82,7 @@ $(function() {
                 		 $('.booking_screen').hide();
 						 $('#contact_screen').removeClass('hidden')
 						 $('#contact_screen').show()
+						 bookingPassedValidation = false
                 		 currentScreen = "contact";
                 	 }
                 });
@@ -265,7 +266,7 @@ $(function() {
     window.onbeforeunload = function() {
       var firstname = $('input#booking_firstname').val()
       console.log("checking for trace of booking : " + firstname)
-      if(firstname !== '') return "Are you sure, this will leave this website and prevent any booking?";
+      if(firstname !== '' && bookingPassedValidation == false) return "Are you sure, this will leave this website and prevent any booking?";
     };
 //    history.pushState(null, null, document.URL);
 //    window.addEventListener('popstate', function () {
