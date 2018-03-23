@@ -83,6 +83,10 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a046d1f... First commit
 	</dependencies>
 
 	<build>
