@@ -23,7 +23,8 @@ values (7, true, 'CANCELLED', NOW() - INTERVAL 1 WEEK, "Hilary", "Bradley", "hbr
 insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday, saturday, sunday, accommodation_needs, accommodation_contact, children18months_to5years, children5years_to11years, children_under18months, after_party)
 values (8, true, 'CANCELLED', NOW() - INTERVAL 2 WEEK, "Sarah", "Homes", "shomes@hotmail.com", "0207 987 454", "10 Terrance Street", "Kemptown", "Brighton", "B4 3ED", "United Kingdom", "FLEXI", "STUDENT_FE", null, null, null, null, null, null, null, 2, null, true);
 
-insert into marxism_website_content (id, name, is_live, heading, sub_heading, sub_sub_heading, description, video_url) values (1, '2018', true, 'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'Nunc sed blandit dui. Phasellus lacinia iaculis justo nec elementum. Morbi vel urna velit. Nulla pharetra a erat in vestibulum.', 'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1');
+insert into marxism_website_content (id, name, is_live, heading, sub_heading, sub_sub_heading, description, video_url, discount_text,  apply_ticket_discount) 
+values (1, '2018', true, 'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'Nunc sed blandit dui. Phasellus lacinia iaculis justo nec elementum. Morbi vel urna velit. Nulla pharetra a erat in vestibulum.', 'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', 'Book before Wednesday 28 March for a £5 discount on your booking!', false);
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url)

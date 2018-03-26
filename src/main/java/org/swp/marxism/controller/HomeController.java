@@ -176,10 +176,19 @@ public class HomeController {
 
 			return "error.html";
 		}
+		
+		Integer price = booking.getPrice();
+		
+		//Apply discount?
+		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
+		
+		if(marxismWebsiteContent.getApplyTicketDiscount() == true) {
+			price -= 5;
+		}
 
 		//Sanity check
-		logger.info("Checking booking price {} equals ticket.webPrice {} ", booking.getPrice(), booking.getTicket().getWebPrice());
-		String backendPrice = (booking.getPrice() * 100) + "";
+		logger.info("Checking booking price {} equals ticket.webPrice {} ", price, booking.getTicket().getWebPrice());
+		String backendPrice = (price * 100) + "";
 		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
 			throw new MarxismException("Web and backend prices do not match");
 		}
@@ -190,9 +199,17 @@ public class HomeController {
 
 		logger.info("Booking persisted. All done!");
 		
+		//Create order id based on environment
+		String orderId = "DEV" + booking.getId();
+		if(environment.acceptsProfiles("prod")) {
+			orderId = "MRX" + booking.getId();
+		};
+		
+		logger.debug("Sending to barclays with order id {}", orderId);
+		
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);
-		model.addAttribute("orderId", booking.getOrderId());
+		model.addAttribute("orderId", orderId);
 
 		return "barclays.html";
 	}

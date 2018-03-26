@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 
-				<h2 id="booking_header" class="page-header text-center">Book before Wednesday 28 March for a £5 discount on your booking!</h2>
+				<h2 id="booking_header" class="page-header text-center" th:if="${content.applyTicketDiscount == true}" th:text="${content.discountText}">Book before</h2>
 
 				<div id="booking_form_container">
 					<form id="booking-form" action="/book" method="post" class="form-horizontal" role="form">

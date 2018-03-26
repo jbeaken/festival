@@ -8,7 +8,7 @@
 		
 			<h2 class="page-header text-center" style="margin-bottom: 10px;">Ticket prices</h2>
 		
-			<h2 class="page-subheader text-center booking-discount">Book before Wednesday 28 March for a £5 discount on your booking!</h2>
+			<h2 class="page-subheader text-center booking-discount" th:if="${content.applyTicketDiscount == true}" th:text="${content.discountText}">Book before Wednesday</h2>
 		
 			<div id="pricing_blurb">The festival is a not-for-profit event and we keep ticket prices as low as possible. But we do have to charge for entry to cover the high costs of the venues, creche, staffing and accommodation.
 			</div>
