@@ -109,6 +109,9 @@
   <script th:src="@{/plugins/backstretch/jquery.backstretch.js}"></script>
 
   <!-- JS Custom -->
+  <script th:inline="javascript">
+  	var applyTicketDiscount = [[${content.applyTicketDiscount}]]
+  </script>
   <script th:src="@{/js/custom.js}"></script>
   <script th:src="@{/js/theme.js}"></script>
 

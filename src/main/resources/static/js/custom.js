@@ -543,7 +543,7 @@ function calculatePrice() {
 //	console.log("price : " + price)
 
 	//Apply discount till March 28
-	price = price - 5
+	if( applyTicketDiscount == true) price = price - 5
 
 	return price
 }
