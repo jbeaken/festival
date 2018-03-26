@@ -199,17 +199,9 @@ public class HomeController {
 
 		logger.info("Booking persisted. All done!");
 		
-		//Create order id based on environment
-		String orderId = "DEV" + booking.getId();
-		if(environment.acceptsProfiles("prod")) {
-			orderId = "MRX" + booking.getId();
-		};
-		
-		logger.debug("Sending to barclays with order id {}", orderId);
-		
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);
-		model.addAttribute("orderId", orderId);
+		model.addAttribute("orderId", booking.getOrderId());
 
 		return "barclays.html";
 	}
