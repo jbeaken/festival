@@ -6,7 +6,7 @@
 
 	<groupId>org.swp</groupId>
 	<artifactId>marxism</artifactId>
-	<version>0.1</version>
+	<version>1.1</version>
 	<packaging>war</packaging>
 
 	<name>marxism</name>
