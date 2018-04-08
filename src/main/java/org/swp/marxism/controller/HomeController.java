@@ -185,6 +185,8 @@ public class HomeController {
 		//Apply discount?
 		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
 		
+		logger.info("marxismWebsiteContent.getApplyTicketDiscount() : {}", marxismWebsiteContent.getApplyTicketDiscount());
+		
 		if(marxismWebsiteContent.getApplyTicketDiscount() == true) {
 			price -= 5;
 		}
