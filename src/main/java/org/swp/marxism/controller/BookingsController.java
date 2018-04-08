@@ -1,6 +1,7 @@
 package org.swp.marxism.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -72,9 +73,9 @@ public class BookingsController {
 	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
 	public String view(@PathVariable Long id, Model model) {
 
-		Booking booking = bookingRepository.findOne(id);
+		Optional<Booking> booking = bookingRepository.findById(id);
 
-		logger.info("Request view booking {}", booking);
+		logger.info("Request view booking {}", booking.get());
 
 		model.addAttribute(booking);
 

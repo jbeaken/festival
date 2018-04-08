@@ -18,7 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		String password = environment.getProperty("security.user.password");
+		String password = environment.getProperty("spring.security.user.password");
 		String username = environment.getProperty("security.user.username");
 		auth.inMemoryAuthentication().withUser( username ).password( password ).authorities("ROLE_MARXISM");
 	}

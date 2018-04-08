@@ -1,3 +1,4 @@
+.sts4-cache/
 src/main/etc/wolfram/node_modules/
 src/main/etc/wolfram/app/
 target/

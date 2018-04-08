@@ -1,6 +1,7 @@
 package org.swp.marxism.controller;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -74,7 +75,7 @@ public class HomeController {
 
 		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
 
-		if(marxismWebsiteContent == null) {
+//		if(marxismWebsiteContent == null) {
 
 			marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
 
@@ -87,7 +88,7 @@ public class HomeController {
 			context.setAttribute("marxismWebsiteContent", marxismWebsiteContent);
 
 			logger.info("Marxism website content placed into context");
-		}
+//		}
 
 		model.addAttribute("content", marxismWebsiteContent);
 
@@ -119,11 +120,13 @@ public class HomeController {
 			return new ResponseEntity<String>("sha failure", HttpStatus.NOT_ACCEPTABLE);
 		}
 		
-		Booking booking = bookingRepository.findOne( id );
+		Optional<Booking> optional = bookingRepository.findById( id );
 		
-		if(booking == null) {
+		if(!optional.isPresent()) {
 			return new ResponseEntity<String>("Cannot find booking " + id, HttpStatus.NOT_ACCEPTABLE);
 		}
+		
+		Booking booking = optional.get();
 		
 		logger.info("Got booking {}", booking);
 		
