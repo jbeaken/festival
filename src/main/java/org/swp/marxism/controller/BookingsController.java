@@ -77,7 +77,7 @@ public class BookingsController {
 
 		logger.info("Request view booking {}", booking.get());
 
-		model.addAttribute(booking);
+		model.addAttribute( booking.get() );
 
 		return "admin/view.html";
 	}

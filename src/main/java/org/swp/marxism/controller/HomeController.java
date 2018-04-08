@@ -75,7 +75,7 @@ public class HomeController {
 
 		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
 
-//		if(marxismWebsiteContent == null) {
+		if(marxismWebsiteContent == null) {
 
 			marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
 
@@ -88,7 +88,7 @@ public class HomeController {
 			context.setAttribute("marxismWebsiteContent", marxismWebsiteContent);
 
 			logger.info("Marxism website content placed into context");
-//		}
+		}
 
 		model.addAttribute("content", marxismWebsiteContent);
 
@@ -190,8 +190,8 @@ public class HomeController {
 		}
 
 		//Sanity check
-		logger.info("Checking booking price {} equals ticket.webPrice {} ", price, booking.getTicket().getWebPrice());
 		String backendPrice = (price * 100) + "";
+		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice, booking.getTicket().getWebPrice());
 		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
 			throw new MarxismException("Web and backend prices do not match");
 		}

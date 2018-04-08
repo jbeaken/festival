@@ -60,6 +60,9 @@ public class HomeTests {
 	
 	@Test
 	public void testBook() throws Exception {
+		//Load MarxismContent into ServletContext
+		this.mvc.perform(get("/").accept(MediaType.TEXT_HTML));
+		
 		this.mvc.perform(post("/book").accept(MediaType.TEXT_HTML)
 		.param("firstname","firstname")
 		.param("lastname","lastname")
@@ -78,12 +81,12 @@ public class HomeTests {
 		.param("address.country","")
 		.param("ticket.type","FULL")
 		.param("ticket.pricing","UNWAGED")
-		.param("ticket.webPrice","3000")
+		.param("ticket.webPrice","3500")
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
-		.andExpect(model().attribute("orderId", "MRX9"))
-		.andExpect(model().attribute("amount", "3000"))
+		.andExpect(model().attribute("orderId", "DEV9"))
+		.andExpect(model().attribute("amount", "3500"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
 	}

@@ -27,13 +27,37 @@ public class BookingTests {
 	private MockMvc mvc;
 
 	@Test
-	public void bookings() throws Exception {
-		this.mvc.perform(get("/bookings/").accept(MediaType.TEXT_HTML))
+	public void bookingsActioned() throws Exception {
+		this.mvc.perform(get("/bookings/")
+				.param("actioned", "1")
+				.accept(MediaType.TEXT_HTML))
+		.andExpect(status().isOk())
+		.andExpect(view().name("admin/bookings.html"))
+		.andExpect(model().attributeExists("bookingList"))
+		.andExpect(model().attribute("bookingList", hasSize( 5 )));
+	}
+	
+	@Test
+	public void bookingsUnactioned() throws Exception {
+		this.mvc.perform(get("/bookings/")
+				.param("actioned", "2")
+				.accept(MediaType.TEXT_HTML))
+		.andExpect(status().isOk())
+		.andExpect(view().name("admin/bookings.html"))
+		.andExpect(model().attributeExists("bookingList"))
+		.andExpect(model().attribute("bookingList", hasSize( 3 )));
+	}	
+	
+	@Test
+	public void bookingsAll() throws Exception {
+		this.mvc.perform(get("/bookings/")
+				.param("actioned", "3")
+				.accept(MediaType.TEXT_HTML))
 		.andExpect(status().isOk())
 		.andExpect(view().name("admin/bookings.html"))
 		.andExpect(model().attributeExists("bookingList"))
 		.andExpect(model().attribute("bookingList", hasSize( 8 )));
-	}
+	}	
 
 	@Test
 	public void viewBooking() throws Exception {
