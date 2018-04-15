@@ -31,7 +31,7 @@ a.read-more:hover {
     border-bottom: solid 0.0625rem #FFAB00;
 }
 
-h2, h3, .page-header, div.speaker_short_description, div.pricing_from_price, div.pricing_from, .font-lindham, .video-title, #modal_img__heading, #modal_no_img__heading {
+h2, h3, .page-header, div.speakers_short_description, div.pricing_from_price, div.pricing_from, .font-lindham, .video-title, #modal_img__heading, #modal_no_img__heading {
   font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
   text-transform: none;
 }
@@ -48,7 +48,7 @@ div.social-container {
   text-align: center;
 }
 
-.team__item__footer__content {
+.team__speakers__footer__content {
   height : 110px;
 }
 
@@ -89,11 +89,11 @@ div.pricing_from {
 }
 
 /* Speakers */
-.section_team .team__item {
+.section_speakers .team__speakers {
     color: #777;
 }
 
-.section_team .team__item, .section_team .team__item:active, .section_team .team__item:focus {
+.section_speakers .team__speakers, .section_speakers .team__speakers:active, .section_speakers .team__speakers:focus {
     text-decoration: none;
     box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
 }

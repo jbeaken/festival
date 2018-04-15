@@ -39,7 +39,7 @@ insert into marxism_website (id, name, is_live,
   values
   (1, '2018', true, 
    'Marxism Festival 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', null,
-   'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', 'If you were excited by Jeremy Corbyn&apos;s election as Labour leader, horrified by Donald Trump, want to challenge racism and oppression, desire action over climate change or are looking for an alternative to austerity and war then Marxism Festival 2018 is the place for you. Thousands of activists, campaigners, trade unionists, students, writers and academics will come together at over 130 different meetings.', 
+   'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, central London', 'If you were excited by Jeremy Corbyn&apos;s election as Labour leader, horrified by Donald Trump, want to challenge racism and oppression, desire action over climate change or are looking for an alternative to austerity and war then Marxism Festival 2018 is the place for you. Thousands of activists, campaigners, trade unionists, students, writers and academics will come together at over 130 different meetings.', 
    'Ticket prices', 'The festival is a not-for-profit event and we keep ticket prices as low as possible. But we do have to charge for entry to cover the high costs of the venues, creche, staffing and accommodation.',
    20, 30, 30, 55,
    10, 15, 15, 20,
@@ -48,7 +48,7 @@ insert into marxism_website (id, name, is_live,
    'Book before Wednesday 28 March for a £5 discount on your booking!', false, 500,
    'Marxism Festival 2018', 
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
-   true, true, true, true, false, true, true, true,
+   true, true, true, true, true, true, true, true,
    'admin', now());
 
 -- SPEAKERS

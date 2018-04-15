@@ -1,33 +1,20 @@
-// =====
-// About
-// =====
+// =======
+// About 3
+// =======
 
 .section_about {
 	
-	.about {
-
-		// Images
-
-		&__img {
-
-			@media(max-width: @screen-xs-max) {
-				margin-top: 25px;    
-			}
-			
-			// iPhone image
-
-			&_iphone {
-				max-width: 250px;
-			}
+	.about__item {
+		margin-bottom: 25px;
+		text-align: center;
+		
+		&__icon {
+			margin-bottom: 15px;
+			font-size: 2.5em;
+			color: @brand-primary;
 		}
-	}
-
-	// Rows
-
-	.row_centered {
-
-		+ .row_centered {
-			margin-top: @section-padding-base / 2;
+		&__heading {
+			margin-bottom: 15px;
 		}
 	}
 }
