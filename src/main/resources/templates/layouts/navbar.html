@@ -15,14 +15,15 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="#section_banner">Welcome</a></li>
-				<li><a href="#section_about">About</a></li>
-				<li><a href="#section_themes">Themes</a></li>
-				<li><a href="#section_pricing">Pricing</a></li>
-				<li><a href="#section_booking"><span id="navbar_booking">Book</span></a></li>
-				<li><a href="#section_gallery">Gallery</a></li>
-				<li class="hidden-xs"><a href="https://www.youtube.com/watch?v=MQHlKuJhF9s&autoplay=1" rel="navbar-youtube" class="swipebox" title="Promo video for Marxism Festival 2018">Video</a></li>
-				<li class="visible-xs hidden-sm"><a href="https://www.youtube.com/watch?v=MQHlKuJhF9s&autoplay=1" title="Promo video for Marxism Festival 2018">Video</a></li>
-				<li><a href="#section_contact">Contact</a></li>
+				<li><a href="#section_about" th:if="${content.showAbout == true}">About</a></li>
+				<li><a href="#section_themes" th:if="${content.showThemes == true}">Themes</a></li>
+				<li><a href="#section_team" th:if="${content.showSpeakers == true}">Speakers</a></li>
+				<li><a href="#section_pricing" th:if="${content.showPricing == true}">Pricing</a></li>
+				<li><a href="#section_booking" th:if="${content.showBooking == true}"><span id="navbar_booking">Book</span></a></li>
+				<li><a href="#section_gallery" th:if="${content.showGallery == true}">Gallery</a></li>
+				<li class="hidden-xs" th:if="${content.showVideo == true}"><a href="https://www.youtube.com/watch?v=MQHlKuJhF9s&autoplay=1" rel="navbar-youtube" class="swipebox" title="Promo video for Marxism Festival 2018">Video</a></li>
+				<li class="visible-xs hidden-sm" th:if="${content.showVideo == true}"><a href="https://www.youtube.com/watch?v=MQHlKuJhF9s&autoplay=1" title="Promo video for Marxism Festival 2018">Video</a></li>
+				<li><a href="#section_contact" th:if="${content.showContact == true}">Contact</a></li>
 			</ul>
 
 		</div>

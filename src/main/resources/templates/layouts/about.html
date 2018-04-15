@@ -1,17 +1,17 @@
 <!-- ABOUT  ================================================== -->
-<section class="section_about" id="section_about" style="padding-top: 50px;">
+<section class="section_about" id="section_about" style="padding-top: 50px;" th:if="${content.showAbout == true}">
 	<div class="container">
 
 		<div class="row" style="padding-bottom: 40px;">
 			<div class="col-sm-12">
 
-				<h2 class="page-header text-center" th:text="${content.about.heading}" style="margin-bottom: 2px;" />
+				<h2 class="page-header text-center" th:text="${content.aboutHeading}" style="margin-bottom: 2px;" />
 
 				<h2 class="page-header text-center" style="margin-bottom: 2px;">
-					<span th:text="${content.about.subHeading}">A festival of socialist ideas</span>
+					<span th:text="${content.aboutLine2}">A festival of socialist ideas</span>
 				</h2>
 
-				<h2 class="page-header text-center" th:text="${content.about.subSubHeading}" style="margin-bottom: 25px; color : #808080"/>
+				<h2 class="page-header text-center" th:text="${content.aboutLine3}" style="margin-bottom: 25px; color : #808080"/>
 
 				<div id="about_blurb">If you were excited by Jeremy Corbyn's election as Labour leader, horrified by Donald
 					Trump, want to challenge racism and oppression, desire action over

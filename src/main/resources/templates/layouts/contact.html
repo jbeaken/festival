@@ -1,5 +1,5 @@
 <!-- CONTACT   ================================================== -->
-<section class="section_contact" id="section_contact">
+<section class="section_contact" id="section_contact" th:if="${content.showContact == true}">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -8,7 +8,7 @@
 					Get in touch <span>with us</span>
 				</h2>
 
-				<p class="page-subheader text-white-muted text-center">Do not hesitate to drop us a line. Tel : 020 7840 5620</p>
+				<p class="page-subheader text-white-muted text-center" th:text=${content.contactLine2}></p>
 
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 								</li>
 								<li><i class="ion-android-call"></i>
 									<p>
-										<a href="tel:02078405620">020 7840 5620</a>
+										<a href="tel:02078405620" th:text="${content.contactTelephone}"></a>
 									</p></li>
 								<li><i class="ion-android-mail"></i>
 									<p>
@@ -74,7 +74,6 @@
 									PO BOX 74955<br/>
 									London<br/>
 									E16 9EJ
-									</ul>
 								</li>									
 							</ul>
 

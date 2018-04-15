@@ -33,10 +33,10 @@ import org.swp.marxism.controller.bean.Feedback;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
 import org.swp.marxism.domain.BookingStatus;
-import org.swp.marxism.domain.MarxismWebsiteContent;
+import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
-import org.swp.marxism.repository.MarxismWebsiteContentRepository;
+import org.swp.marxism.repository.MarxismWebsiteRepository;
 import org.thymeleaf.context.Context;
 
 @Controller("/")
@@ -46,7 +46,7 @@ public class HomeController {
 	private BookingRepository bookingRepository;
 
 	@Autowired
-	private MarxismWebsiteContentRepository marxismWebsiteContentRepository;
+	private MarxismWebsiteRepository marxismWebsiteRepository;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -73,24 +73,24 @@ public class HomeController {
 
 		logger.info("Received request for home");
 
-		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
+		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
-		if(marxismWebsiteContent == null) {
+		if(marxismWebsite == null) {
 
-			marxismWebsiteContent = marxismWebsiteContentRepository.findByIsLive( true );
+			marxismWebsite = marxismWebsiteRepository.findByIsLive( true );
 
-			logger.info("Have loaded marxism website content {}", marxismWebsiteContent);
+			logger.info("Have loaded marxism website content {}", marxismWebsite);
 
-			logger.info("Contains {} speakers", marxismWebsiteContent.getSpeakers().size());
-			logger.info("Contains {} themes", marxismWebsiteContent.getThemes().size());
-			logger.info("Contains {} carousel items", marxismWebsiteContent.getCarouselItems().size());
+			logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
+			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
+			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
 
-			context.setAttribute("marxismWebsiteContent", marxismWebsiteContent);
+			context.setAttribute("marxismWebsite", marxismWebsite);
 
 			logger.info("Marxism website content placed into context");
 		}
 
-		model.addAttribute("content", marxismWebsiteContent);
+		model.addAttribute("content", marxismWebsite);
 
 		return "home.html";
 	}
@@ -183,11 +183,11 @@ public class HomeController {
 		Integer price = booking.getPrice();
 		
 		//Apply discount?
-		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
+		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 		
-		logger.info("marxismWebsiteContent.getApplyTicketDiscount() : {}", marxismWebsiteContent.getApplyTicketDiscount());
+		logger.info("marxismWebsite.getApplyTicketDiscount() : {}", marxismWebsite.getApplyTicketDiscount());
 		
-		if(marxismWebsiteContent.getApplyTicketDiscount() == true) {
+		if(marxismWebsite.getApplyTicketDiscount() == true) {
 			price -= 5;
 		}
 
@@ -224,9 +224,9 @@ public class HomeController {
 
 		logger.info("Received thankYou");
 		
-		MarxismWebsiteContent marxismWebsiteContent = (MarxismWebsiteContent) context.getAttribute("marxismWebsiteContent");
+		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
-		model.addAttribute("content", marxismWebsiteContent);
+		model.addAttribute("content", marxismWebsite);
 		
 		return "home.html";
 	}	

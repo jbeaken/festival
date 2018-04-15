@@ -1,17 +1,16 @@
 <!-- PRICING  ================================================== -->
-<section class="section_pricing" id="section_pricing">
+<section class="section_pricing" id="section_pricing" th:if="${content.showPricing == true}">
   <div class="container">
   
 	<div class="row" style="padding-bottom: 40px;">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 		
-			<h2 class="page-header text-center" style="margin-bottom: 10px;">Ticket prices</h2>
+			<h2 class="page-header text-center" style="margin-bottom: 10px;" th:text="${content.pricingHeading}"></h2>
 		
-			<h2 class="page-subheader text-center booking-discount" th:if="${content.applyTicketDiscount == true}" th:text="${content.discountText}">Book before Wednesday</h2>
+			<h2 class="page-subheader text-center booking-discount" th:if="${content.applyTicketDiscount == true}" th:text="${content.discountText}"></h2>
 		
-			<div id="pricing_blurb">The festival is a not-for-profit event and we keep ticket prices as low as possible. But we do have to charge for entry to cover the high costs of the venues, creche, staffing and accommodation.
-			</div>
+			<div id="pricing_blurb" th:text="${content.pricingText}"></div>
 		</div>
 		<div class="col-md-3"></div>
 	</div><!-- / .row -->
@@ -29,12 +28,12 @@
 		</a>
           </h3>
           <div class="pricing_from">From</div>
-          <div class="pricing_from_price"><span class="pricing_pound_symbol">&pound;</span>20</div>
+          <div class="pricing_from_price"><span class="pricing_pound_symbol">&pound;</span><span th:text="${content.pricingFullEventFE}"></div>
           <ul class="pricing__item__features">
-            <li>Waged: £55.00</li>
-            <li>Unwaged: £30.00</li>
-            <li>HE student: £30.00</li>
-            <li>Under 18/school/FE: £20.00</li>
+            <li>Waged: &pound;<span th:text="${content.pricingFullEventWaged}"></span></li>
+            <li>Unwaged: &pound;<span th:text="${content.pricingFullEventUnwaged}"></span></li>
+            <li>HE student: &pound;<span th:text="${content.pricingFullEventHE}"></span></li>
+            <li>Under 18/school/FE: &pound;<span th:text="${content.pricingFullEventFE}"></span></li>
           </ul>
           <a href="#section_booking" class="btn btn-block btn-primary btn-book-now">
             Book now
@@ -55,12 +54,12 @@
 		</a>
           </h3>
           <div class="pricing_from">From</div>
-          <div class="pricing_from_price"><span class="pricing_pound_symbol">&pound;</span>10</div>
+          <div class="pricing_from_price"><span class="pricing_pound_symbol">&pound;</span><span th:text="${content.pricingDayTicketFE}"></div>
           <ul class="pricing__item__features">
-            <li>Waged: £20.00</li>
-            <li>Unwaged: £15.00</li>
-            <li>HE student: £15.00</li>
-            <li>Under 18/school/FE: £10.00</li>
+            <li>Waged: &pound;<span th:text="${content.pricingDayTicketWaged}"></span></li>
+            <li>Unwaged: &pound;<span th:text="${content.pricingDayTicketUnwaged}"></span></li>
+            <li>HE student: &pound;<span th:text="${content.pricingDayTicketHE}"></span></li>
+            <li>Under 18/school/FE: &pound;<span th:text="${content.pricingDayTicketFE}"></span></li>
           </ul>
           <a href="#section_booking" class="btn btn-block btn-primary btn-book-now">
             Book now
@@ -81,12 +80,12 @@
 		</a>
           </h3>
           <div class="pricing_from">From</div>
-          <div class="pricing_from_price"><span class="pricing_pound_symbol">&pound;</span>10</div>
+          <div class="pricing_from_price"><span class="pricing_pound_symbol">&pound;</span><span th:text="${content.pricingFlexiTicketFE}"></div>
           <ul class="pricing__item__features">
-            <li>Waged: £20.00</li>
-            <li>Unwaged: £15.00</li>
-            <li>HE student: £15.00</li>
-            <li>Under 18/school/FE: £10.00</li>
+            <li>Waged: &pound;<span th:text="${content.pricingFlexiTicketWaged}"></span></li>
+            <li>Unwaged: &pound;<span th:text="${content.pricingFlexiTicketUnwaged}"></span></li>
+            <li>HE student: &pound;<span th:text="${content.pricingFlexiTicketHE}"></span></li>
+            <li>Under 18/school/FE: &pound;<span th:text="${content.pricingFlexiTicketFE}"></span></li>
           </ul>
           <a href="#section_booking" class="btn btn-block btn-primary btn-book-now">
             Book now
