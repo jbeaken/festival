@@ -1,21 +1,46 @@
-<div th:fragment="speaker( speaker )" class="col-sm-4 speaker-holder">
+<div th:fragment="speaker( speaker, fastLoad )" class="col-sm-4 speaker-holder">
 
-	<a class="speakers__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+	<a th:if="${speaker.longDescription != null}" class="speakers__item animate-sm-step-0" 
+		href="#modal_no_img"
+		data-animate="animate-up" 
+		data-toggle="modal" 
+		data-ga="speakerReadMore"
+		th:attr="data-content=${speaker.longDescription},data-heading=${speaker.name},data-img=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})}">
 
 		<div class="speakers__item animate-sm-step-2" data-animate="animate-up">
 			
-			<div class="speakers__item__img">
-				<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})}" class="img-responsive" alt="...">
+			<div class="speakers__item__img" th:if="${fastLoad == true}">
+				<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive speaker-img" />
 			</div>
+			<div class="speakers__item__img" th:if="${fastLoad == false}">
+				<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive speaker-img" />
+			</div>			
 			
 			<div class="speakers__item__footer">
-				<h3 class="speakers__item__footer__heading" style="color : black; margin-bottom : 0px;" th:text="${speaker.name}" />
-				<div class="speakers__item__footer__content" th:utext="${speaker.shortDescription}"/>
+				<h3 class="speakers__item__footer__heading" style="color : black;" th:text="${speaker.name}" />
+				<div class="speakers__item__footer__content" th:utext="${speaker.shortDescription}"/><span class="read-more">Read more</span>
 			</div>
 			
 		</div>
 
 	</a>
+	
+	<div th:if="${speaker.longDescription == null}" class="speakers__item animate-sm-step-2" data-animate="animate-up">
+		
+		<div class="speakers__item__img" th:if="${fastLoad == true}">
+			<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive speaker-img" />
+		</div>
+		<div class="speakers__item__img" th:if="${fastLoad == false}">
+			<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive speaker-img" />
+		</div>	
+		
+		<div class="speakers__item__footer">
+			<h3 class="speakers__item__footer__heading" style="color : black;" th:text="${speaker.name}" />
+			<div class="speakers__item__footer__content" th:utext="${speaker.shortDescription}"/>
+		</div>
+		
+	</div>	
+	
 </div>
 <!-- / .speakers__item -->
 
@@ -24,7 +49,7 @@
 	<a class="themes__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="to do">
 		
 		<div class="themes__item__img">
-		  <img th:attr="src=@{/img/themes/{imageUrl}(imageUrl=${theme.imageUrl})}" class="img-responsive" alt="...">
+		  <img th:attr="src=@{/img/themes/{imageUrl}(imageUrl=${theme.imageUrl})},alt=${theme.name}" class="img-responsive" />
 		</div>
 		
 		<div class="themes__item__footer">

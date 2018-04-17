@@ -18,7 +18,10 @@
   -moz-outline-style: none
 }
 
-a.read-more {
+span.read-more {
+	color: #FFAB00;
+}
+q.read-more, span.read-more {
     text-decoration: none !important;
     border-bottom: 0.0625rem solid #dcdcdc;
     -webkit-transition: border-color .15s ease-out;
@@ -27,7 +30,7 @@ a.read-more {
     cursor: pointer;
 }
 
-a.read-more:hover {
+a.read-more:hover, span.read-more:hover {
     border-bottom: solid 0.0625rem #FFAB00;
 }
 
@@ -220,10 +223,13 @@ i.warning_icon {
   section#section_booking {
     padding-top: 30px;
   }
-  /* Themes */
-  .themes__item__footer {
+  div.themes__item__footer {
       height: 400px;
   }
+  div.speakers__item__footer {
+      height: 250px;
+  }  
+  
 }
 
 /* Landscape tablets and medium desktops */
@@ -234,10 +240,12 @@ i.warning_icon {
   section#section_booking {
     padding-top: 30px;
   }
-  /* Themes */
-  .themes__item__footer {
+  div.themes__item__footer {
       height: 450px;
   }
+  div.speakers__item__footer {
+      height: 250px;
+  }   
 }
 
 /* Portrait tablets and small desktops */
@@ -254,10 +262,12 @@ i.warning_icon {
   .video-title {
 		font-size : 0.9em;
   }
-  /* Themes */
-  .themes__item__footer {
+  div.themes__item__footer {
       height: 620px;
   }
+  div.speakers__item__footer {
+      height: 250px;
+  }   
 }
 
 

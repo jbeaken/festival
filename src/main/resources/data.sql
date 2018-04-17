@@ -69,7 +69,7 @@ values (4, 'Ghada Karmi', 'Ghada Karmi is a Palestinian author, academic and act
 'ghada-karmi.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (5, 'Michael Roberts', 'Michael Roberts is a Marxist economist who writes regularly on the economy. He will be speaking on <b>The Long Depression and economic crisis</b>', 'Michael Roberts is a Marxist economist who has worked in the City of London for over 30 years. He is author of <b>The Great Recession - a Marxist view (Lulu, 2009)</b> and <b>The Long Depression (Haymarket 2016).</b> Forthcoming is <b>Marx 200: a modern view of Marx’s economics 200 years after his birth (Lulu 2018)</b> and jointly with G Carchedi, <b>The World in Crisis: empirical backing for Marx’s law of profitability (Haymarket 2018)</b>.  He blogs at: <a href="https://thenextrecession.wordpress.com">thenextrecession.wordpress.com</a>', 
+values (5, 'Michael Roberts', 'Michael Roberts is a Marxist economist who writes regularly on the economy. He will be speaking on <b>The Long Depression and economic crisis</b>', 'Michael Roberts is a Marxist economist who has worked in the City of London for over 30 years. He is author of <b>The Great Recession - a Marxist view (Lulu, 2009)</b> and <b>The Long Depression (Haymarket 2016).</b><br/><br/>Forthcoming is <b>Marx 200: a modern view of Marx’s economics 200 years after his birth (Lulu 2018)</b> and jointly with G Carchedi, <b>The World in Crisis: empirical backing for Marx’s law of profitability (Haymarket 2018)</b>.<br/><br/>He blogs at: <a href="https://thenextrecession.wordpress.com">thenextrecession.wordpress.com</a>', 
 'michael-roberts.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -85,12 +85,12 @@ values (8, 'Moyra Samuels', 'Moyra is a member of the <b>Justice4Grenfell</b> ca
 'moyra-samuels.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (9, 'Alex Callinicos', 'Alex Callinicos, author of the Revolutionary Ideas of Karl Marx, and will be discussing <b>Trump, tariffs and trade wars.</b>', null, 
+values (9, 'Alex Callinicos', 'Alex Callinicos, author of the <b>Revolutionary Ideas of Karl Marx</b> and will be discussing <b>Trump, tariffs and trade wars.</b>', null, 
 'alex-callinicos.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (10, 'Brid Smith TD', 'Brid is a TD in the Irish Parliament for People Before Profit. She has been heavily involved in the campaign to Repeal the 8th amendment, and will be joining a panel on <b>Abortion rights today.</b>', null, 
-'', 'admin', now());
+'brid-smith.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (11, 'Jonathan Rosenhead', 'Jonathan is a member of Jewish Voice for Labour and will be joining a panel debating <b>Zionism, antisemitism and Palestine solidarity</b>', null, 
@@ -101,11 +101,11 @@ values (12, 'Eulália Reguant', 'Eulália is a MP in Barcelona for the CUP, the 
 'christine-buchholz.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (13, 'Nita Sanghera', 'Nita is the UCU vice-President elect and will be joining a panel debating the <b>marketization of Higher Education</b>', 'As an access to HE lecturer, working at SCCB Bournville campus, Nita is familiar with the ever present spectre of the Conservatives marketisation of education, and whatever else they can get their hands on. She is an active member of UCU, and has recently become Vice President elect.', 
+values (13, 'Nita Sanghera', 'Nita is the UCU vice-President elect and will be joining a panel debating the <b>marketization of Higher Education</b>', 'As an access to HE lecturer, working at SCCB Bournville campus, Nita is familiar with the ever present spectre of the Conservatives marketisation of education, and whatever else they can get their hands on.<br/><br/>She is an active member of UCU, and has recently become Vice President elect.', 
 'Nita-Sanghera.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (14, 'Mark Perryman', 'Mark is a founder of Philosophy Football and editor of The Corbyn Effect. He&apos;ll be debating <b>Corbyn and the future of British politics</b> with Mark L Thomas from the SWP.', null, 
+values (14, 'Mark Perryman', 'Mark is a founder of Philosophy Football and editor of <b>The Corbyn Effect</b>. He&apos;ll be debating <b>Corbyn and the future of British politics</b> with Mark L Thomas from the SWP.', null, 
 'mark-perryman.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -113,15 +113,18 @@ values (15, 'Naima Omar', 'Naima is an activist with Stand Up to Racism and will
 'naima-omar.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (16, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan Gibbons speaks on the second book of his <b>Russian Revolution</b> trilogy', 'Alan is the author of some seventy books and was one of the organisers of the Campaign for the Book and the Speak up for Libraries Coalition that spearheaded the fight to defend the public library service. Alan is a prolific speaker on education and public service. The final volumes of his Revolution trilogy charting the Russian Revolution are published in 2018. <br/>He is a member of the Labour Party and is speaking in a personal capacity.', 
+values (16, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan Gibbons speaks on the second book of his <b>Russian Revolution</b> trilogy.', 
+'Alan is the author of some seventy books and was one of the organisers of the Campaign for the Book and the <b>Speak up for Libraries Coalition</b> that spearheaded the fight to defend the public library service.<br/><br/>Alan is a prolific speaker on education and public service. The final volumes of his Revolution trilogy charting the Russian Revolution are published in 2018.<br/><br/>He is a member of the Labour Party and is speaking in a personal capacity.', 
 'alan-gibbons.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (17, 'Deidre O’Neill', 'Film makers Deidre O&#39;Neill and Mike Wayne will be leading a discussion on <b>Considering class: theory, culture and the media in the 21st century.</b>', 'Mike Wayne teaches film, television and media studies. He is the co-editor (with Deirdre O’Neill) of Considering Class: Theory, Culture and the Media in the 21st Century and co-director of with Deirdre O&#39;Neill of feature doc The Acting Class. Deirdre O&#39;Neill is a lecturer and filmmaker. Her new book is Film as a Radical Pedagogic tool. She is the co-coordinator of the Inside Film Project http://www.insidefilm.org. She has co- directed (with Mike Wayne) two films <a href="http://listentovenezuela.info">Listen to Venezuela</a> and <a href="http://www.conditionoftheworkingclass.info">Condition of the Working Class</a>.  Their latest film The Acting Class is currently touring the country.', 
+values (17, 'Deidre O’Neill', 'Film makers Deidre O&#39;Neill and Mike Wayne will be leading a discussion on <b>Considering class: theory, culture and the media in the 21st century.</b>', 
+'Mike Wayne teaches film, television and media studies. He is the co-editor (with Deirdre O’Neill) of <b>Considering Class: Theory, Culture and the Media in the 21st Century</b> and co-director of with Deirdre O&#39;Neill of feature doc <b>The Acting Class.</b><br/><br/>Deirdre O&#39;Neill is a lecturer and filmmaker. Her new book is Film as a Radical Pedagogic tool. She is the co-coordinator of the <a href="http://www.insidefilm.org">Inside Film Project</a>.<br/><br/>She has co- directed (with Mike Wayne) two films <a href="http://listentovenezuela.info">Listen to Venezuela</a> and <a href="http://www.conditionoftheworkingclass.info">Condition of the Working Class</a>.<br/><br/>Their latest film <b>The Acting Class</b> is currently touring the country.', 
 'deirdre-o-neill.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (18, 'Dave Randall', 'Dave Randall is a musician who has played with Faithless and Sinead O’Connor, and he is author of <b>Sound System: The Political Power of Music.</b>', 'Dave Randall is a musician, writer and activist. He has toured the world playing guitar for Faithless, Sinead O&apos;Connor and others and is the author of <b>Sound System: The Political Power of Music.</b>', 
+values (18, 'Dave Randall', 'Dave Randall is a musician who has played with Faithless and Sinead O’Connor, and he is author of <b>Sound System: The Political Power of Music.</b>', 
+'Dave Randall is a musician, writer and activist.<br/><br/>He has toured the world playing guitar for Faithless, Sinead O&apos;Connor and others and is the author of <b>Sound System: The Political Power of Music.</b>', 
 'dave-randall.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -130,7 +133,7 @@ values (19, 'Talat Ahmed', 'Talat is a lecturer and anti-racist activist based i
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (20, 'John Holmwood', 'John Holmwood is author of Countering Extremism in British Schools – the Truth About the Trojan Horse Affair, and he will join a panel to discuss <b>Islamophobia and education.</b>', null, 
-'', 'admin', now());
+'john-holmwood.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (21, 'Lucia Pradella', 'Lucia is an academic and activist in UCU. She’ll be speaking on <b>Italy, racism and the rise of the far right</b>', null, 
@@ -141,15 +144,15 @@ values (22, 'Weyman Bennett', 'Weyman Bennett is the co-convenor of Stand Up to 
 'weyman-bennett.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (23, 'Maria Styllou', 'Maria is a member of SEK in Greece and was a part of the 1968 student movement at the LSE. She’ll be discussing <b>The legacy of 1968</b>', null, 
+values (23, 'Maria Styllou', 'Maria is a member of SEK in Greece and was a part of the 1968 student movement at the LSE. She&apos;ll be discussing <b>The legacy of 1968</b>', null, 
 'maria-styllou.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (24, 'Richard Boyd-Barrett TD', 'Richard is a TD in the Irish Parliament with People Before Profit. He’ll be part of a panel debating <b>The fight against austerity in Europe.</b>', null, 
-'', 'admin', now());
+'richard.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (25, 'Alfredo Saad-Filho', 'Alfredo Marxist economist who writes on Latin America. He’ll be launching his new book Brazil: Neoliberalism Versus Democracy', null, 
+values (25, 'Alfredo Saad-Filho', 'Alfredo Marxist economist who writes on Latin America. He&apos;ll be launching his new book Brazil: Neoliberalism Versus Democracy', null, 
 'alfredo-saad-filho.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -157,19 +160,19 @@ values (26, 'Judith Orr', 'Judith is an author and activist. She will be leading
 'judith-orr.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (27, 'Iain Ferguson', 'Iain Ferguson is a social worker and part of Social Work Action Network. He will be launching his new book Politics of the Mind: Marxism and Mental Distress.', null, 
+values (27, 'Iain Ferguson', 'Iain Ferguson is a social worker and part of Social Work Action Network. He will be launching his new book <b>Politics of the Mind: Marxism and Mental Distress.</b>', null, 
 'iain-ferguson.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (28, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll be launching his new book A Rebel’s Guide to Martin Luther King', null, 
+values (28, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll be launching his new book <b>A Rebel&apos;s Guide to Martin Luther King.</b>', null, 
 'yuri-prasad.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (29, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a panel on #MeToo: fighting everyday sexism', null, 
+values (29, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a panel on <b>#MeToo: fighting everyday sexism</b>', null, 
 '', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (30, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he’ll be debating Syria today.', null, 
+values (30, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating Syria today.', null, 
 'ghayath-naisse.jpg', 'admin', now());
 
 insert into marxism_website_speakers (marxism_website_id, speakers_id, speaker_index) values (1, 1, 0);

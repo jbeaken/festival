@@ -5,6 +5,8 @@
 var $window = $(window);
 
 $window.load(function() {
+	
+	console.log("Window loade. In preloader")
 
     // Theme: Preloader
     var preloader = $('.preloader');
@@ -13,11 +15,29 @@ $window.load(function() {
 
     setTimeout(function() {
         preloader.hide();
+        //Load speaker images
+        console.log("Loading images")
+        $('img.speaker-img').each(function() {
+            var this_image = this;
+            var lsrc = $(this_image).attr('img-src')
+           // console.log(lsrc)
+            var img = new Image();
+            img.src = lsrc;
+            $(img).load(function() {
+                this_image.src = this.src;
+            });
+        });
+        console.log("Finished Loading images")        
+        console.log("preloader.hide()")
     }, 2500);
+    
+    console.log("End window.load")
 
 });
 
 $(function() {
+	
+	console.log("DOM Loaded. function()")
 
     // Theme: Navbar
     var navbar = $('.navbar');
@@ -272,4 +292,8 @@ $(function() {
 //    window.addEventListener('popstate', function () {
 //        history.pushState(null, null, document.URL);
 //    });
+    
+
+    
+    console.log("end function()")
 });

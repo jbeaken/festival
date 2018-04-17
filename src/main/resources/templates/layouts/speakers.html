@@ -14,11 +14,11 @@
 
 		<div class="row" th:each="i : ${#numbers.sequence( 0, 3, 3 )}">
 
-			<div th:replace="fragments :: speaker( ${content.speakers[i + 0]} )"></div>
+			<div th:replace="fragments :: speaker( ${content.speakers[i + 0]}, true )"></div>
 
-			<div th:replace="fragments :: speaker( ${content.speakers[i + 1]} )"></div>
+			<div th:replace="fragments :: speaker( ${content.speakers[i + 1]}, true )"></div>
 
-			<div th:replace="fragments :: speaker( ${content.speakers[i + 2]} )"></div>
+			<div th:replace="fragments :: speaker( ${content.speakers[i + 2]}, true )"></div>
 
 		</div>
 
@@ -29,11 +29,11 @@
 		
 		<div class="row more-speakers" style="display : none;" th:each="i : ${#numbers.sequence( 6, #lists.size(content.speakers) - 3, 3 )}">
 
-			<div th:replace="fragments :: speaker( ${content.speakers[i + 0]} )"></div>
+			<div th:replace="fragments :: speaker( ${content.speakers[i + 0]}, false )"></div>
 
-			<div th:replace="fragments :: speaker( ${content.speakers[i + 1]} )"></div>
+			<div th:replace="fragments :: speaker( ${content.speakers[i + 1]}, false )"></div>
 
-			<div th:replace="fragments :: speaker( ${content.speakers[i + 2]} )"></div>
+			<div th:replace="fragments :: speaker( ${content.speakers[i + 2]}, false )"></div>
 
 		</div>		
 

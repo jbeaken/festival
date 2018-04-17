@@ -602,4 +602,7 @@ function sendGA( page ) {
 
 function showMoreSpeakers() {
 	$('div.more-speakers').show();
+	$('a#showMoreSpeakersAnchor').hide();
+	
+	sendGA( '/showMoreSpeakers' )
 }
