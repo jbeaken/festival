@@ -1,6 +1,6 @@
-<div class="col-sm-4" th:fragment="speaker( speaker )" >
+<div th:fragment="speaker( speaker )" class="col-sm-4 speaker-holder">
 
-	<a href="#modal_img" class="speakers__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
+	<a class="speakers__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque maiores quibusdam, soluta nostrum odio dolore ratione numquam nemo accusamus quos, veniam alias fugit, nulla quaerat dicta. Aut nulla rerum natus?">
 
 		<div class="speakers__item animate-sm-step-2" data-animate="animate-up">
 			
@@ -10,10 +10,7 @@
 			
 			<div class="speakers__item__footer">
 				<h3 class="speakers__item__footer__heading" style="color : black; margin-bottom : 0px;" th:text="${speaker.name}" />
-				
-				<div class="speakers_short_description" style="color: #FFAB00; font-size: 19px;line-height: 1.42857143;margin-bottom: 10px;" th:utext="${speaker.shortDescription}"/>
-				
-				<div class="speakers__item__footer__content" th:utext="${speaker.longDescription}"/>
+				<div class="speakers__item__footer__content" th:utext="${speaker.shortDescription}"/>
 			</div>
 			
 		</div>

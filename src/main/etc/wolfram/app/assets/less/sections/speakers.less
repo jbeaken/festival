@@ -5,7 +5,22 @@
 .section_speakers {
 	
 	.speakers__item {
+		display: block;
 		margin-bottom: 25px;
+		color: @text-color;
+		transition: all .25s;
+
+		&:hover, &:active, &:focus {
+			text-decoration: none;
+			box-shadow: 0 10px 100px 0 fade(black,14%);
+		}
+
+		// Image
+
+		&__img {
+			position: relative;
+			text-align: center;
+		}
 
 		// Footer
 
@@ -22,12 +37,7 @@
 			// Heading
 
 			&__heading {
-				color: @brand-primary;
-
-				> small {
-					font-size: @font-size-base;
-					color: @headings-color;
-				}
+				color: @headings-color;
 			}
 		}
 	}

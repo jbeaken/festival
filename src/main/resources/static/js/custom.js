@@ -599,3 +599,7 @@ function sendGA( page ) {
     	gaAlreadySent.push( page )
 	}  
 }
+
+function showMoreSpeakers() {
+	$('div.more-speakers').show();
+}
