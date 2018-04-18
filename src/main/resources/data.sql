@@ -74,6 +74,7 @@ values (5, 'Michael Roberts', 'Michael Roberts is a Marxist economist who writes
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (6, 'Christine Buchholz', 'Christine Buchholz, MP for Die Linke in Germany, joins Petros Constantinou from KEERFA in Greece and David Albrich from Austria to discuss <b>The far right in Europe</b>', null, 
+values (6, 'Christine Buchholz', 'Christine Buchholz, an MP for Die Linke in Germany joins Petros Constantinou from KEERFA in Greece and David Albrich from Austria to discuss <b>The far right in Europe</b>', null, 
 'christine-buchholz.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -118,8 +119,13 @@ values (16, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan G
 'alan-gibbons.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
+<<<<<<< HEAD
 values (17, 'Deidre O’Neill', 'Film makers Deidre O&#39;Neill and Mike Wayne will be leading a discussion on <b>Considering class: theory, culture and the media in the 21st century.</b>', 
 'Mike Wayne teaches film, television and media studies. He is the co-editor (with Deirdre O’Neill) of <b>Considering Class: Theory, Culture and the Media in the 21st Century</b> and co-director of with Deirdre O&#39;Neill of feature doc <b>The Acting Class.</b><br/><br/>Deirdre O&#39;Neill is a lecturer and filmmaker. Her new book is Film as a Radical Pedagogic tool. She is the co-coordinator of the <a href="http://www.insidefilm.org">Inside Film Project</a>.<br/><br/>She has co- directed (with Mike Wayne) two films <a href="http://listentovenezuela.info">Listen to Venezuela</a> and <a href="http://www.conditionoftheworkingclass.info">Condition of the Working Class</a>.<br/><br/>Their latest film <b>The Acting Class</b> is currently touring the country.', 
+=======
+values (17, 'Deirdre O’Neill', 'Film makers Deirdre O&#39;Neill and Mike Wayne will be leading a discussion on <b>Considering class: theory, culture and the media in the 21st century.</b>', 
+'Mike Wayne teaches film, television and media studies. He is the co-editor (with Deirdre O’Neill) of <b>Considering Class: Theory, Culture and the Media in the 21st Century</b> and co-director of with Deirdre O&#39;Neill of feature doc <b>The Acting Class.</b><br/><br/>Deirdre O&#39;Neill is a lecturer and filmmaker. Her new book is Film as a Radical Pedagogic tool. She is the co-coordinator of the <a href="http://www.insidefilm.org">Inside Film Project</a>.<br/><br/>She has co-directed (with Mike Wayne) two films <a href="http://listentovenezuela.info">Listen to Venezuela</a> and <a href="http://www.conditionoftheworkingclass.info">Condition of the Working Class</a>.<br/><br/>Their latest film <b>The Acting Class</b> is currently touring the country.', 
+>>>>>>> 9d8dccf... Adding sally campbell image
 'deirdre-o-neill.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -169,7 +175,7 @@ values (28, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (29, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a panel on <b>#MeToo: fighting everyday sexism</b>', null, 
-'', 'admin', now());
+'sally.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (30, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating Syria today.', null, 
