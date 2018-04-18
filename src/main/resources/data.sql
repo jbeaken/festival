@@ -57,7 +57,7 @@ values (1, 'Ilan Pappé', 'Ilan Papp&eacute; is an anti-Zionist academic who has
 'Ilan-Pappe.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (2, 'Janet Alder', 'Janet Alder is the brother of Christopher Alder who was killed in police custody. She will be speaking on <b>Black Lives Matter: Police, racism and the state.</b>', null, 
+values (2, 'Janet Alder', 'Janet Alder is the sister of Christopher Alder who was killed in police custody. She will be speaking on <b>Black Lives Matter: Police, racism and the state.</b>', null, 
 'janet-alder.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -98,8 +98,13 @@ values (11, 'Jonathan Rosenhead', 'Jonathan is a member of Jewish Voice for Labo
 'jonathan-rosenhead.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
+<<<<<<< HEAD
 values (12, 'Eulália Reguant', 'Eulália is a MP in Barcelona for the CUP, the anti-capitalist wing of the Catalan Independence movement. She will be discussing <b>Where next for Catalonia?</b>', null, 
 'christine-buchholz.jpg', 'admin', now());
+=======
+values (12, 'Eulália Reguant', 'Eulália is a former MP in Barcelona for the CUP, the anti-capitalist wing of the Catalan Independence movement. She will be discussing <b>Where next for Catalonia?</b>', null, 
+'eulalia.jpg', 'admin', now());
+>>>>>>> 9065167... Adding three replacement images for brid, richard and sally
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (13, 'Nita Sanghera', 'Nita is the UCU vice-President elect and will be joining a panel debating the <b>marketization of Higher Education</b>', 'As an access to HE lecturer, working at SCCB Bournville campus, Nita is familiar with the ever present spectre of the Conservatives marketisation of education, and whatever else they can get their hands on.<br/><br/>She is an active member of UCU, and has recently become Vice President elect.', 
@@ -155,7 +160,7 @@ values (23, 'Maria Styllou', 'Maria is a member of SEK in Greece and was a part 
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (24, 'Richard Boyd-Barrett TD', 'Richard is a TD in the Irish Parliament with People Before Profit. He’ll be part of a panel debating <b>The fight against austerity in Europe.</b>', null, 
-'richard.jpg', 'admin', now());
+'richard-boyd-barrett.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (25, 'Alfredo Saad-Filho', 'Alfredo Marxist economist who writes on Latin America. He&apos;ll be launching his new book Brazil: Neoliberalism Versus Democracy', null, 
@@ -175,7 +180,7 @@ values (28, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (29, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a panel on <b>#MeToo: fighting everyday sexism</b>', null, 
-'sally.jpg', 'admin', now());
+'sally-campbell.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 values (30, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating Syria today.', null, 
