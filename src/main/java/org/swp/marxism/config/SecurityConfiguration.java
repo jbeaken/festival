@@ -30,8 +30,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		http.authorizeRequests().antMatchers("/bookings/**", "/admin/**").hasRole("MARXISM").and().httpBasic();
+		
 		http.authorizeRequests().anyRequest().permitAll();
 		
-		http.antMatcher("/bookings/**").authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
 	}
 }

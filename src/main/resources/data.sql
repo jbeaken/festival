@@ -53,7 +53,7 @@ insert into marxism_website (id, name, is_live,
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (1, 'Ilan Pappé', 'Ilan Papp&eacute; is an anti-Zionist academic who has written books including <b>The Ethnic Cleansing of Palestine</b>. He will be discussing <b>Opportunities and Dangers for Palestine in the Trump era.</b>', ' Ilan Pappe is the director of the European Centre for Palestine Studies at the University of Exeter and the author of twenty books, the last one is <b>The Biggest Prison on Earth: a History of the Israeli Occupation.</b>', 
+values (1, 'Ilan Pappé', 'Ilan Papp&eacute; is an anti-Zionist academic who has written books including The Ethnic Cleansing of Palestine. He will be discussing <b>Opportunities and Dangers for Palestine in the Trump era.</b>', ' Ilan Pappe is the director of the European Centre for Palestine Studies at the University of Exeter and the author of twenty books, the last one is <b>The Biggest Prison on Earth: a History of the Israeli Occupation.</b>', 
 'Ilan-Pappe.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -82,15 +82,15 @@ values (7, 'Ian Hodson', 'Ian, President of BFAWU, and strikers from McDonalds w
 'ian-hodson.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (8, 'Moyra Samuels', 'Moyra is a member of the <b>Justice4Grenfell</b> campaign and one year on from the Grenfell tragedy will be part of a panel on <b>Injustice and the British state.</b>', null, 
+values (8, 'Moyra Samuels', 'Moyra is a member of the Justice4Grenfell campaign and one year on from the Grenfell tragedy will be part of a panel on <b>Injustice and the British state.</b>', null, 
 'moyra-samuels.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (9, 'Alex Callinicos', 'Alex Callinicos, author of the <b>Revolutionary Ideas of Karl Marx</b> and will be discussing <b>Trump, tariffs and trade wars.</b>', null, 
+values (9, 'Alex Callinicos', 'Alex Callinicos, author of the Revolutionary Ideas of Karl Marx and will be discussing <b>Trump, tariffs and trade wars.</b>', null, 
 'alex-callinicos.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (10, 'Brid Smith TD', 'Brid is a TD in the Irish Parliament for People Before Profit. She has been heavily involved in the campaign to Repeal the 8th amendment, and will be joining a panel on <b>Abortion rights today.</b>', null, 
+values (10, 'Brid Smith', 'Brid is a TD in the Irish Parliament for People Before Profit. She has been heavily involved in the campaign to Repeal the 8th amendment, and will be joining a panel on <b>Abortion rights today.</b>', null, 
 'brid-smith.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -111,7 +111,7 @@ values (13, 'Nita Sanghera', 'Nita is the UCU vice-President elect and will be j
 'Nita-Sanghera.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (14, 'Mark Perryman', 'Mark is a founder of Philosophy Football and editor of <b>The Corbyn Effect</b>. He&apos;ll be debating <b>Corbyn and the future of British politics</b> with Mark L Thomas from the SWP.', null, 
+values (14, 'Mark Perryman', 'Mark is a founder of Philosophy Football and editor of The Corbyn Effect. He&apos;ll be debating <b>Corbyn and the future of British politics</b> with Mark L Thomas from the SWP.', null, 
 'mark-perryman.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -119,7 +119,7 @@ values (15, 'Naima Omar', 'Naima is an activist with Stand Up to Racism and will
 'naima-omar.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (16, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan Gibbons speaks on the second book of his <b>Russian Revolution</b> trilogy.', 
+values (16, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan Gibbons speaks on the second book of his Russian Revolution trilogy.', 
 'Alan is the author of some seventy books and was one of the organisers of the Campaign for the Book and the <b>Speak up for Libraries Coalition</b> that spearheaded the fight to defend the public library service.<br/><br/>Alan is a prolific speaker on education and public service. The final volumes of his Revolution trilogy charting the Russian Revolution are published in 2018.<br/><br/>He is a member of the Labour Party and is speaking in a personal capacity.', 
 'alan-gibbons.jpg', 'admin', now());
 
@@ -134,8 +134,8 @@ values (17, 'Deirdre O’Neill', 'Film makers Deirdre O&#39;Neill and Mike Wayne
 'deirdre-o-neill.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (18, 'Dave Randall', 'Dave Randall is a musician who has played with Faithless and Sinead O’Connor, and he is author of <b>Sound System: The Political Power of Music.</b>', 
-'Dave Randall is a musician, writer and activist.<br/><br/>He has toured the world playing guitar for Faithless, Sinead O&apos;Connor and others and is the author of <b>Sound System: The Political Power of Music.</b>', 
+values (18, 'Dave Randall', 'Dave Randall is a musician who has played with Faithless and Sinead O’Connor, and he is author of Sound System: The Political Power of Music.', 
+'Dave Randall is a musician, writer and activist.<br/><br/>He has toured the world playing guitar for Faithless, Sinead O&apos;Connor and others and is the author of Sound System: The Political Power of Music.', 
 'dave-randall.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -155,7 +155,7 @@ values (22, 'Weyman Bennett', 'Weyman Bennett is the co-convenor of Stand Up to 
 'weyman-bennett.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (23, 'Maria Styllou', 'Maria is a member of SEK in Greece and was a part of the 1968 student movement at the LSE. She&apos;ll be discussing <b>The legacy of 1968</b>', null, 
+values (23, 'Maria Styllou', 'Maria is a socialist activist in Greece and was a part of the 1968 student movement at the LSE. She&apos;ll be discussing <b>The legacy of 1968</b>', null, 
 'maria-styllou.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -171,11 +171,11 @@ values (26, 'Judith Orr', 'Judith is an author and activist. She will be leading
 'judith-orr.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (27, 'Iain Ferguson', 'Iain Ferguson is a social worker and part of Social Work Action Network. He will be launching his new book <b>Politics of the Mind: Marxism and Mental Distress.</b>', null, 
+values (27, 'Iain Ferguson', 'Iain Ferguson is a social worker and part of Social Work Action Network. He will be launching his new book Politics of the Mind: Marxism and Mental Distress.', null, 
 'iain-ferguson.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (28, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll be launching his new book <b>A Rebel&apos;s Guide to Martin Luther King.</b>', null, 
+values (28, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll be launching his new book A Rebel&apos;s Guide to Martin Luther King.', null, 
 'yuri-prasad.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
