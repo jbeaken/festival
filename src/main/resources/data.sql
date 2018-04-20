@@ -159,7 +159,7 @@ values (23, 'Maria Styllou', 'Maria is a socialist activist in Greece and was a 
 'maria-styllou.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (24, 'Richard Boyd-Barrett TD', 'Richard is a TD in the Irish Parliament with People Before Profit. He’ll be part of a panel debating <b>The fight against austerity in Europe.</b>', null, 
+values (24, 'Richard Boyd-Barrett TD', 'Richard is a TD in the Irish Parliament with People Before Profit. He&apos;ll be part of a panel debating <b>The fight against austerity in Europe.</b>', null, 
 'richard-boyd-barrett.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -183,7 +183,7 @@ values (29, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a 
 'sally-campbell.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (30, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating Syria today.', null, 
+values (30, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating <b>Syria today.</b>', null, 
 'ghayath-naisse.jpg', 'admin', now());
 
 insert into marxism_website_speakers (marxism_website_id, speakers_id, speaker_index) values (1, 1, 0);
