@@ -10,10 +10,10 @@
 		<div class="speakers__item animate-sm-step-2" data-animate="animate-up">
 			
 			<div class="speakers__item__img" th:if="${fastLoad == true}">
-				<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive speaker-img" />
+				<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive" />
 			</div>
 			<div class="speakers__item__img" th:if="${fastLoad == false}">
-				<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive speaker-img" />
+				<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive load-img" />
 			</div>			
 			
 			<div class="speakers__item__footer">
@@ -28,10 +28,10 @@
 	<div th:if="${speaker.longDescription == null}" class="speakers__item animate-sm-step-2" data-animate="animate-up">
 		
 		<div class="speakers__item__img" th:if="${fastLoad == true}">
-			<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive speaker-img" />
+			<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive" />
 		</div>
 		<div class="speakers__item__img" th:if="${fastLoad == false}">
-			<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive speaker-img" />
+			<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive load-img" />
 		</div>	
 		
 		<div class="speakers__item__footer">

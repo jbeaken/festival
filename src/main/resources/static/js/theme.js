@@ -17,10 +17,11 @@ $window.load(function() {
         preloader.hide();
         //Load speaker images
         console.log("Loading images")
-        $('img.speaker-img').each(function() {
+        $('img.load-img').each(function() {
             var this_image = this;
             var lsrc = $(this_image).attr('img-src')
-           // console.log(lsrc)
+            //console.log(lsrc)
+            //Check for undefined as save server hit??
             var img = new Image();
             img.src = lsrc;
             $(img).load(function() {
