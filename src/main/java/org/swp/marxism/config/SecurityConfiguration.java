@@ -20,21 +20,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		String password = environment.getProperty("spring.security.user.password");
 		String username = environment.getProperty("security.user.username");
+		
 		auth.inMemoryAuthentication().withUser( username ).password( "{noop}" + password ).authorities("ROLE_MARXISM");
 	}
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers("/img/**","/css/**","/plugins/**","/js/**","/","fonts/**");
+	    web.ignoring().antMatchers("/img/**", "/css/**", "/plugins/**", "/js/**", "/", "/book", "/fonts/**");
 	}	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-//		http.authorizeRequests().antMatchers("/bookings/**").hasRole("MARXISM").and().httpBasic();
-		 http.authorizeRequests().anyRequest().permitAll();
-         
-		 http.antMatcher("/bookings/**").authorizeRequests().anyRequest().hasRole("MARXISM").and().httpBasic();
-
+		 http.authorizeRequests()
+		 	.antMatchers("/bookings/**", "/admin/**").hasRole("MARXISM")
+		 	.anyRequest().permitAll()
+		 	.and().httpBasic();
+		 
+		 //Required for sendEmail and feedbackSha
+		 http.csrf().disable();
 	}
 }
