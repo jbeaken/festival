@@ -1,19 +1,25 @@
 package org.swp.marxism.controller;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -56,6 +62,9 @@ public class HomeController {
 
 	@Autowired
 	private ServletContext context;
+	
+	@Autowired
+	private ApplicationContext appContext;
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
@@ -93,6 +102,24 @@ public class HomeController {
 		model.addAttribute("content", marxismWebsite);
 
 		return "home.html";
+	}
+	
+	@RequestMapping(value = "/downloadTimetablePDF", method = RequestMethod.GET)
+	public void downloadTimetablePDF(HttpServletResponse response) throws java.io.IOException {
+
+		Resource resource = appContext.getResource("file:/home/marxism/pdf/timetable.pdf");
+
+		InputStream is = resource.getInputStream();
+
+		response.setContentType("application/pdf");
+
+		response.setHeader("Content-Disposition", "attachment; filename=\"marxism2018.pdf\"");
+
+		OutputStream os = response.getOutputStream();
+
+		IOUtils.copy(is, os);
+		os.flush();
+		os.close();
 	}
 	
 	@RequestMapping(value = "/booking/details", method = RequestMethod.GET)
