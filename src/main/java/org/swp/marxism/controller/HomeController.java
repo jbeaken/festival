@@ -45,6 +45,9 @@ import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
 import org.thymeleaf.context.Context;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @Controller("/")
 public class HomeController {
 
@@ -78,7 +81,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model) throws JsonProcessingException {
 
 		logger.info("Received request for home");
 
@@ -93,10 +96,23 @@ public class HomeController {
 			logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
 			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
 			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
-
-			context.setAttribute("marxismWebsite", marxismWebsite);
+			logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
+			
+			
 
 			logger.info("Marxism website content placed into context");
+			
+			logger.info("Building meetings json from ");
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			String meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
+			
+			logger.debug("Meetings json : {}", meetingsJson);
+			
+			marxismWebsite.setMeetingsJson(meetingsJson);
+			
+			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
 
 		model.addAttribute("content", marxismWebsite);

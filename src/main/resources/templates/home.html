@@ -81,6 +81,8 @@
     <div th:replace="layouts/themes"></div>
     
     <div th:replace="layouts/speakers"></div>
+    
+    <div th:replace="layouts/meetings"></div>
 
     <div th:replace="layouts/pricing"></div>
 
@@ -112,7 +114,11 @@
 
   <!-- JS Custom -->
   <script th:inline="javascript">
+  
   	var applyTicketDiscount = [[${content.applyTicketDiscount}]]
+  	/*<![CDATA[*/
+  	var meetings = [(${content.meetingsJson})];
+  	/*]]>*/
   </script>
   <script th:src="@{/js/custom.js}"></script>
   <script th:src="@{/js/theme.js}"></script>
