@@ -33,6 +33,11 @@ $window.load(function() {
     }, 2500);
     
     console.log("End window.load")
+    
+    console.log("Staring loading meetings")
+    var start = new Date();
+    
+    writeMeetings( 'THURSDAY', null);
 
 });
 

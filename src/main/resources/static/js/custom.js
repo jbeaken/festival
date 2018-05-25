@@ -452,6 +452,76 @@ function showMoreSpeakers() {
 	$('a#showMoreSpeakersAnchor').hide();
 }
 
+function writeMeetings( day, time) {
+	
+	var html = '';
+	
+	var meetingList = getMeetingsByDayAndTime( day, time)
+	
+	for(i = 0; i < meetingList.length; i++) {
+		
+		var meeting = meetingList[i]
+		
+		var speaker = '&nbsp;';
+		if(meeting.speakers != null) speaker = meeting.speakers
+		
+		console.log( meeting )
+		
+		//Themes
+		var themes = '&nbsp;'
+		
+		for(j = 0; j < meeting.themes.length; j++) {
+			var theme = meeting.themes[j]
+			
+			console.log ( theme )
+			themes = themes + '<span class="label label-warning">' + theme.name + '</span>&nbsp;'
+		}
+		
+		
+		
+		html = html + '<div class="col-sm-4 meeting__holder">'
+		html = html + '<a class="meetings__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="to do">'
+		html = html + '<div class="meeting__item__footer">'
+		html = html + '<h3 class="meetings__item__title">' + meeting.title + '</h3>'
+		html = html + '<div class="meetings__item__speakers">' + speaker + '</div>'
+		html = html + '<div class="meetings__item__time">' + meeting.day + ' ' + meeting.time + '</div>'
+		html = html + '<div class="meetings__item__theme">' + themes + '</div>'
+		html = html + '</div></a></div>'
+	}
+	
+	//console.log( html )
+	
+	$('div#meetings__holder').html( html )
+	
+}
+
+function getMeetingsByDayAndTime( day, time ) {
+	var result = []
+	
+	for(i = 0; i < meetings.length; i++) {
+		
+		var meeting = meetings[i]
+		
+		if(day != null) {
+			console.log("checking " + day)
+			if(meeting.day != day) continue
+		}
+		
+		if(time != null) {
+			console.log("checking " + time)
+			if(meeting.time != time) continue
+		}	
+		
+		console.log("Adding " + meeting.title)
+		
+		result.push( meeting )
+	}
+	
+	console.log( result )
+	
+	return result
+}
+
 
 /**********************/
 /** TICKET SELECTION **/

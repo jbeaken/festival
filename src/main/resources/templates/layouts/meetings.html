@@ -1,5 +1,66 @@
 <!-- MEETINGS  ================================================== -->
-<section class="section_themes section_alt" id="section_themes"	th:if="${content.showSpeakers == true}">
+<style>
+.meetings__item__title, .meetings__item__speakers, .meetings__item__time, .meetings__item__day {
+	font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
+	text-transform: none;
+}
+
+.meetings__item__time, .meetings__item__day {
+	color: #FFAB00;
+}
+.meetings__item__time, .meetings__item__day {
+	font-size : 2rem;
+}
+
+.meetings__item__theme {
+	
+}
+.section_themes .meetings__item {
+    margin-bottom: 25px;
+    color: #777;
+    transition: all .25s;
+}
+.section_themes .meetings__item:hover, .section_themes .meetings__item:active, .section_themes .meetings__item:focus {
+    text-decoration: none;
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
+}
+.meeting__item__footer {
+    padding: 40px;
+    background-color: white;
+    border: 1px solid #eee;
+    border-top: 0;
+    height: 250px;    
+}
+
+.meetings__item__title {
+	height : 100px;
+}
+
+.meeting__holder {
+	margin-bottom: 20px;
+}
+
+ul#meetings__day__list {
+	color: #6bccde;
+    font-weight: 700;
+    list-style: none;
+    font-size: 2.2rem;
+    padding: 0;
+    margin: 10px;
+}
+
+ul#meetings__day__list > li {
+	display: inline-block;
+}
+
+ul#meetings__day__list > li:before {
+    content: "|";
+}
+ul#meetings__day__list a {
+	color: #353535;
+}
+</style>
+<section class="section_themes section_alt" id="section_meetings"	th:if="${content.showSpeakers == true}">
 
 	<div class="container">
 
@@ -11,49 +72,18 @@
 			</div>
 		</div>
 		
-
 		<div class="row">
+			<ul id="meetings__day__list">
+				<li><a onclick="javascript:writeMeetings('THURSDAY', null)">Thursday</a></li>
+				<li><a onclick="javascript:writeMeetings('FRIDAY', null)">Friday</a></li>
+				<li><a onclick="javascript:writeMeetings('SATURDAY', null)">Saturday</a></li>
+				<li><a onclick="javascript:writeMeetings('SUNDAY', null)">Sunday</a></li>
+			</ul>
+		</div>
+		
 
-			<div class="col-sm-4 theme-holder">
+		<div class="row" id="meetings__holder">
 			
-				<a class="themes__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" 
-						data-img="/img/themes/corbyn.jpg" data-content="to do">
-						
-					<div class="themes__item__footer">
-					  <h3 class="themes__item__footer__heading">From African Marxism to neoliberalism</h3>
-					  <div class="themes__item__footer__content">Mani Tanoh</div>
-					</div>
-				
-				</a>
-			</div>
-			
-			<div class="col-sm-4 theme-holder">
-			
-				<a class="themes__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" 
-						data-img="/img/themes/corbyn.jpg" data-content="to do">
-						
-					<div class="themes__item__footer">
-					  <h3 class="themes__item__footer__heading">From African Marxism to neoliberalism</h3>
-					  <div class="themes__item__footer__content">Mani Tanoh</div>
-					  <div class="themes__item__footer__content" style="color: #FFAB00;">Resisting the racist backlash and the rise of fascism across Europe</div>
-					</div>
-				
-				</a>
-			</div>
-			
-			<div class="col-sm-4 theme-holder">
-			
-				<a class="themes__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" 
-						data-img="/img/themes/corbyn.jpg" data-content="to do">
-						
-					<div class="themes__item__footer">
-					  <h3 class="themes__item__footer__heading">From African Marxism to neoliberalism</h3>
-					  <div class="themes__item__footer__content">Mani Tanoh</div>
-					</div>
-				
-				</a>
-			</div>
-
 		</div>
 
 	</div>
