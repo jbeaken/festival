@@ -40,9 +40,11 @@ import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
 import org.swp.marxism.domain.BookingStatus;
 import org.swp.marxism.domain.MarxismWebsite;
+import org.swp.marxism.domain.Meeting;
 import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
+import org.swp.marxism.util.HtmlBuilder;
 import org.thymeleaf.context.Context;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -67,7 +69,11 @@ public class HomeController {
 	private ServletContext context;
 	
 	@Autowired
+<<<<<<< HEAD
 	private ApplicationContext appContext;
+=======
+	private HtmlBuilder htmlBuilder;
+>>>>>>> 283b682... HtmlBuilder bean now used rather than entity or javascript
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
@@ -97,12 +103,13 @@ public class HomeController {
 			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
 			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
 			logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
-			
-			
 
 			logger.info("Marxism website content placed into context");
 			
 			logger.info("Building meetings json from ");
+			for(Meeting m : marxismWebsite.getMeetings()) {
+				htmlBuilder.build( m );
+			}
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -358,6 +365,5 @@ public class HomeController {
 
 		logger.info("Mail successfuly sent!");
 	}
-	
 
 }

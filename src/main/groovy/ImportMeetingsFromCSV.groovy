@@ -13,7 +13,7 @@ sql = Sql.newInstance("jdbc:mysql://localhost:3306/marxism", "root", "admin", "c
 problems = []
 count = 0
 
-sql.executeUpdate("delete from meeting_theme")
+sql.executeUpdate("delete from theme_meetings")
 sql.executeUpdate("delete from meeting")
 
 new File("/home/git/marxism/src/main/etc/timetable.csv").splitEachLine(",") {fields ->
@@ -93,7 +93,7 @@ def addTheme( theme, meetingId ) {
 		
 		if(!themeId) throw new RuntimeException();	
 		
-		sql.executeUpdate("insert into meeting_themes (meeting_id, theme_id) values (?, ?)", [meetingId, themeId])																												
+		sql.executeUpdate("insert into theme_meetings (meetings_id, themes_id) values (?, ?)", [meetingId, themeId])																												
 }
 
 println "Finished importing ${count} meetings"

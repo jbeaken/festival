@@ -37,7 +37,7 @@ $window.load(function() {
     console.log("Staring loading meetings")
     var start = new Date();
     
-    writeMeetings( 'THURSDAY', null);
+    writeMeetings2( 'THURSDAY', null);
 
 });
 

@@ -452,12 +452,29 @@ function showMoreSpeakers() {
 	$('a#showMoreSpeakersAnchor').hide();
 }
 
+function writeMeetings2( day, time) {
+	var html = '';
+	
+	var meetingList = getMeetingsByDayAndTime( day, time)
+	
+	for(i = 0; i < meetingList.length; i++) {
+		
+		var meeting = meetingList[i]
+		
+		html = html + meeting.json
+	}
+	
+	$('div#meetings__holder').html( html )
+}
+
 function writeMeetings( day, time) {
 	
 	var html = '';
 	
 	var meetingList = getMeetingsByDayAndTime( day, time)
 	
+	var modalHtml = ''
+	var modalImage = ''
 	for(i = 0; i < meetingList.length; i++) {
 		
 		var meeting = meetingList[i]
@@ -472,21 +489,32 @@ function writeMeetings( day, time) {
 		
 		for(j = 0; j < meeting.themes.length; j++) {
 			var theme = meeting.themes[j]
-			
-			console.log ( theme )
 			themes = themes + '<span class="label label-warning">' + theme.name + '</span>&nbsp;'
+			
+			if( j === 0) {
+				modalHtml = '<br/>This meeting is part of the Marxism Festival 2018 theme ' + theme.shortDescription
+				modalHtml += '<br/><br/>'
+				modalHtml += theme.longDescription
+				modalImage = '/img/themes/' + theme.imageUrl
+			}
 		}
 		
+		console.log( speaker )
 		
 		
 		html = html + '<div class="col-sm-4 meeting__holder">'
-		html = html + '<a class="meetings__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="to do">'
+		html = html + '<a href="#modal_img" class="meetings__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal"'
+		html = html + ' data-heading="' + meeting.title + '"' 
+		html = html + ' data-img="' + modalImage + '"'
+		html = html + ' data-content="' + modalHtml + '">'
 		html = html + '<div class="meeting__item__footer">'
 		html = html + '<h3 class="meetings__item__title">' + meeting.title + '</h3>'
 		html = html + '<div class="meetings__item__speakers">' + speaker + '</div>'
 		html = html + '<div class="meetings__item__time">' + meeting.day + ' ' + meeting.time + '</div>'
 		html = html + '<div class="meetings__item__theme">' + themes + '</div>'
 		html = html + '</div></a></div>'
+		
+		html = html + meeting.json
 	}
 	
 	//console.log( html )
