@@ -104,7 +104,7 @@ public class HomeController {
 		return "home.html";
 	}
 	
-	@RequestMapping(value = "/downloadTimetablePDF", method = RequestMethod.GET)
+	@RequestMapping(value = "/timetable", method = RequestMethod.GET)
 	public void downloadTimetablePDF(HttpServletResponse response) throws java.io.IOException {
 
 		Resource resource = appContext.getResource("file:/home/marxism/pdf/timetable.pdf");
