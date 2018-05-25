@@ -89,7 +89,7 @@ function showNext() {
 }
 
 function downloadTimetable() {
-	var r = confirm("Please confirm you wish to download a PDF timetable for Marxism Conference 2018");
+	var r = confirm("Please confirm you wish to download a PDF timetable for Marxism Festival 2018");
 	
 	if (r == true) {
 		sendGA( "/timetable/pdf" )
