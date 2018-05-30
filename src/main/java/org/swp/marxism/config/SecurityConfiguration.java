@@ -36,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 	.anyRequest().permitAll()
 		 	.and().httpBasic();
 		 
-		 //Required for sendEmail and feedbackSha
+		 //Required for sendEmail and feedbackSha POST html forms
 		 http.csrf().disable();
 	}
 }

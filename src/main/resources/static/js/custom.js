@@ -452,74 +452,55 @@ function showMoreSpeakers() {
 	$('a#showMoreSpeakersAnchor').hide();
 }
 
-function writeMeetings2( day, time) {
-	var html = '';
+function writeTimes( day ) {
 	
-	var meetingList = getMeetingsByDayAndTime( day, time)
+	var text = ""
 	
-	for(i = 0; i < meetingList.length; i++) {
-		
-		var meeting = meetingList[i]
-		
-		html = html + meeting.json
+	if(day == null) return ""
+	
+	if(day == 'THURSDAY') {
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '12.45')\">12.45</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '14.30')\">14.30</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '16.15')\">16.15</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '19.00')\">19.00</a></li>"
+	} else if(day == 'SUNDAY') {
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '10.00')\">10.00</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '11.45')\">11.45</a></li>"		
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '14.00')\">14.00</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '15.45')\">15.45</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '17.30')\">17.30</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '18.30')\">18.30</a></li>"
+	} else {
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '10.00')\">10.00</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '11.45')\">11.45</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '14.30')\">14.30</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '16.15')\">16.15</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '19.00')\">19.00</a></li>"
+		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '20.30')\">20.30</a></li>"					
 	}
 	
-	$('div#meetings__holder').html( html )
+	return text
 }
 
 function writeMeetings( day, time) {
-	
 	var html = '';
 	
 	var meetingList = getMeetingsByDayAndTime( day, time)
 	
-	var modalHtml = ''
-	var modalImage = ''
 	for(i = 0; i < meetingList.length; i++) {
 		
 		var meeting = meetingList[i]
 		
-		var speaker = '&nbsp;';
-		if(meeting.speakers != null) speaker = meeting.speakers
-		
-		console.log( meeting )
-		
-		//Themes
-		var themes = '&nbsp;'
-		
-		for(j = 0; j < meeting.themes.length; j++) {
-			var theme = meeting.themes[j]
-			themes = themes + '<span class="label label-warning">' + theme.name + '</span>&nbsp;'
-			
-			if( j === 0) {
-				modalHtml = '<br/>This meeting is part of the Marxism Festival 2018 theme ' + theme.shortDescription
-				modalHtml += '<br/><br/>'
-				modalHtml += theme.longDescription
-				modalImage = '/img/themes/' + theme.imageUrl
-			}
-		}
-		
-		console.log( speaker )
-		
-		
-		html = html + '<div class="col-sm-4 meeting__holder">'
-		html = html + '<a href="#modal_img" class="meetings__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal"'
-		html = html + ' data-heading="' + meeting.title + '"' 
-		html = html + ' data-img="' + modalImage + '"'
-		html = html + ' data-content="' + modalHtml + '">'
-		html = html + '<div class="meeting__item__footer">'
-		html = html + '<h3 class="meetings__item__title">' + meeting.title + '</h3>'
-		html = html + '<div class="meetings__item__speakers">' + speaker + '</div>'
-		html = html + '<div class="meetings__item__time">' + meeting.day + ' ' + meeting.time + '</div>'
-		html = html + '<div class="meetings__item__theme">' + themes + '</div>'
-		html = html + '</div></a></div>'
-		
 		html = html + meeting.json
 	}
 	
-	//console.log( html )
-	
 	$('div#meetings__holder').html( html )
+	
+	var timesHtml = writeTimes( day )
+	
+	console.log("times : " + timesHtml)
+	
+	$('ul#meetings__time__list').html( timesHtml )
 	
 }
 
