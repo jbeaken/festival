@@ -22,6 +22,8 @@ public class HtmlBuilder {
 		
 		Boolean isHighlight = Boolean.FALSE;
 		String hasLongTitleClass = null;
+		Boolean hasNoThemeOrDescription = Boolean.FALSE;
+		
 		
 		Day day = meeting.getDay();
 		String time = meeting.getTime();
@@ -29,6 +31,8 @@ public class HtmlBuilder {
 		for(Theme theme : meeting.getThemes()) {
 			themes += "<span class='label label-warning'>" + theme.getName() + "</span>&nbsp;";
 		}
+		
+		themes += "<span class='read-more meeting-read-more'>Read More</span>";
 		
 		//Add class to title which media queries will style, using font-size : 1.0rem for example
 		if(title.length() > 65) {
@@ -40,10 +44,15 @@ public class HtmlBuilder {
 			hasLongTitleClass = "meeting_item_small_title";
 		}
 		
-		if( day == Day.THURSDAY && time.equals("19.00")) {
+		if( (day == Day.THURSDAY && time.equals("19.00")) || (day == Day.SUNDAY && time.equals("18.30")) || (day == Day.SUNDAY && time.equals("17.30"))) {
 			isHighlight = Boolean.TRUE;
 			hasLongTitleClass = null;
-		}		
+		}	
+		
+		if( meeting.getThemes().isEmpty() && meeting.getDescription() == null ) {
+			hasNoThemeOrDescription = Boolean.TRUE;
+			
+		}
 		
 		String dataContent = getDataContent( meeting );
 		
@@ -55,9 +64,11 @@ public class HtmlBuilder {
 		} else {
 			builder.append("<div class='col-sm-4 meeting__holder'>");
 		}
-		builder.append("<a href='#modal_no_img' class='meetings__item' data-toggle='modal'");
-		builder.append(" data-heading='" + title + "'");
-		builder.append(" data-content='" + dataContent + "'>");
+		if(hasNoThemeOrDescription == Boolean.FALSE) {
+			builder.append("<a href='#modal_no_img' class='meetings__item' data-toggle='modal'");
+			builder.append(" data-heading='" + title + "'");
+			builder.append(" data-content='" + dataContent + "'>");
+		}
 		builder.append("<div class='meeting__item__footer'>");
 		if(hasLongTitleClass != null) {
 			builder.append("<h3 class='meetings__item__title " + hasLongTitleClass + "'>" + title + "</h3>");
@@ -69,7 +80,12 @@ public class HtmlBuilder {
 		builder.append("<div class='meetings__item__theme'>" + themes + "</div>");
 		
 		
-		builder.append("</div></a></div>");
+		builder.append("</div>");
+		if(hasNoThemeOrDescription == Boolean.FALSE) {
+			builder.append("</a>");
+		}
+		
+		builder.append("</div>");
 		
 		meeting.setJson( builder.toString() );
 		

@@ -29,6 +29,8 @@ new File("/home/git/marxism/src/main/etc/timetable2.csv").splitEachLine(",") {fi
   if(speakers) speakers = speakers.replace('--', ',')
   if(description) description = description.replace('--', ',')
   
+  if(description == 'Need text') description = null
+  
   if( day == 'DAY') return //header row
   
    println "description : " + description
