@@ -62,6 +62,10 @@ ul#meetings__day__list a, ul#meetings__time__list a {
 	color: #353535;
 	margin-right : 15px;
 }
+li.pipe-to-left:before {
+    content: "|";
+    color : black;
+}
 </style>
 <section class="section_themes section_alt" id="section_meetings"	th:if="${content.showSpeakers == true}">
 
@@ -78,9 +82,9 @@ ul#meetings__day__list a, ul#meetings__time__list a {
 		<div class="row">
 			<ul id="meetings__day__list">
 				<li><a onclick="javascript:writeMeetings('THURSDAY', '12.45')">Thursday</a></li>
-				<li><a onclick="javascript:writeMeetings('FRIDAY', '10.00')">| Friday</a></li>
-				<li><a onclick="javascript:writeMeetings('SATURDAY', '10.00')">| Saturday</a></li>
-				<li><a onclick="javascript:writeMeetings('SUNDAY', '10.00')">| Sunday</a></li>
+				<li class="pipe-to-left"><a onclick="javascript:writeMeetings('FRIDAY', '10.00')"> Friday</a></li>
+				<li class="pipe-to-left"><a onclick="javascript:writeMeetings('SATURDAY', '10.00')"> Saturday</a></li>
+				<li class="pipe-to-left"><a onclick="javascript:writeMeetings('SUNDAY', '10.00')"> Sunday</a></li>
 			</ul>
 			
 			<ul id="meetings__time__list">

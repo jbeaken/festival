@@ -27,7 +27,6 @@ public class HtmlBuilder {
 		builder.append("<div class='col-sm-4 meeting__holder'>");
 		builder.append("<a href='#modal_no_img' class='meetings__item animate-sm-step-0' data-animate='animate-up' data-toggle='modal'");
 		builder.append(" data-heading='" + title + "'");
-		//builder.append(" data-img='" + getTitle() + "'");
 		builder.append(" data-content='" + dataContent + "'>");
 		builder.append("<div class='meeting__item__footer'>");
 		builder.append("<h3 class='meetings__item__title'>" + title + "</h3>");

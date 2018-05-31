@@ -16,7 +16,7 @@ count = 0
 sql.executeUpdate("delete from theme_meetings")
 sql.executeUpdate("delete from meeting")
 
-new File("/home/git/marxism/src/main/etc/timetable.csv").splitEachLine(",") {fields ->
+new File("/home/git/marxism/src/main/etc/timetable2.csv").splitEachLine(",") {fields ->
   def day = fields[0].trim().toUpperCase()
   def time = fields[1].trim()
   def title = fields[2].trim().replace('--', ',')
