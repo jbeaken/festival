@@ -74,6 +74,17 @@ li.pipe-to-left:before {
     content: "|";
     color : black;
 }
+@media (min-width: 481px) and (max-width: 767px) {
+  ul#meetings__day__list, ul#meetings__time__list {
+  	font-size: 1.6rem;
+  }
+}
+@media (max-width: 480px) {
+  ul#meetings__day__list, ul#meetings__time__list {
+  	font-size: 1.4rem;
+  }
+}
+
 </style>
 <section class="section_themes section_alt" id="section_meetings"	th:if="${content.showSpeakers == true}">
 
@@ -90,7 +101,7 @@ li.pipe-to-left:before {
 		<div class="row">
 			<div class="col-sm-8">
 				<ul id="meetings__day__list">
-					<li><a id="THURSDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('THURSDAY', '12.45')">Thursday</a></li>
+					<li><a id="THURSDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('THURSDAY', '12.30')">Thursday</a></li>
 					<li class="pipe-to-left"><a id="FRIDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('FRIDAY', '10.00')">&nbsp;Friday</a></li>
 					<li class="pipe-to-left"><a id="SATURDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('SATURDAY', '10.00')">&nbsp;Saturday</a></li>
 					<li class="pipe-to-left"><a id="SUNDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('SUNDAY', '10.00')">&nbsp;Sunday</a></li>

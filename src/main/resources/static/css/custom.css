@@ -245,7 +245,10 @@ i.warning_icon {
   }
   div.speakers__item__footer {
       height: 250px;
-  }   
+  }  
+   	h3.meeting_item_long_title {
+		font-size: 1.1em;
+	}  
 }
 
 /* Portrait tablets and small desktops */
@@ -268,6 +271,15 @@ i.warning_icon {
   div.speakers__item__footer {
       height: 250px;
   }   
+   	h3.meeting_item_long_title {
+		font-size: 1.0em;
+	} 
+   	h3.meeting_item_medium_title {
+		font-size: 1.0em;
+	}  	
+	h3.meeting_item_small_title {
+		font-size: 1.1em;
+	}  
 }
 
 
@@ -286,7 +298,7 @@ i.warning_icon {
   section#section_booking {
   	padding-bottom: 30px;
   	padding-top: 30px;
-  }
+  }   
 }
 
 /* Portrait phones and smaller */

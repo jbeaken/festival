@@ -466,7 +466,7 @@ function writeTimes( day, time ) {
 	$('ul#meetings__time__list > li > a').removeClass('selected')
 	
 	if(day == 'THURSDAY') {
-		text += getTimeText( day, '12.45', time)
+		text += getTimeText( day, '12.30', time)
 		text += getTimeText( day, '14.30', time)
 		text += getTimeText( day, '16.15', time)
 		text += getTimeText( day, '19.00', time)
@@ -483,7 +483,7 @@ function writeTimes( day, time ) {
 		text += getTimeText( day, '14.30', time)
 		text += getTimeText( day, '16.15', time)		
 		text += getTimeText( day, '19.00', time)		
-		text += getTimeText( day, '20.30', time)			
+		text += getTimeText( day, '21.00', time)			
 	}
 	
 	return text

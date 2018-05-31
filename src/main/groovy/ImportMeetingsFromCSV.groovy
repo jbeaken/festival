@@ -27,11 +27,14 @@ new File("/home/git/marxism/src/main/etc/timetable2.csv").splitEachLine(",") {fi
   def description = fields[7]
   
   if(speakers) speakers = speakers.replace('--', ',')
+  if(description) description = description.replace('--', ',')
   
   if( day == 'DAY') return //header row
   
-  def rowId = sql.executeInsert("""insert into meeting (creator, date_created, title, day, time, speakers, marxism_website_id) 
-  values ('admin', now(), ?, ?, ?, ?, ?)""", [title, day, time, speakers, 1])
+   println "description : " + description
+  
+  def rowId = sql.executeInsert("""insert into meeting (creator, date_created, title, day, time, speakers, marxism_website_id, description) 
+  values ('admin', now(), ?, ?, ?, ?, ?, ?)""", [title, day, time, speakers, 1, description])
   
   long meetingId = rowId[0][0] 
   

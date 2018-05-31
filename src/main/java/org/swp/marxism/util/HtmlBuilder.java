@@ -2,10 +2,15 @@ package org.swp.marxism.util;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.swp.marxism.domain.Day;
 import org.swp.marxism.domain.Meeting;
 import org.swp.marxism.domain.Theme;
 
 public class HtmlBuilder {
+	
+	protected static final Logger logger = LoggerFactory.getLogger(HtmlBuilder.class);
 
 	
 	public void build(Meeting meeting) {
@@ -15,21 +20,50 @@ public class HtmlBuilder {
 		
 		String title = sanitiseString( meeting.getTitle() );
 		
+		Boolean isHighlight = Boolean.FALSE;
+		String hasLongTitleClass = null;
+		
+		Day day = meeting.getDay();
+		String time = meeting.getTime();
+		
 		for(Theme theme : meeting.getThemes()) {
 			themes += "<span class='label label-warning'>" + theme.getName() + "</span>&nbsp;";
 		}
 		
-		String dataContent = meeting.getThemes().isEmpty() ? "There are no themes" : getDataContent( meeting );
+		//Add class to title which media queries will style, using font-size : 1.0rem for example
+		if(title.length() > 65) {
+			logger.info(title);
+			hasLongTitleClass = "meeting_item_long_title";
+		} else if(title.length() > 50) {
+			hasLongTitleClass = "meeting_item_medium_title";
+		} else if(title.length() > 40) {
+			hasLongTitleClass = "meeting_item_small_title";
+		}
+		
+		if( day == Day.THURSDAY && time.equals("19.00")) {
+			isHighlight = Boolean.TRUE;
+			hasLongTitleClass = null;
+		}		
+		
+		String dataContent = getDataContent( meeting );
 		
 		
 		StringBuilder builder = new StringBuilder();
 		
-		builder.append("<div class='col-sm-4 meeting__holder'>");
+		if( isHighlight ) { 
+			builder.append("<div class='col-sm-8 meeting__holder'>");
+		} else {
+			builder.append("<div class='col-sm-4 meeting__holder'>");
+		}
 		builder.append("<a href='#modal_no_img' class='meetings__item' data-toggle='modal'");
 		builder.append(" data-heading='" + title + "'");
 		builder.append(" data-content='" + dataContent + "'>");
 		builder.append("<div class='meeting__item__footer'>");
-		builder.append("<h3 class='meetings__item__title'>" + title + "</h3>");
+		if(hasLongTitleClass != null) {
+			builder.append("<h3 class='meetings__item__title " + hasLongTitleClass + "'>" + title + "</h3>");
+		} else {
+			builder.append("<h3 class='meetings__item__title'>" + title + "</h3>");
+		}
 		builder.append("<div class='meetings__item__speakers'>" + speaker + "</div>");
 		builder.append("<div class='meetings__item__time'>" + meeting.getDay() + " " + meeting.getTime() + "</div>");
 		builder.append("<div class='meetings__item__theme'>" + themes + "</div>");
@@ -62,6 +96,9 @@ public class HtmlBuilder {
 				builder.append("<div class=\"meetings__modal__item__time\">" + m.getDay() + " " + m.getTime() + "</div>");
 				builder.append("</div>");
 			}			
+		} else if(meeting.getDescription() != null) {
+			String description = sanitiseString( meeting.getDescription() );
+			builder.append("<br/>" + description + "<br/>");
 		}
 
 		builder.append("</div>");
