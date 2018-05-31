@@ -46,11 +46,11 @@ public class HtmlBuilder {
 		
 		List<Theme> themes = meeting.getThemes();
 		
-		if(themes.isEmpty()) {
-			builder.append("<div class=\"row\">");
-		}
-		
-		for(Theme theme : meeting.getThemes()) {
+		builder.append("<div>");
+		builder.append("<div class=\"meetings__modal__item__time\">" + meeting.getDay() + " " + meeting.getTime() + "</div>");
+
+		if(!themes.isEmpty()) {
+			Theme theme = meeting.getThemes().get( 0 );
 			builder.append("<br/>This meeting is part of the Marxism Festival 2018 theme <strong>" + theme.getShortDescription() + "</strong>");
 			builder.append("<br/><br/>" + theme.getLongDescription());
 			builder.append("<br/><br/>Please see below all meetings at the conference with this theme :<br/><br/>");
@@ -61,12 +61,10 @@ public class HtmlBuilder {
 				builder.append("<div class=\"meetings__modal__item__title\">" + title + "</div>");
 				builder.append("<div class=\"meetings__modal__item__time\">" + m.getDay() + " " + m.getTime() + "</div>");
 				builder.append("</div>");
-			}
+			}			
 		}
-		
-		if(themes.isEmpty()) {
-			builder.append("</div>");
-		}
+
+		builder.append("</div>");
 		
 		return builder.toString();
 	}

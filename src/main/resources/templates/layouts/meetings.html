@@ -88,16 +88,24 @@ li.pipe-to-left:before {
 		</div>
 		
 		<div class="row">
-			<ul id="meetings__day__list">
-				<li><a id="THURSDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('THURSDAY', '12.45')">Thursday</a></li>
-				<li class="pipe-to-left"><a id="FRIDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('FRIDAY', '10.00')"> Friday</a></li>
-				<li class="pipe-to-left"><a id="SATURDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('SATURDAY', '10.00')"> Saturday</a></li>
-				<li class="pipe-to-left"><a id="SUNDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('SUNDAY', '10.00')"> Sunday</a></li>
-			</ul>
-			
-			<ul id="meetings__time__list">
+			<div class="col-sm-8">
+				<ul id="meetings__day__list">
+					<li><a id="THURSDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('THURSDAY', '12.45')">Thursday</a></li>
+					<li class="pipe-to-left"><a id="FRIDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('FRIDAY', '10.00')">&nbsp;Friday</a></li>
+					<li class="pipe-to-left"><a id="SATURDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('SATURDAY', '10.00')">&nbsp;Saturday</a></li>
+					<li class="pipe-to-left"><a id="SUNDAY" class="meeting__time__anchor" onclick="javascript:writeMeetings('SUNDAY', '10.00')">&nbsp;Sunday</a></li>
+				</ul>
 				
-			</ul>			
+				<ul id="meetings__time__list">
+					
+				</ul>
+			</div>
+			<div class="col-sm-4">
+				<a href="/timetable">
+					<i class="ion-ios-cloud-download" style="font-size : 4rem; margin-top : 40px;"></i>
+					<span>Download Timetable as PDF</span>
+				</a>
+			</div>			
 		</div>
 		
 		<div class="row" id="meetings__holder">
