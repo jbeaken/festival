@@ -24,6 +24,7 @@ new File("/home/git/marxism/src/main/etc/timetable2.csv").splitEachLine(",") {fi
   def theme1 = fields[4]
   def theme2 = fields[5]
   def theme3 = fields[6]
+  def description = fields[7]
   
   if(speakers) speakers = speakers.replace('--', ',')
   
@@ -42,10 +43,9 @@ new File("/home/git/marxism/src/main/etc/timetable2.csv").splitEachLine(",") {fi
   //println fields
   println "title : " + title
   println "speakers : " + speakers
-
+  println "description : " + description
 
   count++
-
 }
 
 def addTheme( theme, meetingId ) {

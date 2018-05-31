@@ -452,34 +452,49 @@ function showMoreSpeakers() {
 	$('a#showMoreSpeakersAnchor').hide();
 }
 
-function writeTimes( day ) {
+function writeTimes( day, time ) {
 	
 	var text = ""
+
+	console.log(day)
+	console.log(time)
 	
-	if(day == null) return ""
+	$('ul#meetings__day__list > li > a').removeClass('selected')
+
+	$('ul#meetings__day__list > li > a#' + day).addClass('selected');
+
+	$('ul#meetings__time__list > li > a').removeClass('selected')
 	
 	if(day == 'THURSDAY') {
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '12.45')\">12.45</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '14.30')\">14.30</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '16.15')\">16.15</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '19.00')\">19.00</a></li>"
+		text += getTimeText( day, '12.45', time)
+		text += getTimeText( day, '14.30', time)
+		text += getTimeText( day, '16.15', time)
+		text += getTimeText( day, '19.00', time)
 	} else if(day == 'SUNDAY') {
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '10.00')\">10.00</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '11.45')\">11.45</a></li>"		
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '14.00')\">14.00</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '15.45')\">15.45</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '17.30')\">17.30</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '18.30')\">18.30</a></li>"
+		text += getTimeText( day, '10.00', time)
+		text += getTimeText( day, '11.45', time)
+		text += getTimeText( day, '14.00', time)
+		text += getTimeText( day, '15.45', time)		
+		text += getTimeText( day, '17.30', time)		
+		text += getTimeText( day, '18.30', time)		
 	} else {
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '10.00')\">10.00</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '11.45')\">11.45</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '14.30')\">14.30</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '16.15')\">16.15</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '19.00')\">19.00</a></li>"
-		text += "<li><a onclick=\"javascript:writeMeetings('" + day + "', '20.30')\">20.30</a></li>"					
+		text += getTimeText( day, '10.00', time)
+		text += getTimeText( day, '11.45', time)
+		text += getTimeText( day, '14.30', time)
+		text += getTimeText( day, '16.15', time)		
+		text += getTimeText( day, '19.00', time)		
+		text += getTimeText( day, '20.30', time)			
 	}
 	
 	return text
+}
+
+function getTimeText( day, time, originalTime ) {
+	var clazz = 'meeting__time__anchor'
+	if(time === originalTime) {
+		clazz = "selected"
+	}
+	return "<li><a id=\"" + time + "\" class=\"" + clazz + "\" onclick=\"javascript:writeMeetings('" + day + "', '" + time + "')\">" + time + "</a></li>"
 }
 
 function writeMeetings( day, time) {
@@ -496,12 +511,9 @@ function writeMeetings( day, time) {
 	
 	$('div#meetings__holder').html( html )
 	
-	var timesHtml = writeTimes( day )
-	
-	console.log("times : " + timesHtml)
+	var timesHtml = writeTimes( day, time )
 	
 	$('ul#meetings__time__list').html( timesHtml )
-	
 }
 
 function getMeetingsByDayAndTime( day, time ) {
