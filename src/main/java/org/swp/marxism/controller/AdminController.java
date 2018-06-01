@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
+import org.swp.marxism.util.HtmlBuilder;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RequestMapping("/admin")
 @RestController
@@ -22,10 +26,7 @@ public class AdminController {
 	private MarxismWebsiteRepository marxismWebsiteRepository;
 
 	@Autowired
-	private JavaMailSender mailSender;
-
-	@Autowired
-	private Environment environment;
+	private HtmlBuilder htmlBuilder;
 
 	@Autowired
 	private ServletContext context;
@@ -33,7 +34,7 @@ public class AdminController {
 	protected static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
 	@RequestMapping(value = "/refresh", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model) throws JsonProcessingException {
 
 		logger.info("Received request for refresh");
 
@@ -44,7 +45,21 @@ public class AdminController {
 		logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
 		logger.info("Contains {} themes", marxismWebsite.getThemes().size());
 		logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
+		logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
 
+		logger.info("Building meetings json from ");
+		htmlBuilder.buildMeetings( marxismWebsite.getMeetings() );
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
+		
+		logger.debug("Meetings json : {}", meetingsJson);
+		
+		marxismWebsite.setMeetingsJson(meetingsJson);
+		marxismWebsite.setMeetings(null);
+		
+		logger.info("Marxism website content placed into context");
 		context.setAttribute("marxismWebsite", marxismWebsite);
 
 		logger.info("Refreshed MarxismWebsite placed into context");
