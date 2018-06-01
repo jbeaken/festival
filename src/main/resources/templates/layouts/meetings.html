@@ -101,7 +101,7 @@ li.pipe-to-left:before {
 }
 
 </style>
-<section class="section_themes section_alt" id="section_meetings"	th:if="${content.showSpeakers == true}">
+<section class="section_themes section_alt" id="section_meetings" th:if="${content.showSpeakers == true}">
 
 	<div class="container">
 
@@ -127,7 +127,7 @@ li.pipe-to-left:before {
 				</ul>
 			</div>
 			<div class="col-sm-4">
-				<a href="/timetable">
+				<a href="javascript:downloadTimetableNoPrompt()">
 					<i class="ion-ios-cloud-download" style="font-size : 4rem; margin-top : 40px;"></i>
 					<span>Download Timetable as PDF</span>
 				</a>

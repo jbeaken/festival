@@ -97,6 +97,11 @@ function downloadTimetable() {
 	} 	
 }
 
+function downloadTimetableNoPrompt() {
+	sendGA( "/timetable/pdf" )
+	window.location.href = '/timetable';
+}
+
 function fillConfirmation() {
 	var booking = getBooking();
 
