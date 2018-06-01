@@ -19,7 +19,7 @@ sql.executeUpdate("delete from meeting")
 new File("/home/git/marxism/src/main/etc/timetable2.csv").splitEachLine(",") {fields ->
   def day = fields[0].trim().toUpperCase()
   def time = fields[1].trim()
-  def title = fields[2].trim().replace('--', ',')
+  def title = fields[2].trim().replace('--', ',').replace('""', '%%').replace('"', ""). replace('%%', '"')
   def speakers = fields[3]
   def theme1 = fields[4]
   def theme2 = fields[5]
