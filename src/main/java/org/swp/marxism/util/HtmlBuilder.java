@@ -29,10 +29,10 @@ public class HtmlBuilder {
 		String time = meeting.getTime();
 		
 		for(Theme theme : meeting.getThemes()) {
-			themes += "<span class='label label-warning'>" + theme.getName() + "</span>&nbsp;";
+			themes += "<span class='label label-warning meeting-theme-label'>" + theme.getName() + "</span>&nbsp;";
 		}
 		
-		themes += "<span class='read-more meeting-read-more'>Read More</span>";
+		
 		
 		//Add class to title which media queries will style, using font-size : 1.0rem for example
 		if(title.length() > 65) {
@@ -51,7 +51,10 @@ public class HtmlBuilder {
 		
 		if( meeting.getThemes().isEmpty() && meeting.getDescription() == null ) {
 			hasNoThemeOrDescription = Boolean.TRUE;
-			
+		}
+		
+		if(!hasNoThemeOrDescription) {
+			themes += "<span class='read-more meeting-read-more'>Read More</span>";
 		}
 		
 		String dataContent = getDataContent( meeting );

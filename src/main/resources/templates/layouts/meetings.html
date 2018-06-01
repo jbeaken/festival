@@ -1,19 +1,19 @@
 <!-- MEETINGS  ================================================== -->
 <style>
-.meetings__item__title, .meetings__item__speakers, .meetings__item__time, .meetings__item__day, .meetings__modal__item__title {
+.meetings__item__title, .meetings__item__speakers, .meetings__item__time, .meetings__item__day, .meetings__modal__item__title, .meetings__modal__item__time {
 	font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
 	text-transform: none;
 }
 
-.meetings__item__time, .meetings__item__day , .meetings__modal__item__time{
-	color: #FFAB00;
+.meetings__item__time, .meetings__item__day{
+	color: black;
 }
 .meetings__item__time, .meetings__item__day, .meetings__modal__item__time {
 	font-size : 2rem;
 }
 
-.meetings__item__speakers {
-	color : black;
+.meetings__item__speakers, .meetings__modal__item__time {
+	color : #FFAB00;
 }
 
 .meetings__item__theme {
@@ -24,11 +24,20 @@
     color: #777;
     transition: all .25s;
 }
+span.meeting-theme-label {
+	font-size : 1.5rem;
+}
+span.meeting-read-more {
+	margin-left: 10px;
+}
 
 .meetings__modal__holder {
     margin-bottom: 15px;
-    height : 100px;
 }
+.meetings__modal__item__title {
+	height : 80px;
+}
+
 .section_themes .meetings__item:hover, .section_themes .meetings__item:active, .section_themes .meetings__item:focus {
     text-decoration: none;
     box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
