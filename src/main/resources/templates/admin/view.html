@@ -33,7 +33,7 @@
     <div class="container-fluid">
 
       <div class="card mb-3">
-        <div class="card-header"><i class="fa fa-table"></i> Marxism 2018 Booking - <span th:text="${booking.status}">status</span></div>
+        <div class="card-header"><ion-icon name="fa fa-table"></ion-icon> Marxism 2018 Booking - <span th:text="${booking.status}">status</span></div>
         <div class="card-body">
 
           <h3>Booking Reference : <span th:text="${'MRX' + booking.id}">Id</span></h3>
@@ -61,7 +61,7 @@
       </div><!-- /.card -->
 
       <div class="card mb-3">
-        <div class="card-header"><i class="fa fa-ticket"></i> Ticket Details</div>
+        <div class="card-header"><ion-icon name="fa fa-ticket"></ion-icon> Ticket Details</div>
         <div class="card-body">
 
           <div class="row">
@@ -71,7 +71,7 @@
             </div>
             <div class="col-sm-6">
               <div>Price : <span th:text="${new java.text.DecimalFormat('£#,##0.00;£-#,##0.00').format(booking.price)}">price</span></div>
-              <div th:if="${booking.ticket.afterParty == true}">After Party : <i class="fa fa-check fa-lg" aria-hidden="true"></i></div>
+              <div th:if="${booking.ticket.afterParty == true}">After Party : <ion-icon name="fa fa-check fa-lg" aria-hidden="true"></ion-icon></div>
               <div th:if="${booking.ticket.thursday != null}">Thursday : <span th:text="${booking.ticket.thursday}"></span> ticket(s) </div>
               <div th:if="${booking.ticket.friday != null}">Friday : <span th:text="${booking.ticket.friday}"></span> ticket(s) </div>
               <div th:if="${booking.ticket.saturday != null}">Saturday : <span th:text="${booking.ticket.saturday}"></span> ticket(s) </div>
@@ -83,7 +83,7 @@
       </div><!-- /.card -->
 
       <div class="card mb-3" th:if="${booking.accommodationNeeds != null or booking.accommodationContact != null}">
-        <div class="card-header"><i class="fa fa-home" aria-hidden="true"></i> Accommodation</div>
+        <div class="card-header"><ion-icon name="fa fa-home" aria-hidden="true"></ion-icon> Accommodation</div>
         <div class="card-body">
 
           <h3>Accommodation Needs : <span th:text="${booking.accommodationNeeds}">needs</span></h3>
@@ -94,7 +94,7 @@
       </div><!-- /.card -->
 
       <div class="card mb-3" th:if="${booking.requiresCreche == true}">
-        <div class="card-header"><i class="fa fa-child"></i> Creche</div>
+        <div class="card-header"><ion-icon name="fa fa-child"></ion-icon> Creche</div>
         <div class="card-body">
 
           <h3 th:if="${booking.childrenUnder18Months != null}">Children under 18 months: <span th:text="${booking.childrenUnder18Months}"></span></h3>
