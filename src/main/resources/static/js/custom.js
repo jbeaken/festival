@@ -197,7 +197,8 @@ function validate( screen ) {
 
 	// reset
 	$(".form-control").removeClass('field-error')
-	$("i.warning_icon").hide()
+	$("ion-icon.warning_icon").hide()
+	
 	var errors = []
 
 	if (screen == 'contact') {

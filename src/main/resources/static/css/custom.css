@@ -197,7 +197,7 @@ div.gallery-icon {
 
 /* Error */
 
-i.warning_icon {
+ion-icon.warning_icon {
   display : none;
   color: red;
   font-size: 15px;
