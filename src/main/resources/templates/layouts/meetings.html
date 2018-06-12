@@ -98,6 +98,9 @@ li.pipe-to-left:before {
   .meeting__item__footer {
   	height: auto;
   }
+  section#section_meetings {
+  	padding-top: 20px;
+  }
 }
 
 </style>
@@ -129,6 +132,7 @@ li.pipe-to-left:before {
 			<div class="col-sm-4">
 				<a href="javascript:downloadTimetableNoPrompt()">
 					<ion-icon name="cloud-download" style="font-size : 4rem; margin-top : 40px;"></ion-icon>
+					<i class="ion-ios-cloud-download hidden-xs" style="font-size : 4rem; margin-top : 40px;"></i>
 					<span>Download Timetable as PDF</span>
 				</a>
 			</div>			
@@ -137,6 +141,8 @@ li.pipe-to-left:before {
 		<div class="row" id="meetings__holder">
 			
 		</div>
+		
+		<a href="#section_meetings">Back To Meetings</a>
 
 	</div>
 	<!-- / .container -->
