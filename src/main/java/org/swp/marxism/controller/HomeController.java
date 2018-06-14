@@ -199,11 +199,16 @@ public class HomeController {
 	}		
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
-	public String book(Model model) {
+	public String book(Model model) throws JsonProcessingException {
 
-		logger.info("Received get request for book");
+	  logger.info("Received get request for book");
 
-		return "redirect:/";
+	  MarxismWebsite marxismWebsite = getMarxismWebsite();
+
+	  model.addAttribute("content", marxismWebsite);
+	  model.addAttribute("showBookingForm", Boolean.TRUE);
+
+	  return "home.html";
 	}
 
 	@RequestMapping(value = "/modal/{content}", method = RequestMethod.GET)
@@ -365,5 +370,41 @@ public class HomeController {
 
 		logger.info("Mail successfuly sent!");
 	}
+	
+	private MarxismWebsite getMarxismWebsite() throws JsonProcessingException {
+
+		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
+
+		if(marxismWebsite == null) {
+
+			marxismWebsite = marxismWebsiteRepository.findByIsLive( true );
+
+			logger.info("Have loaded marxism website content {}", marxismWebsite);
+
+			logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
+			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
+			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
+			logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
+
+			logger.info("Marxism website content placed into context");
+			
+			logger.info("Building meetings json from ");
+			for(Meeting m : marxismWebsite.getMeetings()) {
+				htmlBuilder.buildMeeting( m );
+			}
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			String meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
+			
+			logger.debug("Meetings json : {}", meetingsJson);
+			
+			marxismWebsite.setMeetingsJson(meetingsJson);
+			
+			context.setAttribute("marxismWebsite", marxismWebsite);
+		}
+
+		return marxismWebsite;
+	}	
 
 }

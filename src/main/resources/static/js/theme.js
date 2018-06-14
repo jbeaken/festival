@@ -6,8 +6,12 @@ var $window = $(window);
 
 $window.load(function() {
 	
-	console.log("Window loade. In preloader")
+	console.log("Window load. In preloader")
 
+	if(showBookingForm === 'true') {
+        $('a#anchor_section_booking').click()
+    }
+	
     // Theme: Preloader
     var preloader = $('.preloader');
 
