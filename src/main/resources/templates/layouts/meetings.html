@@ -5,10 +5,10 @@
 	text-transform: none;
 }
 
-.meetings__item__time, .meetings__item__day{
+.meetings__item__time, .meetings__item__day {
 	color: black;
 }
-.meetings__item__time, .meetings__item__day{
+.meetings__item__time, .meetings__item__day {
 	font-size : 2rem;
 }
 .meetings__modal__item__time {
@@ -92,6 +92,33 @@ li.pipe-to-left:before {
     content: "|";
     color : black;
 }
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+	.meetings__item__time, .meetings__item__day {
+		font-size : 1.5rem;
+	}
+	.meetings__item__title {
+		height : 130px;
+	}
+	.meeting__item__footer {
+	    height: 300px;    
+	}
+	span.meeting-read-more {
+	}
+	ul#meetings__day__list, ul#meetings__time__list {
+	    font-size: 2rem;
+	}
+	  	h3.meeting_item_long_title {
+		font-size: 1.0em;
+	} 
+	  	h3.meeting_item_medium_title {
+		font-size: 1.0em;
+	}  	
+	h3.meeting_item_small_title {
+		font-size: 1.1em;
+	}  
+}
+
 @media (min-width: 481px) and (max-width: 767px) {
   ul#meetings__day__list, ul#meetings__time__list {
   	font-size: 1.6rem;
