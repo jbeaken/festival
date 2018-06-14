@@ -106,6 +106,7 @@ values (14, 'Jonathan Rosenhead', 'Jonathan is a member of Jewish Voice for Labo
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 values (12, 'Eulália Reguant', 'Eulália is a MP in Barcelona for the CUP, the anti-capitalist wing of the Catalan Independence movement. She will be discussing <b>Where next for Catalonia?</b>', null, 
 'christine-buchholz.jpg', 'admin', now());
 =======
@@ -114,6 +115,9 @@ values (12, 'Eulália Reguant', 'Eulália is a former MP in Barcelona for the CU
 >>>>>>> 9065167... Adding three replacement images for brid, richard and sally
 =======
 values (15, 'Ronnie Kasrils', 'Ronnie Kasrils served in the South African liberation movement all his adult life, was chief of intelligence in the ANCs military wing, organised operations from exile including that of the London Recruits, served in Mandela&quot;s government as deputy minister of Defence, followed by other portfolios to 2008 when he resigned and became active as a critic of the ANC. Internationally active with Palestine Solidarity and author of several books. Regards socialism as the only way to preserve humanity and the planet. He will speak on South Africa after Zuma', null, 
+=======
+values (15, 'Ronnie Kasrils', 'Ronnie Kasrils served in the South African liberation movement all his adult life. He will speak on <b>South Africa after Zuma</b>', 'Ronnie Kasrils served in the South African liberation movement all his adult life, was chief of intelligence in the ANCs military wing, organised operations from exile including that of the London Recruits, served in Mandela&quot;s government as deputy minister of Defence, followed by other portfolios to 2008 when he resigned and became active as a critic of the ANC.<br/><br/>Internationally active with Palestine Solidarity and author of several books. Regards socialism as the only way to preserve humanity and the planet. He will speak on South Africa after Zuma', 
+>>>>>>> d9a4772... Themes now ready to show meetings, speakers.sql added
 'ronnie.jpg', 'admin', now());
 >>>>>>> 223d844... Added new speakers
 

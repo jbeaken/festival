@@ -8,8 +8,11 @@
 .meetings__item__time, .meetings__item__day{
 	color: black;
 }
-.meetings__item__time, .meetings__item__day, .meetings__modal__item__time {
+.meetings__item__time, .meetings__item__day{
 	font-size : 2rem;
+}
+.meetings__modal__item__time {
+	font-size : 1.5rem;
 }
 
 .meetings__item__speakers, .meetings__modal__item__time {
@@ -33,12 +36,18 @@ span.meeting-read-more {
 
 .meetings__modal__holder {
     margin-bottom: 15px;
+    background-color: white;
+    border: 1px solid #eee;
 }
 .meetings__modal__item__title {
 	height : 80px;
 }
 
 .section_themes .meetings__item:hover, .section_themes .meetings__item:active, .section_themes .meetings__item:focus {
+    text-decoration: none;
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
+}
+.meetings__modal__holder:hover {
     text-decoration: none;
     box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
 }
@@ -142,7 +151,7 @@ li.pipe-to-left:before {
 			
 		</div>
 		
-		<a href="#section_meetings" class="hidden-sm">Back To Meetings</a>
+		<a href="#section_meetings" class="visible-xs">Back To Meetings</a>
 
 	</div>
 	<!-- / .container -->

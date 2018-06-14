@@ -46,7 +46,11 @@
 
 <div th:fragment="theme( theme )" class="col-sm-4 theme-holder">
 
-	<a class="themes__item animate-sm-step-0" data-animate="animate-up" data-toggle="modal" data-heading="Lorem ipsum dolor site amet" data-img="/img/themes/corbyn.jpg" data-content="to do">
+	<a class="themes__item animate-sm-step-0" 
+		data-animate="animate-up" 
+		data-toggle="modal" 
+		data-ga="themeReadMore"
+		th:attr="data-content=${theme.readMore},data-heading=${theme.name}">
 		
 		<div class="themes__item__img">
 		  <img th:attr="src=@{/img/themes/{imageUrl}(imageUrl=${theme.imageUrl})},alt=${theme.name}" class="img-responsive" />

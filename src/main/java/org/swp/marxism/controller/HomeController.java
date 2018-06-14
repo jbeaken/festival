@@ -91,6 +91,7 @@ public class HomeController {
 
 		logger.info("Received request for home");
 
+<<<<<<< HEAD
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
 		if(marxismWebsite == null) {
@@ -121,6 +122,9 @@ public class HomeController {
 			
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
+=======
+		MarxismWebsite marxismWebsite = getMarxismWebsite();
+>>>>>>> d9a4772... Themes now ready to show meetings, speakers.sql added
 
 		model.addAttribute("content", marxismWebsite);
 
@@ -384,14 +388,14 @@ public class HomeController {
 			logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
 			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
 			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
-			logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
+			logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
+			logger.info("Contains {} meetings", marxismWebsite.getMeetings().size());
 
 			logger.info("Marxism website content placed into context");
 			
-			logger.info("Building meetings json from ");
-			for(Meeting m : marxismWebsite.getMeetings()) {
-				htmlBuilder.buildMeeting( m );
-			}
+			logger.info("Building meetings json");
+			htmlBuilder.buildMeetings( marxismWebsite.getMeetings() );
+			
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -400,6 +404,12 @@ public class HomeController {
 			logger.debug("Meetings json : {}", meetingsJson);
 			
 			marxismWebsite.setMeetingsJson(meetingsJson);
+			
+			logger.info("Building readmore for themes");
+			htmlBuilder.buildThemes( marxismWebsite.getThemes() );
+			
+			//Get rid of unused objects
+			marxismWebsite.setMeetings(null);
 			
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
