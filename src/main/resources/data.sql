@@ -72,7 +72,7 @@ values (6, 'Christine Buchholz', 'Christine Buchholz, an MP for Die Linke in Ger
 
 -- More speakers
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (7, 'Sheila Coleman', 'Sheila is part of the Hillsborough Justice Campaign and will speak as part of a panel on Injustice and the British state', null, 
+values (7, 'Sheila Coleman', 'Sheila is part of the Hillsborough Justice Campaign and will speak as part of a panel on <b>Injustice and the British state</b>', null, 
 'sheila-coleman.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
@@ -80,7 +80,7 @@ values (8, 'Gareth Peirce', 'Gareth is a human rights lawyer who has working on 
 'gareth-peirce.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (9, 'Dave Ward', 'Dave is General Secretary of the post workers union CWU. He will join Ian Hodson from BFAWU and others to discuss Labour and fight against austerity', null, 
+values (9, 'Dave Ward', 'Dave is General Secretary of the post workers union CWU. He will join Ian Hodson from BFAWU and others to discuss <b>Labour and fight against austerity</b>', null, 
 'dave-ward.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
