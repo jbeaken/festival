@@ -9,6 +9,7 @@ $window.load(function() {
 	console.log("Window load. In preloader")
 
 	if(showBookingForm === 'true') {
+		$('section.section_booking').removeClass('hidden');
         $('a#anchor_section_booking').click()
     }
 	
