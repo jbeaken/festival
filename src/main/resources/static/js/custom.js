@@ -530,21 +530,19 @@ function getMeetingsByDayAndTime( day, time ) {
 		var meeting = meetings[i]
 		
 		if(day != null) {
-			console.log("checking " + day)
 			if(meeting.day != day) continue
 		}
 		
 		if(time != null) {
-			console.log("checking " + time)
 			if(meeting.time != time) continue
 		}	
 		
-		console.log("Adding " + meeting.title)
+		//console.log("Adding " + meeting.title)
 		
 		result.push( meeting )
 	}
 	
-	console.log( result )
+	//console.log( result )
 	
 	return result
 }

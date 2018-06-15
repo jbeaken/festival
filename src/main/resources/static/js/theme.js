@@ -8,11 +8,6 @@ $window.load(function() {
 	
 	console.log("Window load. In preloader")
 
-	if(showBookingForm === 'true') {
-		$('section.section_booking').removeClass('hidden');
-        $('a#anchor_section_booking').click()
-    }
-	
     // Theme: Preloader
     var preloader = $('.preloader');
 
@@ -37,12 +32,13 @@ $window.load(function() {
         console.log("preloader.hide()")
     }, 2500);
     
-    console.log("End window.load")
-    
-    console.log("Staring loading meetings")
-    var start = new Date();
-    
+    console.log("End window.load. Staring loading meetings")
     writeMeetings( 'THURSDAY', '12.30');
+    
+    //Must be after writeMeetings or scrollTop is incorrect
+	if(showBookingForm === 'true') {
+		$('a#anchor_section_booking').click()
+    }
 
 });
 
@@ -103,6 +99,9 @@ $(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
             if (target.length) {
+            	var num = target.offset().top - 80
+            	console.log(target)
+            	console.log("target.offset().top " + num)
 
             	$('html, body').animate({
                     scrollTop: target.offset().top - 80
