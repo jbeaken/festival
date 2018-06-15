@@ -128,7 +128,7 @@ public class HtmlBuilder {
 	private String getReadMore(Theme theme) {
 		StringBuilder builder = new StringBuilder();
 		
-		builder.append("<div>");
+		builder.append("<div id=\"theme-meeting-holder\">");
 		builder.append(theme.getLongDescription() + "<br/><br/>");
 		builder.append("Please see below all meetings at the conference with this theme :<br/><br/>");
 
