@@ -188,10 +188,14 @@ div.gallery-icon {
 .ticket-help, .ticket-help:focus, .ticket-help:active, .ticket-help:hover  {
 	border : none;
 }
-#ticket-price {
+div#ticket-price, div#confirmation_discount_code, div#confirmation_web_price, span#discount_applied_text {
 	padding-top: 5px;
 	font-size: 2em;
 	color : #FFAB00;
+	font-family: 'PiSLIETZLindham', 'Arial', 'sans-serif';
+}
+div#confirmation_discount_code, span#discount_applied_text {
+	font-size : 1.5rem;
 }
 
 
@@ -210,11 +214,7 @@ ion-icon.warning_icon {
 .error-block {
   color: red;
 }
-div#confirmation_discount_code {
-	color : red;
-	font-size: 2rem;
-}
-
+ 
 /****************
 /** MEDIA QUERIES
 /****************

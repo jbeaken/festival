@@ -148,8 +148,10 @@ function fillConfirmation() {
 	var price = calculatePrice()
 
 	var intPrice = Math.round ( price * 100 )
-
+	console.log(price)
+	console.log(intPrice)
 	$('input#ticketWebPrice').val( intPrice )
+	$('div#confirmation_web_price').html('&pound;' + price.toFixed(2));
 }
 
 function showPrevious() {
