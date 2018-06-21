@@ -331,6 +331,7 @@ function getBooking() {
 	booking.town = $('input#booking_town').val()
 	booking.country = $('input#booking_country').val()
 	booking.postcode = $('input#booking_postcode').val()
+	booking.discountcode = $('input#booking_discount').val()
 
 	if ($('input#crecheRequiredRadioYes').is(":checked") == true) {
 		console.log("buidling crech")
@@ -607,12 +608,42 @@ function toggleTickets() {
 	$('div#ticketPriceContainer').show()
 }
 
+function getDiscount() {
+	console.log("getDiscount : checking discount " + discount)
+	var discount = $('input#booking_discount').val().trim()
+	
+	if(discount.length != 10) return
+	
+	discount = discount.toLowerCase();
+	
+	console.log("getDiscount : checking discount " + discount)
+	
+	if(discount === 'windrush18') return 5;
+	
+	return null;
+	
+}
 
+function changeDiscount() {
+	
+	var discount = getDiscount()
+	
+	console.log(discount)
+	
+	if(discount != null) {
+		$('span#discount_applied_text').show()
+	} else {
+		$('span#discount_applied_text').hide()
+	}
+	
+	toggleTickets()	
+}
 
 function calculatePrice() {
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
 	var ticketType = $('select#booking_ticketType').val()
 	var afterParty = $('input#afterPartyCheckbox:checked').val()
+	var discount = getDiscount();
 
 	var price;
 
@@ -643,8 +674,13 @@ function calculatePrice() {
 	}
 
 	if(afterParty == 'on') price = price + 5;
+	
+	if(discount != null) {
+		console.log("2applying discount  : " + discount)
+		price = price * 0.9
+	}
 
-//	console.log("price : " + price)
+	console.log("price : " + price)
 
 	//Apply discount till March 28
 	if( applyTicketDiscount == true) price = price - 5

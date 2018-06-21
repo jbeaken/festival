@@ -253,9 +253,13 @@ public class HomeController {
 		//Sanity check
 		String backendPrice = (price * 100) + "";
 		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice, booking.getTicket().getWebPrice());
+//		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
+//			throw new MarxismException("Web and backend prices do not match");
+//		}
+		
 		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
-			throw new MarxismException("Web and backend prices do not match");
-		}
+			logger.error("Web and backend prices do not match");
+		}		
 
 		logger.info("Passed validation, persisting");
 
