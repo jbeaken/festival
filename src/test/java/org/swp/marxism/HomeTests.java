@@ -59,6 +59,74 @@ public class HomeTests {
 	}
 	
 	@Test
+	public void testBookWithValidDiscountCode() throws Exception {
+		//Load MarxismContent into ServletContext
+		this.mvc.perform(get("/").accept(MediaType.TEXT_HTML));
+		
+		this.mvc.perform(post("/book").accept(MediaType.TEXT_HTML)
+		.param("firstname","firstname")
+		.param("lastname","lastname")
+		.param("email","email@gmail.com")
+		.param("telephone","telephone")
+		.param("hearAbout","SocialNetwork")
+		.param("accommodationNeeds","accommodationNeeds")
+		.param("accommodationContact","accommodationContact")
+		.param("childrenUnder18Months","2")
+		.param("children5YearsTo11years","")
+		.param("children18MonthsTo5Years","1")
+		.param("address.address1","")
+		.param("address.address2","")
+		.param("address.town","")
+		.param("address.postcode","")
+		.param("address.country","")
+		.param("discountCode","WINDRUSH18")
+		.param("ticket.type","FULL")
+		.param("ticket.pricing","UNWAGED")
+		.param("ticket.webPrice","3150")
+		.param("ticket.afterParty","true"))
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("booking", "amount", "orderId"))
+		.andExpect(model().attribute("orderId", "DEV10"))
+		.andExpect(model().attribute("amount", "3150"))
+		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
+		.andExpect(view().name("barclays.html"));     
+	}
+	
+	@Test
+	public void testBookWithInvalidDiscountCode() throws Exception {
+		//Load MarxismContent into ServletContext
+		this.mvc.perform(get("/").accept(MediaType.TEXT_HTML));
+		
+		this.mvc.perform(post("/book").accept(MediaType.TEXT_HTML)
+		.param("firstname","firstname")
+		.param("lastname","lastname")
+		.param("email","email@gmail.com")
+		.param("telephone","telephone")
+		.param("hearAbout","SocialNetwork")
+		.param("accommodationNeeds","accommodationNeeds")
+		.param("accommodationContact","accommodationContact")
+		.param("childrenUnder18Months","2")
+		.param("children5YearsTo11years","")
+		.param("children18MonthsTo5Years","1")
+		.param("address.address1","")
+		.param("address.address2","")
+		.param("address.town","")
+		.param("address.postcode","")
+		.param("address.country","")
+		.param("discountCode","Blah")
+		.param("ticket.type","FULL")
+		.param("ticket.pricing","UNWAGED")
+		.param("ticket.webPrice","3500")
+		.param("ticket.afterParty","true"))
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("booking", "amount", "orderId"))
+		.andExpect(model().attribute("orderId", "DEV11"))
+		.andExpect(model().attribute("amount", "3500"))
+		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
+		.andExpect(view().name("barclays.html"));     
+	}		
+	
+	@Test
 	public void testBook() throws Exception {
 		//Load MarxismContent into ServletContext
 		this.mvc.perform(get("/").accept(MediaType.TEXT_HTML));

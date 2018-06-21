@@ -94,14 +94,15 @@ $(function() {
 
             if(target.selector == '#section_booking') {
             	$('section.section_booking').removeClass('hidden');
+            	if(isDev === true) populateBookingFormForDev()
             }
 
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
             if (target.length) {
             	var num = target.offset().top - 80
-            	console.log(target)
-            	console.log("target.offset().top " + num)
+//            	console.log(target)
+//            	console.log("target.offset().top " + num)
 
             	$('html, body').animate({
                     scrollTop: target.offset().top - 80

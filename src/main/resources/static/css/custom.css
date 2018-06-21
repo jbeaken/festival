@@ -210,6 +210,10 @@ ion-icon.warning_icon {
 .error-block {
   color: red;
 }
+div#confirmation_discount_code {
+	color : red;
+	font-size: 2rem;
+}
 
 /****************
 /** MEDIA QUERIES

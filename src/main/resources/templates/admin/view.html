@@ -66,11 +66,11 @@
 
           <div class="row">
             <div class="col-sm-6">
-              <div>Type : <span th:text="${booking.ticket.type}">name</span></div>
-              <div>Pricing : <span th:text="${booking.ticket.pricing}">name</span></div>
+              <div>Type : <span th:text="${booking.ticket.type}"></span></div>
+              <div>Pricing : <span th:text="${booking.ticket.pricing}"></span></div>
             </div>
             <div class="col-sm-6">
-              <div>Price : <span th:text="${new java.text.DecimalFormat('£#,##0.00;£-#,##0.00').format(booking.price)}">price</span></div>
+              <div>Price : <span th:text="${booking.ticket.webPrice}"></span></div>
               <div th:if="${booking.ticket.afterParty == true}">After Party : <ion-icon name="fa fa-check fa-lg" aria-hidden="true"></ion-icon></div>
               <div th:if="${booking.ticket.thursday != null}">Thursday : <span th:text="${booking.ticket.thursday}"></span> ticket(s) </div>
               <div th:if="${booking.ticket.friday != null}">Friday : <span th:text="${booking.ticket.friday}"></span> ticket(s) </div>

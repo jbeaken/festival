@@ -3,17 +3,16 @@
  */
 // Booking screen
 var currentScreen = "contact";
-var dev = false
 var gaAlreadySent = [];
 var bookingPassedValidation = false;
 
 function showNext() {
-	//console.log("Call to showNext currentScreen = " + currentScreen)
+	// console.log("Call to showNext currentScreen = " + currentScreen)
 
 	// Validate
 	var errors = validate( currentScreen )
 
-	//console.log(errors)
+	// console.log(errors)
 
 	if (errors.length > 0) {
 		var field = errors[0].field
@@ -77,7 +76,7 @@ function showNext() {
 
 	screen = "#" + screen + "_screen"
 
-	//console.log("Post process screen = " + screen)
+	// console.log("Post process screen = " + screen)
 	
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
@@ -108,8 +107,8 @@ function fillConfirmation() {
 	$('div#confirmation_fullname').text(booking.firstname + " " + booking.lastname)
 	$('div#confirmation_college').text(booking.college)
 	$('div#confirmation_tradeUnion').text(booking.tradeUnion)
-	$('div#confirmation_otherMembership').text(booking.otherMembership)
-	$('div#confirmation_hearAbout').text(booking.hearAbout)
+	$('div#confirmation_other_membership').text(booking.otherMembership)
+	$('div#confirmation_hear_about').text(booking.hearAbout)
 
 	$('div#confirmation_telephone').text(booking.telephone)
 	$('div#confirmation_email').text(booking.email)
@@ -136,6 +135,14 @@ function fillConfirmation() {
 		$('div#confirmation_accommodation').show()
 	} else {
 		$('div#confirmation_accommodation').hide()
+	}
+	
+	var discount = getDiscount();
+	if(discount != null) {
+		$('div#confirmation_discount_code').text("Your discount code " + booking.discountCode + " has been applied")
+		$('div#confirmation_discount_code').show()
+	} else {
+		$('div#confirmation_discount_code').hide()
 	}
 
 	var price = calculatePrice()
@@ -184,15 +191,34 @@ function showPrevious() {
 
 	screen = "#" + screen + "_screen"
 
-//	console.log("Post process screen = " + screen)
+// console.log("Post process screen = " + screen)
 	$('.booking_screen').hide();
 	$(screen).removeClass('hidden')
 	$(screen).show()
 }
 
-/****************/
-/** VALIDATION **/
-/****************/
+function populateBookingFormForDev() {
+	console.log("populateBookingFormForDev")
+	$('input#booking_firstname').val('john')
+	$('input#booking_lastname').val('harry')
+	$('input#booking_college').val('college')
+	$('input#booking_tradeUnion').val('trade union')
+	$('input#booking_otherMembership').val('other membership')
+	$('select#booking_hear_about').val('BeenBefore')
+
+	$('input#booking_telephone').val('telephone')
+	$('input#booking_email').val('email@email.com')
+
+	$('input#booking_address1').val('address1')
+	$('input#booking_address2').val('address2')
+	$('input#booking_town').val('town')
+	$('input#booking_country').val('country')
+	$('input#booking_postcode').val('postcode')
+}
+
+/** ************* */
+/** VALIDATION * */
+/** ************* */
 function validate( screen ) {
 
 	// reset
@@ -212,9 +238,9 @@ function validate( screen ) {
 		validateField( 'postcode', errors )
 		validateField( 'country', errors )
 	} else if (currentScreen == 'creche') {
-		//validateField( 'under18months', errors )
-		//validateField( 'upto5Years', errors )
-		//validateField( 'from5to11Years', errors )
+		// validateField( 'under18months', errors )
+		// validateField( 'upto5Years', errors )
+		// validateField( 'from5to11Years', errors )
 	} else if (currentScreen == 'accommodation') {
 		validateField( 'accommodation_needs', errors )
 	} else if (currentScreen == 'details') {
@@ -225,7 +251,7 @@ function validate( screen ) {
 		validateTicket(errors)
 	}
 
-	if(dev == true) return []; else return errors
+	return errors
 }
 
 function validateTicket(errors) {
@@ -244,7 +270,7 @@ function validateField( field, errors ) {
 
 	var value = $('#booking_' + field).val().trim()
 
-//	console.log(field + " : " + value)
+// console.log(field + " : " + value)
 
 	if (value == '') {
 		errors.push({
@@ -271,7 +297,7 @@ function validateNumber(field, errors) {
 
 	var value = $('#booking_' + field).val()
 
-//	console.log(field + " : " + value)
+// console.log(field + " : " + value)
 
 	if (value == '') {
 		errors.push({
@@ -291,7 +317,7 @@ function validateNumber(field, errors) {
 function validateSelect(field, errors) {
 	var value = $('#booking_' + field).val()
 
-//	console.log(field + " : " + value)
+// console.log(field + " : " + value)
 
 	if (value == '') {
 		errors.push({
@@ -301,9 +327,9 @@ function validateSelect(field, errors) {
 	}
 }
 
-/*************/
-/** BOOKING **/
-/*************/
+/** ********** */
+/** BOOKING * */
+/** ********** */
 
 function editBooking( screen ) {
 	currentScreen = screen
@@ -321,7 +347,7 @@ function getBooking() {
 	booking.college = $('input#booking_college').val()
 	booking.tradeUnion = $('input#booking_tradeUnion').val()
 	booking.otherMembership = $('input#booking_otherMembership').val()
-	booking.hearAbout = $('input#booking_hearAbout').val()
+	booking.hearAbout = $('select#booking_hear_about').val()
 
 	booking.telephone = $('input#booking_telephone').val()
 	booking.email = $('input#booking_email').val()
@@ -331,7 +357,7 @@ function getBooking() {
 	booking.town = $('input#booking_town').val()
 	booking.country = $('input#booking_country').val()
 	booking.postcode = $('input#booking_postcode').val()
-	booking.discountcode = $('input#booking_discount').val()
+	booking.discountCode = $('input#booking_discount').val()
 
 	if ($('input#crecheRequiredRadioYes').is(":checked") == true) {
 		console.log("buidling crech")
@@ -351,30 +377,31 @@ function getBooking() {
 
 	var ticket = {}
 	ticket.id = $('select#booking_ticket').val()
+	ticket.webPrice = $('input#ticketWebPrice').val()
 	booking.ticket = ticket
 
 	booking.id = $('input#booking_id').val()
 
-//	console.log("getBooking() : ")
-//	console.log(booking)
+// console.log("getBooking() : ")
+// console.log(booking)
 
 	return booking
 
 }
 
-/***************/
-/** SEND EMAIL**/
-/***************/
+/** ************ */
+/** SEND EMAIL* */
+/** ************ */
 
 function sendEmail() {
 
-//	console.log("sendEmail()")
+// console.log("sendEmail()")
 
 	var name = $('input#contactFormName').val().trim();
 	var message = $('textarea#contactFormMessage').val().trim();
 	var email = $('input#contactFormEmail').val().trim();
 
-	//Validation
+	// Validation
 	if(name === "") {
 		alert("Please enter a valid name")
 		return
@@ -403,7 +430,7 @@ function sendEmail() {
 
 	    if(data === 'success') {
 	    	alert("Your message was sent successfully. We will respond as quickly as possible")
-	    	//Reset
+	    	// Reset
 	    	$('input#contactFormName').val('')
 	    	$('textarea#contactFormMessage').val('')
 	    	$('input#contactFormEmail').val('')	    	
@@ -538,29 +565,29 @@ function getMeetingsByDayAndTime( day, time ) {
 			if(meeting.time != time) continue
 		}	
 		
-		//console.log("Adding " + meeting.title)
+		// console.log("Adding " + meeting.title)
 		
 		result.push( meeting )
 	}
 	
-	//console.log( result )
+	// console.log( result )
 	
 	return result
 }
 
 
-/**********************/
-/** TICKET SELECTION **/
-/**********************/
+/** ******************* */
+/** TICKET SELECTION * */
+/** ******************* */
 
 function toggleTickets() {
-//	console.log("toggleTickets()")
+// console.log("toggleTickets()")
 
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
 	var ticketType = $('select#booking_ticketType').val()
 
-//	console.log("selected ticketPricing : " + ticketPricing)
-//	console.log("selected ticketType : " + ticketType)
+// console.log("selected ticketPricing : " + ticketPricing)
+// console.log("selected ticketType : " + ticketType)
 
 	if(ticketType == '' || typeof ticketType == 'undefined') {
 		$('div#ticketDayContainer').hide();
@@ -676,13 +703,12 @@ function calculatePrice() {
 	if(afterParty == 'on') price = price + 5;
 	
 	if(discount != null) {
-		console.log("2applying discount  : " + discount)
 		price = price * 0.9
 	}
 
 	console.log("price : " + price)
 
-	//Apply discount till March 28
+	// Apply discount till March 28
 	if( applyTicketDiscount == true) price = price - 5
 
 	return price
@@ -713,11 +739,11 @@ function getNoOfDaysSelected() {
 	if(!isNaN( saturday )) noOfDays += saturday
 	if(!isNaN( sunday )) noOfDays += sunday
 
-//	console.log("thursday : " + thursday)
-//	console.log("friday : " + friday)
-//	console.log("saturday : " + saturday)
-//	console.log("sunday : " + sunday)
-//	console.log("getNoOfDaysSelected : " + noOfDays)
+// console.log("thursday : " + thursday)
+// console.log("friday : " + friday)
+// console.log("saturday : " + saturday)
+// console.log("sunday : " + sunday)
+// console.log("getNoOfDaysSelected : " + noOfDays)
 
 	return noOfDays
 }
@@ -728,12 +754,12 @@ function sendGA( page ) {
 	
 	console.log("ga send to " + page + ", alreadySent = " + alreadySent)
 	
-	//Don't ga for localhost
+	// Don't ga for localhost
 	if (document.location.hostname.search("marxismfestival.org.uk") !== -1 && !alreadySent) {
     	
     	console.log("At marxismfestival.org.uk, sending to  " + page)
         
-        //Send to google analytics
+        // Send to google analytics
         ga('send', 'pageview', page);
     	
     	gaAlreadySent.push( page )

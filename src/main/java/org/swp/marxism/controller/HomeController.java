@@ -41,6 +41,8 @@ import org.swp.marxism.domain.Booking;
 import org.swp.marxism.domain.BookingStatus;
 import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.domain.Meeting;
+import org.swp.marxism.domain.Ticket;
+import org.swp.marxism.domain.TicketPricing;
 import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
@@ -239,27 +241,15 @@ public class HomeController {
 			return "error.html";
 		}
 		
-		Integer price = booking.getPrice();
 		
-		//Apply discount?
-		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
-		
-		logger.info("marxismWebsite.getApplyTicketDiscount() : {}", marxismWebsite.getApplyTicketDiscount());
-		
-		if(marxismWebsite.getApplyTicketDiscount() == true) {
-			price -= 5;
-		}
-
 		//Sanity check
-		String backendPrice = (price * 100) + "";
+		String backendPrice = getBackendPrice( booking );
+
 		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice, booking.getTicket().getWebPrice());
-//		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
-//			throw new MarxismException("Web and backend prices do not match");
-//		}
 		
 		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
-			logger.error("Web and backend prices do not match");
-		}		
+			throw new MarxismException("Web and backend prices do not match " + backendPrice + " : " + booking.getTicket().getWebPrice());
+		}
 
 		logger.info("Passed validation, persisting");
 
@@ -280,6 +270,61 @@ public class HomeController {
 		model.addAttribute("orderId", orderId);
 
 		return "barclays.html";
+	}
+	
+	private String getBackendPrice(Booking booking) {
+
+		Integer price = null;
+		
+		Ticket ticket = booking.getTicket();
+
+		TicketPricing pricing = ticket.getPricing();
+		
+		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
+		
+		logger.info("marxismWebsite.getApplyTicketDiscount() : {}", marxismWebsite.getApplyTicketDiscount());
+
+		switch(ticket.getType()) {
+		case FULL :
+			 if(pricing == TicketPricing.WAGED) price = 55;
+			 if(pricing == TicketPricing.UNWAGED) price = 30;
+			 if(pricing == TicketPricing.STUDENT_HE) price = 30;
+			 if(pricing == TicketPricing.STUDENT_FE) price = 20;
+			 break;
+		 case DAY:
+			 Integer noOfDays = ticket.getNoOfDaysSelected();
+			 if(pricing == TicketPricing.WAGED) price = 20;
+			 if(pricing == TicketPricing.UNWAGED) price = 15;
+			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
+			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
+			 price = price * noOfDays;
+			 break;
+		 case FLEXI:
+			 if(pricing == TicketPricing.WAGED) price = 20;
+			 if(pricing == TicketPricing.UNWAGED) price = 15;
+			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
+			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
+			 break;
+		}
+
+		//After party
+		if(ticket.getAfterParty() != null && ticket.getAfterParty() == true) {
+			price += 5;
+		}
+		
+		if(marxismWebsite.getApplyTicketDiscount() == true) {
+			price -= 5;
+		}
+
+		price = price * 100;
+		
+		//Discount Codes
+		if(booking.getDiscountCode() != null && booking.getDiscountCode().toLowerCase().equals("windrush18")) {
+			price = (int) (price * 0.9);
+		}
+
+
+		return price + "";
 	}
 	
 	@RequestMapping(value = "/thankYou", method = RequestMethod.GET)
@@ -399,6 +444,12 @@ public class HomeController {
 			
 			logger.info("Building meetings json");
 			htmlBuilder.buildMeetings( marxismWebsite.getMeetings() );
+			
+			if(environment.acceptsProfiles("prod")) {
+				marxismWebsite.setIsDev( false );
+			} else {
+				marxismWebsite.setIsDev( true );
+			}
 			
 			
 			ObjectMapper mapper = new ObjectMapper();
