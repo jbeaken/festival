@@ -320,12 +320,14 @@ public class HomeController {
 		price = price * 100;
 		
 		//Discount Codes
-		if(booking.getDiscountCode() != null && booking.getDiscountCode().toLowerCase().equals("windrush18")) {
-			price = (int) (price * 0.9);
-		} else {
-			booking.setDiscountCode(null);
+		if(marxismWebsite.getShowDiscountCode() == true) {
+			if(booking.getDiscountCode() != null && booking.getDiscountCode().toLowerCase().equals( marxismWebsite.getDiscountCode() )) {
+				price = (int) (price * 0.9);
+			} else {
+				//They could have put anything in here
+				booking.setDiscountCode(null);
+			}
 		}
-
 
 		return price + "";
 	}

@@ -28,6 +28,7 @@ insert into marxism_website (id, name, is_live,
     theme_heading,
     video_url, audio_url, videos_url, gallery_url,
     show_booking, show_pricing, show_themes, show_about, show_speakers, show_contact, show_gallery, show_video, show_discount_code,
+    discount_code,
     creator, date_created)
   values
   (1, '2018', true, 
@@ -41,7 +42,8 @@ insert into marxism_website (id, name, is_live,
    'Book before Wednesday 28 March for a £5 discount on your booking!', false, 500,
    'Marxism Festival 2018', 
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
-   true, true, true, true, true, true, true, true, true,
+   true, true, true, true, true, true, true, true, false,
+   'windrush18',
    'admin', now());
 
 -- SPEAKERS

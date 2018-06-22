@@ -638,16 +638,17 @@ function toggleTickets() {
 }
 
 function getDiscount() {
-	console.log("getDiscount : checking discount " + discount)
+	
+	if(showDiscountCode == false) return null
+	
 	var discount = $('input#booking_discount').val().trim()
 	
 	if(discount.length != 10) return
 	
 	discount = discount.toLowerCase();
 	
-	console.log("getDiscount : checking discount " + discount)
 	
-	if(discount === 'windrush18') return 5;
+	if(discount === discountCode) return 5;
 	
 	return null;
 	
@@ -656,8 +657,6 @@ function getDiscount() {
 function changeDiscount() {
 	
 	var discount = getDiscount()
-	
-	console.log(discount)
 	
 	if(discount != null) {
 		$('span#discount_applied_text').show()
