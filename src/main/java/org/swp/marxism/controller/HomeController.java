@@ -86,6 +86,7 @@ public class HomeController {
 	public void initBinder(WebDataBinder binder) {
 	    binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
 	    binder.registerCustomEditor(String.class, "accommodationContact", new StringTrimmerEditor(true));
+	    binder.registerCustomEditor(String.class, "discountCode", new StringTrimmerEditor(true));
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -321,6 +322,8 @@ public class HomeController {
 		//Discount Codes
 		if(booking.getDiscountCode() != null && booking.getDiscountCode().toLowerCase().equals("windrush18")) {
 			price = (int) (price * 0.9);
+		} else {
+			booking.setDiscountCode(null);
 		}
 
 

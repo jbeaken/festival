@@ -3,16 +3,20 @@
 
 <head>
   <meta charset="utf-8">
+  
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
   <title>Marxism Bookings</title>
-  <!-- Bootstrap core CSS-->
+
   <link th:href="@{/admin/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link th:href="@{/admin/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
   <link th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.css}" rel="stylesheet">
-  <!-- Custom styles for this template-->
+
   <link th:href="@{/admin/css/sb-admin.css}" rel="stylesheet">
 
   <style>
@@ -77,6 +81,7 @@
                   <th style="display : none;">After Party</th>
                   <th style="display : none;">Sort date</th>
                   <th style="display : none;">Is Actioned</th>
+                  <th style="display : none;">discount code</th>
                 </tr>
               </thead>
               <tbody>
@@ -94,6 +99,7 @@
                   <th th:text="${booking.ticket.afterParty}" style="display : none;">after party</th>
                   <th th:text="${#dates.format(booking.date, 'yyyy-MM-dd-HH-mm')}" style="display : none;">sort date</th>
                   <th th:text="${booking.isActioned}" style="display : none;">is actioned</th>
+                  <th th:text="${booking.discountCode}" style="display : none;">discount code</th>
                 </tr>
               </tbody>
             </table>
@@ -158,12 +164,11 @@
                         var ticketPricing = row[7]
 
                       var ticketTypeAlert = 'secondary'
-                        var ticketPricingAlert = 'secondary'
+                      var ticketPricingAlert = 'secondary'
 
                       if( ticketType == 'FULL') ticketTypeAlert = 'primary';
                       if( ticketType == 'DAY') ticketTypeAlert = 'danger';
-
-                        if( ticketPricing == 'WAGED') ticketPricingAlert = 'primary';
+                      if( ticketPricing == 'WAGED') ticketPricingAlert = 'primary';
                       if( ticketPricing == 'UNWAGED') ticketPricingAlert = 'success';
                       if( ticketPricing == 'STUDENT_FE') ticketPricingAlert = 'danger';
                       if( ticketPricing == 'STUDENT_HE') ticketPricingAlert = 'warning';
@@ -180,22 +185,25 @@
                         var requiresCreche = row[9]
                         var afterParty = row[10]
                         var actioned = row[12]
-
-                        console.log( "actioned " + actioned )
+                        var discountCode = row[13]
 
                         var html = ''
                         if(actioned == 'true') {
-                          html = '<ion-icon name="fa fa-check fa-lg" aria-hidden="true"></ion-icon>';
+                          html = '<i class="fas fa-check"></i>';
                         }
                         if(accommodationNeeds == 'true') {
-                          html = '<ion-icon name="fa fa-home fa-lg" aria-hidden="true"></ion-icon>';
+                          html = ' <i class="fas fa-home"></i>';
                         }
                         if(requiresCreche === 'true') {
-                          html += ' <ion-icon name="fa fa-child fa-lg"></ion-icon>';
+                          html += ' <i class="fas fa-child"></i>';
                         }
                         if(afterParty === 'true') {
-                           html += ' <ion-icon name="fa fa-music fa-lg"></ion-icon>';
+                           html += ' <i class="fas fa-music"></i>';
                         }
+                        if(discountCode != '') {
+                        	html += ' ' + discountCode
+                        }
+                        console.log( "html " + html )
                         return html
                       },
                       "targets": 7
@@ -205,6 +213,7 @@
       } );
     </script>
   </div>
+  <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
 </body>
 
 </html>
