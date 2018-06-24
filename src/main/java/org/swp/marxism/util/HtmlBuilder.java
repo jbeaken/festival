@@ -60,7 +60,7 @@ public class HtmlBuilder {
 			themes += "<span class='read-more meeting-read-more'>Read More</span>";
 		}
 
-		String dataContent = getDataContent(meeting);
+		String dataContent = getDataContent( meeting );
 
 		StringBuilder builder = new StringBuilder();
 
@@ -96,6 +96,9 @@ public class HtmlBuilder {
 	}
 
 	private String getDataContent(Meeting meeting) {
+		
+		boolean hasDescription = false;
+		
 		StringBuilder builder = new StringBuilder();
 
 		List<Theme> themes = meeting.getThemes();
@@ -104,20 +107,25 @@ public class HtmlBuilder {
 		builder.append(
 				"<div class=\"meetings__modal__item__time\">" + meeting.getDay() + " " + meeting.getTime() + "</div>");
 
+		if (meeting.getDescription() != null) {
+			String description = sanitiseString(meeting.getDescription());
+			builder.append( description + "<br/>" );
+			hasDescription = true;
+		}
+		
 		if (!themes.isEmpty()) {
 			Theme theme = meeting.getThemes().get(0);
-			builder.append("<br/>This meeting is part of the Marxism Festival 2018 theme <strong>"
+			builder.append("This meeting is part of the Marxism Festival 2018 theme <strong>"
 					+ theme.getShortDescription() + "</strong>");
-			builder.append("<br/><br/>" + theme.getLongDescription());
+			
+			if(hasDescription == false) builder.append("<br/><br/>" + theme.getLongDescription());
+			
 			builder.append("<br/><br/>Please see below all meetings at the conference with this theme :<br/><br/>");
 
 			for (Meeting m : theme.getMeetings()) {
 				String meetingHtml = getMeetingHtml(m);
 				builder.append(meetingHtml);
 			}
-		} else if (meeting.getDescription() != null) {
-			String description = sanitiseString(meeting.getDescription());
-			builder.append("<br/>" + description + "<br/>");
 		}
 
 		builder.append("</div>");
