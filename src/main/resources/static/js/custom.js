@@ -640,15 +640,16 @@ function toggleTickets() {
 function getDiscount() {
 	
 	if(showDiscountCode == false) return null
-	
 	var discount = $('input#booking_discount').val().trim()
 	
-	if(discount.length != 10) return
+	if(discount.length != discountCode.length) return
 	
 	discount = discount.toLowerCase();
 	
-	
-	if(discount === discountCode) return 5;
+	if(discount === discountCode) {
+		console.log("Discount code " + discount + " is valid")
+		return 5;
+	}
 	
 	return null;
 	
