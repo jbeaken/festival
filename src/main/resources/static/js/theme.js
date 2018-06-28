@@ -292,7 +292,7 @@ $(function() {
     } );
 
     $( '.swipebox' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
-    $( '.swipeboxy' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
+    $( '.swipebox_culture' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video_culture') } } );
 
     //Back button
     window.onbeforeunload = function() {

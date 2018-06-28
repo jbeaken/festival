@@ -69,11 +69,13 @@ public class HtmlBuilder {
 		} else {
 			builder.append("<div class='col-sm-4 meeting__holder'>");
 		}
+		
 		if (hasNoThemeOrDescription == Boolean.FALSE) {
 			builder.append("<a href='#modal_no_img' class='meetings__item' data-toggle='modal'");
 			builder.append(" data-heading='" + title + "'");
 			builder.append(" data-content='" + dataContent + "'>");
 		}
+		
 		builder.append("<div class='meeting__item__footer'>");
 		builder.append("<div class='meetings__item__time'>" + meeting.getDay().getDisplayName() + ", " + meeting.getTime() + "h</div>");
 		builder.append("<hr/>");
@@ -85,12 +87,12 @@ public class HtmlBuilder {
 		builder.append("<div class='meetings__item__speakers'>" + speaker + "</div>");
 		builder.append("<div class='meetings__item__theme'>" + themes + "</div>");
 
-		builder.append("</div>");
+		builder.append("</div>"); //.meeting__item__footer
 		if (hasNoThemeOrDescription == Boolean.FALSE) {
 			builder.append("</a>");
 		}
 
-		builder.append("</div>");
+		builder.append("</div>"); //.meeting__holder
 
 		meeting.setJson(builder.toString());
 

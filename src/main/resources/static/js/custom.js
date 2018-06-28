@@ -492,9 +492,6 @@ function writeTimes( day, time ) {
 	
 	var text = ""
 
-	console.log(day)
-	console.log(time)
-	
 	$('ul#meetings__day__list > li > a').removeClass('selected')
 
 	$('ul#meetings__day__list > li > a#' + day).addClass('selected');

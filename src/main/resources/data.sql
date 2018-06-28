@@ -291,11 +291,11 @@ insert into marxism_website_themes (marxism_website_id, themes_id, theme_index) 
 -- CULTURE ITEMS
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (1, 'Trump comedy roast', 'Trump comedy roast',
-	'Hosted by comedians Johnny Cochrane, Don Biswas and Jasmine Fischer, what better way to gear up for Trump&apos;s visit than making jokes at his expense? Friday 8.30pm',
+	'Hosted by comedians Johnny Cochrane, Don Biswas and Jasmine Fischer, what better way to gear up for Trump&apos;s visit than making jokes at his expense? <strong>Friday 8.30pm</strong>',
 	null, 'm2018-culture-images-trump-roast.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (2, 'Young Karl Marx', 'The Young Karl Marx film screening',
-	'Award-winning film by Raoul Peck, director of I Am Not Your Negro. It follows a discussion with Alex Callinicos on Marx: The Revolutionary. Saturday 7pm',
+	'Award-winning film by Raoul Peck, director of I Am Not Your Negro. It follows a discussion with Alex Callinicos on Marx: The Revolutionary. <strong>Saturday 7pm</strong>',
 	'https://www.youtube.com/watch?v=hVTDoZLssg8', 'm2018-culture-image-young-marx.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (3, 'Disco',
@@ -304,19 +304,19 @@ values (3, 'Disco',
 	null, 'm2018-culture-image-disco.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (4, 'London recruits', 'London recruits',
-	'A special Q & A and taster of a documentary that tells the secret story of how young activists in Britain carried out daring missions in apartheid South Africa to subvert the regime. Friday 8.45pm',
+	'A special Q & A and taster of a documentary that tells the secret story of how young activists in Britain carried out daring missions in apartheid South Africa to subvert the regime. <strong>Friday 8.45pm</strong>',
 	null, 'm2018-culture-image-apartheid-london-recruits.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (5, 'FREEDOM', 'FREEDOM',
-	'FREEDOM is an immersive three-screen video installation that intersects footage of Martin Luther King with the struggle against racism today  All day Sat & Sun',
+	'FREEDOM is an immersive three-screen video installation that intersects footage of Martin Luther King with the struggle against racism today  <strong>All day Saturday & Sunday</strong>',
 	null, 'm2018-culture-image-MLK-installation.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (6, 'Freesia', 'Freesia film screening',
-	'Freesia film screening -  An award winning film that looks at Islamophobia in Britain today, Freesia follows the story of three families in Bradford. Friday 9pm',
+	'Freesia film screening -  An award winning film that looks at Islamophobia in Britain today, Freesia follows the story of three families in Bradford. <strong>Friday 9pm</strong>',
 	'https://www.youtube.com/watch?v=F6vL1wpaRZ0', 'm2018-culture-image-freesia.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (7, 'Calais Children', 'Calais Children: A Case to Answer film screening',
-	'Director Sue Clayton for a Q&A with her award-winning film. Saturday 7pm',
+	'Director Sue Clayton for a Q&A with her award-winning film. <strong>Saturday 7pm</strong>',
 	'https://www.youtube.com/watch?v=Pc5lrWKFPI8', 'm2018-culture-image-calais-children.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (8, 'Black voices', 'Black voices, white visions: music, racism & identity',
@@ -324,7 +324,7 @@ values (8, 'Black voices', 'Black voices, white visions: music, racism & identit
 	null, 'm2018-culture-image-black-voices.jpg', 'admin', now());
 insert into culture_item (id, name, short_description, long_description, video_url, image_url, creator, date_created)
 values (9, 'Marxism After Party', 'Marxism After Party',
-	'with music from the Fred Hampton Appreciation Society an eight-piece band based in north-west London who make music to move your head, heart and feet. Sunday 6.30pm',
+	'with music from the Fred Hampton Appreciation Society an eight-piece band based in north-west London who make music to move your head, heart and feet. <strong>Sunday 6.30pm</strong>',
 	'https://www.youtube.com/watch?v=I1naf38k7gs', 'm2018-culture-image-after-party.jpg', 'admin', now());
 
 insert into marxism_website_culture_items (marxism_website_id, culture_items_id, carousel_item_index) values (1, 1, 0);
