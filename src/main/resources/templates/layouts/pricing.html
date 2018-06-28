@@ -10,7 +10,7 @@
 		
 			<h2 class="page-subheader text-center booking-discount" th:if="${content.applyTicketDiscount == true}" th:text="${content.discountText}"></h2>
 		
-			<div id="pricing_blurb" th:text="${content.pricingText}"></div>
+			<div id="pricing_blurb" th:utext="${content.pricingText}"></div>
 		</div>
 		<div class="col-md-3"></div>
 	</div><!-- / .row -->

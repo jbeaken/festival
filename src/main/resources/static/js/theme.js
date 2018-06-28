@@ -272,7 +272,7 @@ $(function() {
     });
 
 
-    //Swipebox
+    //Swipebox (gallery.html)
     $('a#swipeBoxButton').click( function( e ) {
     	e.preventDefault();
     	$.swipebox( [
@@ -292,6 +292,7 @@ $(function() {
     } );
 
     $( '.swipebox' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
+    $( '.swipeboxy' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
 
     //Back button
     window.onbeforeunload = function() {

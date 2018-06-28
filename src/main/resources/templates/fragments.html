@@ -46,7 +46,7 @@
 
 <div th:fragment="theme( theme )" class="col-sm-4 theme-holder">
 
-	<a class="themes__item animate-sm-step-0" 
+	<a class="themes__item" 
 		href="#modal_no_img"
 		data-animate="animate-up" 
 		data-toggle="modal" 
@@ -63,6 +63,42 @@
 		</div>
 	
 	</a>
+</div>
+
+<div th:fragment="cultureItem( cultureItem )" class="col-sm-4 theme-holder">
+
+	<a class="cultureitems__item" 
+		data-toggle="modal" 
+		data-ga="themeReadMore"
+		th:attr="data-content=${cultureItem.readMore},data-heading=${cultureItem.name}"
+		th:if="${cultureItem.videoUrl == null}">
+		
+		<div class="cultureitems__item__img">
+		  <img th:attr="src=@{/img/culture_items/{imageUrl}(imageUrl=${cultureItem.imageUrl})},alt=${cultureItem.name}" class="img-responsive" />
+		</div>
+		
+		<div class="cultureitems__item__footer">
+		  <h3 class="cultureitems__item__footer__heading" th:utext="${cultureItem.shortDescription}"/>
+		  <div class="cultureitems__item__footer__content" th:utext="${cultureItem.longDescription}"/>
+		</div>
+	</a>
+	
+	<a class="cultureitems__item swipebox" 
+		th:href="${cultureItem.videoUrl}" 
+		th:attr="title=${cultureItem.shortDescription},rel=${cultureItem.name}"
+		th:if="${cultureItem.videoUrl != null}">
+		
+		<div class="cultureitems__item__img">
+		  <img th:attr="src=@{/img/culture_items/{imageUrl}(imageUrl=${cultureItem.imageUrl})},alt=${cultureItem.name}" class="img-responsive" />
+		</div>
+		
+		<div class="cultureitems__item__footer">
+		  <h3 class="cultureitems__item__footer__heading" th:utext="${cultureItem.shortDescription}"/>
+		  <div class="cultureitems__item__footer__content" th:utext="${cultureItem.longDescription}"/>
+		  <span class="read-more">Watch Video</span>
+		</div>
+	
+	</a>	
 </div>
 
 

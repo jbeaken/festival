@@ -647,12 +647,10 @@ function getDiscount() {
 	discount = discount.toLowerCase();
 	
 	if(discount === discountCode) {
-		console.log("Discount code " + discount + " is valid")
 		return 5;
 	}
 	
 	return null;
-	
 }
 
 function changeDiscount() {

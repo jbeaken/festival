@@ -230,6 +230,9 @@ ion-icon.warning_icon {
   div.themes__item__footer {
       height: 400px;
   }
+  div.cultureitems__item__footer {
+      height: 270px;
+  }  
   div.speakers__item__footer {
       height: 250px;
   }  
@@ -245,14 +248,17 @@ ion-icon.warning_icon {
     padding-top: 30px;
   }
   div.themes__item__footer {
-      height: 450px;
+	height: 450px;
   }
+  div.cultureitems__item__footer {
+	height: 260px;
+  }    
   div.speakers__item__footer {
-      height: 250px;
+	height: 250px;
   }  
-   	h3.meeting_item_long_title {
-		font-size: 1.1em;
-	}  
+  h3.meeting_item_long_title {
+	font-size: 1.1em;
+  }  
 }
 
 /* Portrait tablets and small desktops */
@@ -272,6 +278,9 @@ ion-icon.warning_icon {
   div.themes__item__footer {
       height: 620px;
   }
+  div.cultureitems__item__footer {
+      height: 360px;
+  }    
   div.speakers__item__footer {
       height: 250px;
   }   

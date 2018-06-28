@@ -1,0 +1,26 @@
+<!-- THEMES  ================================================== -->
+<section class="section_cultureitems section_alt" id="section_cultureitems" th:if="${content.showCultureItems == true}">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <h2 class="page-header text-center">
+          Marxism Festival <span>Cultural Events</span>
+        </h2>
+
+      </div>
+    </div> <!-- / .row -->
+
+    <div class="row" th:each="i : ${#numbers.sequence( 0, #lists.size(content.cultureItems) - 3, 3 )}">
+
+      <div th:replace="fragments :: cultureItem ( ${content.cultureItems[i + 0]} )"></div>
+
+      <div th:replace="fragments :: cultureItem ( ${content.cultureItems[i + 1]} )"></div>
+
+      <div th:replace="fragments :: cultureItem ( ${content.cultureItems[i + 2]} )"></div>
+
+    </div> <!-- / .row -->
+
+  </div> <!-- / .container -->
+</section>

@@ -1,3 +1,5 @@
+-- mysqldump -uroot -padmin marxism  --ignore-table=marxism.booking --databases marxism > /home/git/marxism/src/main/etc/sql/marxism.sql
+
 -- Version 1.1
 
 alter table marxism_website_content add column apply_ticket_discount bit(1) not null;
