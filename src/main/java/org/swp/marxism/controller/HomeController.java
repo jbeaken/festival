@@ -418,7 +418,14 @@ public class HomeController {
 //		}
 
 		// Create the HTML body using Thymeleaf
-		String html = "<h1>Thank you for booking a ticket for Marxism Festival 2018.</h1><p>Your ticket will be sent out to you in the post in June.</p><p>Marxism Festival starts at 12 noon on Thurs 5 July and finishes at 6.30pm on Sun 8 July.</p>";
+		String html = "<h1>Thank you for booking a ticket for Marxism Festival 2018.</h1>";
+		html += "<p>You need to collect your ticket from the Marxism Festival Box Office.</p>";
+		html += "<p>The Box Office will be in Student Central, Malet Street, WC1E 7HY and will be open from 11.30am on Thurs 5 July and throughout the event.</p>";
+		html += "<p>Marxism Festival starts on Thursday 5 July.  The first meeting will be at 12.30pm on Thurs 6 July.</p>";
+		html += "<br/><p>Marxism finishes at 6.30pm on Sun 8 July.</p>";
+		html += "<p>Marxism Festival will be based in Student Central, Malet Street, WC1E 7HY.</p>";
+		html += "<p>Meetings will also take place in the Institute of Education, 22 Bedford Way, WCIH 0AL and Friends Meeting House, 173-177 Euston Road, NW1 2BJ.</p>";
+		
 		html += "<p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>";
 		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
 

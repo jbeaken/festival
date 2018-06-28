@@ -1,4 +1,4 @@
--- mysqldump -uroot -padmin marxism  --ignore-table=marxism.booking --databases marxism > /home/git/marxism/src/main/etc/sql/marxism.sql
+-- mysqldump -uroot -padmin marxism  --no-create-db --ignore-table=marxism.booking --databases marxism > /home/git/marxism/src/main/etc/sql/marxism.sql
 
 -- Version 1.1
 

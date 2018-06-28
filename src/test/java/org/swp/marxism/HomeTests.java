@@ -79,7 +79,7 @@ public class HomeTests {
 		.param("address.town","")
 		.param("address.postcode","")
 		.param("address.country","")
-		.param("discountCode","WINDRUSH18")
+		.param("discountCode","student18")
 		.param("ticket.type","FULL")
 		.param("ticket.pricing","UNWAGED")
 		.param("ticket.webPrice","3150")

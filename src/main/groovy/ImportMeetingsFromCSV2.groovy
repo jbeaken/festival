@@ -1,12 +1,14 @@
 @GrabConfig(systemClassLoader=true)
 
-@Grab('com.opencsv:opencsv:4.0')
+@Grab('com.opencsv:opencsv:4.2')
 @Grab('mysql:mysql-connector-java:5.1.39')
 
-import java.text.SimpleDateFormat;
+import groovy.sql.Sql
 
-import groovy.sql.Sql;
-import com.opencsv.CSVReader;
+import com.opencsv.CSVReader
+import com.opencsv.CSVParser
+import com.opencsv.CSVReaderBuilder
+import com.opencsv.CSVParserBuilder
 
 sql = Sql.newInstance("jdbc:mysql://localhost:3306/marxism", "root", "admin", "com.mysql.jdbc.Driver")
 
@@ -16,7 +18,12 @@ count = 0
 sql.executeUpdate("delete from theme_meetings")
 sql.executeUpdate("delete from meeting")
 
-CSVReader reader = new CSVReader(new FileReader("/home/git/marxism/src/main/etc/timetable4.csv"));
+CSVParser parser = new CSVParserBuilder().build();
+	
+final CSVReader reader = new CSVReaderBuilder( new FileReader("/home/git/marxism/src/main/etc/timetable4.csv") )
+	.withSkipLines(1)
+	.withCSVParser(parser)
+	.build();
 
 while ((fields = reader.readNext()) != null) {
 	  def day = fields[0].trim().toUpperCase()
@@ -28,17 +35,8 @@ while ((fields = reader.readNext()) != null) {
 	  def theme3 = fields[6]
 	  def description = fields[7]
 	  
-	  println day
-	  
-	  if( day == 'DAY') continue
-	  
-	  if(speakers) speakers = speakers.replace('--', ',')
-	  if(description) description = description.replace('--', ',')
-	  
-	  if(description == 'Need text') description = null
-	  
 	  def rowId = sql.executeInsert("""insert into meeting (creator, date_created, title, day, time, speakers, marxism_website_id, description) 
-	  values ('admin', now(), ?, ?, ?, ?, ?, ?)""", [title, day, time, speakers, 1, description])
+	  			  values ('admin', now(), ?, ?, ?, ?, ?, ?)""", [title, day, time, speakers, 1, description])
 	  
 	  long meetingId = rowId[0][0] 
 	  

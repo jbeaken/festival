@@ -32,7 +32,7 @@ public class HtmlBuilder {
 		String time = meeting.getTime();
 
 		for (Theme theme : meeting.getThemes()) {
-			themes += "<span class='label label-warning meeting-theme-label'>" + theme.getName() + "</span>&nbsp;";
+			themes += "#" + theme.getName() + "&nbsp;";
 		}
 
 		// Add class to title which media queries will style, using font-size : 1.0rem
@@ -57,7 +57,7 @@ public class HtmlBuilder {
 		}
 
 		if (!hasNoThemeOrDescription) {
-			themes += "<span class='read-more meeting-read-more'>Read More</span>";
+			themes += "<span class='meeting-read-more'>>>Read more</span>";
 		}
 
 		String dataContent = getDataContent( meeting );
@@ -75,13 +75,14 @@ public class HtmlBuilder {
 			builder.append(" data-content='" + dataContent + "'>");
 		}
 		builder.append("<div class='meeting__item__footer'>");
+		builder.append("<div class='meetings__item__time'>" + meeting.getDay().getDisplayName() + ", " + meeting.getTime() + "h</div>");
+		builder.append("<hr/>");
 		if (hasLongTitleClass != null) {
 			builder.append("<h3 class='meetings__item__title " + hasLongTitleClass + "'>" + title + "</h3>");
 		} else {
 			builder.append("<h3 class='meetings__item__title'>" + title + "</h3>");
 		}
 		builder.append("<div class='meetings__item__speakers'>" + speaker + "</div>");
-		builder.append("<div class='meetings__item__time'>" + meeting.getDay() + " " + meeting.getTime() + "</div>");
 		builder.append("<div class='meetings__item__theme'>" + themes + "</div>");
 
 		builder.append("</div>");
