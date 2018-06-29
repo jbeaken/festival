@@ -1,13 +1,12 @@
 <div th:fragment="speaker( speaker, fastLoad )" class="col-sm-4 speaker-holder">
 
-	<a th:if="${speaker.longDescription != null}" class="speakers__item animate-sm-step-0" 
+	<a th:if="${speaker.longDescription != null}" class="speakers__item" 
 		href="#modal_no_img"
-		data-animate="animate-up" 
 		data-toggle="modal" 
 		data-ga="speakerReadMore"
 		th:attr="data-content=${speaker.longDescription},data-heading=${speaker.name},data-img=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})}">
 
-		<div class="speakers__item animate-sm-step-2" data-animate="animate-up">
+		<div class="speakers__item" data-animate="animate-up">
 			
 			<div class="speakers__item__img" th:if="${fastLoad == true}">
 				<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive" />
@@ -25,7 +24,7 @@
 
 	</a>
 	
-	<div th:if="${speaker.longDescription == null}" class="speakers__item animate-sm-step-2" data-animate="animate-up">
+	<div th:if="${speaker.longDescription == null}" class="speakers__item" data-animate="animate-up">
 		
 		<div class="speakers__item__img" th:if="${fastLoad == true}">
 			<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive" />
@@ -69,6 +68,7 @@
 
 	<a class="cultureitems__item" 
 		data-toggle="modal" 
+		data-animate="animate-up"
 		data-ga="themeReadMore"
 		th:attr="data-content=${cultureItem.readMore},data-heading=${cultureItem.name}"
 		th:if="${cultureItem.videoUrl == null}">
@@ -88,16 +88,18 @@
 		th:attr="title=${cultureItem.shortDescription},rel=${cultureItem.name}"
 		th:if="${cultureItem.videoUrl != null}">
 		
-		<div class="cultureitems__item__img">
-		  <img th:attr="src=@{/img/culture_items/{imageUrl}(imageUrl=${cultureItem.imageUrl})},alt=${cultureItem.name}" class="img-responsive" />
+		<div data-animate="animate-up">
+			<div class="cultureitems__item__img">
+			  <img th:attr="src=@{/img/culture_items/{imageUrl}(imageUrl=${cultureItem.imageUrl})},alt=${cultureItem.name}" class="img-responsive" />
+			</div>
+			
+			<div class="cultureitems__item__footer">
+			  <h3 class="cultureitems__item__footer__heading" th:utext="${cultureItem.shortDescription}"/>
+			  <div class="cultureitems__item__footer__content" th:utext="${cultureItem.longDescription}"/>
+			  <span class="read-more">Watch Video</span>
+			</div>
 		</div>
 		
-		<div class="cultureitems__item__footer">
-		  <h3 class="cultureitems__item__footer__heading" th:utext="${cultureItem.shortDescription}"/>
-		  <div class="cultureitems__item__footer__content" th:utext="${cultureItem.longDescription}"/>
-		  <span class="read-more">Watch Video</span>
-		</div>
-	
 	</a>	
 </div>
 

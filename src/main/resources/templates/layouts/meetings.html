@@ -5,9 +5,21 @@
 	text-transform: none;
 }
 
-.meeting__item__footer hr {
+.meeting__item__container hr {
 	margin-top : 0px;
 	margin-bottom: 5px;
+}
+.meeting_item_xs {
+	font-size : 3rem;
+}
+.meeting_item_sm {
+	font-size : 2.7rem;
+}
+.meeting_item_md {
+	font-size : 2.5rem;
+}
+.meeting_item_lg {
+	font-size : 1.8rem;
 }
 
 .meetings__item__time, .meetings__item__day {
@@ -31,6 +43,9 @@
     margin-bottom: 25px;
     color: black;
     transition: all .25s;
+}
+#section_meetings .meetings__item__venue, #section_meetings .meetings__item__title, a.meeting__item__venue {
+	color: black;
 }
 span.meeting-theme-label {
 	font-size : 1.5rem;
@@ -57,8 +72,8 @@ div#theme-meeting-holder .meetings__modal__item__title {
     text-decoration: none;
     box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.14);
 }
-.meeting__item__footer {
-    padding: 30px;
+.meeting__item__container {
+    padding: 20px;
     background-color: white;
     border: 1px solid #eee;
     border-top: 0;
@@ -104,13 +119,26 @@ ion-icon#downloadTimetablePdf {
 }
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
+
+	.meeting_item_xs {
+	    font-size: 2.3rem;
+	}
+	.meeting_item_sm {
+	    font-size: 2.0rem;
+	}	
+	.meeting_item_md {
+		font-size: 1.9rem;
+	}	
+	.meeting_item_lg {
+	    font-size: 1.6rem;
+	}	
 	.meetings__item__time, .meetings__item__day {
 		font-size : 1.5rem;
 	}
 	.meetings__item__title {
 		height : 130px;
 	}
-	.meeting__item__footer {
+	.meeting__item__container {
 	    height: 300px;    
 	}
 	ul#meetings__day__list, ul#meetings__time__list {
@@ -132,12 +160,28 @@ ion-icon#downloadTimetablePdf {
 		font-size: 1.3rem;
 	}
 }
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+	.meeting_item_xs {
+	    font-size: 2.6rem;
+	}
+	.meeting_item_sm {
+	    font-size: 2.3rem;
+	}  
+	.meeting_item_md {
+	    font-size: 2.0rem;
+	}  	
+	.meeting_item_lg {
+	    font-size: 1.7rem;
+	}	
+}
 
 @media (min-width: 481px) and (max-width: 767px) {
   ul#meetings__day__list, ul#meetings__time__list {
   	font-size: 1.6rem;
   }
 }
+
 @media (max-width: 480px) {
   ul#meetings__day__list, ul#meetings__time__list {
   	font-size: 1.4rem;
@@ -145,13 +189,13 @@ ion-icon#downloadTimetablePdf {
   .meetings__item__title {
 	height : auto;
   }
-  .meeting__item__footer {
+  .meeting__item__container {
   	height: auto;
   }
   section#section_meetings {
   	padding-top: 20px;
   }
-  .meeting__item__footer {
+  .meeting__item__container {
     padding: 15px;
   }
   div#theme-meeting-holder .meetings__modal__item__title {
