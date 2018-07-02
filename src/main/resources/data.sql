@@ -53,7 +53,7 @@ insert into venue (id, name, address, creator, date_created)
 values (2, 'Friends Meeting House', 'Friends Meeting House', 'admin', now());
 
 insert into venue (id, name, address, creator, date_created) 
-values (3, 'Institue of Education', 'Institue of Education', 'admin', now());
+values (3, 'Institute of Education', 'Institute of Education', 'admin', now());
 
 
 

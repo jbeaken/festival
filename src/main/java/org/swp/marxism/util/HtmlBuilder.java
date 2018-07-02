@@ -106,7 +106,7 @@ public class HtmlBuilder {
 			classSize = "lg";
 		} else if (length > 20) {
 			classSize = "md";
-		} else if (length > 10) {
+		} else if (length > 15) {
 			classSize = "sm";
 		}
 		
