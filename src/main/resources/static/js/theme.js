@@ -36,7 +36,7 @@ $window.load(function() {
     writeMeetings( 'THURSDAY', '12.30');
     
     //Must be after writeMeetings or scrollTop is incorrect
-	if(showBookingForm === 'true') {
+	if(gotoBookingForm === 'true') {
 		$('a#anchor_section_booking').click()
     }
 
@@ -93,6 +93,10 @@ $(function() {
             var target = $(this.hash);
 
             if(target.selector == '#section_booking') {
+            	if(bookingEnabled == false) {
+            		alert("Online booking is now closed. You can still buy a ticket during the festival by visiting the Box Office. The Box Office will be in Student Central, Malet Street, WC1E 7HY and will be open from 11.30am on Thurs 5 July and throughout the event.")
+            		return
+            	}
             	$('section.section_booking').removeClass('hidden');
             	if(isDev === true) populateBookingFormForDev()
             }

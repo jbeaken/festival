@@ -213,7 +213,7 @@ public class HomeController {
 	  MarxismWebsite marxismWebsite = getMarxismWebsite();
 
 	  model.addAttribute("content", marxismWebsite);
-	  model.addAttribute("showBookingForm", Boolean.TRUE);
+	  model.addAttribute("gotoBookingForm", Boolean.TRUE);
 
 	  return "home.html";
 	}

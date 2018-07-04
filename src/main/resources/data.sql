@@ -41,7 +41,7 @@ insert into marxism_website (id, name, is_live,
    'Book before Wednesday 28 March for a £5 discount on your booking!', false, 500,
    'Marxism Festival 2018', 
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
-   true, true, true, true, true, true, true, true, true, true,
+   false, true, true, true, true, true, true, true, true, true,
    'student18',
    'admin', now());
    
