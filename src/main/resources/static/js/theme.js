@@ -302,7 +302,7 @@ $(function() {
     window.onbeforeunload = function() {
       var firstname = $('input#booking_firstname').val()
       console.log("checking for trace of booking : " + firstname)
-      if(firstname !== '' && bookingPassedValidation == false) return "Are you sure, this will leave this website and prevent any booking?";
+      if(bookingEnabled == true && firstname !== '' && bookingPassedValidation == false) return "Are you sure, this will leave this website and prevent any booking?";
     };
 //    history.pushState(null, null, document.URL);
 //    window.addEventListener('popstate', function () {
