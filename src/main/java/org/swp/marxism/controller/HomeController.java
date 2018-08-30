@@ -134,6 +134,20 @@ public class HomeController {
 		return "home.html";
 	}
 	
+	@RequestMapping("/.well-known/acme-challenge/{filename}")
+	public void certbot(@PathVariable("filename") String filename, HttpServletResponse response) throws java.io.IOException {
+
+		Resource resource = appContext.getResource("file:/var/www/html/.well-known/acme-challenge/" + filename);
+
+		InputStream is = resource.getInputStream();
+
+		OutputStream os = response.getOutputStream();
+
+		IOUtils.copy(is, os);
+		os.flush();
+		os.close();
+	}		
+	
 	@RequestMapping(value = "/timetable", method = RequestMethod.GET)
 	public void downloadTimetablePDF(HttpServletResponse response) throws java.io.IOException {
 
