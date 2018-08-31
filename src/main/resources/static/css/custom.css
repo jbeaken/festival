@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400|Roboto:400,400i,700');
-
 @font-face{font-family: 'PiSLIETZLindham';src: url('/fonts/PiSLIETZLindham.eot');src: url('/fonts/PiSLIETZLindham.eot?#iefix') format('embedded-opentype'),url('/fonts/PiSLIETZLindham.woff2') format('woff2'),url('/fonts/PiSLIETZLindham.woff') format('woff'),url('/fonts/35E6EA_0_0.ttf') format('truetype');}
-/*
-@font-face{font-family:'Haptik-Bold';src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-2.eot');src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-2.eot?#iefix') format('embedded-opentype'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-2.woff') format('woff'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-2.ttf') format('truetype')}
-@font-face{font-family:'Haptik-Regular';src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Regular-2.eot');src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Regular-2.eot?#iefix') format('embedded-opentype'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Regular-2.woff') format('woff'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Regular-2.ttf') format('truetype')}
-@font-face{font-family:'Haptik-Medium';src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-2.eot');src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-2.eot?#iefix') format('embedded-opentype'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-2.woff') format('woff'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-2.ttf') format('truetype')}
-@font-face{font-family:'Haptik-Medium-Oblique';src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-Oblique-2.eot');src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-Oblique-2.eot?#iefix') format('embedded-opentype'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-Oblique-2.woff') format('woff'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Medium-Oblique-2.ttf') format('truetype')}
-@font-face{font-family:'Haptik-Bold-Oblique';src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-Oblique-2.eot');src:url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-Oblique-2.eot?#iefix') format('embedded-opentype'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-Oblique-2.woff') format('woff'),url('https://www.smartbody.nl/contents/fonts/GT-Haptik-Bold-Oblique-2.ttf') format('truetype')}
-*/
 
 /* Core */
 
