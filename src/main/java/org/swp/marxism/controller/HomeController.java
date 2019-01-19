@@ -482,7 +482,7 @@ public class HomeController {
 			
 			String meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
 			
-			logger.debug("Meetings json : {}", meetingsJson);
+//			logger.debug("Meetings json : {}", meetingsJson);
 			
 			marxismWebsite.setMeetingsJson(meetingsJson);
 			

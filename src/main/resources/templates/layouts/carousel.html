@@ -12,11 +12,11 @@
         <!-- Slides -->
         <div class="carousel-inner" role="listbox">
 
-          <div class="item active">
+          <div class="item" th:classappend="${iterStatus.index == 0} ? active : ''" th:each="carouselItem, iterStatus : ${content.carouselItems}">
             <div class="container">
               <div class="row">
                 <div class="col-sm-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
+                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0" th:utext="${carouselItem.text}">
                    Marxism Festival <span>2018</span>
                   </h1>
                   <div class="text-center">
@@ -29,119 +29,14 @@
             </div> <!-- / .container -->
           </div>
 
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
-                    A festival of <span>socialist ideas</span>
-                  </h1>
-                  <div class="text-center">
-                    <a href="#section_about" class="btn btn-primary animate-down animate-xs-step-2">
-                      Find out more
-                    </a>
-                  </div>
-                </div>
-              </div> <!-- / .row -->
-            </div> <!-- / .container -->
-          </div>
-
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
-                    5 - 8 July, Central London
-                  </h1>
-                  <div class="text-center">
-                    <a href="#section_about" class="btn btn-primary animate-down animate-xs-step-2">
-                      Find out more
-                    </a>
-                  </div>
-                </div>
-              </div> <!-- / .row -->
-            </div> <!-- / .container -->
-          </div>
-
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
-                   Marxism Festival <span>2018</span>
-                  </h1>
-                  <div class="text-center">
-                    <a href="#section_about" class="btn btn-primary animate-down animate-xs-step-2">
-                      Find out more
-                    </a>
-                  </div>
-                </div>
-              </div> <!-- / .row -->
-            </div> <!-- / .container -->
-          </div>
-
- 		  <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
-                    A festival of <span>socialist ideas</span>
-                  </h1>
-                  <div class="text-center">
-                    <a href="#section_about" class="btn btn-primary animate-down animate-xs-step-2">
-                      Find out more
-                    </a>
-                  </div>
-                </div>
-              </div> <!-- / .row -->
-            </div> <!-- / .container -->
-          </div>
-
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
-                    5 - 8 July, Central London
-                  </h1>
-                  <div class="text-center">
-                    <a href="#section_about" class="btn btn-primary animate-down animate-xs-step-2">
-                      Find out more
-                    </a>
-                  </div>
-                </div>
-              </div> <!-- / .row -->
-            </div> <!-- / .container -->
-          </div>
-
- 		  <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
-                    A festival of <span>socialist ideas</span>
-                  </h1>
-                  <div class="text-center">
-                    <a href="#section_about" class="btn btn-primary animate-down animate-xs-step-2">
-                      Find out more
-                    </a>
-                  </div>
-                </div>
-              </div> <!-- / .row -->
-            </div> <!-- / .container -->
-          </div>
-
-        </div>
+       </div><!-- / .carousel-inner -->
 
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#banner__carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#banner__carousel" data-slide-to="1"></li>
-          <li data-target="#banner__carousel" data-slide-to="2"></li>
-          <li data-target="#banner__carousel" data-slide-to="3"></li>
-          <li data-target="#banner__carousel" data-slide-to="4"></li>
-          <li data-target="#banner__carousel" data-slide-to="5"></li>
-          <li data-target="#banner__carousel" data-slide-to="6"></li>
+          <li data-target="#banner__carousel" 
+          	th:attr="data-slide-to=${iterStatus.index}"
+          	th:class="${iterStatus.index == 0} ? active : ''"
+          	th:each="carouselItem, iterStatus : ${content.carouselItems}"></li>
         </ol>
 
         <!-- Controls -->
