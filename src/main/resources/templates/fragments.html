@@ -2,7 +2,9 @@
 		<div class="about__item__icon">
 			<ion-icon th:attr="name=${about.icon}"></ion-icon>
 		</div>
+		
 		<h3 class="about__item__heading" th:text="${about.name}">Name</h3>
+		
 		<div class="about__item__body">
 			<span th:utext="${about.text}"></span>
 			<a href="#modal_no_img"
