@@ -55,7 +55,31 @@ values (2, 'Friends Meeting House', 'Friends Meeting House', 'admin', now());
 insert into venue (id, name, address, creator, date_created) 
 values (3, 'Institute of Education', 'Institute of Education', 'admin', now());
 
+-- CAROUSEL ITEMS
+insert into carousel_item (id, name, text, image_url, creator, date_created) 
+values (1, '1', 'Marxism Festival <span>2018</span>', 'imageUrl', 'admin', now());
 
+insert into carousel_item (id, name, text, image_url, creator, date_created) 
+values (2, '2', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
+
+insert into carousel_item (id, name, text, image_url, creator, date_created) 
+values (3, '3', '5 - 8 July, Central London', 'imageUrl', 'admin', now());
+
+insert into carousel_item (id, name, text, image_url, creator, date_created) 
+values (4, '4', 'Marxism Festival <span>2018</span>', 'imageUrl', 'admin', now());
+
+insert into carousel_item (id, name, text, image_url, creator, date_created) 
+values (5, '5', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
+
+insert into carousel_item (id, name, text, image_url, creator, date_created) 
+values (6, '6', '5 - 8 July, Central London', 'imageUrl', 'admin', now());
+
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 1, 1);
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 2, 2);
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 3, 3);
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 4, 4);
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 5, 5);
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 6, 6);
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
