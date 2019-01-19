@@ -5,27 +5,23 @@
 		<div class="row" style="padding-bottom: 40px;">
 			<div class="col-sm-12">
 
-				<h2 class="page-header text-center" th:text="${content.aboutHeading}" style="margin-bottom: 2px;" />
+				<h2 class="page-header text-center" th:text="${content.aboutHeading}" style="margin-bottom: 2px;">Marxism 2018</h2>
 
 				<h2 class="page-header text-center" style="margin-bottom: 2px;">
 					<span th:text="${content.aboutLine2}">A festival of socialist ideas</span>
 				</h2>
 
-				<h2 class="page-header text-center" th:text="${content.aboutLine3}" style="margin-bottom: 25px; color : #808080"/>
+				<h2 class="page-header text-center" th:text="${content.aboutLine3}" style="margin-bottom: 25px; color : #808080"></h2>
 
-				<div id="about_blurb">If you were excited by Jeremy Corbyn's election as Labour leader, horrified by Donald
-					Trump, want to challenge racism and oppression, desire action over
-					climate change or are looking for an alternative to austerity and
-					war then Marxism Festival 2018 is the place for you. Thousands of activists,
-					campaigners, trade unionists, students, writers and academics will come
-					together at over 130 different meetings.
-				</div>
+				<div id="about_blurb" th:utext="${content.aboutText}"></div>
+				
 			</div>
 		</div><!-- / .row -->
 
 		<!-- First Row -->
 
 		<div class="row">
+<<<<<<< HEAD
 			<div class="col-sm-4">
 				<div class="about__item animate-sm-step-0"
 					data-animate="animate-up">
@@ -103,11 +99,21 @@ Book <a href="#section_booking" class="read-more">here</a>.</p>
 				</div>
 			</div>			
 						
+=======
+		
+			<div class="col-sm-4" th:each="i : ${#numbers.sequence( 0, 2 )}">
+			
+				<div th:replace="fragments :: about( ${content.abouts[i]} )"></div>
+				
+			</div>
+			
+>>>>>>> f515a9a... Abouts now using fragments and coming from database
 		</div>
 		
 		<!-- Second Row -->
-
+		
 		<div class="row">
+<<<<<<< HEAD
 			<div class="col-sm-4">
 				<div class="about__item animate-sm-step-0"
 					data-animate="animate-up">
@@ -218,12 +224,22 @@ Book <a href="#section_booking" class="read-more">here</a>.</p>
 					</div>
 				</div>
 			</div>				
+=======
+		
+			<div class="col-sm-4" th:each="i : ${#numbers.sequence( 3, 5 )}">
 			
-		</div>
+				<div th:replace="fragments :: about( ${content.abouts[i]} )"></div>
+				
+			</div>
+>>>>>>> 3fe7936... All abouts now from database
+			
+		</div>		
+
 		
 		<!-- Third Row -->
 
 		<div class="row">
+<<<<<<< HEAD
 		
 			<div class="col-sm-4">
 				<div class="about__item animate-sm-step-0"
@@ -328,6 +344,14 @@ Book <a href="#section_booking" class="read-more">here</a>.</p>
 					</div>
 				</div>
 			</div>			
+=======
+
+			<div class="col-sm-4" th:each="i : ${#numbers.sequence( 6, 8 )}">
+			
+				<div th:replace="fragments :: about( ${content.abouts[i]} )"></div>
+				
+			</div>		
+>>>>>>> 3fe7936... All abouts now from database
 
 		</div>
 		<!-- / .row -->

@@ -465,6 +465,7 @@ public class HomeController {
 			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
 			logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
 			logger.info("Contains {} meetings", marxismWebsite.getMeetings().size());
+			logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
 
 			logger.info("Marxism website content placed into context");
 			

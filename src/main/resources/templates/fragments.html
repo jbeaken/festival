@@ -1,3 +1,20 @@
+<div th:fragment="about ( about )" class="about__item animate-sm-step-0" data-animate="animate-up">
+		<div class="about__item__icon">
+			<ion-icon th:attr="name=${about.icon}"></ion-icon>
+		</div>
+		<h3 class="about__item__heading" th:text="${about.name}">Name</h3>
+		<div class="about__item__body">
+			<span th:utext="${about.text}"></span>
+			<a href="#modal_no_img"
+				th:if="${about.modalText != null}"
+				class="news__item read-more"
+				data-toggle="modal"
+				data-ga="disabled"
+				th:attr="data-content=${about.modalText},data-heading=${about.name}">Read more</a>
+		</div>
+		 
+</div>
+
 <div th:fragment="speaker( speaker, fastLoad )" class="col-sm-4 speaker-holder">
 
 	<a th:if="${speaker.longDescription != null}" class="speakers__item" 

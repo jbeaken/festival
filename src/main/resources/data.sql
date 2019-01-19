@@ -41,10 +41,82 @@ insert into marxism_website (id, name, is_live,
    'Book before Wednesday 28 March for a £5 discount on your booking!', false, 500,
    'Marxism Festival 2018', 
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
-   false, true, true, true, true, true, true, true, true, true,
+   true, true, true, true, true, true, true, true, true, true,
    'student18',
    'admin', now());
-   
+  
+-- ABOUT
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (1, 'Booking', 'card', 
+'Marxism Festival 2018 will start at 12.30 pm on Thurs 5 July and finish at 5.30pm on Sun 8 July. The opening rally will start at 7pm on Thurs 5 July. Advance purchased tickets will be sent out in the post in June. Book <a href="#section_booking" class="read-more">here</a>',
+null, null, 
+'admin', now());
+ 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (2, 'Where to find us', 'compass', 
+'Marxism Festival 2018 takes place in the heart of London. The event will be based in <strong>Student Central, Malet Street, WC1E 7HY</strong>',
+"<h1 class='text-center font-lindham'>Marxism Festival 2018 takes place in the heart of London.</h1><p>The event will mainly be based in Student Central, Malet Street, WC1E 7HY.</p><p>Meetings will also take place in:</p><ul><li><a href='https://www.google.co.uk/maps/search/The+Institute+of+Education,+20+Bedford+Way,+WC1H+0AL/@51.5171592,-0.1354243,15z/data=!3m1!4b1?hl=en' target='_blank'>The Institute of Education, 20 Bedford Way, WC1H 0AL</a></li><li><a href='https://www.google.co.uk/maps/place/S+E+N+J+I+T+the+Institute+of+Education+University+of+London/@51.5238041,-0.1331508,17z/data=!4m8!1m2!2m1!1sThe+Institute+of+Education,+20+Bedford+Way,+WC1H+0AL!3m4!1s0x48761b3035bc76db:0xaceb7f515c3df740!8m2!3d51.5230423!4d-0.1278842?hl=en' target='_blank'>The Friends Meeting House, 173-177 Euston Road, NW1 2BJ</a></li></ul><p>These are all very close to tube and mainline train stations.</p>",
+'/img/modal/map.jpg', 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (3, 'Tickets', 'microphone', 
+'<strong>Advance bookings finish at 5pm on Wednesday 4 July.</strong> If you have not booked an advance ticket you can buy one at the Box Office in <strong>Student Central, Malet Street, WC1E 7HY</strong> which will be open throughout the festival.',
+"<div class='row'><div class='col-sm-12'><p>Advance bookings finish at 5pm on Wednesday 4 July.</p><p>If you have not booked an advance ticket you can buy one at the Box Office in <strong>Student Central, Malet Street, WC1E 7HY</strong> which will be open throughout the festival.</p><p>This will open at 11.30am on Thurs 5 July and will be open throughout the event.</p><p>If you booked your ticket before Weds 27 June it will be sent out in the post. If for some reason it does not arrive then please come to our Box Office in Student Central,  Malet Street, WC1E 7HY  where we can reissue it.</p><p>If you booked your ticket after Weds 27 June you will need to collect your ticket from our Box Office in Student Central. This will open at 11.30am on Thurs 5 July and will be open throughout the event.</p></div></div>",
+null, 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (4, 'Disabled access', 'arrow-round-forward', 
+'We make every effort to ensure that Marxism is accessible for disabled people. Student Central and the Friends Meeting House are fully accessible.',
+"<div class='row'><div class='col-sm-12'><p>We make every effort to ensure that Marxism is accessible for disabled people.</p><p>Student Central and the Friends Meeting House are fully accessible.</p><p>The Institute of Education is currently undergoing modification. They have requested that people fill in a <strong>PEEP</strong> for any meeting located in their building.</p><p>This form will be sent out with all tickets and will be available at the event.</p></div></div>",
+null, 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (5, 'Accommodation', 'key', 
+'We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.',
+"<p>We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.</p><p>Please note that although we try our best to provide free accommodation to all who need it this is NOT guaranteed and we would encourage those who can to make their own arrangements.</p><p>All accommodation booked after <strong>Monday 19 June</strong> will be &quot;crash pad&quot; in the community centre.</p><p>Alternatively there are lots of options for accommodation in central London. Cheap accommodation includes the <a href='https://www.yha.org.uk/places-to-stay/london' target='_blank'>YHA Hostel</a> or you can pay for a Halls of Residence room at UCL. Call <strong>020 7529 8975</strong> to book with UCL directly.",
+null, 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (6, 'Crèche', 'body', 
+'We provide a free crèche with a range of activities available for children of different ages up to 11 years. This must be booked by <strong>Monday 18 June.</strong>',
+null, null, 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (7, 'Stalls', 'globe', 
+'Many campaigns and activist groups from around the country will be running stalls during the Marxism Festival. Check the website for updates',
+null, 
+null, 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (8, 'Bookmarks bookshop', 'book', 
+'Bookmarks bookshop will be open every day during the Marxism Festival in the Library Bar in Student Central. They will have books by speakers at the event and books that complement meetings and courses.',
+"<div class='row'><div class='col-sm-12'><h1 class='text-center font-lindham'>Liberate your mind</h1><p>Where do you go when you want to buy a book? A union-busting corporation or a socialist bookshop? Bookmarks is the largest socialist bookshop in Britain.</p><p>And we don&apos;t just sell from our shop in London, we go out and about to provide bookstalls at events across the country, from Tolpuddle to major demonstrations. We send books across the worldand offer a full mailorder service for individuals and trade unions.</p><p>Our range of books covers politics, economics, trade unionism, labour history, the environment, black struggle, women, culture, fiction, radical kid&apos;s books and much more. And we don&apos;t just sell books, we publish them too- books that answer the big questions that socialists and trade unionists are asking.</p><p>The massive anti-union booksellers like Amazon can offer the sorts of discounts smaller shops cannot match. But they do this by attacking their own workers, avoiding corporation tax and squeezing authors and publishers. That&apos;s not how we operate. And the major booksellers cannot match the guidance and expertise that our unionised staff provide.</p></div></div><hr /><div class='row'><div class='col-xs-3 social-container'><a class='twitter social-icon' target='_blank' title='Bookmarks on the web' href='https://bookmarksbookshop.co.uk'> <ion-icon name='ion-ios-world'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='twitter social-icon' target='_blank' title='Bookmarks on Twitter' href='https://twitter.com/Bookmarks_books'> <ion-icon name='ion-social-twitter'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='facebook social-icon' target='_blank' title='Bookmarks on Facebook' href='https://www.facebook.com/bookmarks.bookshop/'> <ion-icon name='ion-social-facebook'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='instagram social-icon' target='_blank' title='Bookmarks on Youtube' href='https://www.youtube.com/channel/UCLhxs9hxW-q1Aq3TcQH7r_Q'> <ion-icon name='ion-social-youtube-outline'></ion-icon></a></div></div>",
+"/img/modal/bookmarks-outside.jpg", 
+'admin', now());
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
+values (9, 'About us', 'star', 
+'Marxism Festival 2018 is a four day political festival of socialist ideas hosted by the <strong>Socialist Workers Party</strong>.',
+"<h1 class='text-center font-lindham'>Marxism Festival is an annual event hosted by the Socialist Workers Party</h1><div class='row'><div class='col-xs-12'><p>The Marxism Festival has been taking place for over 30 years. Our aim is to provide a forum to discuss and debate left wing politics involving speakers and activists from different organisations as well as the SWP.</p><p>The festival brings together thousands of activists, trade unionists, students, writers and academics from across the globe to grapple with political questions of the day and discuss a way forward in campaigns and struggles.</p><p>Find your local <a href='http://socialistworker.co.uk/public/events' target='_blank'>SWP branch</a></p><p>Please visit our <a href='http://swp.org.uk' target='_blank'>website</a></p></div><h3 class='text-center'>Read Socialist Workers Party publications online</h3><div class='row'><div class='col-sm-3'><a href='https://socialistworker.co.uk' target='_blank'><img class='img-responsive img-cover' src='/img/modal/sw-cover.jpg'/></a></div><div class='col-sm-3'><a href='http://isj.org.uk/' target='_blank'><img class='img-responsive img-cover' src='/img/modal/isj-cover.jpg'/></a></div><div class='col-sm-3'><a href='http://socialistreview.org.uk/' target='_blank'><img class='img-responsive img-cover' src='/img/modal/rw-cover.jpg'/></a></div><div class='col-sm-3'><a href='https://www.youtube.com/user/swptvuk' target='_blank'><img class='img-responsive img-cover' src='/img/modal/swp-tv.gif'/></a></div></div><hr/><div class='row'><div class='col-xs-4 social-container'><a class='twitter social-icon' target='_blank' title='SWP on Twitter' href='https://twitter.com/socialistworker'><ion-icon name='logo-twitter'></ion-icon></a></div><div class='col-xs-4 social-container'><a class='facebook social-icon' target='_blank' title='SWP on Facebook' href='https://www.facebook.com/SocialistWorkerBritain/'><ion-icon name='logo-facebook'></ion-icon></a></div><div class='col-xs-4 social-container'><a class='instagram social-icon' target='_blank' title='SWP on Youtube' href='https://www.youtube.com/user/swptvuk'><ion-icon name='logo-youtube'></ion-icon></a></div></div>",
+'/img/modal/swp3.jpg', 
+'admin', now());
+
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 1, 0);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 2, 1);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 3, 2);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 4, 3);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 5, 4);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 6, 5);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 7, 6);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 8, 7);
+insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 9, 8);
+
 -- VENUES
 insert into venue (id, name, address, creator, date_created) 
 values (1, 'Student Central', 'Student Central', 'admin', now());
