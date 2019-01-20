@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -472,10 +473,10 @@ public class HomeController {
 			logger.info("Building meetings json");
 			htmlBuilder.buildMeetings( marxismWebsite );
 			
-			if(environment.acceptsProfiles("prod")) {
+			if(environment.acceptsProfiles(Profiles.of("prod"))) {
 				marxismWebsite.setIsDev( false );
 			} else {
-				marxismWebsite.setIsDev( true );
+				marxismWebsite.setIsDev( false );
 			}
 			
 			
