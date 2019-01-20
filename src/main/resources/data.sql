@@ -41,11 +41,11 @@ insert into marxism_website (id, name, year, is_live,
    10, 15, 15, 20,
    10, 15, 15, 20,
    'Marxism Festival 2019', 'PO BOX 74955', 'London', 'E16 9EJ', 'info@marxismfestival.org.uk', '020 7840 5620', 'Get in touch with us', 'Do not hesitate to drop us a line. Tel : 020 7840 5620',
-   'Book before Wednesday 28 March for a £5 discount on your booking!', true, 500,
+   'Book before Wednesday 17 April for a £5 discount on your booking!', true, 500,
    'Marxism Festival 2019', 
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
    true, true, false, true, false, true, true, false, true, false, false, true,
-   'student18',
+   'student193',
    'admin', now());
   
 -- ABOUT
@@ -70,14 +70,13 @@ null, null,
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (4, 'Disabled access', 'arrow-round-forward', 
 'We make every effort to ensure that Marxism is accessible for disabled people. Student Central and the Friends Meeting House are fully accessible.',
-"<div class='row'><div class='col-sm-12'><p>We make every effort to ensure that Marxism is accessible for disabled people.</p><p>Student Central and the Friends Meeting House are fully accessible.</p><p>The Institute of Education is currently undergoing modification. They have requested that people fill in a <strong>PEEP</strong> for any meeting located in their building.</p><p>This form will be sent out with all tickets and will be available at the event.</p></div></div>",
-null, 
+null, null, 
 'admin', now());
 
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (5, 'Accommodation', 'key', 
 'We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.',
-"<p>We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.</p><p>Please note that although we try our best to provide free accommodation to all who need it this is NOT guaranteed and we would encourage those who can to make their own arrangements.</p><p>All accommodation booked after <strong>Monday 19 June</strong> will be &quot;crash pad&quot; in the community centre.</p><p>Alternatively there are lots of options for accommodation in central London. Cheap accommodation includes the <a href='https://www.yha.org.uk/places-to-stay/london' target='_blank'>YHA Hostel</a> or you can pay for a Halls of Residence room at UCL. Call <strong>020 7529 8975</strong> to book with UCL directly.",
+"<p>We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.</p><p>Please note that although we try our best to provide free accommodation to all who need it this is NOT guaranteed and we would encourage those who can to make their own arrangements.</p>.",
 null, 
 'admin', now());
 
@@ -96,7 +95,7 @@ null,
 
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (8, 'Bookmarks bookshop', 'book', 
-'Bookmarks bookshop will be open every day during the Marxism Festival in the Library Bar in Student Central. They will have books by speakers at the event and books that complement meetings and courses.',
+'Bookmarks bookshop will be open every day during the Marxism Festival. They will have books by speakers at the event and books that complement meetings and courses.',
 "<div class='row'><div class='col-sm-12'><h1 class='text-center font-lindham'>Liberate your mind</h1><p>Where do you go when you want to buy a book? A union-busting corporation or a socialist bookshop? Bookmarks is the largest socialist bookshop in Britain.</p><p>And we don&apos;t just sell from our shop in London, we go out and about to provide bookstalls at events across the country, from Tolpuddle to major demonstrations. We send books across the worldand offer a full mailorder service for individuals and trade unions.</p><p>Our range of books covers politics, economics, trade unionism, labour history, the environment, black struggle, women, culture, fiction, radical kid&apos;s books and much more. And we don&apos;t just sell books, we publish them too- books that answer the big questions that socialists and trade unionists are asking.</p><p>The massive anti-union booksellers like Amazon can offer the sorts of discounts smaller shops cannot match. But they do this by attacking their own workers, avoiding corporation tax and squeezing authors and publishers. That&apos;s not how we operate. And the major booksellers cannot match the guidance and expertise that our unionised staff provide.</p></div></div><hr /><div class='row'><div class='col-xs-3 social-container'><a class='twitter social-icon' target='_blank' title='Bookmarks on the web' href='https://bookmarksbookshop.co.uk'> <ion-icon name='ion-ios-world'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='twitter social-icon' target='_blank' title='Bookmarks on Twitter' href='https://twitter.com/Bookmarks_books'> <ion-icon name='ion-social-twitter'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='facebook social-icon' target='_blank' title='Bookmarks on Facebook' href='https://www.facebook.com/bookmarks.bookshop/'> <ion-icon name='ion-social-facebook'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='instagram social-icon' target='_blank' title='Bookmarks on Youtube' href='https://www.youtube.com/channel/UCLhxs9hxW-q1Aq3TcQH7r_Q'> <ion-icon name='ion-social-youtube-outline'></ion-icon></a></div></div>",
 "/img/modal/bookmarks-outside.jpg", 
 'admin', now());
