@@ -251,8 +251,8 @@ public class HomeController {
 
 			model.addAttribute(booking);
 
-			FieldError error = (FieldError) bindingResult.getAllErrors().get(0);
-			String message = error.getField() + " " + error.getDefaultMessage();
+//			FieldError error = (FieldError) bindingResult.getAllErrors().get(0);
+//			String message = error.getField() + " " + error.getDefaultMessage();
 
 			return "error.html";
 		}
@@ -275,7 +275,7 @@ public class HomeController {
 
 		//Create order id based on environment
 		String orderId = "DEV" + booking.getId();
-		if(environment.acceptsProfiles("prod")) {
+		if(environment.acceptsProfiles(Profiles.of("prod"))) {
 			orderId = "MRX" + booking.getId();
 		};
 		
@@ -410,38 +410,26 @@ public class HomeController {
 		
 		logger.info("Sending booking confirmation");
 		
+		MarxismWebsite marxismWebsite = getMarxismWebsite();
+		
 		final Context ctx = new Context();
 		ctx.setVariable("booking", booking);
 
 		final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
 		final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8");
 
-		// BCC depending on profile
-		String[] profiles = environment.getActiveProfiles();
-
-//		if (profiles[0].equals("default") || profiles[0].equals("test")) {
-			// For test and dev
-			message.setTo(booking.getEmail());
-			message.setBcc("jack747@gmail.com");
-			message.setSubject("Your Marxism Booking Confirmation");
-			message.setFrom("info@marxismfestival.org.uk");
-//		} else {
-//			message.setSubject("Marxism Booking");
-//			message.setBcc("info@marxismfestival.org.uk");
-//			message.setFrom("info@marxismfestival.org.uk");
-//			message.setTo(booking.getEmail());
-//		}
-
-		// Create the HTML body using Thymeleaf
-		String html = "<h1>Thank you for booking a ticket for Marxism Festival 2018.</h1>";
-		html += "<p>You need to collect your ticket from the Marxism Festival Box Office.</p>";
-		html += "<p>The Box Office will be in Student Central, Malet Street, WC1E 7HY and will be open from 11.30am on Thurs 5 July and throughout the event.</p>";
-		html += "<p>Marxism Festival starts on Thursday 5 July.  The first meeting will be at 12.30pm on Thurs 6 July.</p>";
-		html += "<br/><p>Marxism finishes at 6.30pm on Sun 8 July.</p>";
-		html += "<p>Marxism Festival will be based in Student Central, Malet Street, WC1E 7HY.</p>";
-		html += "<p>Meetings will also take place in the Institute of Education, 22 Bedford Way, WCIH 0AL and Friends Meeting House, 173-177 Euston Road, NW1 2BJ.</p>";
+		message.setSubject( marxismWebsite.getEmailSubject() );
+		message.setFrom("info@marxismfestival.org.uk");
 		
-		html += "<p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>";
+		if (environment.acceptsProfiles(Profiles.of("prod"))) {
+			message.setBcc("info@marxismfestival.org.uk");
+			message.setTo(booking.getEmail());
+		} else {
+			message.setTo("jack747@gmail.com");
+		}
+
+		String html = marxismWebsite.getEmailText();
+		
 		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
 
 		message.setText(html, true); // true = isHtml
@@ -451,7 +439,7 @@ public class HomeController {
 		logger.info("Mail successfuly sent!");
 	}
 	
-	private MarxismWebsite getMarxismWebsite() throws JsonProcessingException {
+	private MarxismWebsite getMarxismWebsite() {
 
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
@@ -476,13 +464,18 @@ public class HomeController {
 			if(environment.acceptsProfiles(Profiles.of("prod"))) {
 				marxismWebsite.setIsDev( false );
 			} else {
-				marxismWebsite.setIsDev( false );
+				marxismWebsite.setIsDev( true );
 			}
 			
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
-			String meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
+			String meetingsJson;
+			try {
+				meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
+			} catch (JsonProcessingException e) {
+				throw new MarxismException("Cannot process meetings json");
+			}
 			
 //			logger.debug("Meetings json : {}", meetingsJson);
 			

@@ -49,7 +49,16 @@ public class HomeTests {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content("{ \"orderid\" : \"2\", \"name\" : \"name\", \"barclaysStatus\" : \"1\", \"amount\" : \"200\", \"sha\" : \"adf\" }"))
 		.andExpect(status().isNotAcceptable()).andExpect(content().string( "sha failure" ));
-	}	
+	}
+	
+	@Test
+	public void testFeedbackPaid() throws Exception {
+		this.mvc.perform(post("/feedback")
+				.accept(MediaType.TEXT_HTML)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{ \"orderid\" : \"2\", \"name\" : \"name\", \"barclaysStatus\" : \"5\", \"amount\" : \"200\", \"sha\" : \"90d954ac67bf65fa4ad5862caaa5f3d95c45f3a0ffd7bb7fab985eb950a64a257a01769c8ab6cb3c539a6a0b2e085d146d59d57388aea8d2853fcab881e7b0aa\" }"))
+		.andExpect(status().isOk()).andExpect(content().string( "success" ));
+	}		
 	
 	@Test
 	public void testRedirectForOldUrl() throws Exception {
@@ -82,12 +91,12 @@ public class HomeTests {
 		.param("discountCode","student18")
 		.param("ticket.type","FULL")
 		.param("ticket.pricing","UNWAGED")
-		.param("ticket.webPrice","3150")
+		.param("ticket.webPrice","2700")
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
 		.andExpect(model().attribute("orderId", "DEV10"))
-		.andExpect(model().attribute("amount", "3150"))
+		.andExpect(model().attribute("amount", "2700"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
 	}
@@ -116,12 +125,12 @@ public class HomeTests {
 		.param("discountCode","Blah")
 		.param("ticket.type","FULL")
 		.param("ticket.pricing","UNWAGED")
-		.param("ticket.webPrice","3500")
+		.param("ticket.webPrice","3000")
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
 		.andExpect(model().attribute("orderId", "DEV11"))
-		.andExpect(model().attribute("amount", "3500"))
+		.andExpect(model().attribute("amount", "3000"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
 	}		
@@ -149,12 +158,12 @@ public class HomeTests {
 		.param("address.country","")
 		.param("ticket.type","FULL")
 		.param("ticket.pricing","UNWAGED")
-		.param("ticket.webPrice","3500")
+		.param("ticket.webPrice","3000")
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
 		.andExpect(model().attribute("orderId", "DEV9"))
-		.andExpect(model().attribute("amount", "3500"))
+		.andExpect(model().attribute("amount", "3000"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
 	}

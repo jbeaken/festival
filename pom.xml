@@ -74,6 +74,7 @@
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 		<!-- Domain -->
 		<dependency>
 			<groupId>org.swp.marxism</groupId>
@@ -85,6 +86,8 @@
 =======
 
 >>>>>>> a046d1f... First commit
+=======
+>>>>>>> cbddba1... Moved domain into marxism, as not shared
 	</dependencies>
 
 	<build>
