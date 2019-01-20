@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.swp.marxism.domain.Day;
+import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.domain.Meeting;
 import org.swp.marxism.domain.Theme;
 
@@ -13,11 +14,15 @@ public class HtmlBuilder {
 	protected static final Logger logger = LoggerFactory.getLogger(HtmlBuilder.class);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	public void build(Meeting meeting) {
 =======
 	public void buildMeeting(Meeting meeting) {
 >>>>>>> d9a4772... Themes now ready to show meetings, speakers.sql added
+=======
+	public void buildMeeting(Meeting meeting, MarxismWebsite marxismWebsite) {
+>>>>>>> 16a56eb... Getting ready for release of 2019
 		String speaker = meeting.getSpeakers() == null ? "&nbsp;" : meeting.getSpeakers();
 
 		String title = sanitiseString(meeting.getTitle());
@@ -85,7 +90,7 @@ public class HtmlBuilder {
 			builder.append("</a>");
 		}
 
-		builder.append( venueDiv );
+		if(marxismWebsite.getShowMeetingVenues() == true) builder.append( venueDiv );
 
 		builder.append("</div>"); // .meeting__item__container
 
@@ -265,9 +270,9 @@ public class HtmlBuilder {
 <<<<<<< HEAD
 =======
 
-	public void buildMeetings(List<Meeting> meetings) {
-		for (Meeting m : meetings) {
-			buildMeeting(m);
+	public void buildMeetings(MarxismWebsite marxismWebsite) {
+		for (Meeting m : marxismWebsite.getMeetings()) {
+			buildMeeting(m, marxismWebsite);
 		}
 	}
 

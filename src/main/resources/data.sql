@@ -1,24 +1,8 @@
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, after_party, discount_code)
-values (1, true, 'UNCONFIRMED', NOW() - INTERVAL 1 DAY, "John", "Smith", "jsmith@gmail.com", "0733435343", "10 Filpot Street", null, "Preston", "P3 3ED", "United Kingdom", "FULL", "WAGED", true, 'windrush18');
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, after_party, discount_code)
-values (2, false, 'PAID', NOW() - INTERVAL 2 DAY, "Jane", "Totem", "jtotem@gmail.com", "0733435343", "10 Filpot Street", null, "Preston", "P3 3ED", "United Kingdom", "FULL", "STUDENT_FE", true, 'windrush18');
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, after_party, discount_code)
-values (3, true, 'UNCONFIRMED', NOW() - INTERVAL 1 HOUR, "Fred", "Letter", "fletter@gmail.com", "0733435343", "10 Filpot Street", null, "Preston", "P3 3ED", "United Kingdom", "FULL", "UNWAGED", false, 'student18');
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday)
-values (4, false, 'CANCELLED', NOW() - INTERVAL 2 MONTH, "Susan", "Sontag", "sstotag@gmail.com", "0733435343", "10 Filpot Street", null, "Preston", "P3 3ED", "United Kingdom", "DAY", "UNWAGED", 1, null);
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday, saturday, sunday, after_party)
-values (5, true, 'PAID', NOW() - INTERVAL 3 HOUR, "Sarah", "Higgins", "sstotag@gmail.com", "0733435343", "10 Filpot Street", null, "Preston", "P3 3ED", "United Kingdom", "DAY", "STUDENT_HE", 1, null, 1, 1, true);
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday, saturday, sunday, accommodation_needs, accommodation_contact, children18months_to5years, children5years_to11years, children_under18months)
-values (6, false, 'PAID', NOW() - INTERVAL 4 HOUR, "Joseph", "Bradley", "jbradley@gmail.com", "0207 388 454", "10 Terrance Street", null, "Brighton", "B4 3ED", "United Kingdom", "DAY", "STUDENT_HE", 1, null, 1, 1, "floor or bed", "Mr floor man", 2, null, 3);
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday, saturday, sunday, accommodation_needs, accommodation_contact, children18months_to5years, children5years_to11years, children_under18months)
-values (7, true, 'CANCELLED', NOW() - INTERVAL 1 WEEK, "Hilary", "Bradley", "hbradley@gmail.com", "0207 444 454", "10 Terrance Street", "Kemptown", "Brighton", "B4 3ED", "United Kingdom", "FULL", "STUDENT_FE", null, null, null, null, null, null, null, 2, null);
-insert into booking (id, is_actioned, status, date, firstname, lastname, email, telephone, address1, address2, town, postcode, country, ticket_type, ticket_pricing, thursday, friday, saturday, sunday, accommodation_needs, accommodation_contact, children18months_to5years, children5years_to11years, children_under18months, after_party)
-values (8, true, 'CANCELLED', NOW() - INTERVAL 2 WEEK, "Sarah", "Homes", "shomes@hotmail.com", "0207 987 454", "10 Terrance Street", "Kemptown", "Brighton", "B4 3ED", "United Kingdom", "FLEXI", "STUDENT_FE", null, null, null, null, null, null, null, 2, null, true);
 
-insert into marxism_website (id, name, is_live, 
-    welcome_text1, welcome_text2, welcome_text3, welcome_text4, 
+insert into marxism_website (id, name, year, is_live, 
     about_heading, about_line2, about_line3, about_text, 
     pricing_heading, pricing_text, 
+    meeting_heading,
     pricing_full_eventfe, pricing_full_eventhe, pricing_full_event_unwaged, pricing_full_event_waged, 
     pricing_day_ticketfe, pricing_day_tickethe, pricing_day_ticket_unwaged, pricing_day_ticket_waged, 
     pricing_flexi_ticketfe, pricing_flexi_tickethe, pricing_flexi_ticket_unwaged, pricing_flexi_ticket_waged, 
@@ -26,44 +10,42 @@ insert into marxism_website (id, name, is_live,
     discount_text, apply_ticket_discount, discount_amount,
     theme_heading,
     video_url, audio_url, videos_url, gallery_url,
-    show_booking, show_pricing, show_themes, show_about, show_speakers, show_contact, show_gallery, show_video, show_discount_code, show_culture_items,
+    show_booking, show_pricing, show_themes, show_about, show_speakers, show_contact, show_gallery, show_video, show_discount_code, show_culture_items, show_meeting_venues, show_meetings,
     discount_code,
     creator, date_created)
   values
-  (1, '2018', true, 
-   'Marxism Festival 2018', 'A festival of socialist ideas', '5 - 8 July, Central London', null,
-   'Marxism 2018', 'A festival of socialist ideas', '5 - 8 July, central London', 'If you were excited by Jeremy Corbyn&apos;s election as Labour leader, horrified by Donald Trump, want to challenge racism and oppression, desire action over climate change or are looking for an alternative to austerity and war then Marxism Festival 2018 is the place for you. Thousands of activists, campaigners, trade unionists, students, writers and academics will come together at over 130 different meetings.', 
+  (1, '2019', 2019, true, 
+   'Marxism 2019', 'A festival of socialist ideas', '4 - 7 July, London', 'Capitalism is in crisis. Society is rapidly polarising between Left and Right. Marxism Festival 2019 is the place to debate how we can beat back the rise of racism, fascism & the far right. But thousands of people from around the world will also be discussing the alternative to the system that means chaos.', 
    'Ticket prices', 'Advance tickets are much cheaper than those bought on the door, so if you book before 5pm on 4 July you&apos;ll save at least £10. The festival is a not-for-profit event and we keep ticket prices as low as possible. But we do have to charge for entry to cover the high costs of the venues, creche, staffing and accommodation.',
+   'Meetings from previous Marxism 2018',
    20, 30, 30, 55,
    10, 15, 15, 20,
    10, 15, 15, 20,
-   'Marxism Festival 2018', 'PO BOX 74955', 'London', 'E16 9EJ', 'info@marxismfestival.org.uk', '020 7840 5620', 'Get in touch with us', 'Do not hesitate to drop us a line. Tel : 020 7840 5620',
+   'Marxism Festival 2019', 'PO BOX 74955', 'London', 'E16 9EJ', 'info@marxismfestival.org.uk', '020 7840 5620', 'Get in touch with us', 'Do not hesitate to drop us a line. Tel : 020 7840 5620',
    'Book before Wednesday 28 March for a £5 discount on your booking!', false, 500,
-   'Marxism Festival 2018', 
+   'Marxism Festival 2019', 
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
-   true, true, true, true, true, true, true, true, true, true,
+   true, true, false, true, false, true, true, false, true, false, false, true,
    'student18',
    'admin', now());
   
 -- ABOUT
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (1, 'Booking', 'card', 
-'Marxism Festival 2018 will start at 12.30 pm on Thurs 5 July and finish at 5.30pm on Sun 8 July. The opening rally will start at 7pm on Thurs 5 July. Advance purchased tickets will be sent out in the post in June. Book <a href="#section_booking" class="read-more">here</a>',
+'Advance tickets are cheaper - save money and book online here! You can also book on the phone by calling 0207 840 5620. Book <a href="#section_booking" class="read-more">here</a>',
 null, null, 
 'admin', now());
  
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (2, 'Where to find us', 'compass', 
-'Marxism Festival 2018 takes place in the heart of London. The event will be based in <strong>Student Central, Malet Street, WC1E 7HY</strong>',
-"<h1 class='text-center font-lindham'>Marxism Festival 2018 takes place in the heart of London.</h1><p>The event will mainly be based in Student Central, Malet Street, WC1E 7HY.</p><p>Meetings will also take place in:</p><ul><li><a href='https://www.google.co.uk/maps/search/The+Institute+of+Education,+20+Bedford+Way,+WC1H+0AL/@51.5171592,-0.1354243,15z/data=!3m1!4b1?hl=en' target='_blank'>The Institute of Education, 20 Bedford Way, WC1H 0AL</a></li><li><a href='https://www.google.co.uk/maps/place/S+E+N+J+I+T+the+Institute+of+Education+University+of+London/@51.5238041,-0.1331508,17z/data=!4m8!1m2!2m1!1sThe+Institute+of+Education,+20+Bedford+Way,+WC1H+0AL!3m4!1s0x48761b3035bc76db:0xaceb7f515c3df740!8m2!3d51.5230423!4d-0.1278842?hl=en' target='_blank'>The Friends Meeting House, 173-177 Euston Road, NW1 2BJ</a></li></ul><p>These are all very close to tube and mainline train stations.</p>",
-'/img/modal/map.jpg', 
+'We’re going to be announcing a brand new venue in London for Marxism 2019 very soon! Watch this space',
+null, null, 
 'admin', now());
 
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (3, 'Tickets', 'microphone', 
-'<strong>Advance bookings finish at 5pm on Wednesday 4 July.</strong> If you have not booked an advance ticket you can buy one at the Box Office in <strong>Student Central, Malet Street, WC1E 7HY</strong> which will be open throughout the festival.',
-"<div class='row'><div class='col-sm-12'><p>Advance bookings finish at 5pm on Wednesday 4 July.</p><p>If you have not booked an advance ticket you can buy one at the Box Office in <strong>Student Central, Malet Street, WC1E 7HY</strong> which will be open throughout the festival.</p><p>This will open at 11.30am on Thurs 5 July and will be open throughout the event.</p><p>If you booked your ticket before Weds 27 June it will be sent out in the post. If for some reason it does not arrive then please come to our Box Office in Student Central,  Malet Street, WC1E 7HY  where we can reissue it.</p><p>If you booked your ticket after Weds 27 June you will need to collect your ticket from our Box Office in Student Central. This will open at 11.30am on Thurs 5 July and will be open throughout the event.</p></div></div>",
-null, 
+'<strong>Advance bookings finish at 5pm on Wednesday 3 July.</strong> If you have not booked an advance ticket you can buy one at the Box Office at the venue which will be open throughout the festival',
+null, null, 
 'admin', now());
 
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
@@ -102,7 +84,7 @@ values (8, 'Bookmarks bookshop', 'book',
 
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (9, 'About us', 'star', 
-'Marxism Festival 2018 is a four day political festival of socialist ideas hosted by the <strong>Socialist Workers Party</strong>.',
+'Marxism Festival  is a four day political festival of socialist ideas hosted by the <strong>Socialist Workers Party</strong>.',
 "<h1 class='text-center font-lindham'>Marxism Festival is an annual event hosted by the Socialist Workers Party</h1><div class='row'><div class='col-xs-12'><p>The Marxism Festival has been taking place for over 30 years. Our aim is to provide a forum to discuss and debate left wing politics involving speakers and activists from different organisations as well as the SWP.</p><p>The festival brings together thousands of activists, trade unionists, students, writers and academics from across the globe to grapple with political questions of the day and discuss a way forward in campaigns and struggles.</p><p>Find your local <a href='http://socialistworker.co.uk/public/events' target='_blank'>SWP branch</a></p><p>Please visit our <a href='http://swp.org.uk' target='_blank'>website</a></p></div><h3 class='text-center'>Read Socialist Workers Party publications online</h3><div class='row'><div class='col-sm-3'><a href='https://socialistworker.co.uk' target='_blank'><img class='img-responsive img-cover' src='/img/modal/sw-cover.jpg'/></a></div><div class='col-sm-3'><a href='http://isj.org.uk/' target='_blank'><img class='img-responsive img-cover' src='/img/modal/isj-cover.jpg'/></a></div><div class='col-sm-3'><a href='http://socialistreview.org.uk/' target='_blank'><img class='img-responsive img-cover' src='/img/modal/rw-cover.jpg'/></a></div><div class='col-sm-3'><a href='https://www.youtube.com/user/swptvuk' target='_blank'><img class='img-responsive img-cover' src='/img/modal/swp-tv.gif'/></a></div></div><hr/><div class='row'><div class='col-xs-4 social-container'><a class='twitter social-icon' target='_blank' title='SWP on Twitter' href='https://twitter.com/socialistworker'><ion-icon name='logo-twitter'></ion-icon></a></div><div class='col-xs-4 social-container'><a class='facebook social-icon' target='_blank' title='SWP on Facebook' href='https://www.facebook.com/SocialistWorkerBritain/'><ion-icon name='logo-facebook'></ion-icon></a></div><div class='col-xs-4 social-container'><a class='instagram social-icon' target='_blank' title='SWP on Youtube' href='https://www.youtube.com/user/swptvuk'><ion-icon name='logo-youtube'></ion-icon></a></div></div>",
 '/img/modal/swp3.jpg', 
 'admin', now());
@@ -129,22 +111,22 @@ values (3, 'Institute of Education', 'Institute of Education', 'admin', now());
 
 -- CAROUSEL ITEMS
 insert into carousel_item (id, name, text, image_url, creator, date_created) 
-values (1, '1', 'Marxism Festival <span>2018</span>', 'imageUrl', 'admin', now());
+values (1, '1', 'Marxism Festival <span>2019</span>', 'imageUrl', 'admin', now());
 
 insert into carousel_item (id, name, text, image_url, creator, date_created) 
 values (2, '2', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
 
 insert into carousel_item (id, name, text, image_url, creator, date_created) 
-values (3, '3', '5 - 8 July, Central London', 'imageUrl', 'admin', now());
+values (3, '3', '4 - 7 July, London', 'imageUrl', 'admin', now());
 
 insert into carousel_item (id, name, text, image_url, creator, date_created) 
-values (4, '4', 'Marxism Festival <span>2018</span>', 'imageUrl', 'admin', now());
+values (4, '4', 'Marxism Festival <span>2019</span>', 'imageUrl', 'admin', now());
 
 insert into carousel_item (id, name, text, image_url, creator, date_created) 
 values (5, '5', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
 
 insert into carousel_item (id, name, text, image_url, creator, date_created) 
-values (6, '6', '5 - 8 July, Central London', 'imageUrl', 'admin', now());
+values (6, '6', '4 - 7 July, London', 'imageUrl', 'admin', now());
 
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 1, 0);
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 2, 1);

@@ -244,14 +244,14 @@ ion-icon#downloadTimetablePdf {
 }
 
 </style>
-<section class="section_themes section_alt" id="section_meetings" th:if="${content.showSpeakers == true}">
+<section class="section_themes section_alt" id="section_meetings" th:if="${content.showMeetings == true}">
 
 	<div class="container">
 
 		<div class="row">
 			<div class="col-xs-12">
 
-				<h2 class="page-header text-center">Meetings</h2>
+				<h2 class="page-header text-center" th:text="${content.meetingHeading}">Meetings</h2>
 
 			</div>
 		</div>

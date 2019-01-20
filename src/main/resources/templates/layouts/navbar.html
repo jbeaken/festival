@@ -7,7 +7,7 @@
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_main" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#section_banner">Marxism Festival 2018</a>
+			<a class="navbar-brand" href="#section_banner" th:text="${'Marxism Festival ' + content.year}">Marxism Festival 2018</a>
 		</div>
 
 		<!-- Links -->
@@ -24,8 +24,12 @@
 				<li><a href="#section_pricing" th:if="${content.showPricing == true}">Pricing</a></li>
 =======
 				<li><a href="#section_cultureitems" th:if="${content.showCultureItems == true}">Culture</a></li>
+<<<<<<< HEAD
 >>>>>>> bf4b474... Added culture items
 				<li><a href="#section_meetings" th:if="${content.showSpeakers == true}">Timetable</a></li>
+=======
+				<li><a href="#section_meetings" th:if="${content.showMeetings == true}">Timetable</a></li>
+>>>>>>> 16a56eb... Getting ready for release of 2019
 				<li><a href="#section_pricing" th:if="${content.showPricing == true}">Tickets</a></li>
 				<li><a href="#section_booking" id="anchor_section_booking"><span id="navbar_booking">Book</span></a></li>
 				<li><a href="#section_gallery" th:if="${content.showGallery == true}">Gallery</a></li>

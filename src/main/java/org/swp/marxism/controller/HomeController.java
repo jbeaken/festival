@@ -470,7 +470,7 @@ public class HomeController {
 			logger.info("Marxism website content placed into context");
 			
 			logger.info("Building meetings json");
-			htmlBuilder.buildMeetings( marxismWebsite.getMeetings() );
+			htmlBuilder.buildMeetings( marxismWebsite );
 			
 			if(environment.acceptsProfiles("prod")) {
 				marxismWebsite.setIsDev( false );

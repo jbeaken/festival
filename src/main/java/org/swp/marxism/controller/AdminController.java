@@ -48,7 +48,7 @@ public class AdminController {
 		logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
 
 		logger.info("Building meetings json from ");
-		htmlBuilder.buildMeetings( marxismWebsite.getMeetings() );
+		htmlBuilder.buildMeetings( marxismWebsite );
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
