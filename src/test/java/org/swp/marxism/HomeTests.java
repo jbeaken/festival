@@ -7,6 +7,8 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.time.YearMonth;
+
 import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,19 +46,25 @@ public class HomeTests {
 	
 	@Test
 	public void testFeedbackInvalidSha() throws Exception {
+		
+		String orderId = "MRX" + YearMonth.now().getYear() + "_2";
+		
 		this.mvc.perform(post("/feedback")
 				.accept(MediaType.TEXT_HTML)
 				.contentType(MediaType.APPLICATION_JSON)
-				.content("{ \"orderid\" : \"2\", \"name\" : \"name\", \"barclaysStatus\" : \"1\", \"amount\" : \"200\", \"sha\" : \"adf\" }"))
+				.content("{ \"orderid\" : \"" + orderId + "\", \"name\" : \"name\", \"barclaysStatus\" : \"1\", \"amount\" : \"200\", \"sha\" : \"adf\" }"))
 		.andExpect(status().isNotAcceptable()).andExpect(content().string( "sha failure" ));
 	}
 	
 	@Test
 	public void testFeedbackPaid() throws Exception {
+		
+		String orderId = "MRX" + YearMonth.now().getYear() + "_2";
+		
 		this.mvc.perform(post("/feedback")
 				.accept(MediaType.TEXT_HTML)
 				.contentType(MediaType.APPLICATION_JSON)
-				.content("{ \"orderid\" : \"2\", \"name\" : \"name\", \"barclaysStatus\" : \"5\", \"amount\" : \"200\", \"sha\" : \"90d954ac67bf65fa4ad5862caaa5f3d95c45f3a0ffd7bb7fab985eb950a64a257a01769c8ab6cb3c539a6a0b2e085d146d59d57388aea8d2853fcab881e7b0aa\" }"))
+				.content("{ \"orderid\" : \"" + orderId + "\", \"name\" : \"name\", \"barclaysStatus\" : \"5\", \"amount\" : \"200\", \"sha\" : \"a6c77357e28a70d55616c184ef28679e9afefbf91384a67d5b3637eb444a738b7f2149d857efaf9056fa8c285a832fb6e4a11ddabec16be8cf620e0dce3ea06e\" }"))
 		.andExpect(status().isOk()).andExpect(content().string( "success" ));
 	}		
 	
@@ -95,7 +103,7 @@ public class HomeTests {
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
-		.andExpect(model().attribute("orderId", "DEV10"))
+		.andExpect(model().attribute("orderId", getOrderId(10) ))
 		.andExpect(model().attribute("amount", "2700"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
@@ -129,12 +137,16 @@ public class HomeTests {
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
-		.andExpect(model().attribute("orderId", "DEV11"))
+		.andExpect(model().attribute("orderId", getOrderId(11) ))
 		.andExpect(model().attribute("amount", "3000"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     
 	}		
 	
+	private Object getOrderId(int id) {
+		return "DEV" + YearMonth.now().getYear() + "_" + id;
+	}
+
 	@Test
 	public void testBook() throws Exception {
 		//Load MarxismContent into ServletContext
@@ -162,7 +174,7 @@ public class HomeTests {
 		.param("ticket.afterParty","true"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("booking", "amount", "orderId"))
-		.andExpect(model().attribute("orderId", "DEV9"))
+		.andExpect(model().attribute("orderId", getOrderId(9) ))
 		.andExpect(model().attribute("amount", "3000"))
 		//.andExpect(model().attribute("booking.email", "email@gmail.com"))
 		.andExpect(view().name("barclays.html"));     

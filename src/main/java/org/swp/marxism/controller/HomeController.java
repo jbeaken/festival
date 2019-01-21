@@ -3,6 +3,7 @@ package org.swp.marxism.controller;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.NoSuchAlgorithmException;
+import java.time.YearMonth;
 import java.util.Optional;
 
 import javax.mail.MessagingException;
@@ -80,6 +81,8 @@ public class HomeController {
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
+	
+	private YearMonth yearMonth = YearMonth.now();
 
 	protected static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -180,7 +183,7 @@ public class HomeController {
 
 		logger.info("Received feeback {} ", feedback);
 		
-		Long id = Long.parseLong( feedback.getOrderid().replace("MRX", "") );
+		Long id = Long.parseLong( feedback.getOrderid().replace("MRX" + YearMonth.now().getYear() + "_", "") );
 		
 		logger.info("Extracted booking id {}", id);
 		
@@ -273,11 +276,7 @@ public class HomeController {
 
 		logger.info("Booking persisted. All done!");
 
-		//Create order id based on environment
-		String orderId = "DEV" + booking.getId();
-		if(environment.acceptsProfiles(Profiles.of("prod"))) {
-			orderId = "MRX2019_" + booking.getId();
-		};
+		String orderId = getOrderId( booking );
 		
 		logger.debug("Sending to barclays with order id {}", orderId);
 		
@@ -288,6 +287,18 @@ public class HomeController {
 		return "barclays.html";
 	}
 	
+	private String getOrderId(Booking booking) {
+		String orderId = "DEV";
+		
+		if(environment.acceptsProfiles(Profiles.of("prod"))) {
+			orderId = "MRX";
+		};
+		
+		orderId += yearMonth.getYear() + "_" + booking.getId();
+		
+		return orderId;
+	}
+
 	private String getBackendPrice(Booking booking) {
 
 		Integer price = null;

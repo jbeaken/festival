@@ -69,7 +69,7 @@ null, null,
 
 insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
 values (4, 'Disabled access', 'arrow-round-forward', 
-'We make every effort to ensure that Marxism is accessible for disabled people. Student Central and the Friends Meeting House are fully accessible.',
+'We make every effort to ensure that Marxism is accessible for disabled people. Our venues are fully accessible.',
 null, null, 
 'admin', now());
 
