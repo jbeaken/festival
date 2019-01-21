@@ -276,7 +276,7 @@ public class HomeController {
 		//Create order id based on environment
 		String orderId = "DEV" + booking.getId();
 		if(environment.acceptsProfiles(Profiles.of("prod"))) {
-			orderId = "MRX" + booking.getId();
+			orderId = "MRX2019_" + booking.getId();
 		};
 		
 		logger.debug("Sending to barclays with order id {}", orderId);
