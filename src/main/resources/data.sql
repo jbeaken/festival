@@ -16,14 +16,14 @@ insert into booking (id, is_actioned, status, date, firstname, lastname, email, 
 values (8, true, 'CANCELLED', NOW() - INTERVAL 2 WEEK, "Sarah", "Homes", "shomes@hotmail.com", "0207 987 454", "10 Terrance Street", "Kemptown", "Brighton", "B4 3ED", "United Kingdom", "FLEXI", "STUDENT_FE", null, null, null, null, null, null, null, 2, null, true);
 
 
-insert into marxism_website (id, name, year, is_live, 
-    about_heading, about_line2, about_line3, about_text, 
-    pricing_heading, pricing_text, 
+insert into marxism_website (id, name, year, is_live,
+    about_heading, about_line2, about_line3, about_text,
+    pricing_heading, pricing_text,
     meeting_heading,
     email_subject, email_text,
-    pricing_full_eventfe, pricing_full_eventhe, pricing_full_event_unwaged, pricing_full_event_waged, 
-    pricing_day_ticketfe, pricing_day_tickethe, pricing_day_ticket_unwaged, pricing_day_ticket_waged, 
-    pricing_flexi_ticketfe, pricing_flexi_tickethe, pricing_flexi_ticket_unwaged, pricing_flexi_ticket_waged, 
+    pricing_full_eventfe, pricing_full_eventhe, pricing_full_event_unwaged, pricing_full_event_waged,
+    pricing_day_ticketfe, pricing_day_tickethe, pricing_day_ticket_unwaged, pricing_day_ticket_waged,
+    pricing_flexi_ticketfe, pricing_flexi_tickethe, pricing_flexi_ticket_unwaged, pricing_flexi_ticket_waged,
     contact_address1, contact_address2, contact_address3, contact_address4, contact_email, contact_telephone, contact_heading, contact_line2,
     discount_text, apply_ticket_discount, discount_amount,
     theme_heading,
@@ -32,79 +32,79 @@ insert into marxism_website (id, name, year, is_live,
     discount_code,
     creator, date_created)
   values
-  (1, '2019', 2019, true, 
-   'Marxism 2019', 'A festival of socialist ideas', '4 - 7 July, London', 'Capitalism is in crisis. Society is rapidly polarising between Left and Right. Marxism Festival 2019 is the place to debate how we can beat back the rise of racism, fascism & the far right. But thousands of people from around the world will also be discussing the alternative to the system that means chaos.', 
+  (1, '2019', 2019, true,
+   'Marxism 2019', 'A festival of socialist ideas', '4 - 7 July, London', 'Capitalism is in crisis. Society is rapidly polarising between Left and Right. Marxism Festival 2019 is the place to debate how we can beat back the rise of racism, fascism & the far right. But thousands of people from around the world will also be discussing the alternative to the system that means chaos.',
    'Ticket prices', 'Advance tickets are much cheaper than those bought on the door, so if you book before 5pm on 4 July you&apos;ll save at least £10. The festival is a not-for-profit event and we keep ticket prices as low as possible. But we do have to charge for entry to cover the high costs of the venues, creche, staffing and accommodation.',
    'Meetings from previous Marxism 2018',
-   'Your Marxism Booking Confirmation', "<h1>Thank you for booking a ticket for Marxism Festival 2019.</h1><p>Marxism Festival starts on Thursday 4 July and finishes on Sunday 7 July.</p><p>Your ticket will be sent to you in the post nearer the event.</p><p>We will be announcing the exciting new London venue for this year’s event very soon - with this space!</p><br/><p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>",
+   'Your Marxism Booking Confirmation', "<h1>Thank you for booking a ticket for Marxism Festival 2019.</h1><p>Dear {firstname} {lastname}</p><p>Marxism Festival starts on Thursday 4 July and finishes on Sunday 7 July.</p><p>Your ticket will be sent to you in the post nearer the event.</p><p>We will be announcing the exciting new London venue for this year’s event very soon - with this space!</p><br/><p>If you need any more information please get in touch with us on info@marxismfestival.org.uk or call 020 7840 5620.</p>",
    20, 30, 30, 55,
    10, 15, 15, 20,
    10, 15, 15, 20,
    'Marxism Festival 2019', 'PO BOX 74955', 'London', 'E16 9EJ', 'info@marxismfestival.org.uk', '020 7840 5620', 'Get in touch with us', 'Do not hesitate to drop us a line. Tel : 020 7840 5620',
    'Book before Wednesday 17 April for a £5 discount on your booking!', true, 500,
-   'Marxism Festival 2019', 
+   'Marxism Festival 2019',
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
    true, true, false, true, false, true, true, false, true, false, false, true,
    'student193',
    'admin', now());
-  
+
 -- ABOUT
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (1, 'Booking', 'card', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (1, 'Booking', 'card',
 'Advance tickets are cheaper - save money and book online here! You can also book on the phone by calling 0207 840 5620. Book <a href="#section_booking" class="read-more">here</a>',
-null, null, 
+null, null,
 'admin', now());
- 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (2, 'Where to find us', 'compass', 
+
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (2, 'Where to find us', 'compass',
 'We’re going to be announcing a brand new venue in London for Marxism 2019 very soon! Watch this space',
-null, null, 
+null, null,
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (3, 'Tickets', 'microphone', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (3, 'Tickets', 'microphone',
 '<strong>Advance bookings finish at 5pm on Wednesday 3 July.</strong> If you have not booked an advance ticket you can buy one at the Box Office at the venue which will be open throughout the festival',
-null, null, 
+null, null,
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (4, 'Disabled access', 'arrow-round-forward', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (4, 'Disabled access', 'arrow-round-forward',
 'We make every effort to ensure that Marxism is accessible for disabled people. Our venues are fully accessible.',
-null, null, 
+null, null,
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (5, 'Accommodation', 'key', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (5, 'Accommodation', 'key',
 'We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.',
 "<p>We can generally arrange free accommodation in London during the event. This is usually &quot;crash pad&quot; type of accommodation on floors and in community centres.</p><p>Please note that although we try our best to provide free accommodation to all who need it this is NOT guaranteed and we would encourage those who can to make their own arrangements.</p>.",
-null, 
+null,
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (6, 'Crèche', 'body', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (6, 'Crèche', 'body',
 'We provide a free crèche with a range of activities available for children of different ages up to 11 years. This must be booked by <strong>Monday 18 June.</strong>',
-null, null, 
+null, null,
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (7, 'Stalls', 'globe', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (7, 'Stalls', 'globe',
 'Many campaigns and activist groups from around the country will be running stalls during the Marxism Festival. Check the website for updates',
-null, 
-null, 
+null,
+null,
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (8, 'Bookmarks bookshop', 'book', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (8, 'Bookmarks bookshop', 'book',
 'Bookmarks bookshop will be open every day during the Marxism Festival. They will have books by speakers at the event and books that complement meetings and courses.',
 "<div class='row'><div class='col-sm-12'><h1 class='text-center font-lindham'>Liberate your mind</h1><p>Where do you go when you want to buy a book? A union-busting corporation or a socialist bookshop? Bookmarks is the largest socialist bookshop in Britain.</p><p>And we don&apos;t just sell from our shop in London, we go out and about to provide bookstalls at events across the country, from Tolpuddle to major demonstrations. We send books across the worldand offer a full mailorder service for individuals and trade unions.</p><p>Our range of books covers politics, economics, trade unionism, labour history, the environment, black struggle, women, culture, fiction, radical kid&apos;s books and much more. And we don&apos;t just sell books, we publish them too- books that answer the big questions that socialists and trade unionists are asking.</p><p>The massive anti-union booksellers like Amazon can offer the sorts of discounts smaller shops cannot match. But they do this by attacking their own workers, avoiding corporation tax and squeezing authors and publishers. That&apos;s not how we operate. And the major booksellers cannot match the guidance and expertise that our unionised staff provide.</p></div></div><hr /><div class='row'><div class='col-xs-3 social-container'><a class='twitter social-icon' target='_blank' title='Bookmarks on the web' href='https://bookmarksbookshop.co.uk'> <ion-icon name='ion-ios-world'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='twitter social-icon' target='_blank' title='Bookmarks on Twitter' href='https://twitter.com/Bookmarks_books'> <ion-icon name='ion-social-twitter'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='facebook social-icon' target='_blank' title='Bookmarks on Facebook' href='https://www.facebook.com/bookmarks.bookshop/'> <ion-icon name='ion-social-facebook'></ion-icon></a></div><div class='col-xs-3 social-container'><a class='instagram social-icon' target='_blank' title='Bookmarks on Youtube' href='https://www.youtube.com/channel/UCLhxs9hxW-q1Aq3TcQH7r_Q'> <ion-icon name='ion-social-youtube-outline'></ion-icon></a></div></div>",
-"/img/modal/bookmarks-outside.jpg", 
+"/img/modal/bookmarks-outside.jpg",
 'admin', now());
 
-insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created) 
-values (9, 'About us', 'star', 
+insert into about (id, name, icon, text, modal_text, modal_image, creator, date_created)
+values (9, 'About us', 'star',
 'Marxism Festival  is a four day political festival of socialist ideas hosted by the <strong>Socialist Workers Party</strong>.',
 "<h1 class='text-center font-lindham'>Marxism Festival is an annual event hosted by the Socialist Workers Party</h1><div class='row'><div class='col-xs-12'><p>The Marxism Festival has been taking place for over 30 years. Our aim is to provide a forum to discuss and debate left wing politics involving speakers and activists from different organisations as well as the SWP.</p><p>The festival brings together thousands of activists, trade unionists, students, writers and academics from across the globe to grapple with political questions of the day and discuss a way forward in campaigns and struggles.</p><p>Find your local <a href='http://socialistworker.co.uk/public/events' target='_blank'>SWP branch</a></p><p>Please visit our <a href='http://swp.org.uk' target='_blank'>website</a></p></div><h3 class='text-center'>Read Socialist Workers Party publications online</h3><div class='row'><div class='col-sm-3'><a href='https://socialistworker.co.uk' target='_blank'><img class='img-responsive img-cover' src='/img/modal/sw-cover.jpg'/></a></div><div class='col-sm-3'><a href='http://isj.org.uk/' target='_blank'><img class='img-responsive img-cover' src='/img/modal/isj-cover.jpg'/></a></div><div class='col-sm-3'><a href='http://socialistreview.org.uk/' target='_blank'><img class='img-responsive img-cover' src='/img/modal/rw-cover.jpg'/></a></div><div class='col-sm-3'><a href='https://www.youtube.com/user/swptvuk' target='_blank'><img class='img-responsive img-cover' src='/img/modal/swp-tv.gif'/></a></div></div><hr/><div class='row'><div class='col-xs-4 social-container'><a class='twitter social-icon' target='_blank' title='SWP on Twitter' href='https://twitter.com/socialistworker'><ion-icon name='logo-twitter'></ion-icon></a></div><div class='col-xs-4 social-container'><a class='facebook social-icon' target='_blank' title='SWP on Facebook' href='https://www.facebook.com/SocialistWorkerBritain/'><ion-icon name='logo-facebook'></ion-icon></a></div><div class='col-xs-4 social-container'><a class='instagram social-icon' target='_blank' title='SWP on Youtube' href='https://www.youtube.com/user/swptvuk'><ion-icon name='logo-youtube'></ion-icon></a></div></div>",
-'/img/modal/swp3.jpg', 
+'/img/modal/swp3.jpg',
 'admin', now());
 
 insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 1, 0);
@@ -118,32 +118,32 @@ insert into marxism_website_about (marxism_website_id, abouts_id, about_item_ind
 insert into marxism_website_about (marxism_website_id, abouts_id, about_item_index) values (1, 9, 8);
 
 -- VENUES
-insert into venue (id, name, address, creator, date_created) 
+insert into venue (id, name, address, creator, date_created)
 values (1, 'Student Central', 'Student Central', 'admin', now());
 
-insert into venue (id, name, address, creator, date_created) 
+insert into venue (id, name, address, creator, date_created)
 values (2, 'Friends Meeting House', 'Friends Meeting House', 'admin', now());
 
-insert into venue (id, name, address, creator, date_created) 
+insert into venue (id, name, address, creator, date_created)
 values (3, 'Institute of Education', 'Institute of Education', 'admin', now());
 
 -- CAROUSEL ITEMS
-insert into carousel_item (id, name, text, image_url, creator, date_created) 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (1, '1', 'Marxism Festival <span>2019</span>', 'imageUrl', 'admin', now());
 
-insert into carousel_item (id, name, text, image_url, creator, date_created) 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (2, '2', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
 
-insert into carousel_item (id, name, text, image_url, creator, date_created) 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (3, '3', '4 - 7 July, London', 'imageUrl', 'admin', now());
 
-insert into carousel_item (id, name, text, image_url, creator, date_created) 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (4, '4', 'Marxism Festival <span>2019</span>', 'imageUrl', 'admin', now());
 
-insert into carousel_item (id, name, text, image_url, creator, date_created) 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (5, '5', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
 
-insert into carousel_item (id, name, text, image_url, creator, date_created) 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (6, '6', '4 - 7 July, London', 'imageUrl', 'admin', now());
 
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 1, 0);
@@ -155,64 +155,69 @@ insert into marxism_website_carousel_items (marxism_website_id, carousel_items_i
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (1, 'Ilan Pappé', 'Ilan Papp&eacute; is an anti-Zionist academic who has written books including The Ethnic Cleansing of Palestine. He will be discussing <b>Opportunities and Dangers for Palestine in the Trump era.</b>', ' Ilan Pappe is the director of the European Centre for Palestine Studies at the University of Exeter and the author of twenty books, the last one is <b>The Biggest Prison on Earth: a History of the Israeli Occupation.</b>', 
+values (1, 'Ilan Pappé', 'Ilan Papp&eacute; is an anti-Zionist academic who has written books including The Ethnic Cleansing of Palestine. He will be discussing <b>Opportunities and Dangers for Palestine in the Trump era.</b>', ' Ilan Pappe is the director of the European Centre for Palestine Studies at the University of Exeter and the author of twenty books, the last one is <b>The Biggest Prison on Earth: a History of the Israeli Occupation.</b>',
 'Ilan-Pappe.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (2, 'Janet Alder', 'Janet Alder is the sister of Christopher Alder who was killed in police custody. She will be speaking on <b>Black Lives Matter: Police, racism and the state.</b>', null, 
+values (2, 'Janet Alder', 'Janet Alder is the sister of Christopher Alder who was killed in police custody. She will be speaking on <b>Black Lives Matter: Police, racism and the state.</b>', null,
 'janet-alder.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (3, 'John Bellamy Foster', 'John Bellamy Foster is a Marxist ecologist and author. He will debate <b>Marxian ecology vs ecological escapism: the revolutionary necessity of our time.</b>', null, 
+values (3, 'John Bellamy Foster', 'John Bellamy Foster is a Marxist ecologist and author. He will debate <b>Marxian ecology vs ecological escapism: the revolutionary necessity of our time.</b>', null,
 'john-bellamy-foster.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (4, 'Ghada Karmi', 'Ghada Karmi is a Palestinian author, academic and activist. She will be discussing <b>Palestine and the rhetoric of free speech.</b>', null, 
+values (4, 'Ghada Karmi', 'Ghada Karmi is a Palestinian author, academic and activist. She will be discussing <b>Palestine and the rhetoric of free speech.</b>', null,
 'ghada-karmi.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (5, 'Michael Roberts', 'Michael Roberts is a Marxist economist who writes regularly on the economy. He will be speaking on <b>The Long Depression and economic crisis</b>', 'Michael Roberts is a Marxist economist who has worked in the City of London for over 30 years. He is author of <b>The Great Recession - a Marxist view (Lulu, 2009)</b> and <b>The Long Depression (Haymarket 2016).</b><br/><br/>Forthcoming is <b>Marx 200: a modern view of Marx’s economics 200 years after his birth (Lulu 2018)</b> and jointly with G Carchedi, <b>The World in Crisis: empirical backing for Marx’s law of profitability (Haymarket 2018)</b>.<br/><br/>He blogs at: <a href="https://thenextrecession.wordpress.com">thenextrecession.wordpress.com</a>', 
+values (5, 'Michael Roberts', 'Michael Roberts is a Marxist economist who writes regularly on the economy. He will be speaking on <b>The Long Depression and economic crisis</b>', 'Michael Roberts is a Marxist economist who has worked in the City of London for over 30 years. He is author of <b>The Great Recession - a Marxist view (Lulu, 2009)</b> and <b>The Long Depression (Haymarket 2016).</b><br/><br/>Forthcoming is <b>Marx 200: a modern view of Marx’s economics 200 years after his birth (Lulu 2018)</b> and jointly with G Carchedi, <b>The World in Crisis: empirical backing for Marx’s law of profitability (Haymarket 2018)</b>.<br/><br/>He blogs at: <a href="https://thenextrecession.wordpress.com">thenextrecession.wordpress.com</a>',
 'michael-roberts.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
+<<<<<<< HEAD
 values (6, 'Christine Buchholz', 'Christine Buchholz, MP for Die Linke in Germany, joins Petros Constantinou from KEERFA in Greece and David Albrich from Austria to discuss <b>The far right in Europe</b>', null, 
 values (6, 'Christine Buchholz', 'Christine Buchholz, an MP for Die Linke in Germany joins Petros Constantinou from KEERFA in Greece and David Albrich from Austria to discuss <b>The far right in Europe</b>', null, 
+=======
+values (6, 'Christine Buchholz', 'Christine Buchholz, an MP for Die Linke in Germany joins Petros Constantinou from KEERFA in Greece and David Albrich from Austria to discuss <b>The far right in Europe</b>', null,
+>>>>>>> dd76450... Adding firstname and lastname templating to email text
 'christine-buchholz.jpg', 'admin', now());
 
 -- More speakers
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (7, 'Sheila Coleman', 'Sheila is part of the Hillsborough Justice Campaign and will speak as part of a panel on <b>Injustice and the British state</b>', null, 
+values (7, 'Sheila Coleman', 'Sheila is part of the Hillsborough Justice Campaign and will speak as part of a panel on <b>Injustice and the British state</b>', null,
 'sheila-coleman.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (8, 'Gareth Peirce', 'Gareth is a human rights lawyer who has working on many high profile cases involving miscarriages of justice. She will speak at a special panel meeting - <b>One year on: Grenfell and the fight for justice</b>', null, 
+values (8, 'Gareth Peirce', 'Gareth is a human rights lawyer who has working on many high profile cases involving miscarriages of justice. She will speak at a special panel meeting - <b>One year on: Grenfell and the fight for justice</b>', null,
 'gareth-peirce.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (9, 'Dave Ward', 'Dave is General Secretary of the post workers union CWU. He will join Ian Hodson from BFAWU and others to discuss <b>Labour and fight against austerity</b>', null, 
+values (9, 'Dave Ward', 'Dave is General Secretary of the post workers union CWU. He will join Ian Hodson from BFAWU and others to discuss <b>Labour and fight against austerity</b>', null,
 'dave-ward.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (10, 'Ian Hodson', 'Ian, President of BFAWU, and strikers from McDonalds will be part of many panels debating <b>Corbyn, Labour and the future of British politics</b>', null, 
+values (10, 'Ian Hodson', 'Ian, President of BFAWU, and strikers from McDonalds will be part of many panels debating <b>Corbyn, Labour and the future of British politics</b>', null,
 'ian-hodson.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (11, 'Moyra Samuels', 'Moyra is a member of the Justice4Grenfell campaign and one year on from the Grenfell tragedy will be part of a panel on <b>Injustice and the British state.</b>', null, 
+values (11, 'Moyra Samuels', 'Moyra is a member of the Justice4Grenfell campaign and one year on from the Grenfell tragedy will be part of a panel on <b>Injustice and the British state.</b>', null,
 'moyra-samuels.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (12, 'Alex Callinicos', 'Alex Callinicos, author of the Revolutionary Ideas of Karl Marx and will be discussing <b>Trump, tariffs and trade wars.</b>', null, 
+values (12, 'Alex Callinicos', 'Alex Callinicos, author of the Revolutionary Ideas of Karl Marx and will be discussing <b>Trump, tariffs and trade wars.</b>', null,
 'alex-callinicos.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (13, 'Brid Smith', 'Brid is a TD in the Irish Parliament for People Before Profit. She has been heavily involved in the campaign to Repeal the 8th amendment, and will be joining a panel on <b>Abortion rights today.</b>', null, 
+values (13, 'Brid Smith', 'Brid is a TD in the Irish Parliament for People Before Profit. She has been heavily involved in the campaign to Repeal the 8th amendment, and will be joining a panel on <b>Abortion rights today.</b>', null,
 'brid-smith.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (14, 'Jonathan Rosenhead', 'Jonathan is a member of Jewish Voice for Labour and will be joining a panel debating <b>Zionism, antisemitism and Palestine solidarity</b>', null, 
+values (14, 'Jonathan Rosenhead', 'Jonathan is a member of Jewish Voice for Labour and will be joining a panel debating <b>Zionism, antisemitism and Palestine solidarity</b>', null,
 'jonathan-rosenhead.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -227,27 +232,31 @@ values (15, 'Ronnie Kasrils', 'Ronnie Kasrils served in the South African libera
 =======
 values (15, 'Ronnie Kasrils', 'Ronnie Kasrils served in the South African liberation movement all his adult life. He will speak on <b>South Africa after Zuma</b>', 'Ronnie Kasrils served in the South African liberation movement all his adult life, was chief of intelligence in the ANCs military wing, organised operations from exile including that of the London Recruits, served in Mandela&quot;s government as deputy minister of Defence, followed by other portfolios to 2008 when he resigned and became active as a critic of the ANC.<br/><br/>Internationally active with Palestine Solidarity and author of several books. Regards socialism as the only way to preserve humanity and the planet. He will speak on South Africa after Zuma', 
 >>>>>>> d9a4772... Themes now ready to show meetings, speakers.sql added
+=======
+values (15, 'Ronnie Kasrils', 'Ronnie Kasrils served in the South African liberation movement all his adult life. He will speak on <b>South Africa after Zuma</b>', 'Ronnie Kasrils served in the South African liberation movement all his adult life, was chief of intelligence in the ANCs military wing, organised operations from exile including that of the London Recruits, served in Mandela&quot;s government as deputy minister of Defence, followed by other portfolios to 2008 when he resigned and became active as a critic of the ANC.<br/><br/>Internationally active with Palestine Solidarity and author of several books. Regards socialism as the only way to preserve humanity and the planet. He will speak on South Africa after Zuma',
+>>>>>>> dd76450... Adding firstname and lastname templating to email text
 'ronnie.jpg', 'admin', now());
 >>>>>>> 223d844... Added new speakers
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (16, 'Nita Sanghera', 'Nita is the UCU vice-President elect and will be joining a panel debating the <b>marketization of Higher Education</b>', 'As an access to HE lecturer, working at SCCB Bournville campus, Nita is familiar with the ever present spectre of the Conservatives marketisation of education, and whatever else they can get their hands on.<br/><br/>She is an active member of UCU, and has recently become Vice President elect.', 
+values (16, 'Nita Sanghera', 'Nita is the UCU vice-President elect and will be joining a panel debating the <b>marketization of Higher Education</b>', 'As an access to HE lecturer, working at SCCB Bournville campus, Nita is familiar with the ever present spectre of the Conservatives marketisation of education, and whatever else they can get their hands on.<br/><br/>She is an active member of UCU, and has recently become Vice President elect.',
 'Nita-Sanghera.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (17, 'Mark Perryman', 'Mark is a founder of Philosophy Football and editor of The Corbyn Effect. He&apos;ll be debating <b>Corbyn and the future of British politics</b> with Mark L Thomas from the SWP.', null, 
+values (17, 'Mark Perryman', 'Mark is a founder of Philosophy Football and editor of The Corbyn Effect. He&apos;ll be debating <b>Corbyn and the future of British politics</b> with Mark L Thomas from the SWP.', null,
 'mark-perryman.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (18, 'Naima Omar', 'Naima is an activist with Stand Up to Racism and will lead a panel discussing <b>A woman’s right to choose: defending the Hijab.</b>', null, 
+values (18, 'Naima Omar', 'Naima is an activist with Stand Up to Racism and will lead a panel discussing <b>A woman’s right to choose: defending the Hijab.</b>', null,
 'naima-omar.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (19, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan Gibbons speaks on the second book of his Russian Revolution trilogy.', 
-'Alan is the author of some seventy books and was one of the organisers of the Campaign for the Book and the <b>Speak up for Libraries Coalition</b> that spearheaded the fight to defend the public library service.<br/><br/>Alan is a prolific speaker on education and public service. The final volumes of his Revolution trilogy charting the Russian Revolution are published in 2018.<br/><br/>He is a member of the Labour Party and is speaking in a personal capacity.', 
+values (19, 'Alan Gibbons', 'Award winning writer and Labour Party member Alan Gibbons speaks on the second book of his Russian Revolution trilogy.',
+'Alan is the author of some seventy books and was one of the organisers of the Campaign for the Book and the <b>Speak up for Libraries Coalition</b> that spearheaded the fight to defend the public library service.<br/><br/>Alan is a prolific speaker on education and public service. The final volumes of his Revolution trilogy charting the Russian Revolution are published in 2018.<br/><br/>He is a member of the Labour Party and is speaking in a personal capacity.',
 'alan-gibbons.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 values (17, 'Deidre O’Neill', 'Film makers Deidre O&#39;Neill and Mike Wayne will be leading a discussion on <b>Considering class: theory, culture and the media in the 21st century.</b>', 
@@ -259,59 +268,63 @@ values (20, 'Deirdre O’Neill', 'Film makers Deirdre O&#39;Neill and Mike Wayne
 >>>>>>> 223d844... Added new speakers
 'Mike Wayne teaches film, television and media studies. He is the co-editor (with Deirdre O’Neill) of <b>Considering Class: Theory, Culture and the Media in the 21st Century</b> and co-director of with Deirdre O&#39;Neill of feature doc <b>The Acting Class.</b><br/><br/>Deirdre O&#39;Neill is a lecturer and filmmaker. Her new book is Film as a Radical Pedagogic tool. She is the co-coordinator of the <a href="http://www.insidefilm.org">Inside Film Project</a>.<br/><br/>She has co-directed (with Mike Wayne) two films <a href="http://listentovenezuela.info">Listen to Venezuela</a> and <a href="http://www.conditionoftheworkingclass.info">Condition of the Working Class</a>.<br/><br/>Their latest film <b>The Acting Class</b> is currently touring the country.', 
 >>>>>>> 9d8dccf... Adding sally campbell image
+=======
+values (20, 'Deirdre O’Neill', 'Film makers Deirdre O&#39;Neill and Mike Wayne will be leading a discussion on <b>Considering class: theory, culture and the media in the 21st century.</b>',
+'Mike Wayne teaches film, television and media studies. He is the co-editor (with Deirdre O’Neill) of <b>Considering Class: Theory, Culture and the Media in the 21st Century</b> and co-director of with Deirdre O&#39;Neill of feature doc <b>The Acting Class.</b><br/><br/>Deirdre O&#39;Neill is a lecturer and filmmaker. Her new book is Film as a Radical Pedagogic tool. She is the co-coordinator of the <a href="http://www.insidefilm.org">Inside Film Project</a>.<br/><br/>She has co-directed (with Mike Wayne) two films <a href="http://listentovenezuela.info">Listen to Venezuela</a> and <a href="http://www.conditionoftheworkingclass.info">Condition of the Working Class</a>.<br/><br/>Their latest film <b>The Acting Class</b> is currently touring the country.',
+>>>>>>> dd76450... Adding firstname and lastname templating to email text
 'deirdre-o-neill.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (21, 'Dave Randall', 'Dave Randall is a musician who has played with Faithless and Sinead O’Connor, and he is author of Sound System: The Political Power of Music.', 
-'Dave Randall is a musician, writer and activist.<br/><br/>He has toured the world playing guitar for Faithless, Sinead O&apos;Connor and others and is the author of Sound System: The Political Power of Music.', 
+values (21, 'Dave Randall', 'Dave Randall is a musician who has played with Faithless and Sinead O’Connor, and he is author of Sound System: The Political Power of Music.',
+'Dave Randall is a musician, writer and activist.<br/><br/>He has toured the world playing guitar for Faithless, Sinead O&apos;Connor and others and is the author of Sound System: The Political Power of Music.',
 'dave-randall.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (22, 'Talat Ahmed', 'Talat is a lecturer and anti-racist activist based in Edinburgh. She will be leading a panel on <b>Decolonising education: confronting the legacy of slavery and empire</b>', null, 
+values (22, 'Talat Ahmed', 'Talat is a lecturer and anti-racist activist based in Edinburgh. She will be leading a panel on <b>Decolonising education: confronting the legacy of slavery and empire</b>', null,
 'talat-ahmed.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (23, 'John Holmwood', 'John Holmwood is author of Countering Extremism in British Schools – the Truth About the Trojan Horse Affair, and he will join a panel to discuss <b>Islamophobia and education.</b>', null, 
+values (23, 'John Holmwood', 'John Holmwood is author of Countering Extremism in British Schools – the Truth About the Trojan Horse Affair, and he will join a panel to discuss <b>Islamophobia and education.</b>', null,
 'john-holmwood.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (24, 'Lucia Pradella', 'Lucia is an academic and activist in UCU. She’ll be speaking on <b>Italy, racism and the rise of the far right</b>', null, 
+values (24, 'Lucia Pradella', 'Lucia is an academic and activist in UCU. She’ll be speaking on <b>Italy, racism and the rise of the far right</b>', null,
 'Lucia-Pradella.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (25, 'Weyman Bennett', 'Weyman Bennett is the co-convenor of Stand Up to Racism. He will be analysing <b>Fascism, the far right and racist populism today</b>', null, 
+values (25, 'Weyman Bennett', 'Weyman Bennett is the co-convenor of Stand Up to Racism. He will be analysing <b>Fascism, the far right and racist populism today</b>', null,
 'weyman-bennett.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (26, 'Maria Styllou', 'Maria is a socialist activist in Greece and was a part of the 1968 student movement at the LSE. She&apos;ll be discussing <b>The legacy of 1968</b>', null, 
+values (26, 'Maria Styllou', 'Maria is a socialist activist in Greece and was a part of the 1968 student movement at the LSE. She&apos;ll be discussing <b>The legacy of 1968</b>', null,
 'maria-styllou.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (27, 'Richard Boyd-Barrett TD', 'Richard is a TD in the Irish Parliament with People Before Profit. He&apos;ll be part of a panel debating <b>The fight against austerity in Europe.</b>', null, 
+values (27, 'Richard Boyd-Barrett TD', 'Richard is a TD in the Irish Parliament with People Before Profit. He&apos;ll be part of a panel debating <b>The fight against austerity in Europe.</b>', null,
 'richard-boyd-barrett.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (28, 'Alfredo Saad-Filho', 'Alfredo Marxist economist who writes on Latin America. He&apos;ll be launching his new book Brazil: Neoliberalism Versus Democracy', null, 
+values (28, 'Alfredo Saad-Filho', 'Alfredo Marxist economist who writes on Latin America. He&apos;ll be launching his new book Brazil: Neoliberalism Versus Democracy', null,
 'alfredo-saad-filho.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (29, 'Judith Orr', 'Judith is an author and activist. She will be leading a discussion on <b>Are we heading for a new Cold War?</b>', null, 
+values (29, 'Judith Orr', 'Judith is an author and activist. She will be leading a discussion on <b>Are we heading for a new Cold War?</b>', null,
 'judith-orr.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (30, 'Iain Ferguson', 'Iain Ferguson is a social worker and part of Social Work Action Network. He will be launching his new book Politics of the Mind: Marxism and Mental Distress.', null, 
+values (30, 'Iain Ferguson', 'Iain Ferguson is a social worker and part of Social Work Action Network. He will be launching his new book Politics of the Mind: Marxism and Mental Distress.', null,
 'iain-ferguson.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (31, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll be launching his new book A Rebel&apos;s Guide to Martin Luther King.', null, 
+values (31, 'Yuri Prasad', 'Yuri is a journalist on Socialist Worker and he’ll be launching his new book A Rebel&apos;s Guide to Martin Luther King.', null,
 'yuri-prasad.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (32, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a panel on <b>#MeToo: fighting everyday sexism</b>', null, 
+values (32, 'Sally Campbell', 'Sally is editor of Socialist Review  and leads a panel on <b>#MeToo: fighting everyday sexism</b>', null,
 'sally-campbell.jpg', 'admin', now());
 
 insert into speaker (id, name, short_description, long_description, image_url, creator, date_created)
-values (33, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating <b>Syria today.</b>', null, 
+values (33, 'Ghayath Naisse', 'Ghayath is a Syrian socialist and in the context of war, imperialism and counter revolution he&apos;ll be debating <b>Syria today.</b>', null,
 'ghayath-naisse.jpg', 'admin', now());
 
 insert into marxism_website_speakers (marxism_website_id, speakers_id, speaker_index) values (1, 1, 0);

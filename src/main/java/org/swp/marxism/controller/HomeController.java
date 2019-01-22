@@ -71,21 +71,26 @@ public class HomeController {
 
 	@Autowired
 	private ServletContext context;
-	
+
 	@Autowired
 <<<<<<< HEAD
 	private ApplicationContext appContext;
+<<<<<<< HEAD
 =======
+=======
+
+	@Autowired
+>>>>>>> dd76450... Adding firstname and lastname templating to email text
 	private HtmlBuilder htmlBuilder;
 >>>>>>> 283b682... HtmlBuilder bean now used rather than entity or javascript
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
-	
+
 	private YearMonth yearMonth = YearMonth.now();
 
 	protected static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	@InitBinder("booking")
 	public void initBinder(WebDataBinder binder) {
 	    binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
@@ -137,7 +142,7 @@ public class HomeController {
 
 		return "home.html";
 	}
-	
+
 	@RequestMapping("/.well-known/acme-challenge/{filename}")
 	public void certbot(@PathVariable("filename") String filename, HttpServletResponse response) throws java.io.IOException {
 
@@ -150,8 +155,8 @@ public class HomeController {
 		IOUtils.copy(is, os);
 		os.flush();
 		os.close();
-	}		
-	
+	}
+
 	@RequestMapping(value = "/timetable", method = RequestMethod.GET)
 	public void downloadTimetablePDF(HttpServletResponse response) throws java.io.IOException {
 
@@ -169,7 +174,7 @@ public class HomeController {
 		os.flush();
 		os.close();
 	}
-	
+
 	@RequestMapping(value = "/booking/details", method = RequestMethod.GET)
 	public String redirectFromOldUrls(Model model) {
 
@@ -177,34 +182,34 @@ public class HomeController {
 
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
 	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model) throws NoSuchAlgorithmException {
 
 		logger.info("Received feeback {} ", feedback);
-		
+
 		Long id = Long.parseLong( feedback.getOrderid().replace("MRX" + YearMonth.now().getYear() + "_", "") );
-		
+
 		logger.info("Extracted booking id {}", id);
-		
+
 		boolean shaCheck = feedback.checkSha( "435dhsgidcddT4g" );
-		
+
 		logger.info("shaCheck = {}", shaCheck);
-		
+
 		if(shaCheck == false) {
 			return new ResponseEntity<String>("sha failure", HttpStatus.NOT_ACCEPTABLE);
 		}
-		
+
 		Optional<Booking> optional = bookingRepository.findById( id );
-		
+
 		if(!optional.isPresent()) {
 			return new ResponseEntity<String>("Cannot find booking " + id, HttpStatus.NOT_ACCEPTABLE);
 		}
-		
+
 		Booking booking = optional.get();
-		
+
 		logger.info("Got booking {}", booking);
-		
+
 		if(feedback.getBarclaysStatus().equals("5")) {
 			logger.info("Updating status to paid");
 			bookingRepository.updateStatus(id, BookingStatus.PAID);
@@ -214,14 +219,14 @@ public class HomeController {
 				logger.error("Cannot send booking email", e);
 			}
 		};
-		
+
 		if(feedback.getBarclaysStatus().equals("1")) {
 			logger.info("Updating status to cancelled");
 			bookingRepository.updateStatus(id, BookingStatus.CANCELLED);
-		};		
+		};
 
 		return new ResponseEntity<String>("success", HttpStatus.OK);
-	}		
+	}
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public String book(Model model) throws JsonProcessingException {
@@ -259,13 +264,13 @@ public class HomeController {
 
 			return "error.html";
 		}
-		
-		
+
+
 		//Sanity check
 		String backendPrice = getBackendPrice( booking );
 
 		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice, booking.getTicket().getWebPrice());
-		
+
 		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
 			throw new MarxismException("Web and backend prices do not match " + backendPrice + " : " + booking.getTicket().getWebPrice());
 		}
@@ -277,38 +282,38 @@ public class HomeController {
 		logger.info("Booking persisted. All done!");
 
 		String orderId = getOrderId( booking );
-		
+
 		logger.debug("Sending to barclays with order id {}", orderId);
-		
+
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);
 		model.addAttribute("orderId", orderId);
 
 		return "barclays.html";
 	}
-	
+
 	private String getOrderId(Booking booking) {
 		String orderId = "DEV";
-		
+
 		if(environment.acceptsProfiles(Profiles.of("prod"))) {
 			orderId = "MRX";
 		};
-		
+
 		orderId += yearMonth.getYear() + "_" + booking.getId();
-		
+
 		return orderId;
 	}
 
 	private String getBackendPrice(Booking booking) {
 
 		Integer price = null;
-		
+
 		Ticket ticket = booking.getTicket();
 
 		TicketPricing pricing = ticket.getPricing();
-		
+
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
-		
+
 		logger.info("marxismWebsite.getApplyTicketDiscount() : {}", marxismWebsite.getApplyTicketDiscount());
 
 		switch(ticket.getType()) {
@@ -338,13 +343,13 @@ public class HomeController {
 		if(ticket.getAfterParty() != null && ticket.getAfterParty() == true) {
 			price += 5;
 		}
-		
+
 		if(marxismWebsite.getApplyTicketDiscount() == true) {
 			price -= 5;
 		}
 
 		price = price * 100;
-		
+
 		//Discount Codes
 		if(marxismWebsite.getShowDiscountCode() == true) {
 			if(booking.getDiscountCode() != null && booking.getDiscountCode().toLowerCase().equals( marxismWebsite.getDiscountCode() )) {
@@ -357,18 +362,18 @@ public class HomeController {
 
 		return price + "";
 	}
-	
+
 	@RequestMapping(value = "/thankYou", method = RequestMethod.GET)
 	public String thankYou(Model model) {
 
 		logger.info("Received thankYou");
-		
+
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
 		model.addAttribute("content", marxismWebsite);
-		
+
 		return "home.html";
-	}	
+	}
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
 	@ResponseBody
@@ -396,14 +401,14 @@ public class HomeController {
 			message.setFrom(contactForm.getEmail());
 
 			message.setTo(emailTo);
-			
+
 			message.setBcc("jack747@gmail.com");
-			
+
 			StringBuilder builder = new StringBuilder();
 			builder.append("Name : " + contactForm.getName() + "<br/>");
 			builder.append("Email : " + contactForm.getEmail() + "<br/>");
 			builder.append("Message : " + contactForm.getMessage() + "<br/>");
-			
+
 
 			message.setText(builder.toString(), true);
 
@@ -416,13 +421,13 @@ public class HomeController {
 
 		return "success";
 	}
-	
+
 	private void sendEmail(Booking booking) throws MessagingException {
-		
+
 		logger.info("Sending booking confirmation");
-		
+
 		MarxismWebsite marxismWebsite = getMarxismWebsite();
-		
+
 		final Context ctx = new Context();
 		ctx.setVariable("booking", booking);
 
@@ -431,7 +436,7 @@ public class HomeController {
 
 		message.setSubject( marxismWebsite.getEmailSubject() );
 		message.setFrom("info@marxismfestival.org.uk");
-		
+
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
 			message.setBcc("info@marxismfestival.org.uk");
 			message.setTo(booking.getEmail());
@@ -440,7 +445,10 @@ public class HomeController {
 		}
 
 		String html = marxismWebsite.getEmailText();
-		
+
+		html.replace("{firstname}", booking.getFirstname());
+		html.replace("{lastname}", booking.getLastname());
+
 		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
 
 		message.setText(html, true); // true = isHtml
@@ -449,7 +457,7 @@ public class HomeController {
 
 		logger.info("Mail successfuly sent!");
 	}
-	
+
 	private MarxismWebsite getMarxismWebsite() {
 
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
@@ -468,40 +476,40 @@ public class HomeController {
 			logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
 
 			logger.info("Marxism website content placed into context");
-			
+
 			logger.info("Building meetings json");
 			htmlBuilder.buildMeetings( marxismWebsite );
-			
+
 			if(environment.acceptsProfiles(Profiles.of("prod"))) {
 				marxismWebsite.setIsDev( false );
 			} else {
 				marxismWebsite.setIsDev( true );
 			}
-			
-			
+
+
 			ObjectMapper mapper = new ObjectMapper();
-			
+
 			String meetingsJson;
 			try {
 				meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
 			} catch (JsonProcessingException e) {
 				throw new MarxismException("Cannot process meetings json");
 			}
-			
+
 //			logger.debug("Meetings json : {}", meetingsJson);
-			
+
 			marxismWebsite.setMeetingsJson(meetingsJson);
-			
+
 			logger.info("Building readmore for themes");
 			htmlBuilder.buildThemes( marxismWebsite.getThemes() );
-			
+
 			//Get rid of unused objects
 			marxismWebsite.setMeetings(null);
-			
+
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
 
 		return marxismWebsite;
-	}	
+	}
 
 }
