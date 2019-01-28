@@ -23,15 +23,15 @@
 		href="#modal_no_img"
 		data-toggle="modal" 
 		data-ga="speakerReadMore"
-		th:attr="data-content=${speaker.longDescription},data-heading=${speaker.name},data-img=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})}">
+		th:attr="data-content=${speaker.longDescription},data-heading=${speaker.name},data-img=@{/marxismImages/speaker/{id}(id=${speaker.id + '.jpg'})}">
 
 		<div class="speakers__item" data-animate="animate-up">
 			
 			<div class="speakers__item__img" th:if="${fastLoad == true}">
-				<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive" />
+				<img th:attr="src=@{/marxismImages/speaker/{id}(id=${speaker.id + '.jpg'})},alt=${speaker.name}" class="img-responsive" />
 			</div>
 			<div class="speakers__item__img" th:if="${fastLoad == false}">
-				<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive load-img" />
+				<img th:attr="img-src=@{/marxismImages/speaker/{id}(id=${speaker.id + '.jpg'})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive load-img" />
 			</div>			
 			
 			<div class="speakers__item__footer">
@@ -46,10 +46,10 @@
 	<div th:if="${speaker.longDescription == null}" class="speakers__item" data-animate="animate-up">
 		
 		<div class="speakers__item__img" th:if="${fastLoad == true}">
-			<img th:attr="src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name}" class="img-responsive" />
+			<img th:attr="src=@{/marxismImages/speaker/{id}(id=${speaker.id + '.jpg'})},alt=${speaker.name}" class="img-responsive" />
 		</div>
 		<div class="speakers__item__img" th:if="${fastLoad == false}">
-			<img th:attr="img-src=@{/img/speakers/{imageUrl}(imageUrl=${speaker.imageUrl})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive load-img" />
+			<img th:attr="img-src=@{/marxismImages/speaker/{id}(id=${speaker.id + '.jpg'})},alt=${speaker.name},src=@{/img/speakers/placeholder.png}" class="img-responsive load-img" />
 		</div>	
 		
 		<div class="speakers__item__footer">
@@ -72,7 +72,7 @@
 		th:attr="data-content=${theme.readMore},data-heading=${theme.name}">
 		
 		<div class="themes__item__img">
-		  <img th:attr="src=@{/img/themes/{imageUrl}(imageUrl=${theme.imageUrl})},alt=${theme.name}" class="img-responsive" />
+		  <img th:attr="src=@{/marxismImages/theme/{id}(id=${theme.id + '.jpg'})},alt=${theme.name}" class="img-responsive" />
 		</div>
 		
 		<div class="themes__item__footer">
@@ -93,7 +93,7 @@
 		th:if="${cultureItem.videoUrl == null}">
 		
 		<div class="cultureitems__item__img">
-		  <img th:attr="src=@{/img/culture_items/{imageUrl}(imageUrl=${cultureItem.imageUrl})},alt=${cultureItem.name}" class="img-responsive" />
+		  <img th:attr="src=@{/marxismImages/cultureItem/{id}(id=${cultureItem.id + '.jpg'})},alt=${cultureItem.name}" class="img-responsive" />
 		</div>
 		
 		<div class="cultureitems__item__footer">
@@ -109,7 +109,7 @@
 		
 		<div data-animate="animate-up">
 			<div class="cultureitems__item__img">
-			  <img th:attr="src=@{/img/culture_items/{imageUrl}(imageUrl=${cultureItem.imageUrl})},alt=${cultureItem.name}" class="img-responsive" />
+			  <img th:attr="src=@{/marxismImages/cultureItem/{id}(id=${cultureItem.id + '.jpg'})},alt=${cultureItem.name}" class="img-responsive" />
 			</div>
 			
 			<div class="cultureitems__item__footer">

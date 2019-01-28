@@ -48,6 +48,7 @@ import org.swp.marxism.domain.TicketPricing;
 import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
+import org.swp.marxism.repository.MeetingRepository;
 import org.swp.marxism.util.HtmlBuilder;
 import org.thymeleaf.context.Context;
 
@@ -62,6 +63,9 @@ public class HomeController {
 
 	@Autowired
 	private MarxismWebsiteRepository marxismWebsiteRepository;
+	
+	@Autowired
+	private MeetingRepository meetingRepository;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -468,6 +472,7 @@ public class HomeController {
 		if(marxismWebsite == null) {
 
 			marxismWebsite = marxismWebsiteRepository.findByIsLive( true );
+			Iterable<Meeting> meetings = meetingRepository.findAll();
 
 			logger.info("Have loaded marxism website content {}", marxismWebsite);
 
@@ -475,13 +480,12 @@ public class HomeController {
 			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
 			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
 			logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
-			logger.info("Contains {} meetings", marxismWebsite.getMeetings().size());
 			logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
 
 			logger.info("Marxism website content placed into context");
 
 			logger.info("Building meetings json");
-			htmlBuilder.buildMeetings( marxismWebsite );
+			htmlBuilder.buildMeetings( marxismWebsite, meetings );
 
 			if(environment.acceptsProfiles(Profiles.of("prod"))) {
 				marxismWebsite.setIsDev( false );
@@ -494,7 +498,7 @@ public class HomeController {
 
 			String meetingsJson;
 			try {
-				meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
+				meetingsJson = mapper.writeValueAsString( meetings );
 			} catch (JsonProcessingException e) {
 				throw new MarxismException("Cannot process meetings json");
 			}
@@ -505,9 +509,6 @@ public class HomeController {
 
 			logger.info("Building readmore for themes");
 			htmlBuilder.buildThemes( marxismWebsite.getThemes() );
-
-			//Get rid of unused objects
-			marxismWebsite.setMeetings(null);
 
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}

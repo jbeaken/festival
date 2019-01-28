@@ -20,9 +20,6 @@ public class Speaker extends MarxismEntity {
 	@Size(max=3000, min=3)
 	private String longDescription;
 	
-	@NotNull
-	private String imageUrl;
-
 	public String getName() {
 		return name;
 	}
@@ -51,13 +48,4 @@ public class Speaker extends MarxismEntity {
 	public String toString() {
 		return "Speaker [id=" + getId() + ", name=" + name + ", shortDescription=" + shortDescription + ", longDescription=" + longDescription + "]";
 	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 }

@@ -2,6 +2,7 @@ package org.swp.marxism.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,10 +11,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class MarxismWebsite extends MarxismEntity {
@@ -100,29 +101,26 @@ public class MarxismWebsite extends MarxismEntity {
 	@Transient
 	private String themesJson;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="speaker_index", nullable=false)
 	private List<Speaker> speakers;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="theme_index", nullable=false)
 	private List<Theme> themes;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="carousel_item_index", nullable=false)
 	private List<CarouselItem> carouselItems;	
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="carousel_item_index", nullable=false)
 	private List<CultureItem> cultureItems;	
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="marxism_website_about")
 	@OrderColumn(name="about_item_index", nullable=false)
 	private List<About> abouts;	
-	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="marxismWebsite")
-	private List<Meeting> meetings;
 	
 	//Visiblity
 	@NotNull private Boolean showThemes;
@@ -520,14 +518,6 @@ public class MarxismWebsite extends MarxismEntity {
 
 	public void setShowVideo(Boolean showVideo) {
 		this.showVideo = showVideo;
-	}
-
-	public List<Meeting> getMeetings() {
-		return meetings;
-	}
-
-	public void setMeetings(List<Meeting> meetings) {
-		this.meetings = meetings;
 	}
 
 	public String getMeetingsJson() {

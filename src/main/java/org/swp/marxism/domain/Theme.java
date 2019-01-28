@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 @Entity
 public class Theme extends MarxismEntity {
 	
-	
 	@NotNull
 	@Size(max=30, min=3)
 	@Column(unique=true)
@@ -32,9 +31,6 @@ public class Theme extends MarxismEntity {
 	
 	@Transient
 	private String readMore;
-	
-	@NotNull
-	private String imageUrl;
 	
 	@ManyToMany
 	private List<Meeting> meetings;
@@ -68,14 +64,6 @@ public class Theme extends MarxismEntity {
 		return "Speaker [id=" + getId() + ", name=" + name + ", shortDescription=" + shortDescription + ", longDescription=" + longDescription + "]";
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 	public List<Meeting> getMeetings() {
 		return meetings;
 	}
@@ -91,5 +79,4 @@ public class Theme extends MarxismEntity {
 	public void setReadMore(String readMore) {
 		this.readMore = readMore;
 	}
-
 }

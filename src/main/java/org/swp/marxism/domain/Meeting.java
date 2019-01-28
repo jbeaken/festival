@@ -32,10 +32,6 @@ public class Meeting extends MarxismEntity {
 	@NotNull
 	private String time;
 	
-	@ManyToOne
-	@JsonIgnore 
-	private MarxismWebsite marxismWebsite;
-	
 	private String speakers;
 	
 	private String room;
@@ -85,14 +81,6 @@ public class Meeting extends MarxismEntity {
 		this.speakers = speakers;
 	}
 
-	public MarxismWebsite getMarxismWebsite() {
-		return marxismWebsite;
-	}
-
-	public void setMarxismWebsite(MarxismWebsite marxismWebsite) {
-		this.marxismWebsite = marxismWebsite;
-	}
-
 	public List<Theme> getThemes() {
 		return themes;
 	}
@@ -131,6 +119,13 @@ public class Meeting extends MarxismEntity {
 
 	public void setVenue(Venue venue) {
 		this.venue = venue;
+	}
+
+	@Override
+	public String toString() {
+		return "Meeting [title=" + title + ", day=" + day + ", time=" + time + ", speakers=" + speakers + ", room="
+				+ room + ", venue=" + venue + ", description=" + description + ", themes=" + themes + ", json=" + json
+				+ "]";
 	}
 
 

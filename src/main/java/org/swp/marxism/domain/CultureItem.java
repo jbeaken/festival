@@ -21,8 +21,6 @@ public class CultureItem extends MarxismEntity {
 	@Size(max=255, min=3)
 	private String shortDescription;
 	
-	private String imageUrl;
-	
 	@NotNull
 	@Column(columnDefinition = "text")
 	@Size(max=1000, min=3)
@@ -47,14 +45,6 @@ public class CultureItem extends MarxismEntity {
 
 	public void setShortDescription(String shortDescription) {
 		this.shortDescription = shortDescription;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
 	}
 
 	public String getLongDescription() {

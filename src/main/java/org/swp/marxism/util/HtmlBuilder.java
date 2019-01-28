@@ -270,8 +270,8 @@ public class HtmlBuilder {
 <<<<<<< HEAD
 =======
 
-	public void buildMeetings(MarxismWebsite marxismWebsite) {
-		for (Meeting m : marxismWebsite.getMeetings()) {
+	public void buildMeetings(MarxismWebsite marxismWebsite, Iterable<Meeting> meetings) {
+		for (Meeting m : meetings) {
 			buildMeeting(m, marxismWebsite);
 		}
 	}

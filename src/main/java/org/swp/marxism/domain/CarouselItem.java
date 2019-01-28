@@ -12,7 +12,6 @@ import javax.validation.constraints.Size;
 public class CarouselItem extends MarxismEntity {
 	
 	@NotNull
-	@Size(max=30, min=3)
 	@Column(unique=true)
 	private String name;
 	
