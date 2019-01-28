@@ -86,6 +86,7 @@ public class HomeController {
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
+	
 
 	private YearMonth yearMonth = YearMonth.now();
 
@@ -438,16 +439,18 @@ public class HomeController {
 		message.setFrom("info@marxismfestival.org.uk");
 
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
-			message.setBcc("info@marxismfestival.org.uk");
+			message.setBcc( emailTo );
 			message.setTo(booking.getEmail());
 		} else {
-			message.setTo("jack747@gmail.com");
+			message.setTo( emailTo );
 		}
+		
+		String html = "<img src='https://marxismfestival.org.uk/img/email/header.jpg'></img>";
+		
+		html += "<h1>Thank you for booking a ticket for Marxism Festival " +  marxismWebsite.getYear() + ".</h1>";
+		html += "<p>Dear " + booking.getFullname() + "</p>";
 
-		String html = marxismWebsite.getEmailText();
-
-		html.replace("{firstname}", booking.getFirstname());
-		html.replace("{lastname}", booking.getLastname());
+		html += marxismWebsite.getEmailText();
 
 		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
 
