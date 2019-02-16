@@ -145,37 +145,34 @@ $(function() {
     var dimensions = "?width=" + width + "&height=" + height
 
     bannerCarouselImg.backstretch([
-         [
-           	{ width: 1024, url: "/img/carousel/test/midianinjaB-1024.jpg" + dimensions },
-            { width: 720, url: "/img/carousel/test/midianinjaB-720.jpg" + dimensions },
-            { width: 320, url: "/img/carousel/test/midianinjaB-320.jpg" + dimensions }
+    	 [
+           { width: 1080, url: "/marxismImages/carouselItem/1_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/1_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/1_320.jpg" }
          ],[
-            { width: 1024, url: "/img/carousel/test/women-protest-1024.jpg" },
-            { width: 720, url: "/img/carousel/test/women-protest-720.jpg" },
-            { width: 320, url: "/img/carousel/test/women-protest-320.jpg" }
+           { width: 1080, url: "/marxismImages/carouselItem/3_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/3_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/3_320.jpg" }
          ],[
-            { width: 1024, url: "/img/carousel/test/UNISON-SOAS-Cleaners-GS-1024.jpg" },
-            { width: 720, url: "/img/carousel/test/UNISON-SOAS-Cleaners-GS-720.jpg" },
-            { width: 320, url: "/img/carousel/test/UNISON-SOAS-Cleaners-GS-320.jpg" }
+           { width: 1080, url: "/marxismImages/carouselItem/4_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/4_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/4_320.jpg" }
          ],[
-            { width: 1024,deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-1024x768.jpg?width=" + width + "&height=" + height },
-            { width: 720, deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-720x540.jpg?width=" + width + "&height=" + height },
-            { width: 320, deviceOrientation : 'landscape', url: "/img/carousel/test/greek-general-strike-320x240.jpg?width=" + width + "&height=" + height },
-            { width: 700, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-700x1060.jpg?width=" + width + "&height=" + height },
-            { width: 480, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-480x720.jpg?width=" + width + "&height=" + height },
-            { width: 210, deviceOrientation : 'portrait', url: "/img/carousel/test/greek-general-strike-PORTRAIT-210x320.jpg?width=" + width + "&height=" + height }
+           { width: 1080, url: "/marxismImages/carouselItem/5_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/5_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/5_320.jpg" }
          ],[
-            { width: 1024, url: "/img/carousel/test/NHSstrikeKings-GS-1024.jpg" },
-            { width: 720, url: "/img/carousel/test/NHSstrikeKings-GS-720.jpg" },
-            { width: 320, url: "/img/carousel/test/NHSstrikeKings-GS-320.jpg" }
+           { width: 1080, url: "/marxismImages/carouselItem/6_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/6_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/6_320.jpg" }
          ],[
-            { width: 1080, url: "/img/carousel/test/London-demo-february-GS-UCU-1080.jpg" },
-            { width: 720, url: "/img/carousel/test/London-demo-february-GS-UCU-720.jpg" },
-            { width: 320, url: "/img/carousel/test/London-demo-february-GS-UCU-320.jpg" }
+           { width: 1080, url: "/marxismImages/carouselItem/2_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/2_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/2_320.jpg" }
          ],[
-            { width: 1024, url: "/img/carousel/test/black-lives-Lightbrigading-1024.jpg" },
-            { width: 720, url: "/img/carousel/test/black-lives-Lightbrigading-720.jpg" },
-            { width: 320, url: "/img/carousel/test/black-lives-Lightbrigading-320.jpg" }
+           { width: 1080, url: "/marxismImages/carouselItem/7_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/7_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/7_320.jpg" }
          ]
     ], {
         duration: 500,

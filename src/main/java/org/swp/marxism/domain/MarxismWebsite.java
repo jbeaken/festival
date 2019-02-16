@@ -621,4 +621,30 @@ public class MarxismWebsite extends MarxismEntity {
 		this.emailText = emailText;
 	}
 
+	@Override
+	public String toString() {
+		return "MarxismWebsite [name=" + name + ", year=" + year + ", isLive=" + isLive + ", isDev=" + isDev
+				+ ", aboutHeading=" + aboutHeading + ", aboutLine2=" + aboutLine2 + ", aboutLine3=" + aboutLine3
+				+ ", aboutText=" + aboutText + ", pricingHeading=" + pricingHeading + ", pricingText=" + pricingText
+				+ ", meetingHeading=" + meetingHeading + ", emailSubject=" + emailSubject + ", emailText=" + emailText
+				+ ", pricingFullEventWaged=" + pricingFullEventWaged + ", pricingFullEventUnwaged="
+				+ pricingFullEventUnwaged + ", pricingFullEventHE=" + pricingFullEventHE + ", pricingFullEventFE="
+				+ pricingFullEventFE + ", pricingDayTicketWaged=" + pricingDayTicketWaged + ", pricingDayTicketUnwaged="
+				+ pricingDayTicketUnwaged + ", pricingDayTicketHE=" + pricingDayTicketHE + ", pricingDayTicketFE="
+				+ pricingDayTicketFE + ", pricingFlexiTicketWaged=" + pricingFlexiTicketWaged
+				+ ", pricingFlexiTicketUnwaged=" + pricingFlexiTicketUnwaged + ", pricingFlexiTicketHE="
+				+ pricingFlexiTicketHE + ", pricingFlexiTicketFE=" + pricingFlexiTicketFE + ", contactHeading="
+				+ contactHeading + ", contactLine2=" + contactLine2 + ", contactTelephone=" + contactTelephone
+				+ ", contactEmail=" + contactEmail + ", contactAddress1=" + contactAddress1 + ", contactAddress2="
+				+ contactAddress2 + ", contactAddress3=" + contactAddress3 + ", contactAddress4=" + contactAddress4
+				+ ", themeHeading=" + themeHeading + ", discountText=" + discountText + ", applyTicketDiscount="
+				+ applyTicketDiscount + ", discountAmount=" + discountAmount + ", videoUrl=" + videoUrl + ", audioUrl="
+				+ audioUrl + ", videosUrl=" + videosUrl + ", galleryUrl=" + galleryUrl + ", discountCode="
+				+ discountCode + ", showThemes=" + showThemes + ", showPricing=" + showPricing + ", showGallery="
+				+ showGallery + ", showSpeakers=" + showSpeakers + ", showMeetings=" + showMeetings + ", showBooking="
+				+ showBooking + ", showContact=" + showContact + ", showAbout=" + showAbout + ", showVideo=" + showVideo
+				+ ", showDiscountCode=" + showDiscountCode + ", showCultureItems=" + showCultureItems
+				+ ", showMeetingVenues=" + showMeetingVenues + "]";
+	}
+
 }

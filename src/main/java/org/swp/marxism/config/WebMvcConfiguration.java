@@ -23,6 +23,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 	    registry.addResourceHandler("/marxismImages/**")
-	            .addResourceLocations("file:///home/marxism/");
+	            .addResourceLocations("file:///home/bookmarks/marxism/");
 	}
 }

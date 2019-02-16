@@ -146,12 +146,16 @@ values (5, '5', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin
 insert into carousel_item (id, name, text, image_url, creator, date_created)
 values (6, '6', '4 - 7 July, London', 'imageUrl', 'admin', now());
 
+insert into carousel_item (id, name, text, image_url, creator, date_created)
+values (7, '7', 'A festival of <span>socialist ideas</span>', 'imageUrl', 'admin', now());
+
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 1, 0);
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 2, 1);
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 3, 2);
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 4, 3);
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 5, 4);
 insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 6, 5);
+insert into marxism_website_carousel_items (marxism_website_id, carousel_items_id, carousel_item_index) values (1, 7, 6);
 
 -- SPEAKERS
 insert into speaker (id, name, short_description, long_description, creator, date_created)
