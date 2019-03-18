@@ -146,6 +146,10 @@ $(function() {
 
     bannerCarouselImg.backstretch([
     	 [
+           { width: 1080, url: "/marxismImages/carouselItem/8_1024.jpg" },
+           { width: 720, url: "/marxismImages/carouselItem/8_720.jpg" },
+           { width: 320, url: "/marxismImages/carouselItem/8_320.jpg" }
+         ],[
            { width: 1080, url: "/marxismImages/carouselItem/1_1024.jpg" },
            { width: 720, url: "/marxismImages/carouselItem/1_720.jpg" },
            { width: 320, url: "/marxismImages/carouselItem/1_320.jpg" }

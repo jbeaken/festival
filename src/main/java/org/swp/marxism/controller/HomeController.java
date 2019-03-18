@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.swp.marxism.amqp.MessageProducer;
 import org.swp.marxism.controller.bean.Feedback;
 import org.swp.marxism.controller.command.ContactForm;
 import org.swp.marxism.domain.Booking;
@@ -63,7 +64,7 @@ public class HomeController {
 
 	@Autowired
 	private MarxismWebsiteRepository marxismWebsiteRepository;
-	
+
 	@Autowired
 	private MeetingRepository meetingRepository;
 
@@ -90,17 +91,17 @@ public class HomeController {
 
 	@Value("${marxism.email.to}")
 	private String emailTo;
-	
 
-	private YearMonth yearMonth = YearMonth.now();
+	@Autowired
+	private MessageProducer messageProducer;
 
 	protected static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@InitBinder("booking")
 	public void initBinder(WebDataBinder binder) {
-	    binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
-	    binder.registerCustomEditor(String.class, "accommodationContact", new StringTrimmerEditor(true));
-	    binder.registerCustomEditor(String.class, "discountCode", new StringTrimmerEditor(true));
+		binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
+		binder.registerCustomEditor(String.class, "accommodationContact", new StringTrimmerEditor(true));
+		binder.registerCustomEditor(String.class, "discountCode", new StringTrimmerEditor(true));
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -149,7 +150,8 @@ public class HomeController {
 	}
 
 	@RequestMapping("/.well-known/acme-challenge/{filename}")
-	public void certbot(@PathVariable("filename") String filename, HttpServletResponse response) throws java.io.IOException {
+	public void certbot(@PathVariable("filename") String filename, HttpServletResponse response)
+			throws java.io.IOException {
 
 		Resource resource = appContext.getResource("file:/var/www/html/.well-known/acme-challenge/" + filename);
 
@@ -189,25 +191,26 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
-	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model) throws NoSuchAlgorithmException {
+	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model)
+			throws NoSuchAlgorithmException {
 
 		logger.info("Received feeback {} ", feedback);
 
-		Long id = Long.parseLong( feedback.getOrderid().replace("MRX" + YearMonth.now().getYear() + "_", "") );
+		Long id = Long.parseLong(feedback.getOrderid().replace("MRX" + YearMonth.now().getYear() + "_", ""));
 
 		logger.info("Extracted booking id {}", id);
 
-		boolean shaCheck = feedback.checkSha( "435dhsgidcddT4g" );
+		boolean shaCheck = feedback.checkSha("435dhsgidcddT4g");
 
 		logger.info("shaCheck = {}", shaCheck);
 
-		if(shaCheck == false) {
+		if (shaCheck == false) {
 			return new ResponseEntity<String>("sha failure", HttpStatus.NOT_ACCEPTABLE);
 		}
 
-		Optional<Booking> optional = bookingRepository.findById( id );
+		Optional<Booking> optional = bookingRepository.findById(id);
 
-		if(!optional.isPresent()) {
+		if (!optional.isPresent()) {
 			return new ResponseEntity<String>("Cannot find booking " + id, HttpStatus.NOT_ACCEPTABLE);
 		}
 
@@ -215,20 +218,22 @@ public class HomeController {
 
 		logger.info("Got booking {}", booking);
 
-		if(feedback.getBarclaysStatus().equals("5")) {
+		if (feedback.getBarclaysStatus().equals("5")) {
 			logger.info("Updating status to paid");
 			bookingRepository.updateStatus(id, BookingStatus.PAID);
 			try {
 				sendEmail(booking);
-			} catch(Exception e) {
+			} catch (Exception e) {
 				logger.error("Cannot send booking email", e);
 			}
-		};
+		}
+		;
 
-		if(feedback.getBarclaysStatus().equals("1")) {
+		if (feedback.getBarclaysStatus().equals("1")) {
 			logger.info("Updating status to cancelled");
 			bookingRepository.updateStatus(id, BookingStatus.CANCELLED);
-		};
+		}
+		;
 
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
@@ -236,14 +241,14 @@ public class HomeController {
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public String book(Model model) throws JsonProcessingException {
 
-	  logger.info("Received get request for book");
+		logger.info("Received get request for book");
 
-	  MarxismWebsite marxismWebsite = getMarxismWebsite();
+		MarxismWebsite marxismWebsite = getMarxismWebsite();
 
-	  model.addAttribute("content", marxismWebsite);
-	  model.addAttribute("gotoBookingForm", Boolean.TRUE);
+		model.addAttribute("content", marxismWebsite);
+		model.addAttribute("gotoBookingForm", Boolean.TRUE);
 
-	  return "home.html";
+		return "home.html";
 	}
 
 	@RequestMapping(value = "/modal/{content}", method = RequestMethod.GET)
@@ -270,14 +275,15 @@ public class HomeController {
 			return "error.html";
 		}
 
+		// Sanity check
+		String backendPrice = getBackendPrice(booking);
 
-		//Sanity check
-		String backendPrice = getBackendPrice( booking );
+		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice,
+				booking.getTicket().getWebPrice());
 
-		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice, booking.getTicket().getWebPrice());
-
-		if(!backendPrice.equals(booking.getTicket().getWebPrice())) {
-			throw new MarxismException("Web and backend prices do not match " + backendPrice + " : " + booking.getTicket().getWebPrice());
+		if (!backendPrice.equals(booking.getTicket().getWebPrice())) {
+			throw new MarxismException(
+					"Web and backend prices do not match " + backendPrice + " : " + booking.getTicket().getWebPrice());
 		}
 
 		logger.info("Passed validation, persisting");
@@ -286,7 +292,13 @@ public class HomeController {
 
 		logger.info("Booking persisted. All done!");
 
-		String orderId = getOrderId( booking );
+		String orderId = getOrderId(booking);
+
+		try {
+			messageProducer.send(booking, orderId);
+		} catch (Exception e) {
+			logger.error("Cannot send booking message", e);
+		}
 
 		logger.debug("Sending to barclays with order id {}", orderId);
 
@@ -300,11 +312,12 @@ public class HomeController {
 	private String getOrderId(Booking booking) {
 		String orderId = "DEV";
 
-		if(environment.acceptsProfiles(Profiles.of("prod"))) {
+		if (environment.acceptsProfiles(Profiles.of("prod"))) {
 			orderId = "MRX";
-		};
+		}
+		;
 
-		orderId += yearMonth.getYear() + "_" + booking.getId();
+		orderId += YearMonth.now().getYear() + "_" + booking.getId();
 
 		return orderId;
 	}
@@ -321,46 +334,59 @@ public class HomeController {
 
 		logger.info("marxismWebsite.getApplyTicketDiscount() : {}", marxismWebsite.getApplyTicketDiscount());
 
-		switch(ticket.getType()) {
-		case FULL :
-			 if(pricing == TicketPricing.WAGED) price = 55;
-			 if(pricing == TicketPricing.UNWAGED) price = 30;
-			 if(pricing == TicketPricing.STUDENT_HE) price = 30;
-			 if(pricing == TicketPricing.STUDENT_FE) price = 20;
-			 break;
-		 case DAY:
-			 Integer noOfDays = ticket.getNoOfDaysSelected();
-			 if(pricing == TicketPricing.WAGED) price = 20;
-			 if(pricing == TicketPricing.UNWAGED) price = 15;
-			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
-			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
-			 price = price * noOfDays;
-			 break;
-		 case FLEXI:
-			 if(pricing == TicketPricing.WAGED) price = 20;
-			 if(pricing == TicketPricing.UNWAGED) price = 15;
-			 if(pricing == TicketPricing.STUDENT_HE) price = 15;
-			 if(pricing == TicketPricing.STUDENT_FE) price = 10;
-			 break;
+		switch (ticket.getType()) {
+		case FULL:
+			if (pricing == TicketPricing.WAGED)
+				price = 55;
+			if (pricing == TicketPricing.UNWAGED)
+				price = 30;
+			if (pricing == TicketPricing.STUDENT_HE)
+				price = 30;
+			if (pricing == TicketPricing.STUDENT_FE)
+				price = 20;
+			break;
+		case DAY:
+			Integer noOfDays = ticket.getNoOfDaysSelected();
+			if (pricing == TicketPricing.WAGED)
+				price = 20;
+			if (pricing == TicketPricing.UNWAGED)
+				price = 15;
+			if (pricing == TicketPricing.STUDENT_HE)
+				price = 15;
+			if (pricing == TicketPricing.STUDENT_FE)
+				price = 10;
+			price = price * noOfDays;
+			break;
+		case FLEXI:
+			if (pricing == TicketPricing.WAGED)
+				price = 20;
+			if (pricing == TicketPricing.UNWAGED)
+				price = 15;
+			if (pricing == TicketPricing.STUDENT_HE)
+				price = 15;
+			if (pricing == TicketPricing.STUDENT_FE)
+				price = 10;
+			break;
 		}
 
-		//After party
-		if(ticket.getAfterParty() != null && ticket.getAfterParty() == true) {
+		// After party
+		if (ticket.getAfterParty() != null && ticket.getAfterParty() == true) {
 			price += 5;
 		}
 
-		if(marxismWebsite.getApplyTicketDiscount() == true) {
+		if (marxismWebsite.getApplyTicketDiscount() == true) {
 			price -= 5;
 		}
 
 		price = price * 100;
 
-		//Discount Codes
-		if(marxismWebsite.getShowDiscountCode() == true) {
-			if(booking.getDiscountCode() != null && booking.getDiscountCode().toLowerCase().equals( marxismWebsite.getDiscountCode() )) {
+		// Discount Codes
+		if (marxismWebsite.getShowDiscountCode() == true) {
+			if (booking.getDiscountCode() != null
+					&& booking.getDiscountCode().toLowerCase().equals(marxismWebsite.getDiscountCode())) {
 				price = (int) (price * 0.9);
 			} else {
-				//They could have put anything in here
+				// They could have put anything in here
 				booking.setDiscountCode(null);
 			}
 		}
@@ -387,7 +413,7 @@ public class HomeController {
 		logger.info("Received post request for sendEmail {}", contactForm);
 
 		if (bindingResult.hasErrors()) {
-			//Should never happen, js validation
+			// Should never happen, js validation
 			logger.info("Failed validation {}", bindingResult);
 
 			return "error";
@@ -414,7 +440,6 @@ public class HomeController {
 			builder.append("Email : " + contactForm.getEmail() + "<br/>");
 			builder.append("Message : " + contactForm.getMessage() + "<br/>");
 
-
 			message.setText(builder.toString(), true);
 
 			this.mailSender.send(mimeMessage);
@@ -439,19 +464,19 @@ public class HomeController {
 		final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
 		final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8");
 
-		message.setSubject( marxismWebsite.getEmailSubject() );
+		message.setSubject(marxismWebsite.getEmailSubject());
 		message.setFrom("info@marxismfestival.org.uk");
 
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
-			message.setBcc( emailTo );
+			message.setBcc(emailTo);
 			message.setTo(booking.getEmail());
 		} else {
-			message.setTo( emailTo );
+			message.setTo(emailTo);
 		}
-		
+
 		String html = "<img src='https://marxismfestival.org.uk/img/email/header.jpg'></img>";
-		
-		html += "<h1>Thank you for booking a ticket for Marxism Festival " +  marxismWebsite.getYear() + ".</h1>";
+
+		html += "<h1>Thank you for booking a ticket for Marxism Festival " + marxismWebsite.getYear() + ".</h1>";
 		html += "<p>Dear " + booking.getFullname() + "</p>";
 
 		html += marxismWebsite.getEmailText();
@@ -469,9 +494,9 @@ public class HomeController {
 
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
-		if(marxismWebsite == null) {
+		if (marxismWebsite == null) {
 
-			marxismWebsite = marxismWebsiteRepository.findByIsLive( true );
+			marxismWebsite = marxismWebsiteRepository.findByIsLive(true);
 			Iterable<Meeting> meetings = meetingRepository.findAll();
 
 			logger.info("Have loaded marxism website content {}", marxismWebsite);
@@ -485,20 +510,19 @@ public class HomeController {
 			logger.info("Marxism website content placed into context");
 
 			logger.info("Building meetings json");
-			htmlBuilder.buildMeetings( marxismWebsite, meetings );
+			htmlBuilder.buildMeetings(marxismWebsite, meetings);
 
-			if(environment.acceptsProfiles(Profiles.of("prod"))) {
-				marxismWebsite.setIsDev( false );
+			if (environment.acceptsProfiles(Profiles.of("prod"))) {
+				marxismWebsite.setIsDev(false);
 			} else {
-				marxismWebsite.setIsDev( true );
+				marxismWebsite.setIsDev(true);
 			}
-
 
 			ObjectMapper mapper = new ObjectMapper();
 
 			String meetingsJson;
 			try {
-				meetingsJson = mapper.writeValueAsString( meetings );
+				meetingsJson = mapper.writeValueAsString(meetings);
 			} catch (JsonProcessingException e) {
 				throw new MarxismException("Cannot process meetings json");
 			}
@@ -508,7 +532,7 @@ public class HomeController {
 			marxismWebsite.setMeetingsJson(meetingsJson);
 
 			logger.info("Building readmore for themes");
-			htmlBuilder.buildThemes( marxismWebsite.getThemes() );
+			htmlBuilder.buildThemes(marxismWebsite.getThemes());
 
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
