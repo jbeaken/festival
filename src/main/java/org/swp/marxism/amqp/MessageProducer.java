@@ -36,9 +36,9 @@ public class MessageProducer {
 	public void sendHome() {
 		String message = "Home Clicked";
 		
-		logger.info("Emitting message to {} booking.complete", exchangeName);
+		logger.info("Emitting message to {} home.clicked", exchangeName);
 		
-		rabbitTemplate.convertAndSend(exchangeName, "home.cliced", message);
+		rabbitTemplate.convertAndSend(exchangeName, "home.clicked", message);
 		
 		logger.info("Done");
 	}
