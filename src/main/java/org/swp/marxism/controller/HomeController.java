@@ -227,15 +227,14 @@ public class HomeController {
 				logger.error("Cannot send booking email", e);
 			}
 		}
-		;
+		
 
 		if (feedback.getBarclaysStatus().equals("1")) {
 			logger.info("Updating status to cancelled");
 			bookingRepository.updateStatus(id, BookingStatus.CANCELLED);
 		}
-		;
 
-		return new ResponseEntity<String>("success", HttpStatus.OK);
+		return ResponseEntity.ok("success");
 	}
 
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
