@@ -108,6 +108,12 @@ public class HomeController {
 	public String home(Model model) throws JsonProcessingException {
 
 		logger.info("Received request for home");
+		
+		try {
+			messageProducer.sendHome();
+		} catch(Exception e) {
+			logger.error("Cannot send home message", e);
+		}
 
 <<<<<<< HEAD
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
