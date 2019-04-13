@@ -352,7 +352,7 @@ function getBooking() {
 	booking.hearAbout = $('select#booking_hear_about').val()
 
 	booking.telephone = $('input#booking_telephone').val()
-	booking.email = $('input#booking_email').val()
+	booking.email = $('input#booking_email').val().trim()
 
 	booking.address1 = $('input#booking_address1').val()
 	booking.address2 = $('input#booking_address2').val()
