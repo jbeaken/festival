@@ -54,6 +54,10 @@ function showNext() {
 
 	} else if (currentScreen == 'confirmation') {
 		bookingPassedValidation = true
+		
+		var email = $('input#booking_email').val().trim();
+		$('input#booking_email').val( email )
+		
 		$('form#booking-form').submit();
 
 	    return;
@@ -148,8 +152,8 @@ function fillConfirmation() {
 	var price = calculatePrice()
 
 	var intPrice = Math.round ( price * 100 )
-	console.log(price)
-	console.log(intPrice)
+//	console.log(price)
+//	console.log(intPrice)
 	$('input#ticketWebPrice').val( intPrice )
 	$('div#confirmation_web_price').html('&pound;' + price.toFixed(2));
 }
@@ -352,7 +356,7 @@ function getBooking() {
 	booking.hearAbout = $('select#booking_hear_about').val()
 
 	booking.telephone = $('input#booking_telephone').val()
-	booking.email = $('input#booking_email').val().trim()
+	booking.email = $('input#booking_email').val()
 
 	booking.address1 = $('input#booking_address1').val()
 	booking.address2 = $('input#booking_address2').val()
