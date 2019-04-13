@@ -26,21 +26,21 @@ public class MessageProducer {
 		
 		message.setOrderId(orderId);
 		
-		logger.info("Emitting message to {} booking.complete", exchangeName);
+		logger.debug("Emitting message to {} booking.complete", exchangeName);
 		
 		rabbitTemplate.convertAndSend(exchangeName, "booking.complete", message);
 		
-		logger.info("Done");
+		logger.debug("Done");
 	}
 
 	public void sendHome() {
 		String message = "Home Clicked";
 		
-		logger.info("Emitting message to {} home.clicked", exchangeName);
+		logger.debug("Emitting message to {} home.clicked", exchangeName);
 		
 		rabbitTemplate.convertAndSend(exchangeName, "home.clicked", message);
 		
-		logger.info("Done");
+		logger.debug("Done");
 	}
 }
 
