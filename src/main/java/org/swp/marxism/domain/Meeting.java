@@ -3,17 +3,18 @@ package org.swp.marxism.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -36,7 +37,7 @@ public class Meeting extends MarxismEntity {
 	
 	private String room;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
 	private Venue venue;
 	
 	@Column(columnDefinition="text")

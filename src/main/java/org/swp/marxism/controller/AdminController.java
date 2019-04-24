@@ -21,6 +21,7 @@ import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.domain.Meeting;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
 import org.swp.marxism.repository.MeetingRepository;
+import org.swp.marxism.repository.VenueRepository;
 import org.swp.marxism.util.HtmlBuilder;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,6 +36,9 @@ public class AdminController {
 	
 	@Autowired
 	private MeetingRepository meetingRepository;
+	
+	@Autowired
+	private VenueRepository venueRepository;	
 
 	@Autowired
 	private HtmlBuilder htmlBuilder;
@@ -57,18 +61,23 @@ public class AdminController {
 		logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
 		logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
 		logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
+		logger.info("Contains {} meetings", marxismWebsiteHolder.getMeetings().size());
+		logger.info("Contains {} venues", marxismWebsiteHolder.getVenues().size());
+		
 		
 		marxismWebsiteRepository.save( marxismWebsite );
 		
-//		if(logger.isDebugEnabled()) {
-//			for(Meeting m : marxismWebsiteHolder.getMeetings()) {
-//				logger.debug("Saving meeting {}", m);
-//			}
-//		}
+		if(logger.isDebugEnabled()) {
+			for(Meeting m : marxismWebsiteHolder.getMeetings()) {
+				logger.debug("Saving meeting {}", m);
+			}
+		}
 		
 		meetingRepository.saveAll(marxismWebsiteHolder.getMeetings());
 		
-//		refresh();
+//		venueRepository.saveAll(marxismWebsiteHolder.getVenues());
+		
+		refresh();
 		
 		return "blah";
 	}

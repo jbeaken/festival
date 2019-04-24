@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.domain.Meeting;
+import org.swp.marxism.domain.Venue;
 
 
 public class MarxismWebsiteHolder {
@@ -11,6 +12,7 @@ public class MarxismWebsiteHolder {
 	
 	private List<Meeting> meetings;
 	
+	private List<Venue> venues;
 	
 	public MarxismWebsite getMarxismWebsite() {
 		return marxismWebsite;
@@ -28,6 +30,12 @@ public class MarxismWebsiteHolder {
 	@Override
 	public String toString() {
 		return "MarxismWebsiteHolder [marxismWebsite=" + marxismWebsite + "]";
+	}
+	public List<Venue> getVenues() {
+		return venues;
+	}
+	public void setVenues(List<Venue> venues) {
+		this.venues = venues;
 	}
 
 }

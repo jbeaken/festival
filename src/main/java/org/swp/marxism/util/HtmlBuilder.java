@@ -48,7 +48,7 @@ public class HtmlBuilder {
 			meetingHolderContainerClass = "meeting_item_sm";
 		}
 
-		if (meeting.getThemes().isEmpty() && meeting.getDescription() == null) {
+		if (meeting.getThemes() == null || (meeting.getThemes().isEmpty() && meeting.getDescription() == null)) {
 			hasNoThemeOrDescription = Boolean.TRUE;
 		}
 
@@ -183,10 +183,14 @@ public class HtmlBuilder {
 	}
 
 	private String getThemeText(Meeting meeting) {
+		if( meeting.getThemes() == null) return "";
+		
 		String themeText = "";
+		
 		for (Theme theme : meeting.getThemes()) {
 			themeText += "#" + theme.getName() + "&nbsp;";
 		}
+		
 		return themeText;
 	}
 
@@ -208,7 +212,7 @@ public class HtmlBuilder {
 			hasDescription = true;
 		}
 
-		if (!themes.isEmpty()) {
+		if (themes != null && !themes.isEmpty()) {
 			Theme theme = meeting.getThemes().get(0);
 			builder.append("This meeting is part of the Marxism Festival 2018 theme <strong>"
 					+ theme.getShortDescription() + "</strong>");

@@ -23,49 +23,49 @@ public class MarxismWebsite extends MarxismEntity {
 
 	@NotNull
 	private String name;
-	
+
 	@NotNull
 	private Integer year;
-	
+
 	@NotNull
 	private Boolean isLive;
-	
+
 	@Transient
 	private Boolean isDev;
-	
+
 
 	//About Section
 	@NotEmpty private String aboutHeading;
 	private String aboutLine2;
 	private String aboutLine3;
-	@NotEmpty @Column(columnDefinition="text") private String aboutText;
-	
+	@NotEmpty @Column(columnDefinition="longtext") private String aboutText;
+
 	//Pricing Section
 	@NotEmpty private String pricingHeading;
 	@NotEmpty @Column(columnDefinition="text") private String pricingText;
-	
+
 	//Meetings Section
 	@NotEmpty private String meetingHeading;
-	
+
 	//Confirmation Email
 	@NotEmpty private String emailSubject;
 	@NotEmpty @Size(max=2500, min=3) private String emailText;
-	
+
 	@NotNull private Integer pricingFullEventWaged;
 	@NotNull private Integer pricingFullEventUnwaged;
 	@NotNull private Integer pricingFullEventHE;
 	@NotNull private Integer pricingFullEventFE;
-	
+
 	@NotNull private Integer pricingDayTicketWaged;
 	@NotNull private Integer pricingDayTicketUnwaged;
 	@NotNull private Integer pricingDayTicketHE;
 	@NotNull private Integer pricingDayTicketFE;
-	
+
 	@NotNull private Integer pricingFlexiTicketWaged;
 	@NotNull private Integer pricingFlexiTicketUnwaged;
 	@NotNull private Integer pricingFlexiTicketHE;
 	@NotNull private Integer pricingFlexiTicketFE;
-	
+
 	//Contact Section
 	@NotEmpty private String contactHeading;
 	@NotEmpty private String contactLine2;
@@ -75,53 +75,53 @@ public class MarxismWebsite extends MarxismEntity {
 	@NotEmpty private String contactAddress2;
 	@NotEmpty private String contactAddress3;
 	private String contactAddress4;
-	
+
 	//Theme Section
 	@NotEmpty private String themeHeading;
-	
+
 	//Discount
 	@NotEmpty private String discountText;
 	@NotNull private Boolean applyTicketDiscount;
 	@NotNull private Integer discountAmount;
-	
+
 	//Video
 	@NotEmpty private String videoUrl;
-	
+
 	//External links
 	@NotNull private String audioUrl;
 	@NotNull private String videosUrl;
 	@NotNull private String galleryUrl;
-	
+
 	private String discountCode;
-	
+
 	//Json
 	@Transient
 	private String meetingsJson;
-	
+
 	@Transient
 	private String themesJson;
-	
+
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="speaker_index", nullable=false)
 	private List<Speaker> speakers;
-	
+
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="theme_index", nullable=false)
 	private List<Theme> themes;
-	
+
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="carousel_item_index", nullable=false)
-	private List<CarouselItem> carouselItems;	
-	
+	private List<CarouselItem> carouselItems;
+
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="carousel_item_index", nullable=false)
-	private List<CultureItem> cultureItems;	
-	
+	private List<CultureItem> cultureItems;
+
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="marxism_website_about")
 	@OrderColumn(name="about_item_index", nullable=false)
-	private List<About> abouts;	
-	
+	private List<About> abouts;
+
 	//Visiblity
 	@NotNull private Boolean showThemes;
 	@NotNull private Boolean showPricing;
@@ -135,7 +135,7 @@ public class MarxismWebsite extends MarxismEntity {
 	@NotNull private Boolean showDiscountCode;
 	@NotNull private Boolean showCultureItems;
 	@NotNull private Boolean showMeetingVenues;
-	
+
 	public Integer getDiscountAmount() {
 		return discountAmount;
 	}
@@ -143,7 +143,7 @@ public class MarxismWebsite extends MarxismEntity {
 	public void setDiscountAmount(Integer discountAmount) {
 		this.discountAmount = discountAmount;
 	}
-	
+
 	public Integer getPricingFullEventWaged() {
 		return pricingFullEventWaged;
 	}
@@ -238,8 +238,8 @@ public class MarxismWebsite extends MarxismEntity {
 
 	public void setPricingFlexiTicketFE(Integer pricingFlexiTicketFE) {
 		this.pricingFlexiTicketFE = pricingFlexiTicketFE;
-	}	
-	
+	}
+
 	public List<About> getAbouts() {
 		return abouts;
 	}
@@ -530,7 +530,7 @@ public class MarxismWebsite extends MarxismEntity {
 
 	public void setThemesJson(String themesJson) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public List<CultureItem> getCultureItems() {
