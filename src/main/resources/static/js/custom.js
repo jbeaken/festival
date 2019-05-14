@@ -520,7 +520,7 @@ function writeTimes( day, time ) {
 		text += getTimeText( day, '14.30', time)
 		text += getTimeText( day, '16.15', time)		
 		text += getTimeText( day, '19.00', time)		
-		text += getTimeText( day, '21.00', time)			
+		//text += getTimeText( day, '21.00', time)			
 	}
 	
 	return text
