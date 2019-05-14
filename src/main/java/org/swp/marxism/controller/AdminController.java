@@ -73,6 +73,10 @@ public class AdminController {
 			}
 		}
 		
+		meetingRepository.deleteAll();
+		
+		meetingRepository.flush();
+		
 		meetingRepository.saveAll(marxismWebsiteHolder.getMeetings());
 		
 //		venueRepository.saveAll(marxismWebsiteHolder.getVenues());
