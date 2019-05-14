@@ -20,9 +20,4 @@ public class MarxismApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(MarxismApplication.class, args);
 	}
-	
-	@Bean
-	public HtmlBuilder htmlBuilder() {
-		return new HtmlBuilder();
-	}
 }

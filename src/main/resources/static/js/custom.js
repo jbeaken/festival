@@ -495,6 +495,14 @@ function showMoreSpeakers() {
 function writeTimes( day, time ) {
 	
 	var text = ""
+		
+	console.log( daysAndTimes );
+	
+	var day = daysAndTimes[ day ]
+	
+	console.log( thursday );
+	
+	
 
 	$('ul#meetings__day__list > li > a').removeClass('selected')
 

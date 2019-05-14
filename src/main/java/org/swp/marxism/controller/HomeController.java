@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.NoSuchAlgorithmException;
 import java.time.YearMonth;
+import java.util.List;
 import java.util.Optional;
 
 import javax.mail.MessagingException;
@@ -49,6 +50,7 @@ import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
 import org.swp.marxism.repository.MeetingRepository;
+import org.swp.marxism.service.MarxismService;
 import org.swp.marxism.util.HtmlBuilder;
 import org.thymeleaf.context.Context;
 
@@ -60,12 +62,6 @@ public class HomeController {
 
 	@Autowired
 	private BookingRepository bookingRepository;
-
-	@Autowired
-	private MarxismWebsiteRepository marxismWebsiteRepository;
-
-	@Autowired
-	private MeetingRepository meetingRepository;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -83,16 +79,22 @@ public class HomeController {
 =======
 =======
 
+<<<<<<< HEAD
 	@Autowired
 >>>>>>> dd76450... Adding firstname and lastname templating to email text
 	private HtmlBuilder htmlBuilder;
 >>>>>>> 283b682... HtmlBuilder bean now used rather than entity or javascript
 
+=======
+>>>>>>> 93eeae2... Adding MarxismService, removing Bean HTMLBuilder
 	@Value("${marxism.email.to}")
 	private String emailTo;
 
 	@Autowired
 	private MessageProducer messageProducer;
+
+	@Autowired
+	private MarxismService marxismService;
 
 	protected static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -172,13 +174,13 @@ public class HomeController {
 	@RequestMapping(value = "/timetable", method = RequestMethod.GET)
 	public void downloadTimetablePDF(HttpServletResponse response) throws java.io.IOException {
 
-		Resource resource = appContext.getResource("file:/home/marxism/pdf/timetable.pdf");
+		Resource resource = appContext.getResource("file:/home/bookmarks/marxism/pdf/timetable.pdf");
 
 		InputStream is = resource.getInputStream();
 
 		response.setContentType("application/pdf");
 
-		response.setHeader("Content-Disposition", "attachment; filename=\"marxism2018.pdf\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"marxismTimetable.pdf\"");
 
 		OutputStream os = response.getOutputStream();
 
@@ -499,44 +501,8 @@ public class HomeController {
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
 		if (marxismWebsite == null) {
-
-			marxismWebsite = marxismWebsiteRepository.findByIsLive(true);
-			Iterable<Meeting> meetings = meetingRepository.findAll();
-
-			logger.info("Have loaded marxism website content {}", marxismWebsite);
-
-			logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
-			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
-			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
-			logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
-			logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
-
-			logger.info("Marxism website content placed into context");
-
-			logger.info("Building meetings json");
-			htmlBuilder.buildMeetings(marxismWebsite, meetings);
-
-			if (environment.acceptsProfiles(Profiles.of("prod"))) {
-				marxismWebsite.setIsDev(false);
-			} else {
-				marxismWebsite.setIsDev(true);
-			}
-
-			ObjectMapper mapper = new ObjectMapper();
-
-			String meetingsJson;
-			try {
-				meetingsJson = mapper.writeValueAsString(meetings);
-			} catch (JsonProcessingException e) {
-				throw new MarxismException("Cannot process meetings json");
-			}
-
-//			logger.debug("Meetings json : {}", meetingsJson);
-
-			marxismWebsite.setMeetingsJson(meetingsJson);
-
-			logger.info("Building readmore for themes");
-			htmlBuilder.buildThemes(marxismWebsite.getThemes());
+			
+			marxismWebsite = marxismService.buildWebsite();
 
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}

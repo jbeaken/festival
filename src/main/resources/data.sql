@@ -30,6 +30,7 @@ insert into marxism_website (id, name, year, is_live,
     video_url, audio_url, videos_url, gallery_url,
     show_booking, show_pricing, show_themes, show_about, show_speakers, show_contact, show_gallery, show_video, show_discount_code, show_culture_items, show_meeting_venues, show_meetings,
     discount_code,
+    booking_after_party_text,
     creator, date_created)
   values
   (1, '2019', 2019, true,
@@ -46,6 +47,7 @@ insert into marxism_website (id, name, year, is_live,
    'https://www.youtube.com/watch?v=MQHlKuJhF9&autoplay=1', '', '', '',
    true, true, false, true, false, true, true, false, true, false, false, true,
    'student193',
+   'Include Saturday night party?',
    'admin', now());
 
 -- ABOUT

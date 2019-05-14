@@ -123,8 +123,11 @@
   	var bookingEnabled = [[${content.showBooking}]]
     var isDev = [[${content.isDev}]]
   	var discountCode = [[${content.discountCode}]]
-    
+  	
   	/*<![CDATA[*/
+  	
+  	var daysAndTimes = [(${content.jsonDaysAndTimes})];
+  	
   	var meetings = [(${content.meetingsJson})];
   	/*]]>*/
   </script>
@@ -134,11 +137,15 @@
 =======
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
 >>>>>>> c307d2e... Bump ionicons to 4.4.2
 =======
   <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
 >>>>>>> e8ac2f7... Revert to ion icons 4.1.2 as warning icon is too big
+=======
+  <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+>>>>>>> 93eeae2... Adding MarxismService, removing Bean HTMLBuilder
 
   </body>
 </html>

@@ -1,6 +1,12 @@
 package org.swp.marxism.util;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +14,23 @@ import org.swp.marxism.domain.Day;
 import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.domain.Meeting;
 import org.swp.marxism.domain.Theme;
+import org.swp.marxism.exception.MarxismException;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class HtmlBuilder {
 
 	protected static final Logger logger = LoggerFactory.getLogger(HtmlBuilder.class);
+	
+	public void buildMeetings(MarxismWebsite marxismWebsite, List<Meeting> meetings) {
+		
+		for (Meeting m : meetings) {
+			buildMeeting(m, marxismWebsite);
+		}
+	}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	
@@ -23,6 +41,9 @@ public class HtmlBuilder {
 =======
 	public void buildMeeting(Meeting meeting, MarxismWebsite marxismWebsite) {
 >>>>>>> 16a56eb... Getting ready for release of 2019
+=======
+	private void buildMeeting(Meeting meeting, MarxismWebsite marxismWebsite) {
+>>>>>>> 93eeae2... Adding MarxismService, removing Bean HTMLBuilder
 		String speaker = meeting.getSpeakers() == null ? "&nbsp;" : meeting.getSpeakers();
 
 		String title = sanitiseString(meeting.getTitle());
@@ -274,10 +295,25 @@ public class HtmlBuilder {
 <<<<<<< HEAD
 =======
 
-	public void buildMeetings(MarxismWebsite marxismWebsite, Iterable<Meeting> meetings) {
-		for (Meeting m : meetings) {
-			buildMeeting(m, marxismWebsite);
+	public void getJsonDaysAndTimes(MarxismWebsite marxismWebsite, List<Meeting> meetings) {
+
+		Map<Day, Set<String>> meetingsByDay = meetings
+				.stream()
+				.collect(Collectors.groupingBy( Meeting::getDay, TreeMap::new, Collectors.mapping(Meeting::getTime, Collectors.toCollection(TreeSet::new)))); 
+		
+
+		ObjectMapper mapper = new ObjectMapper();
+//		mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+		
+		try {
+			String jsonDaysAndTimes = mapper.writeValueAsString( meetingsByDay );
+			marxismWebsite.setJsonDaysAndTimes( jsonDaysAndTimes ) ;
+		} catch (JsonProcessingException e) {
+			logger.error("Cannot get days and times", e);
+			throw new MarxismException("Cannot get days and times");
 		}
+		
+		
 	}
 
 	public void buildThemes(List<Theme> themes) {

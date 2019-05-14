@@ -1,16 +1,10 @@
 package org.swp.marxism.controller;
 
-import java.util.Collection;
-import java.util.List;
-
 import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,11 +15,9 @@ import org.swp.marxism.domain.MarxismWebsite;
 import org.swp.marxism.domain.Meeting;
 import org.swp.marxism.repository.MarxismWebsiteRepository;
 import org.swp.marxism.repository.MeetingRepository;
-import org.swp.marxism.repository.VenueRepository;
-import org.swp.marxism.util.HtmlBuilder;
+import org.swp.marxism.service.MarxismService;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RequestMapping("/admin")
 @RestController
@@ -38,10 +30,7 @@ public class AdminController {
 	private MeetingRepository meetingRepository;
 	
 	@Autowired
-	private VenueRepository venueRepository;	
-
-	@Autowired
-	private HtmlBuilder htmlBuilder;
+	private MarxismService marxismService;	
 
 	@Autowired
 	private ServletContext context;
@@ -91,31 +80,8 @@ public class AdminController {
 
 		logger.info("Received request for refresh");
 
-		MarxismWebsite marxismWebsite = marxismWebsiteRepository.findByIsLive( true );
-		Iterable<Meeting> meetings = meetingRepository.findAll();
-
-		logger.info("Have loaded marxism website content {}", marxismWebsite);
-
-		logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
-		logger.info("Contains {} themes", marxismWebsite.getThemes().size());
-		logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
-		logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
-		logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
-
-		logger.info("Building meetings json..");
-		htmlBuilder.buildMeetings( marxismWebsite, meetings );
+		MarxismWebsite marxismWebsite = marxismService.buildWebsite();
 		
-		ObjectMapper mapper = new ObjectMapper();
-		
-		String meetingsJson = mapper.writeValueAsString( meetings );
-		
-		if(logger.isTraceEnabled()) {
-			logger.trace("Meetings json : {}", meetingsJson);
-		}
-		
-		marxismWebsite.setMeetingsJson(meetingsJson);
-		
-		logger.info("Marxism website content placed into context");
 		context.setAttribute("marxismWebsite", marxismWebsite);
 
 		logger.info("Refreshed MarxismWebsite placed into context");

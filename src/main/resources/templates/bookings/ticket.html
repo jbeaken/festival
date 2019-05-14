@@ -7,11 +7,11 @@
 	    <a href="#modal_no_img"
 	    	class="ticket-help"
 			data-toggle="modal"
-			data-heading="Marxism Festival 2018 Tickets"
+			data-heading="Marxism Festival Tickets"
 			data-content="<p>Full tickets are valid for the entire event.</p>
 			<p>Day tickets are valid for one day of the event.</p>
 			<p>Flexible Ticket are for five meetings across the event.</p>">
-			<ion-icon name="ion-ios-help"></ion-icon>
+			<ion-icon name="help-circle"></ion-icon>
 		</a>
 	</label>
     <div class="col-sm-9">
@@ -40,9 +40,9 @@
 	    <a href="#modal_no_img"
 	    	class="ticket-help"
 			data-toggle="modal"
-			data-heading="Marxism Festival 2018 Tickets"
+			data-heading="Marxism Festival Tickets"
 			data-content="<p>Please select whether you are earning a waged, unwaged or are in higher education (HE) or futher education (FE)</p>">
-			<ion-icon name="ion-ios-help"></ion-icon>
+			<ion-icon name="help-circle"></ion-icon>
 		</a>
 	</label>
     <div class="col-sm-9">
@@ -118,15 +118,7 @@
 </div>
 
 <div id="ticketAfterPartyContainer" class="form-group" style="display : none;">
-    <label class="col-sm-3 control-label">Include after party?&nbsp;
-	    <a href="#modal_no_img"
-	    	class="ticket-help"
-			data-toggle="modal"
-			data-heading="Marxism Festival 2018 After Party"
-			data-content="<p>lopsum dipsum metro trad</p>">
-			<ion-icon name="ion-ios-help"></ion-icon>
-		</a>
-	</label>
+    <label class="col-sm-3 control-label" th:text="${content.bookingAfterPartyText}"></label>
     <div class="col-sm-9">
         <label class="radio-inline"> <input type="checkbox" name="ticket.afterParty" id="afterPartyCheckbox" onclick="javascript:toggleTickets()"></label>
     </div>

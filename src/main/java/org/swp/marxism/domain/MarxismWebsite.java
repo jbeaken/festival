@@ -1,6 +1,8 @@
 package org.swp.marxism.domain;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -46,6 +48,9 @@ public class MarxismWebsite extends MarxismEntity {
 
 	//Meetings Section
 	@NotEmpty private String meetingHeading;
+	
+	//Booking section
+	@NotEmpty private String bookingAfterPartyText;	
 
 	//Confirmation Email
 	@NotEmpty private String emailSubject;
@@ -97,6 +102,9 @@ public class MarxismWebsite extends MarxismEntity {
 	//Json
 	@Transient
 	private String meetingsJson;
+	
+	@Transient
+	private String jsonDaysAndTimes;
 
 	@Transient
 	private String themesJson;
@@ -645,6 +653,26 @@ public class MarxismWebsite extends MarxismEntity {
 				+ showBooking + ", showContact=" + showContact + ", showAbout=" + showAbout + ", showVideo=" + showVideo
 				+ ", showDiscountCode=" + showDiscountCode + ", showCultureItems=" + showCultureItems
 				+ ", showMeetingVenues=" + showMeetingVenues + "]";
+	}
+
+	public String getBookingAfterPartyText() {
+		return bookingAfterPartyText;
+	}
+
+	public void setBookingAfterPartyText(String bookingAfterPartyText) {
+		this.bookingAfterPartyText = bookingAfterPartyText;
+	}
+
+	public String getThemesJson() {
+		return themesJson;
+	}
+
+	public String getJsonDaysAndTimes() {
+		return jsonDaysAndTimes;
+	}
+
+	public void setJsonDaysAndTimes(String jsonDaysAndTimes) {
+		this.jsonDaysAndTimes = jsonDaysAndTimes;
 	}
 
 }
