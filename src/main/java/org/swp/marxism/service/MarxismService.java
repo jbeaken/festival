@@ -53,7 +53,7 @@ public class MarxismService {
 		
 		htmlBuilder.buildMeetings(marxismWebsite, meetings);
 		
-		htmlBuilder.getJsonDaysAndTimes(marxismWebsite, meetings );
+		htmlBuilder.getDaysAndTimes(marxismWebsite, meetings );
 		
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
 			marxismWebsite.setIsDev(false);

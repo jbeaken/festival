@@ -482,10 +482,6 @@ function openGalleryPicnic( theme ) {
 	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
 }
 
-function openSwipeBox() {
-
-}
-
 function showMoreSpeakers() {
 	$('div#third_row_speakers').show();
 	$('div#third_row_speakers').removeClass('hidden');
@@ -494,15 +490,10 @@ function showMoreSpeakers() {
 
 function writeTimes( day, time ) {
 	
-	var text = ""
-		
-	console.log( daysAndTimes );
-	
 	var times = daysAndTimes[ day ]
 	
-	console.log( time );
+	//Default to first time slot
 	if (time === undefined) time = times[0]
-	
 
 	$('ul#meetings__day__list > li > a').removeClass('selected')
 
@@ -510,31 +501,12 @@ function writeTimes( day, time ) {
 
 	$('ul#meetings__time__list > li > a').removeClass('selected')
 	
+	var text = ""
+		
 	for(i = 0; i < times.length; i++) {
 		text += getTimeText( day, times[i], time);
 	}
-	
-//	if(day == 'THURSDAY') {
-//		text += getTimeText( day, '12.30', time)
-//		text += getTimeText( day, '14.30', time)
-//		text += getTimeText( day, '16.15', time)
-//		text += getTimeText( day, '19.00', time)
-//	} else if(day == 'SUNDAY') {
-//		text += getTimeText( day, '10.00', time)
-//		text += getTimeText( day, '11.45', time)
-//		text += getTimeText( day, '14.00', time)
-//		text += getTimeText( day, '15.45', time)		
-//		text += getTimeText( day, '17.30', time)		
-//		//text += getTimeText( day, '18.30', time)		
-//	} else {
-//		text += getTimeText( day, '10.00', time)
-//		text += getTimeText( day, '11.45', time)
-//		text += getTimeText( day, '14.30', time)
-//		text += getTimeText( day, '16.15', time)		
-//		text += getTimeText( day, '19.00', time)		
-//		//text += getTimeText( day, '21.00', time)			
-//	}
-	
+		
 	return text
 }
 
@@ -580,12 +552,8 @@ function getMeetingsByDayAndTime( day, time ) {
 			if(meeting.time != time) continue
 		}	
 		
-		// console.log("Adding " + meeting.title)
-		
 		result.push( meeting )
 	}
-	
-	// console.log( result )
 	
 	return result
 }

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -295,19 +296,21 @@ public class HtmlBuilder {
 <<<<<<< HEAD
 =======
 
-	public void getJsonDaysAndTimes(MarxismWebsite marxismWebsite, List<Meeting> meetings) {
+	public void getDaysAndTimes(MarxismWebsite marxismWebsite, List<Meeting> meetings) {
 
-		Map<Day, Set<String>> meetingsByDay = meetings
+		SortedMap<Day, Set<String>> timesByDay = meetings
 				.stream()
 				.collect(Collectors.groupingBy( Meeting::getDay, TreeMap::new, Collectors.mapping(Meeting::getTime, Collectors.toCollection(TreeSet::new)))); 
 		
-
 		ObjectMapper mapper = new ObjectMapper();
-//		mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+		
+		marxismWebsite.setDays( timesByDay.keySet().toArray(new Day[0]) );
 		
 		try {
-			String jsonDaysAndTimes = mapper.writeValueAsString( meetingsByDay );
+			String jsonDaysAndTimes = mapper.writeValueAsString( timesByDay );
+			
 			marxismWebsite.setJsonDaysAndTimes( jsonDaysAndTimes ) ;
+			
 		} catch (JsonProcessingException e) {
 			logger.error("Cannot get days and times", e);
 			throw new MarxismException("Cannot get days and times");

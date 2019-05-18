@@ -3,6 +3,7 @@ package org.swp.marxism.domain;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -108,7 +109,10 @@ public class MarxismWebsite extends MarxismEntity {
 
 	@Transient
 	private String themesJson;
-
+	
+	@Transient
+	private Day[] days;
+	
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderColumn(name="speaker_index", nullable=false)
 	private List<Speaker> speakers;
@@ -673,6 +677,14 @@ public class MarxismWebsite extends MarxismEntity {
 
 	public void setJsonDaysAndTimes(String jsonDaysAndTimes) {
 		this.jsonDaysAndTimes = jsonDaysAndTimes;
+	}
+
+	public Day[] getDays() {
+		return days;
+	}
+
+	public void setDays(Day[] days) {
+		this.days = days;
 	}
 
 }

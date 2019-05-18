@@ -259,10 +259,9 @@ ion-icon#downloadTimetablePdf {
 		<div class="row">
 			<div class="col-sm-8">
 				<ul id="meetings__day__list">
-					<li><a id="THURSDAY" class="meeting__time__anchor" onclick="writeMeetings(this.id)">Thursday</a></li>
-					<li class="pipe-to-left"><a id="FRIDAY" class="meeting__time__anchor" onclick="writeMeetings(this.id)">&nbsp;Friday</a></li>
-					<li class="pipe-to-left"><a id="SATURDAY" class="meeting__time__anchor" onclick="writeMeetings(this.id)">&nbsp;Saturday</a></li>
-					<li class="pipe-to-left"><a id="SUNDAY" class="meeting__time__anchor" onclick="writeMeetings(this.id)">&nbsp;Sunday</a></li>
+					<li th:each="day, iterStatus : ${content.days}" th:class="${iterStatus.index != 0} ? 'pipe-to-left' : ''">
+						<a th:attr="id=${day}" class="meeting__time__anchor" onclick="writeMeetings(this.id)" th:text="${day}">Thursday</a>
+					</li>
 				</ul>
 				
 				<ul id="meetings__time__list">
