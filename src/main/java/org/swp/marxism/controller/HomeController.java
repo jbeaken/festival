@@ -73,20 +73,8 @@ public class HomeController {
 	private ServletContext context;
 
 	@Autowired
-<<<<<<< HEAD
 	private ApplicationContext appContext;
-<<<<<<< HEAD
-=======
-=======
-
-<<<<<<< HEAD
-	@Autowired
->>>>>>> dd76450... Adding firstname and lastname templating to email text
 	private HtmlBuilder htmlBuilder;
->>>>>>> 283b682... HtmlBuilder bean now used rather than entity or javascript
-
-=======
->>>>>>> 93eeae2... Adding MarxismService, removing Bean HTMLBuilder
 	@Value("${marxism.email.to}")
 	private String emailTo;
 
@@ -116,7 +104,6 @@ public class HomeController {
 			logger.error("Cannot send home message", e);
 		}
 
-<<<<<<< HEAD
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
 		if(marxismWebsite == null) {
@@ -147,12 +134,10 @@ public class HomeController {
 			
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
-=======
 		MarxismWebsite marxismWebsite = getMarxismWebsite();
->>>>>>> d9a4772... Themes now ready to show meetings, speakers.sql added
 
 		model.addAttribute("content", marxismWebsite);
-
+		
 		return "home.html";
 	}
 
@@ -250,7 +235,7 @@ public class HomeController {
 		logger.info("Received get request for book");
 
 		MarxismWebsite marxismWebsite = getMarxismWebsite();
-
+		
 		model.addAttribute("content", marxismWebsite);
 		model.addAttribute("gotoBookingForm", Boolean.TRUE);
 
@@ -501,9 +486,7 @@ public class HomeController {
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
 		if (marxismWebsite == null) {
-			
 			marxismWebsite = marxismService.buildWebsite();
-
 			context.setAttribute("marxismWebsite", marxismWebsite);
 		}
 
