@@ -9,9 +9,15 @@ wget -P /tmp http://apache.mirror.anlx.net/tomcat/tomcat-9/v$TOMCATVERSION/bin/a
 sudo tar xf /tmp/apache-tomcat-$TOMCATVERSION.tar.gz -C /opt
 
 # Prepare
+<<<<<<< HEAD
 cp /home/git/festival/server.xml /opt/apache-tomcat-$TOMCATVERSION/conf/server.xml
 cp /home/git/festival/context.xml /opt/apache-tomcat-$TOMCATVERSION/conf/context.xml
 cp /home/git/festival/setenv.sh /opt/apache-tomcat-$TOMCATVERSION/bin/setenv.sh
+=======
+cp /home/git/marxism/server.xml /opt/apache-tomcat-$TOMCATVERSION/conf/server.xml
+cp /home/git/marxism/context.xml /opt/apache-tomcat-$TOMCATVERSION/conf/context.xml
+cp /home/git/marxism/setenv.sh /opt/apache-tomcat-$TOMCATVERSION/bin/setenv.sh
+>>>>>>> ea425b8... Adding new fields for early bird and discount
 
 # Copy webapps
 sudo rm -rf /opt/apache-tomcat-$TOMCATVERSION/webapps
