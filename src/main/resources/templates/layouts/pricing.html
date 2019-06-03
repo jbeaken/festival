@@ -8,7 +8,7 @@
 		
 			<h2 class="page-header text-center" style="margin-bottom: 10px;" th:text="${content.pricingHeading}"></h2>
 		
-			<h2 class="page-subheader text-center booking-discount" th:if="${content.applyTicketDiscount == true}" th:text="${content.discountText}"></h2>
+			<h2 class="page-subheader text-center booking-discount" th:if="${content.showEarlyBirdDiscount == true}" th:text="${content.earlyBirdDiscountText}"></h2>
 		
 			<div id="pricing_blurb" th:utext="${content.pricingText}"></div>
 		</div>

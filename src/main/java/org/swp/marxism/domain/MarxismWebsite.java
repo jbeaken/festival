@@ -86,9 +86,13 @@ public class MarxismWebsite extends MarxismEntity {
 	@NotEmpty private String themeHeading;
 
 	//Discount
-	@NotEmpty private String discountText;
-	@NotNull private Boolean applyTicketDiscount;
-	@NotNull private Integer discountAmount;
+	@NotEmpty private String earlyBirdDiscountText;
+	@NotNull private Boolean showEarlyBirdDiscount;
+	@NotNull private Integer earlyBirdDiscountAmount;
+	
+	private String discountCode;
+	private Integer discountCodeAmount;
+	@NotNull private Boolean showDiscountCode;
 
 	//Video
 	@NotEmpty private String videoUrl;
@@ -97,8 +101,6 @@ public class MarxismWebsite extends MarxismEntity {
 	@NotNull private String audioUrl;
 	@NotNull private String videosUrl;
 	@NotNull private String galleryUrl;
-
-	private String discountCode;
 
 	//Json
 	@Transient
@@ -144,17 +146,8 @@ public class MarxismWebsite extends MarxismEntity {
 	@NotNull private Boolean showContact;
 	@NotNull private Boolean showAbout;
 	@NotNull private Boolean showVideo;
-	@NotNull private Boolean showDiscountCode;
 	@NotNull private Boolean showCultureItems;
 	@NotNull private Boolean showMeetingVenues;
-
-	public Integer getDiscountAmount() {
-		return discountAmount;
-	}
-
-	public void setDiscountAmount(Integer discountAmount) {
-		this.discountAmount = discountAmount;
-	}
 
 	public Integer getPricingFullEventWaged() {
 		return pricingFullEventWaged;
@@ -306,22 +299,6 @@ public class MarxismWebsite extends MarxismEntity {
 
 	public void setVideoUrl(String videoUrl) {
 		this.videoUrl = videoUrl;
-	}
-
-	public Boolean getApplyTicketDiscount() {
-		return applyTicketDiscount;
-	}
-
-	public void setApplyTicketDiscount(Boolean applyTicketDiscount) {
-		this.applyTicketDiscount = applyTicketDiscount;
-	}
-
-	public String getDiscountText() {
-		return discountText;
-	}
-
-	public void setDiscountText(String discountText) {
-		this.discountText = discountText;
 	}
 
 	public String getAboutLine2() {
@@ -633,32 +610,6 @@ public class MarxismWebsite extends MarxismEntity {
 		this.emailText = emailText;
 	}
 
-	@Override
-	public String toString() {
-		return "MarxismWebsite [name=" + name + ", year=" + year + ", isLive=" + isLive + ", isDev=" + isDev
-				+ ", aboutHeading=" + aboutHeading + ", aboutLine2=" + aboutLine2 + ", aboutLine3=" + aboutLine3
-				+ ", aboutText=" + aboutText + ", pricingHeading=" + pricingHeading + ", pricingText=" + pricingText
-				+ ", meetingHeading=" + meetingHeading + ", emailSubject=" + emailSubject + ", emailText=" + emailText
-				+ ", pricingFullEventWaged=" + pricingFullEventWaged + ", pricingFullEventUnwaged="
-				+ pricingFullEventUnwaged + ", pricingFullEventHE=" + pricingFullEventHE + ", pricingFullEventFE="
-				+ pricingFullEventFE + ", pricingDayTicketWaged=" + pricingDayTicketWaged + ", pricingDayTicketUnwaged="
-				+ pricingDayTicketUnwaged + ", pricingDayTicketHE=" + pricingDayTicketHE + ", pricingDayTicketFE="
-				+ pricingDayTicketFE + ", pricingFlexiTicketWaged=" + pricingFlexiTicketWaged
-				+ ", pricingFlexiTicketUnwaged=" + pricingFlexiTicketUnwaged + ", pricingFlexiTicketHE="
-				+ pricingFlexiTicketHE + ", pricingFlexiTicketFE=" + pricingFlexiTicketFE + ", contactHeading="
-				+ contactHeading + ", contactLine2=" + contactLine2 + ", contactTelephone=" + contactTelephone
-				+ ", contactEmail=" + contactEmail + ", contactAddress1=" + contactAddress1 + ", contactAddress2="
-				+ contactAddress2 + ", contactAddress3=" + contactAddress3 + ", contactAddress4=" + contactAddress4
-				+ ", themeHeading=" + themeHeading + ", discountText=" + discountText + ", applyTicketDiscount="
-				+ applyTicketDiscount + ", discountAmount=" + discountAmount + ", videoUrl=" + videoUrl + ", audioUrl="
-				+ audioUrl + ", videosUrl=" + videosUrl + ", galleryUrl=" + galleryUrl + ", discountCode="
-				+ discountCode + ", showThemes=" + showThemes + ", showPricing=" + showPricing + ", showGallery="
-				+ showGallery + ", showSpeakers=" + showSpeakers + ", showMeetings=" + showMeetings + ", showBooking="
-				+ showBooking + ", showContact=" + showContact + ", showAbout=" + showAbout + ", showVideo=" + showVideo
-				+ ", showDiscountCode=" + showDiscountCode + ", showCultureItems=" + showCultureItems
-				+ ", showMeetingVenues=" + showMeetingVenues + "]";
-	}
-
 	public String getBookingAfterPartyText() {
 		return bookingAfterPartyText;
 	}
@@ -685,6 +636,38 @@ public class MarxismWebsite extends MarxismEntity {
 
 	public void setDays(Day[] days) {
 		this.days = days;
+	}
+
+	public String getEarlyBirdDiscountText() {
+		return earlyBirdDiscountText;
+	}
+
+	public void setEarlyBirdDiscountText(String earlyBirdDiscountText) {
+		this.earlyBirdDiscountText = earlyBirdDiscountText;
+	}
+
+	public Boolean getShowEarlyBirdDiscount() {
+		return showEarlyBirdDiscount;
+	}
+
+	public void setShowEarlyBirdDiscount(Boolean showEarlyBirdDiscount) {
+		this.showEarlyBirdDiscount = showEarlyBirdDiscount;
+	}
+
+	public Integer getEarlyBirdDiscountAmount() {
+		return earlyBirdDiscountAmount;
+	}
+
+	public void setEarlyBirdDiscountAmount(Integer earlyBirdDiscountAmount) {
+		this.earlyBirdDiscountAmount = earlyBirdDiscountAmount;
+	}
+
+	public Integer getDiscountCodeAmount() {
+		return discountCodeAmount;
+	}
+
+	public void setDiscountCodeAmount(Integer discountCodeAmount) {
+		this.discountCodeAmount = discountCodeAmount;
 	}
 
 }

@@ -117,13 +117,17 @@
   <!-- JS Custom -->
   <script th:inline="javascript">
   
-  	var applyTicketDiscount = [[${content.applyTicketDiscount}]]
+  	var showEarlyBirdDiscount = [[${content.showEarlyBirdDiscount}]]
+  	var earlyBirdDiscountAmount = [[${content.earlyBirdDiscountAmount}]]
+  	
     var gotoBookingForm = "[[${gotoBookingForm}]]"
-    var showDiscountCode = [[${content.showDiscountCode}]]
+    
   	var bookingEnabled = [[${content.showBooking}]]
     var isDev = [[${content.isDev}]]
-  	var discountCode = [[${content.discountCode}]]
   	
+  	var discountCode = [[${content.discountCode}]]
+  	var discountCodeAmount = [[${content.discountCodeAmount}]]
+  	var showDiscountCode = [[${content.showDiscountCode}]]
   	/*<![CDATA[*/
   	
   	var daysAndTimes = [(${content.jsonDaysAndTimes})];

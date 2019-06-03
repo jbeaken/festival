@@ -627,8 +627,10 @@ function getDiscount() {
 	
 	discount = discount.toLowerCase();
 	
-	if(discount === discountCode) {
-		return 5;
+	console.log( discount + " discount");
+	
+	if(discount === discountCode.toLowerCase()) {
+		return discountCodeAmount;
 	}
 	
 	return null;
@@ -687,10 +689,9 @@ function calculatePrice() {
 		price = price * 0.9
 	}
 
-	console.log("price : " + price)
+//	console.log("price : " + price)
 
-	// Apply discount till March 28
-	if( applyTicketDiscount == true) price = price - 5
+	if( showEarlyBirdDiscount == true) price = price - earlyBirdDiscountAmount
 
 	return price
 }

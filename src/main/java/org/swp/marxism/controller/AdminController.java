@@ -86,6 +86,6 @@ public class AdminController {
 
 		logger.info("Refreshed MarxismWebsite placed into context");
 
-		return "success";
+		return "redirect:/";
 	}
 }

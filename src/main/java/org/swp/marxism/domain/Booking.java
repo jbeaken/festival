@@ -226,8 +226,7 @@ public class Booking extends MarxismEntity {
 
 	@Override
 	public String toString() {
-		return "Booking [id=" + getId() + ", status=" + status + ", ticket=" + ticket + ", date=" + date + ", address=" + address + ", firstname=" + firstname + ", lastname=" + lastname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", email=" + email + ", telephone=" + telephone
-				+ ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout + ", accommodationNeeds=" + accommodationNeeds + ", accommodationContact=" + accommodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
+		return "Booking [id=" + getId() + ", status=" + status + ", ticket=" + ticket + ", date=" + date + ", address=" + address + ", firstname=" + firstname + ", college=" + college + ", tradeUnion=" + tradeUnion + ", otherMembership=" + otherMembership + ", hearAbout=" + hearAbout + ", accommodationNeeds=" + accommodationNeeds + ", accommodationContact=" + accommodationContact + ", childrenUnder18Months=" + childrenUnder18Months + ", children18MonthsTo5Years=" + children18MonthsTo5Years
 				+ ", children5YearsTo11years=" + children5YearsTo11years + "]";
 	}
 
