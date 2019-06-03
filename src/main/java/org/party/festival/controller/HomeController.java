@@ -320,7 +320,11 @@ public class HomeController {
 
 		TicketPricing pricing = ticket.getPricing();
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		Website website = getWebsite();
+=======
+		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
+>>>>>>> 02f0d23... Fixed lower case discount code bug:src/main/java/org/swp/marxism/controller/HomeController.java
 
 		switch (ticket.getType()) {
 		case FULL:
@@ -362,7 +366,11 @@ public class HomeController {
 			price += 5;
 		}
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		if (website.getShowEarlyBirdDiscount()) {
+=======
+		if (marxismWebsite.getShowEarlyBirdDiscount() == true) {
+>>>>>>> 02f0d23... Fixed lower case discount code bug:src/main/java/org/swp/marxism/controller/HomeController.java
 			price -= 5;
 		}
 
@@ -372,10 +380,18 @@ public class HomeController {
 		if (website.getShowDiscountCode()) {
 			if (booking.getDiscountCode() != null
 					&& booking.getDiscountCode().toLowerCase()
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 					.equals(website.getDiscountCode().toLowerCase())) {
 				price = (int) (price * 0.9);
 			} else {
 				// They could have put anything in here
+=======
+					.equals(marxismWebsite.getDiscountCode().toLowerCase())) {
+				price = (int) (price * 0.9);
+			} else {
+				// They could have put anything in here
+//				booking.setDiscountCode(null);
+>>>>>>> 02f0d23... Fixed lower case discount code bug:src/main/java/org/swp/marxism/controller/HomeController.java
 			}
 		}
 
