@@ -1,5 +1,7 @@
 package org.swp.marxism.domain;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
+@Data
 public abstract class MarxismEntity implements Serializable {
 
     @Id
@@ -24,44 +27,4 @@ public abstract class MarxismEntity implements Serializable {
     private String creator;
     
     private String updater;
-
-	public Long getId() {
-        return this.id;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-	public Date getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public Date getDateUpdated() {
-		return dateUpdated;
-	}
-
-	public void setDateUpdated(Date dateUpdated) {
-		this.dateUpdated = dateUpdated;
-	}
-
-	public String getCreator() {
-		return creator;
-	}
-
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
-
-	public String getUpdater() {
-		return updater;
-	}
-
-	public void setUpdater(String updater) {
-		this.updater = updater;
-	}	
 }

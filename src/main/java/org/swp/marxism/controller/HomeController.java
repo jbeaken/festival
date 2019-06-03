@@ -1,21 +1,8 @@
 package org.swp.marxism.controller;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.security.NoSuchAlgorithmException;
-import java.time.YearMonth;
-import java.util.List;
-import java.util.Optional;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -31,33 +18,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.swp.marxism.amqp.MessageProducer;
 import org.swp.marxism.controller.bean.Feedback;
 import org.swp.marxism.controller.command.ContactForm;
-import org.swp.marxism.domain.Booking;
-import org.swp.marxism.domain.BookingStatus;
-import org.swp.marxism.domain.MarxismWebsite;
-import org.swp.marxism.domain.Meeting;
-import org.swp.marxism.domain.Ticket;
-import org.swp.marxism.domain.TicketPricing;
+import org.swp.marxism.domain.*;
 import org.swp.marxism.exception.MarxismException;
 import org.swp.marxism.repository.BookingRepository;
-import org.swp.marxism.repository.MarxismWebsiteRepository;
-import org.swp.marxism.repository.MeetingRepository;
-import org.swp.marxism.service.MarxismService;
-import org.swp.marxism.util.HtmlBuilder;
 import org.thymeleaf.context.Context;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.NoSuchAlgorithmException;
+import java.time.YearMonth;
+import java.util.Optional;
 
 @Controller("/")
+@Slf4j
 public class HomeController {
 
 	@Autowired
@@ -80,11 +62,6 @@ public class HomeController {
 
 	@Autowired
 	private MessageProducer messageProducer;
-
-	@Autowired
-	private MarxismService marxismService;
-
-	protected static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@InitBinder("booking")
 	public void initBinder(WebDataBinder binder) {
@@ -136,6 +113,12 @@ public class HomeController {
 		}
 		MarxismWebsite marxismWebsite = getMarxismWebsite();
 
+		if (environment.acceptsProfiles(Profiles.of("prod"))) {
+			marxismWebsite.setIsDev(false);
+		} else {
+			marxismWebsite.setIsDev(true);
+		}
+
 		model.addAttribute("content", marxismWebsite);
 		
 		return "home.html";
@@ -177,7 +160,7 @@ public class HomeController {
 	@RequestMapping(value = "/booking/details", method = RequestMethod.GET)
 	public String redirectFromOldUrls(Model model) {
 
-		logger.info("Received request from old website /booking/details");
+		log.info("Received request from old website /booking/details");
 
 		return "redirect:/";
 	}
@@ -186,15 +169,15 @@ public class HomeController {
 	public ResponseEntity<String> feedback(@RequestBody Feedback feedback, Model model)
 			throws NoSuchAlgorithmException {
 
-		logger.info("Received feeback {} ", feedback);
+		log.info("Received feeback {} ", feedback);
 
 		Long id = Long.parseLong(feedback.getOrderid().replace("MRX" + YearMonth.now().getYear() + "_", ""));
 
-		logger.info("Extracted booking id {}", id);
+		log.info("Extracted booking id {}", id);
 
 		boolean shaCheck = feedback.checkSha("435dhsgidcddT4g");
 
-		logger.info("shaCheck = {}", shaCheck);
+		log.info("shaCheck = {}", shaCheck);
 
 		if (shaCheck == false) {
 			return new ResponseEntity<String>("sha failure", HttpStatus.NOT_ACCEPTABLE);
@@ -208,21 +191,21 @@ public class HomeController {
 
 		Booking booking = optional.get();
 
-		logger.info("Got booking {}", booking);
+		log.info("Got booking {}", booking);
 
 		if (feedback.getBarclaysStatus().equals("5")) {
-			logger.info("Updating status to paid");
+			log.info("Updating status to paid");
 			bookingRepository.updateStatus(id, BookingStatus.PAID);
 			try {
 				sendEmail(booking);
 			} catch (Exception e) {
-				logger.error("Cannot send booking email", e);
+				log.error("Cannot send booking email", e);
 			}
 		}
 		
 
 		if (feedback.getBarclaysStatus().equals("1")) {
-			logger.info("Updating status to cancelled");
+			log.info("Updating status to cancelled");
 			bookingRepository.updateStatus(id, BookingStatus.CANCELLED);
 		}
 
@@ -232,7 +215,7 @@ public class HomeController {
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
 	public String book(Model model) throws JsonProcessingException {
 
-		logger.info("Received get request for book");
+		log.info("Received get request for book");
 
 		MarxismWebsite marxismWebsite = getMarxismWebsite();
 		
@@ -245,7 +228,7 @@ public class HomeController {
 	@RequestMapping(value = "/modal/{content}", method = RequestMethod.GET)
 	public String modalContent(@PathVariable String content, Model model) {
 
-		logger.info("Received request for modal {}", content);
+		log.info("Received request for modal {}", content);
 
 		return "/modal/" + content;
 	}
@@ -253,10 +236,10 @@ public class HomeController {
 	@RequestMapping(value = "/book", method = RequestMethod.POST)
 	public String book(@Valid Booking booking, BindingResult bindingResult, Model model) {
 
-		logger.info("Received post request for booking {}", booking);
+		log.info("Received post request for booking {}", booking);
 
 		if (bindingResult.hasErrors()) {
-			logger.info("Booking failed validation {}", bindingResult);
+			log.info("Booking failed validation {}", bindingResult);
 
 			model.addAttribute(booking);
 
@@ -269,7 +252,7 @@ public class HomeController {
 		// Sanity check
 		String backendPrice = getBackendPrice(booking);
 
-		logger.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice,
+		log.info("Checking booking price {} equals ticket.webPrice {} ", backendPrice,
 				booking.getTicket().getWebPrice());
 
 		if (!backendPrice.equals(booking.getTicket().getWebPrice())) {
@@ -277,21 +260,21 @@ public class HomeController {
 					"Web and backend prices do not match " + backendPrice + " : " + booking.getTicket().getWebPrice());
 		}
 
-		logger.info("Passed validation, persisting");
+		log.info("Passed validation, persisting");
 
 		bookingRepository.save(booking);
 
-		logger.info("Booking persisted. All done!");
+		log.info("Booking persisted. All done!");
 
 		String orderId = getOrderId(booking);
 
 		try {
 			messageProducer.send(booking, orderId);
 		} catch (Exception e) {
-			logger.error("Cannot send booking message", e);
+			log.error("Cannot send booking message", e);
 		}
 
-		logger.debug("Sending to barclays with order id {}", orderId);
+		log.debug("Sending to barclays with order id {}", orderId);
 
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);
@@ -306,7 +289,6 @@ public class HomeController {
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
 			orderId = "MRX";
 		}
-		;
 
 		orderId += YearMonth.now().getYear() + "_" + booking.getId();
 
@@ -322,8 +304,6 @@ public class HomeController {
 		TicketPricing pricing = ticket.getPricing();
 
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
-
-		logger.info("marxismWebsite.getApplyTicketDiscount() : {}", marxismWebsite.getApplyTicketDiscount());
 
 		switch (ticket.getType()) {
 		case FULL:
@@ -365,7 +345,7 @@ public class HomeController {
 			price += 5;
 		}
 
-		if (marxismWebsite.getApplyTicketDiscount() == true) {
+		if (marxismWebsite.getShowEarlyBirdDiscount() == true) {
 			price -= 5;
 		}
 
@@ -374,11 +354,12 @@ public class HomeController {
 		// Discount Codes
 		if (marxismWebsite.getShowDiscountCode() == true) {
 			if (booking.getDiscountCode() != null
-					&& booking.getDiscountCode().toLowerCase().equals(marxismWebsite.getDiscountCode())) {
+					&& booking.getDiscountCode().toLowerCase()
+					.equals(marxismWebsite.getDiscountCode().toLowerCase())) {
 				price = (int) (price * 0.9);
 			} else {
 				// They could have put anything in here
-				booking.setDiscountCode(null);
+//				booking.setDiscountCode(null);
 			}
 		}
 
@@ -388,7 +369,7 @@ public class HomeController {
 	@RequestMapping(value = "/thankYou", method = RequestMethod.GET)
 	public String thankYou(Model model) {
 
-		logger.info("Received thankYou");
+		log.info("Received thankYou");
 
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
@@ -401,16 +382,16 @@ public class HomeController {
 	@ResponseBody
 	public String sendEmail(@Valid ContactForm contactForm, BindingResult bindingResult, Model model) {
 
-		logger.info("Received post request for sendEmail {}", contactForm);
+		log.info("Received post request for sendEmail {}", contactForm);
 
 		if (bindingResult.hasErrors()) {
 			// Should never happen, js validation
-			logger.info("Failed validation {}", bindingResult);
+			log.info("Failed validation {}", bindingResult);
 
 			return "error";
 		}
 
-		logger.info("Passed validation, sending email to {}", emailTo);
+		log.info("Passed validation, sending email to {}", emailTo);
 
 		try {
 
@@ -436,7 +417,7 @@ public class HomeController {
 			this.mailSender.send(mimeMessage);
 
 		} catch (MessagingException e) {
-			logger.error("Cannot send email", e);
+			log.error("Cannot send email", e);
 			return "error";
 		}
 
@@ -445,7 +426,7 @@ public class HomeController {
 
 	private void sendEmail(Booking booking) throws MessagingException {
 
-		logger.info("Sending booking confirmation");
+		log.info("Sending booking confirmation");
 
 		MarxismWebsite marxismWebsite = getMarxismWebsite();
 
@@ -478,17 +459,17 @@ public class HomeController {
 
 		this.mailSender.send(mimeMessage);
 
-		logger.info("Mail successfuly sent!");
+		log.info("Mail successfuly sent!");
 	}
 
 	private MarxismWebsite getMarxismWebsite() {
 
 		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
 
-		if (marxismWebsite == null) {
-			marxismWebsite = marxismService.buildWebsite();
-			context.setAttribute("marxismWebsite", marxismWebsite);
-		}
+//		if (marxismWebsite == null) {
+//			marxismWebsite = marxismService.buildWebsite();
+//			context.setAttribute("marxismWebsite", marxismWebsite);
+//		}
 
 		return marxismWebsite;
 	}

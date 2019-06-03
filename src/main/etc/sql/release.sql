@@ -23,3 +23,6 @@ alter table marxism_website add column show_early_bird_discount bit(1) not null;
 alter table marxism_website drop column discount_amount;
 
 update marxism_website set discount_code = 'DumpTrump';
+
+update marxism_website set show_early_bird_discount = false;
+update marxism_website set show_discount_code  = true;

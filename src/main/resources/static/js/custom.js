@@ -527,7 +527,7 @@ function writeMeetings( day, time) {
 		
 		var meeting = meetingList[i]
 		
-		html = html + meeting.json
+		html = html + meeting.html
 	}
 	
 	$('div#meetings__holder').html( html )

@@ -118,7 +118,7 @@ public class HtmlBuilder {
 
 		builder.append("</div>"); // .meeting__holder
 
-		meeting.setJson(builder.toString());
+		meeting.setHtml(builder.toString());
 
 	}
 

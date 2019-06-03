@@ -1,5 +1,7 @@
 package org.swp.marxism.domain;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Embeddable
+@Data
 public class Ticket {
 	
 	@Enumerated(EnumType.STRING)
@@ -48,62 +51,6 @@ public class Ticket {
 		return days.toString();
 	}
 
-	public TicketType getType() {
-		return type;
-	}
-
-	public void setType(TicketType type) {
-		this.type = type;
-	}
-
-	public TicketPricing getPricing() {
-		return pricing;
-	}
-
-	public void setPricing(TicketPricing pricing) {
-		this.pricing = pricing;
-	}
-
-	public Integer getThursday() {
-		return thursday;
-	}
-
-	public void setThursday(Integer thursday) {
-		this.thursday = thursday;
-	}
-
-	public Integer getFriday() {
-		return friday;
-	}
-
-	public void setFriday(Integer friday) {
-		this.friday = friday;
-	}
-
-	public Integer getSaturday() {
-		return saturday;
-	}
-
-	public void setSaturday(Integer saturday) {
-		this.saturday = saturday;
-	}
-
-	public Integer getSunday() {
-		return sunday;
-	}
-
-	public void setSunday(Integer sunday) {
-		this.sunday = sunday;
-	}
-
-	public Boolean getAfterParty() {
-		return afterParty;
-	}
-
-	public void setAfterParty(Boolean afterParty) {
-		this.afterParty = afterParty;
-	}
-
 	public Integer getNoOfDaysSelected() {
 		int noOfDaysSelected = 0;
 		if(thursday != null) noOfDaysSelected += thursday;
@@ -113,19 +60,4 @@ public class Ticket {
 		
 		return noOfDaysSelected;
 	}
-
-	public String getWebPrice() {
-		return webPrice;
-	}
-
-	public void setWebPrice(String webPrice) {
-		this.webPrice = webPrice;
-	}
-
-	@Override
-	public String toString() {
-		return "Ticket [type=" + type + ", pricing=" + pricing + ", webPrice=" + webPrice + ", thursday=" + thursday + ", friday=" + friday + ", saturday=" + saturday + ", sunday=" + sunday + ", afterParty=" + afterParty + "]";
-	}
-
-	
 }
