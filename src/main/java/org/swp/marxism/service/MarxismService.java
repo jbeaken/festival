@@ -1,36 +1,18 @@
 package org.swp.marxism.service;
 
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
-import org.springframework.stereotype.Component;
-import org.swp.marxism.domain.MarxismWebsite;
-import org.swp.marxism.domain.Meeting;
-import org.swp.marxism.exception.MarxismException;
-import org.swp.marxism.repository.MarxismWebsiteRepository;
-import org.swp.marxism.repository.MeetingRepository;
-import org.swp.marxism.util.HtmlBuilder;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-@Component
+//@Component
 public class MarxismService {
 	
 	protected static final Logger logger = LoggerFactory.getLogger(MarxismService.class);
 
 	@Autowired
-	private MarxismWebsiteRepository marxismWebsiteRepository;
-	
-	@Autowired
 	private Environment environment;
-
-	@Autowired
-	private MeetingRepository meetingRepository;
 
 //	public MarxismWebsite buildWebsite() {
 //

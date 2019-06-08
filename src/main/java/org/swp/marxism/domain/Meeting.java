@@ -20,35 +20,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 
-@Entity
 @Data
 public class Meeting extends MarxismEntity {
 	
-	@NotNull
-	@Size(max=500, min=10)
 	private String title;
 	
-	@Enumerated(EnumType.STRING)
-	@NotNull
 	private Day day;
 	
-	@NotNull
 	private String time;
 	
 	private String speakers;
 	
 	private String room;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
 	private Venue venue;
 	
-	@Column(columnDefinition="text")
 	private String description;
 	
-	@ManyToMany(fetch=FetchType.EAGER, mappedBy="meetings")
 	@JsonIgnore
 	private List<Theme> themes;
 	
-	@Transient
 	private String html;
 }

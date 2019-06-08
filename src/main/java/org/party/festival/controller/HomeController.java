@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 package org.party.festival.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -6,6 +7,11 @@ import org.party.festival.domain.Booking;
 import org.party.festival.domain.BookingStatus;
 import org.party.festival.domain.Ticket;
 import org.party.festival.exception.BookingNotFoundException;
+package org.swp.marxism.controller;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -29,6 +35,12 @@ import org.party.festival.bean.*;
 import org.party.festival.exception.MarxismException;
 import org.party.festival.repository.BookingRepository;
 import org.party.festival.service.WebsiteService;
+import org.swp.marxism.amqp.MessageProducer;
+import org.swp.marxism.controller.bean.Feedback;
+import org.swp.marxism.controller.command.ContactForm;
+import org.swp.marxism.domain.*;
+import org.swp.marxism.exception.MarxismException;
+import org.swp.marxism.repository.BookingRepository;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
@@ -77,9 +89,12 @@ public class HomeController {
 	@Autowired
 	private MessageProducer messageProducer;
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 	@Autowired
 	private WebsiteService websiteService;
 
+=======
+>>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 	@InitBinder("booking")
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
@@ -142,6 +157,17 @@ public class HomeController {
 
 		model.addAttribute("content", website);
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
+=======
+		if (environment.acceptsProfiles(Profiles.of("prod"))) {
+			marxismWebsite.setIsDev(false);
+		} else {
+			marxismWebsite.setIsDev(true);
+		}
+
+		model.addAttribute("content", marxismWebsite);
+		
+>>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 		return "home.html";
 	}
 
@@ -208,8 +234,11 @@ public class HomeController {
 
 
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		Booking booking = optional.orElseThrow(() -> new BookingNotFoundException("Cannot find booking " + id));
 
+=======
+>>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 		log.info("Got booking {}", booking);
 
 		if (feedback.getBarclaysStatus().equals("5")) {
@@ -423,7 +452,11 @@ public class HomeController {
 			return "error";
 		}
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		log.info("Passed validation, sending email to {}", officeEmail);
+=======
+		log.info("Passed validation, sending email to {}", emailTo);
+>>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 
 		try {
 
@@ -489,7 +522,11 @@ public class HomeController {
 
 		this.mailSender.send(mimeMessage);
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		log.info("Mail successfully sent!");
+=======
+		log.info("Mail successfuly sent!");
+>>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 	}
 
 	public synchronized Website getWebsite() {
