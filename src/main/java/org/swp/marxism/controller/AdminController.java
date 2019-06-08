@@ -39,53 +39,55 @@ public class AdminController {
 	
 	@RequestMapping(value = "/sync", method = RequestMethod.POST)
 	@ResponseBody
-	public String sync(@RequestBody MarxismWebsiteHolder marxismWebsiteHolder) throws JsonProcessingException {
+	public String sync(@RequestBody MarxismWebsite marxismWebsite) throws JsonProcessingException {
 		
-		logger.info("Received sync request for {}", marxismWebsiteHolder);
+		logger.info("Received sync request for {}", marxismWebsite);
 		
-		MarxismWebsite marxismWebsite = marxismWebsiteHolder.getMarxismWebsite();
+//		MarxismWebsite marxismWebsite = marxismWebsiteHolder.getMarxismWebsite();
 				
 		logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
 		logger.info("Contains {} themes", marxismWebsite.getThemes().size());
 		logger.info("Contains {} abouts", marxismWebsite.getAbouts().size());
 		logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
 		logger.info("Contains {} culture items", marxismWebsite.getCultureItems().size());
-		logger.info("Contains {} meetings", marxismWebsiteHolder.getMeetings().size());
-		logger.info("Contains {} venues", marxismWebsiteHolder.getVenues().size());
+//		logger.info("Contains {} meetings", marxismWebsiteHolder.getMeetings().size());
+//		logger.info("Contains {} venues", marxismWebsiteHolder.getVenues().size());
 		
 		
-		marxismWebsiteRepository.save( marxismWebsite );
-		
-		if(logger.isDebugEnabled()) {
-			for(Meeting m : marxismWebsiteHolder.getMeetings()) {
-				logger.debug("Saving meeting {}", m);
-			}
-		}
-		
-		meetingRepository.deleteAll();
-		
-		meetingRepository.flush();
-		
-		meetingRepository.saveAll(marxismWebsiteHolder.getMeetings());
+//		marxismWebsiteRepository.save( marxismWebsite );
+//
+//		if(logger.isDebugEnabled()) {
+//			for(Meeting m : marxismWebsiteHolder.getMeetings()) {
+//				logger.debug("Saving meeting {}", m);
+//			}
+//		}
+//
+//		meetingRepository.deleteAll();
+//
+//		meetingRepository.flush();
+//
+//		meetingRepository.saveAll(marxismWebsiteHolder.getMeetings());
 		
 //		venueRepository.saveAll(marxismWebsiteHolder.getVenues());
-		
-		refresh();
-		
+
+		context.setAttribute("marxismWebsite", marxismWebsite);
+
+//		refresh();
+
 		return "blah";
 	}
 	
-	@RequestMapping(value = "/refresh", method = RequestMethod.GET)
-	public String refresh() throws JsonProcessingException {
-
-		logger.info("Received request for refresh");
-
-		MarxismWebsite marxismWebsite = marxismService.buildWebsite();
-		
-		context.setAttribute("marxismWebsite", marxismWebsite);
-
-		logger.info("Refreshed MarxismWebsite placed into context");
-
-		return "redirect:/";
-	}
+//	@RequestMapping(value = "/refresh", method = RequestMethod.GET)
+//	public String refresh() throws JsonProcessingException {
+//
+//		logger.info("Received request for refresh");
+//
+//		MarxismWebsite marxismWebsite = marxismService.buildWebsite();
+//
+//		context.setAttribute("marxismWebsite", marxismWebsite);
+//
+//		logger.info("Refreshed MarxismWebsite placed into context");
+//
+//		return "redirect:/";
+//	}
 }

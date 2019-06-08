@@ -496,6 +496,7 @@ public class HomeController {
 
 		Website website = (Website) servletContext.getAttribute("website");
 
+<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		if(website == null) {
 
 			synchronized (this) {
@@ -508,6 +509,12 @@ public class HomeController {
 				servletContext.setAttribute("website", website);
 			}
 		}
+=======
+//		if (marxismWebsite == null) {
+//			marxismWebsite = marxismService.buildWebsite();
+//			context.setAttribute("marxismWebsite", marxismWebsite);
+//		}
+>>>>>>> fff6c70... Adding lombok, and moved HtmlBuilder to puma:src/main/java/org/swp/marxism/controller/HomeController.java
 
 		return website;
 	}
