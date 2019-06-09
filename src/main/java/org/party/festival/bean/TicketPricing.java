@@ -1,4 +1,4 @@
-package org.party.festival.domain;
+package org.party.festival.bean;
 
 public enum TicketPricing {
 	WAGED("Waged"), UNWAGED("Unwaged"), STUDENT_HE("Student HE"), STUDENT_FE("Student FE");

@@ -1,11 +1,11 @@
-package org.party.festival.domain;
+package org.party.festival.bean;
 
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class Website extends MarxismEntity {
+public class Website extends AbstractBean {
 
 	private static final long serialVersionUID = -2458604900857882516L;
 

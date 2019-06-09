@@ -4,7 +4,7 @@ package org.party.festival.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.party.festival.domain.Website;
+import org.party.festival.bean.Website;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

@@ -1,6 +1,7 @@
 package org.party.festival.domain;
 
 import lombok.Data;
+import org.party.festival.bean.JpaEntity;
 
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-public class Booking extends MarxismEntity {
+public class Booking extends JpaEntity {
 
 	@NotNull
 	@Enumerated(EnumType.STRING)

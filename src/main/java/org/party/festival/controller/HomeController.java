@@ -2,6 +2,10 @@ package org.party.festival.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.party.festival.domain.Booking;
+import org.party.festival.domain.BookingStatus;
+import org.party.festival.domain.Ticket;
+import org.party.festival.exception.BookingNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -21,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import org.party.festival.amqp.MessageProducer;
 import org.party.festival.controller.bean.Feedback;
 import org.party.festival.controller.command.ContactForm;
-import org.party.festival.domain.*;
+import org.party.festival.bean.*;
 import org.party.festival.exception.MarxismException;
 import org.party.festival.repository.BookingRepository;
 import org.party.festival.service.WebsiteService;
@@ -197,11 +201,9 @@ public class HomeController {
 
 		Optional<Booking> optional = bookingRepository.findById(id);
 
-		if (!optional.isPresent()) {
-			return new ResponseEntity<>("Cannot find booking " + id, HttpStatus.NOT_ACCEPTABLE);
-		}
 
-		Booking booking = optional.get();
+
+		Booking booking = optional.orElseThrow(() -> new BookingNotFoundException("Cannot find booking " + id));
 
 		log.info("Got booking {}", booking);
 

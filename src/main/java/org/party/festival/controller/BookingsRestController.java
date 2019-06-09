@@ -1,10 +1,10 @@
 package org.party.festival.controller;
 
+import org.party.festival.domain.Booking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.party.festival.domain.Booking;
 import org.party.festival.exception.BookingNotFoundException;
 import org.party.festival.repository.BookingRepository;
 
@@ -27,7 +27,7 @@ public class BookingsRestController {
 
     @GetMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
     public Booking booking(@PathVariable("id") Long id) {
-        return bookingRepository.findById(id).orElseThrow(() -> new BookingNotFoundException(id));
+        return bookingRepository.findById(id).orElseThrow(() -> new BookingNotFoundException("Cannot find booking " + id));
     }
 
     @PostMapping(value = "/")

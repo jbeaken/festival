@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.party.festival.domain.Website;
+import org.party.festival.bean.Website;
 
 import javax.servlet.ServletContext;
 import java.io.FileNotFoundException;

@@ -1,9 +1,9 @@
-package org.party.festival.domain;
+package org.party.festival.bean;
 
 import lombok.Data;
 
 @Data
-public class CultureItem extends MarxismEntity {
+public class CultureItem extends AbstractBean {
 	
 	private String name;
 	

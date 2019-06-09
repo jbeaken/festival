@@ -1,11 +1,11 @@
-package org.party.festival.domain;
+package org.party.festival.bean;
 
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class Theme extends MarxismEntity {
+public class Theme extends AbstractBean {
 	
 	private String name;
 	

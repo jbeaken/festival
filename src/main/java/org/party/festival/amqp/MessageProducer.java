@@ -2,13 +2,14 @@ package org.party.festival.amqp;
 
 import java.time.LocalDateTime;
 
+import lombok.Data;
+import org.party.festival.domain.Booking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.party.festival.domain.Booking;
 
 @Component
 public class MessageProducer {
@@ -44,6 +45,7 @@ public class MessageProducer {
 	}
 }
 
+@Data
 class BookingMessage {
 
 	LocalDateTime timeOfBooking;
@@ -62,37 +64,4 @@ class BookingMessage {
 	public BookingMessage() {
 		super();
 	}
-
-	public LocalDateTime getTimeOfBooking() {
-		return timeOfBooking;
-	}
-
-	public void setTimeOfBooking(LocalDateTime timeOfBooking) {
-		this.timeOfBooking = timeOfBooking;
-	}
-
-	public String getTicketType() {
-		return ticketType;
-	}
-
-	public void setTicketType(String ticketType) {
-		this.ticketType = ticketType;
-	}
-
-	public String getTicketPricing() {
-		return ticketPricing;
-	}
-
-	public void setTicketPricing(String ticketPricing) {
-		this.ticketPricing = ticketPricing;
-	}
-
-	public String getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
-
 }

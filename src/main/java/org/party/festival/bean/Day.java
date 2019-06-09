@@ -1,4 +1,4 @@
-package org.party.festival.domain;
+package org.party.festival.bean;
 
 public enum Day {
 
