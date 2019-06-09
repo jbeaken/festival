@@ -45,7 +45,7 @@
          Documentation at /docs/config/engine.html -->
     <Engine name="Catalina" defaultHost="localhost">
 
-      <Host name="marxismfestival.org.uk"  appBase="marxism"
+      <Host name="festival.org.uk"  appBase="festival"
             unpackWARs="true" autoDeploy="true"/>
 
       <Host name="localhost"  appBase="webapps"

@@ -146,37 +146,37 @@ $(function() {
 
     bannerCarouselImg.backstretch([
     	 [
-           { width: 1080, url: "/marxismImages/carouselItem/8_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/8_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/8_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/8_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/8_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/8_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/1_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/1_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/1_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/1_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/1_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/1_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/3_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/3_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/3_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/3_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/3_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/3_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/4_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/4_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/4_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/4_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/4_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/4_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/5_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/5_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/5_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/5_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/5_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/5_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/6_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/6_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/6_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/6_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/6_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/6_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/2_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/2_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/2_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/2_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/2_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/2_320.jpg" }
          ],[
-           { width: 1080, url: "/marxismImages/carouselItem/7_1024.jpg" },
-           { width: 720, url: "/marxismImages/carouselItem/7_720.jpg" },
-           { width: 320, url: "/marxismImages/carouselItem/7_320.jpg" }
+           { width: 1080, url: "/festivalImages/carouselItem/7_1024.jpg" },
+           { width: 720, url: "/festivalImages/carouselItem/7_720.jpg" },
+           { width: 320, url: "/festivalImages/carouselItem/7_320.jpg" }
          ]
     ], {
         duration: 500,
