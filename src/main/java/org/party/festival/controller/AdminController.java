@@ -3,6 +3,7 @@ package org.party.festival.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.party.festival.service.WebsiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,9 @@ public class AdminController {
 	@Autowired
 	private ServletContext context;
 
+	@Autowired
+	private WebsiteService websiteService;
+
 	@RequestMapping(value = "/sync", method = RequestMethod.POST)
 	public synchronized ResponseEntity<String> sync(@RequestBody Website website) throws FileNotFoundException, JsonProcessingException {
 		
@@ -35,15 +39,7 @@ public class AdminController {
 
 		context.setAttribute("website", website);
 
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(website);
-
-		try (PrintWriter out = new PrintWriter("website.json")) {
-			log.info("Saving json to file....");
-			log.debug(json);
-			out.write( json);
-			log.info("...successful!");
-		}
+		websiteService.saveWebsiteToFileSystem( website );
 
 		return new ResponseEntity<>("All Good!", HttpStatus.OK);
 	}

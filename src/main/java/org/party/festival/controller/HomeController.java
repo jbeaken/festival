@@ -56,7 +56,7 @@ public class HomeController {
 	private Environment environment;
 
 	@Autowired
-	private ServletContext context;
+	private ServletContext servletContext;
 
 	@Autowired
 	private ApplicationContext appContext;
@@ -65,9 +65,14 @@ public class HomeController {
 	@Value("${marxism.email.to}")
 =======
 
+<<<<<<< HEAD
 	@Value("${festival.email.to}")
 >>>>>>> bdd0bbb... Moving files to party festival package:src/main/java/org/party/festival/controller/HomeController.java
 	private String emailTo;
+=======
+	@Value("${festival.office.email}")
+	private String officeEmail;
+>>>>>>> 34b4c6b... New property files
 
 	@Autowired
 	private MessageProducer messageProducer;
@@ -315,7 +320,7 @@ public class HomeController {
 
 		TicketPricing pricing = ticket.getPricing();
 
-		Website website = (Website) context.getAttribute("website");
+		Website website = getWebsite();
 
 		switch (ticket.getType()) {
 		case FULL:
@@ -382,7 +387,7 @@ public class HomeController {
 
 		log.info("Received thankYou");
 
-		Website website = (Website) context.getAttribute("website");
+		Website website = getWebsite();
 
 		model.addAttribute("content", website);
 
@@ -402,7 +407,7 @@ public class HomeController {
 			return "error";
 		}
 
-		log.info("Passed validation, sending email to {}", emailTo);
+		log.info("Passed validation, sending email to {}", officeEmail);
 
 		try {
 
@@ -414,7 +419,7 @@ public class HomeController {
 
 			message.setFrom(contactForm.getEmail());
 
-			message.setTo(emailTo);
+			message.setTo(officeEmail);
 
 			message.setBcc("jack747@gmail.com");
 
@@ -449,10 +454,10 @@ public class HomeController {
 		message.setFrom("info@marxismfestival.org.uk");
 
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
-			message.setBcc(emailTo);
+			message.setBcc(officeEmail);
 			message.setTo(booking.getEmail());
 		} else {
-			message.setTo(emailTo);
+			message.setTo(officeEmail);
 		}
 
 		String html = "<img src='https://marxismfestival.org.uk/img/email/header.jpg'></img>";
@@ -468,12 +473,12 @@ public class HomeController {
 
 		this.mailSender.send(mimeMessage);
 
-		log.info("Mail successfuly sent!");
+		log.info("Mail successfully sent!");
 	}
 
 	public synchronized Website getWebsite() {
 
-		Website website = (Website) context.getAttribute("website");
+		Website website = (Website) servletContext.getAttribute("website");
 
 		if(website == null) {
 
@@ -482,15 +487,12 @@ public class HomeController {
 				//Another check in case previous thread hasn't already build website object
 				if(website != null) return website;
 
-				website = websiteService.loadWebsiteFromFileSystem(website);
+				website = websiteService.loadWebsiteFromFileSystem();
 
-				context.setAttribute("website", website);
+				servletContext.setAttribute("website", website);
 			}
 		}
 
 		return website;
 	}
-
-
-
 }

@@ -1,19 +1,18 @@
-// =======
-// Layouts
-// =======
+// ====
+// Culture Items
+// ====
 
-.section_layouts {
-
-	// Item
-
-	.layouts__item {
+.section_cultureitems {
+	
+	.cultureitems__item {
 		display: block;
-		margin-bottom: 30px;
+		margin-bottom: 25px;
 		color: @text-color;
 		transition: all .25s;
 
 		&:hover, &:active, &:focus {
 			text-decoration: none;
+			box-shadow: 0 10px 100px 0 fade(black,14%);
 		}
 
 		// Image
@@ -30,23 +29,16 @@
 			background-color: white;
 			border: 1px solid @border-color;
 			border-top: 0;
+
+			@media(min-width: @screen-lg-min) {
+				padding: 40px;
+			}
 			
 			// Heading
 
 			&__heading {
-				margin: 0;
-				text-align: center;
 				color: @headings-color;
-				letter-spacing: .05em;
 			}
 		}
 	}
-
-	// Footer 
-
-	+ .section_footer {
-		background-color: white;
-		color: @text-color;
-	}
-
 }

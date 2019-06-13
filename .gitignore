@@ -1,6 +1,6 @@
 .sts4-cache/
 src/main/etc/wolfram/node_modules/
-src/main/etc/wolfram/app/
+src/main/etc/wolfram/dist/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 src/main/resources/application-*.properties
