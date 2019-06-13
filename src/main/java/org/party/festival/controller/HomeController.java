@@ -93,8 +93,14 @@ public class HomeController {
 	@Autowired
 	private WebsiteService websiteService;
 
+<<<<<<< HEAD
 =======
 >>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
+=======
+	@Value("${festival.email.header}")
+	private String emailHeader;
+
+>>>>>>> d128af8... Removing header
 	@InitBinder("booking")
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
@@ -509,9 +515,11 @@ public class HomeController {
 			message.setTo(officeEmail);
 		}
 
-		String html = "<img src='https://marxismfestival.org.uk/img/email/header.jpg'></img>";
+		log.info("Sending bcc email to {}", officeEmail);
 
-		html += "<h1>Thank you for booking a ticket for Marxism Festival " + website.getYear() + ".</h1>";
+		String html = emailHeader;
+
+		html += "<h1>Thank you for booking a ticket for " + website.getName() + " " + website.getName() + ".</h1>";
 		html += "<p>Dear " + booking.getFullname() + "</p>";
 
 		html += website.getEmailText();
