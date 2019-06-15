@@ -2,6 +2,7 @@ package org.party.festival.bean;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -17,11 +18,26 @@ public class Website extends AbstractBean {
 
 	private Boolean isDev;
 
+	//Payments
+	private String paymentUrl;
+
 	//About Section
 	private String aboutHeading;
 	private String aboutLine2;
 	private String aboutLine3;
 	private String aboutText;
+
+	//Social Media
+	private String websiteUrl;
+	private String websiteDescription;
+
+	private String facebookEvent;
+	private String facebookPage;
+
+	private String twitterHandle;
+	private String twitterPage;
+
+	private String instagramPage;
 
 	//Pricing Section
 	private String pricingHeading;

@@ -456,32 +456,6 @@ function validateContactEmail( email ) {
 	return true
 }
 
-function openGalleryDefaultSettings() {
-	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg'];
-	api_titles = ['Title 1','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
-	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
-
-	$.fn.prettyPhoto( )
-	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
-}
-
-function openGallery( theme ) {
-	api_images = ['/img/conference/closing_rally.jpg','/img/conference/f_cc1.jpg','/img/conference/f_cc2.jpg','/img/conference/meeting2.jpg'];
-	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
-	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
-
-	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
-	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
-}
-function openGalleryPicnic( theme ) {
-	api_images = ['/img/conference/students2.jpg','/img/conference/students3.jpg','/img/conference/students4.jpg','/img/conference/Marxism2014-WideAngle-GS.jpg'];
-	api_titles = [theme,'Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival','Some Picture of Some Comrades At Some Marxism Festival'];
-	api_descriptions = ['Here is a description, photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>','Here is a description, photo credit by ','Here is a description, photo credit by Guy Smallman 2017','Here is a description, photo credit by Guy Smallman 2017']
-
-	$.fn.prettyPhoto( {social_tools: false, theme: theme, overlay_gallery: false} )
-	$.prettyPhoto.open(api_images,api_titles,api_descriptions);
-}
-
 function showMoreSpeakers() {
 	$('div#third_row_speakers').show();
 	$('div#third_row_speakers').removeClass('hidden');
@@ -739,8 +713,6 @@ function sendGA( page ) {
 	// Don't ga for localhost
 	if (document.location.hostname.search("marxismfestival.org.uk") !== -1 && !alreadySent) {
     	
-    	console.log("At marxismfestival.org.uk, sending to  " + page)
-        
         // Send to google analytics
         ga('send', 'pageview', page);
     	

@@ -32,7 +32,7 @@ import org.party.festival.amqp.MessageProducer;
 import org.party.festival.controller.bean.Feedback;
 import org.party.festival.controller.command.ContactForm;
 import org.party.festival.bean.*;
-import org.party.festival.exception.MarxismException;
+import org.party.festival.exception.FestivalException;
 import org.party.festival.repository.BookingRepository;
 import org.party.festival.service.WebsiteService;
 import org.swp.marxism.amqp.MessageProducer;
@@ -308,7 +308,7 @@ public class HomeController {
 				booking.getTicket().getWebPrice());
 
 		if (!backendPrice.equals(booking.getTicket().getWebPrice())) {
-			throw new MarxismException(
+			throw new FestivalException(
 					"Web and backend prices do not match " + backendPrice + " : " + booking.getTicket().getWebPrice());
 		}
 
@@ -331,6 +331,7 @@ public class HomeController {
 		model.addAttribute(booking);
 		model.addAttribute("amount", backendPrice);
 		model.addAttribute("orderId", orderId);
+		model.addAttribute("content", getWebsite());
 
 		return "barclays.html";
 	}
@@ -470,7 +471,7 @@ public class HomeController {
 
 			MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
 
-			message.setSubject("Someone has contacted us using the Marxism website.");
+			message.setSubject("Someone has contacted us using the website.");
 
 			message.setFrom(contactForm.getEmail());
 
@@ -506,7 +507,7 @@ public class HomeController {
 		final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false, "UTF-8");
 
 		message.setSubject(website.getEmailSubject());
-		message.setFrom("info@marxismfestival.org.uk");
+		message.setFrom(officeEmail);
 
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
 			message.setBcc(officeEmail);

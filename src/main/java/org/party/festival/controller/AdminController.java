@@ -35,7 +35,7 @@ public class AdminController {
 		log.info("Contains {} abouts", website.getAbouts().size());
 		log.info("Contains {} carousel items", website.getCarouselItems().size());
 		log.info("Contains {} culture items", website.getCultureItems().size());
-		log.info("Marxism Website {}", website);
+		log.info("Website {}", website);
 
 		context.setAttribute("website", website);
 

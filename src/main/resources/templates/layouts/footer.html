@@ -5,21 +5,21 @@
 			<div class="col-sm-9">
 
 				<p class="footer__copyright">
-					<span id="footer__year">2018</span> &copy; Marxism Festival 2018
+					<span id="footer__year">2018</span> &copy; Marxism Festival 2019
 				</p>
 
 			</div>
 			<div class="col-sm-3">
 
 				<ul class="footer__social">
-					<li><a class="twitter" href="https://twitter.com/MarxismFestival"> <i
-							class="ion-social-twitter"></ion-icon>
+					<li><a class="twitter" th:attr="href=${content.twitterPage}">
+						<ion-icon name="ion-social-twitter"></ion-icon>
 					</a></li>
-					<li><a class="facebook" href="https://www.facebook.com/festivalfest/"> <i
-							class="ion-social-facebook"></ion-icon>
+					<li><a class="facebook" th:attr="href=${content.facebookPage}">
+						<ion-icon name="ion-social-facebook"></ion-icon>
 					</a></li>
-					<li><a class="pinterest" href="https://www.instagram.com/festival_festival/"> <i
-							class="ion-social-instagram"></ion-icon>
+					<li><a class="pinterest" th:attr="href=${content.instagramPage}">
+						<ion-icon name="ion-social-instagram"></ion-icon>
 					</a></li>
 				</ul>
 
