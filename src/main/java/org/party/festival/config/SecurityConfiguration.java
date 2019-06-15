@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		 http.authorizeRequests()
-		 	.antMatchers("/bookings/**", "/admin/**").hasRole("MARXISM")
+		 	.antMatchers("/bookings/**").hasRole("MARXISM")
 		 	.anyRequest().permitAll()
 		 	.and().httpBasic();
 		 
