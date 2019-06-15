@@ -39,10 +39,12 @@ public class AdminController {
 	@RequestMapping(value = "/sync", method = RequestMethod.POST)
 	public synchronized ResponseEntity<String> sync(@RequestBody Website website, HttpServletRequest request) throws FileNotFoundException, JsonProcessingException {
 
+		String bearer = request.getHeader("authorization");
+
+		checkValidity(bearer);
+
 		log.info("Received sync request for {}", website);
-
-		checkValidity( request );
-
+		
 		log.info("Contains {} speakers", website.getSpeakers().size());
 		log.info("Contains {} themes", website.getThemes().size());
 		log.info("Contains {} abouts", website.getAbouts().size());
@@ -57,15 +59,14 @@ public class AdminController {
 		return new ResponseEntity<>("All Good!", HttpStatus.OK);
 	}
 
-	private void checkValidity(HttpServletRequest request) {
-
-		String bearer = request.getHeader("authorization").replace("Bearer ", "");
-
+	private void checkValidity(String bearer) {
 		log.debug("authorization = {}", bearer);
 
 		String password = environment.getProperty("jws.key");
 
 		Key key = Keys.hmacShaKeyFor(password.getBytes());
+
+		bearer = bearer.replace("Bearer ", "");
 
 		//throws exception if not valid
 		Jws<Claims> jws = Jwts.parser()

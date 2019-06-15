@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 package org.party.festival.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -7,11 +6,6 @@ import org.party.festival.domain.Booking;
 import org.party.festival.domain.BookingStatus;
 import org.party.festival.domain.Ticket;
 import org.party.festival.exception.BookingNotFoundException;
-package org.swp.marxism.controller;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -35,12 +29,6 @@ import org.party.festival.bean.*;
 import org.party.festival.exception.FestivalException;
 import org.party.festival.repository.BookingRepository;
 import org.party.festival.service.WebsiteService;
-import org.swp.marxism.amqp.MessageProducer;
-import org.swp.marxism.controller.bean.Feedback;
-import org.swp.marxism.controller.command.ContactForm;
-import org.swp.marxism.domain.*;
-import org.swp.marxism.exception.MarxismException;
-import org.swp.marxism.repository.BookingRepository;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
@@ -72,35 +60,19 @@ public class HomeController {
 
 	@Autowired
 	private ApplicationContext appContext;
-<<<<<<< HEAD:src/main/java/org/swp/marxism/controller/HomeController.java
-	private HtmlBuilder htmlBuilder;
-	@Value("${marxism.email.to}")
-=======
 
-<<<<<<< HEAD
-	@Value("${festival.email.to}")
->>>>>>> bdd0bbb... Moving files to party festival package:src/main/java/org/party/festival/controller/HomeController.java
-	private String emailTo;
-=======
 	@Value("${festival.office.email}")
 	private String officeEmail;
->>>>>>> 34b4c6b... New property files
 
 	@Autowired
 	private MessageProducer messageProducer;
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 	@Autowired
 	private WebsiteService websiteService;
 
-<<<<<<< HEAD
-=======
->>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
-=======
 	@Value("${festival.email.header}")
 	private String emailHeader;
 
->>>>>>> d128af8... Removing header
 	@InitBinder("booking")
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(String.class, "accommodationNeeds", new StringTrimmerEditor(true));
@@ -111,49 +83,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model)  {
 
-<<<<<<< HEAD:src/main/java/org/swp/marxism/controller/HomeController.java
-		logger.info("Received request for home");
-		
-		try {
-			messageProducer.sendHome();
-		} catch(Exception e) {
-			logger.error("Cannot send home message", e);
-		}
-
-		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
-
-		if(marxismWebsite == null) {
-
-			marxismWebsite = marxismWebsiteRepository.findByIsLive( true );
-
-			logger.info("Have loaded marxism website content {}", marxismWebsite);
-
-			logger.info("Contains {} speakers", marxismWebsite.getSpeakers().size());
-			logger.info("Contains {} themes", marxismWebsite.getThemes().size());
-			logger.info("Contains {} carousel items", marxismWebsite.getCarouselItems().size());
-			logger.info("Contains {} carousel items", marxismWebsite.getMeetings().size());
-
-			logger.info("Marxism website content placed into context");
-			
-			logger.info("Building meetings json from ");
-			for(Meeting m : marxismWebsite.getMeetings()) {
-				htmlBuilder.build( m );
-			}
-			
-			ObjectMapper mapper = new ObjectMapper();
-			
-			String meetingsJson = mapper.writeValueAsString(marxismWebsite.getMeetings());
-			
-			logger.debug("Meetings json : {}", meetingsJson);
-			
-			marxismWebsite.setMeetingsJson(meetingsJson);
-			
-			context.setAttribute("marxismWebsite", marxismWebsite);
-		}
-		MarxismWebsite marxismWebsite = getMarxismWebsite();
-=======
 		Website website = getWebsite();
->>>>>>> bdd0bbb... Moving files to party festival package:src/main/java/org/party/festival/controller/HomeController.java
 
 		if (environment.acceptsProfiles(Profiles.of("prod"))) {
 			website.setIsDev(false);
@@ -163,17 +93,6 @@ public class HomeController {
 
 		model.addAttribute("content", website);
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
-=======
-		if (environment.acceptsProfiles(Profiles.of("prod"))) {
-			marxismWebsite.setIsDev(false);
-		} else {
-			marxismWebsite.setIsDev(true);
-		}
-
-		model.addAttribute("content", marxismWebsite);
-		
->>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 		return "home.html";
 	}
 
@@ -240,11 +159,8 @@ public class HomeController {
 
 
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		Booking booking = optional.orElseThrow(() -> new BookingNotFoundException("Cannot find booking " + id));
 
-=======
->>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 		log.info("Got booking {}", booking);
 
 		if (feedback.getBarclaysStatus().equals("5")) {
@@ -356,11 +272,7 @@ public class HomeController {
 
 		TicketPricing pricing = ticket.getPricing();
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		Website website = getWebsite();
-=======
-		MarxismWebsite marxismWebsite = (MarxismWebsite) context.getAttribute("marxismWebsite");
->>>>>>> 02f0d23... Fixed lower case discount code bug:src/main/java/org/swp/marxism/controller/HomeController.java
 
 		switch (ticket.getType()) {
 		case FULL:
@@ -402,11 +314,7 @@ public class HomeController {
 			price += 5;
 		}
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		if (website.getShowEarlyBirdDiscount()) {
-=======
-		if (marxismWebsite.getShowEarlyBirdDiscount() == true) {
->>>>>>> 02f0d23... Fixed lower case discount code bug:src/main/java/org/swp/marxism/controller/HomeController.java
 			price -= 5;
 		}
 
@@ -416,18 +324,10 @@ public class HomeController {
 		if (website.getShowDiscountCode()) {
 			if (booking.getDiscountCode() != null
 					&& booking.getDiscountCode().toLowerCase()
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 					.equals(website.getDiscountCode().toLowerCase())) {
 				price = (int) (price * 0.9);
 			} else {
 				// They could have put anything in here
-=======
-					.equals(marxismWebsite.getDiscountCode().toLowerCase())) {
-				price = (int) (price * 0.9);
-			} else {
-				// They could have put anything in here
-//				booking.setDiscountCode(null);
->>>>>>> 02f0d23... Fixed lower case discount code bug:src/main/java/org/swp/marxism/controller/HomeController.java
 			}
 		}
 
@@ -459,11 +359,7 @@ public class HomeController {
 			return "error";
 		}
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		log.info("Passed validation, sending email to {}", officeEmail);
-=======
-		log.info("Passed validation, sending email to {}", emailTo);
->>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 
 		try {
 
@@ -531,18 +427,13 @@ public class HomeController {
 
 		this.mailSender.send(mimeMessage);
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		log.info("Mail successfully sent!");
-=======
-		log.info("Mail successfuly sent!");
->>>>>>> 29379a0... Clean up, removing entity annotation:src/main/java/org/swp/marxism/controller/HomeController.java
 	}
 
 	public synchronized Website getWebsite() {
 
 		Website website = (Website) servletContext.getAttribute("website");
 
-<<<<<<< HEAD:src/main/java/org/party/festival/controller/HomeController.java
 		if(website == null) {
 
 			synchronized (this) {
@@ -555,12 +446,6 @@ public class HomeController {
 				servletContext.setAttribute("website", website);
 			}
 		}
-=======
-//		if (marxismWebsite == null) {
-//			marxismWebsite = marxismService.buildWebsite();
-//			context.setAttribute("marxismWebsite", marxismWebsite);
-//		}
->>>>>>> fff6c70... Adding lombok, and moved HtmlBuilder to puma:src/main/java/org/swp/marxism/controller/HomeController.java
 
 		return website;
 	}
