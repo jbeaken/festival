@@ -1,0 +1,2 @@
+0da3ff7553eb202ba52a9f3602cdd7d619bbb14a 5619332 hibernate-core-5.0.12.Final.jar
+c7818ce498107db40ff6105f30635d737d3ca57a 19703471 timetable_first.pdf
