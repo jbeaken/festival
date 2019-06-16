@@ -6,7 +6,10 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import jdk.nashorn.internal.parser.Token;
 import lombok.extern.slf4j.Slf4j;
+import org.party.festival.exception.FestivalException;
+import org.party.festival.exception.TokenException;
 import org.party.festival.service.WebsiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.security.Key;
+import java.util.Date;
 
 @RequestMapping("/admin")
 @RestController
@@ -72,5 +76,11 @@ public class AdminController {
 		Jws<Claims> jws = Jwts.parser()
 				.setSigningKey(key)
 				.parseClaimsJws(bearer);
+
+		Claims claims = jws.getBody();
+
+		if(!claims.getSubject().equals("sync")) {
+			throw new TokenException("Invalid subject");
+		}
 	}
 }
