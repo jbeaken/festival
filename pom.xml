@@ -7,7 +7,7 @@
 	<groupId>org.party</groupId>
 	<artifactId>festival</artifactId>
 	<version>3.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>festival</name>
 	<description>Demo project for Spring Boot</description>
