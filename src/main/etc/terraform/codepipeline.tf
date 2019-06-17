@@ -73,6 +73,8 @@ resource "aws_codepipeline" "codepipeline" {
 //    }
   }
 
+
+
   stage {
     name = "Source"
 
@@ -88,7 +90,7 @@ resource "aws_codepipeline" "codepipeline" {
         Owner  = "jbeaken"
         Repo   = "festival"
         Branch = "master"
-        OAuthToken = "3d1941fa9e7baacabd611b8f5440af1e89f3ab20"
+        OAuthToken = "${var.github_token}"
       }
     }
   }

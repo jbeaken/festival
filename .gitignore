@@ -1,10 +1,15 @@
+src/main/etc/terraform/terraform.tfstate
+src/main/etc/terraform/terraform.tfstate.backup
 src/main/etc/terraform/.terraform/
-.sts4-cache/
+
 src/main/etc/wolfram/node_modules/
 src/main/etc/wolfram/dist/
+
 target/
+
 !.mvn/wrapper/maven-wrapper.jar
 src/main/resources/application-*.properties
+
 ### STS ###
 .apt_generated
 .classpath
