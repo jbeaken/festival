@@ -69,15 +69,15 @@
 		data-animate="animate-up" 
 		data-toggle="modal" 
 		data-ga="themeReadMore"
-		th:attr="data-content=${theme.readMore},data-heading=${theme.name}">
+		th:attr="data-content=${theme.readMore},data-heading=${theme.title}">
 		
 		<div class="themes__item__img">
-		  <img th:attr="src=@{/festivalImages/theme/{id}(id=${theme.id + '.jpg'})},alt=${theme.name}" class="img-responsive" />
+		  <img th:attr="src=@{/festivalImages/theme/{id}(id=${theme.id + '.jpg'})},alt=${theme.title}" class="img-responsive" />
 		</div>
 		
 		<div class="themes__item__footer">
-		  <h3 class="themes__item__footer__heading" th:utext="${theme.shortDescription}"/>
-		  <div class="themes__item__footer__content" th:utext="${theme.longDescription}"/><span class="read-more">Read more</span>
+		  <h3 class="themes__item__footer__heading" th:utext="${theme.title}"/>
+		  <div class="themes__item__footer__content" th:utext="${theme.text}"/><span class="read-more">Read more</span>
 		</div>
 	
 	</a>
