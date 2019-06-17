@@ -12,6 +12,9 @@
 span.read-more {
 	color: #FFAB00;
 }
+span.plain {
+    color : rgb(53, 53, 53);
+}
 q.read-more, span.read-more {
     text-decoration: none !important;
     border-bottom: 0.0625rem solid #dcdcdc;
