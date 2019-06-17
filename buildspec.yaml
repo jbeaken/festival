@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - bash -c "$(curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install)"
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install -DskipTests=true
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/festival-3.0.jar
