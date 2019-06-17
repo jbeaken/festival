@@ -62,14 +62,15 @@ resource "aws_codebuild_project" "festival" {
     location        = "https://github.com/jbeaken/festival.git"
     git_clone_depth = 1
     buildspec = "buildspec.yml"
-//    auth {
-//        type = "OAUTH"
-//      }
+    auth {
+        type = "OAUTH"
+      }
   }
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "${aws_ecr_repository.environments.repository_url}:latest"
+//    image        = "${aws_ecr_repository.environments.repository_url}:latest"
+    image = "aws/codebuild/standard:2.0"
     type         = "LINUX_CONTAINER"
   }
 }
