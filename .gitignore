@@ -1,6 +1,8 @@
 src/main/etc/terraform/terraform.tfstate
 src/main/etc/terraform/terraform.tfstate.backup
+src/main/etc/terraform/terraform.tfvars
 src/main/etc/terraform/.terraform/
+
 
 src/main/etc/wolfram/node_modules/
 src/main/etc/wolfram/dist/
