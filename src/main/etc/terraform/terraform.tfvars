@@ -1,2 +1,2 @@
-github_token = "3d1941fa9e7baacabd611b8f5440af1e89f3ab20"
+github_token = "4c6d9a4e6c643c02f170f216069ab87172cfe9b4"
 
