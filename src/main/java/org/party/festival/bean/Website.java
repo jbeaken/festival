@@ -2,6 +2,7 @@ package org.party.festival.bean;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -47,7 +48,8 @@ public class Website extends AbstractBean {
 	private String meetingHeading;
 	
 	//Booking section
-	private String bookingAfterPartyText;	
+	private String bookingAfterPartyText;
+	private String bookingClosedMessage;
 
 	//Confirmation Email
 	private String emailSubject;
