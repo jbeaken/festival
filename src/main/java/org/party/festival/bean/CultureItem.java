@@ -7,9 +7,9 @@ public class CultureItem extends AbstractBean {
 	
 	private String name;
 	
-	private String shortDescription;
+	private String title;
 	
-	private String longDescription;
+	private String text;
 	
 	private String videoUrl;
 	
