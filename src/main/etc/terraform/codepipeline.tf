@@ -39,7 +39,9 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
       ],
       "Resource": [
         "${aws_s3_bucket.codepipeline_festival_bucket.arn}",
-        "${aws_s3_bucket.codepipeline_festival_bucket.arn}/*"
+        "${aws_s3_bucket.codepipeline_festival_bucket.arn}/*",
+        "${aws_s3_bucket.festival.arn}",
+        "${aws_s3_bucket.festival.arn}/*"
       ]
     },
     {
