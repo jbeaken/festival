@@ -7,7 +7,7 @@
 	<groupId>org.party</groupId>
 	<artifactId>festival</artifactId>
 	<version>3.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>festival</name>
 	<description>Demo project for Spring Boot</description>
@@ -110,7 +110,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
