@@ -157,8 +157,6 @@ public class HomeController {
 
 		Optional<Booking> optional = bookingRepository.findById(id);
 
-
-
 		Booking booking = optional.orElseThrow(() -> new BookingNotFoundException("Cannot find booking " + id));
 
 		log.info("Got booking {}", booking);
