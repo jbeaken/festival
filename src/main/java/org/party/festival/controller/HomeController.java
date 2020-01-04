@@ -417,6 +417,9 @@ public class HomeController {
 		html += "<h1>Thank you for booking a ticket for " + website.getName() + " " + website.getName() + ".</h1>";
 		html += "<p>Dear " + booking.getFullname() + "</p>";
 
+		String emailText = website.getEmailText();
+		log.info("Email text : ", emailText);
+		
 		html += website.getEmailText();
 
 		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
