@@ -419,8 +419,8 @@ public class HomeController {
 
 		String emailText = website.getEmailText();
 		log.info("Email text : ", emailText);
-		
-		html += website.getEmailText();
+
+		html += emailText;
 
 		html += "<br/><p>Please quote booking number " + booking.getId() + "</p>";
 
