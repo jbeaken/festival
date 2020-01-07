@@ -46,6 +46,9 @@ public class Website extends AbstractBean {
 
 	//Meetings Section
 	private String meetingHeading;
+
+	//Speaker Section
+	private String speakerHeading;
 	
 	//Booking section
 	private String bookingAfterPartyText;
