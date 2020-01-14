@@ -7,12 +7,12 @@ var gaAlreadySent = [];
 var bookingPassedValidation = false;
 
 function showNext() {
-	// console.log("Call to showNext currentScreen = " + currentScreen)
+	console.log("Call to showNext currentScreen = " + currentScreen)
 
 	// Validate
 	var errors = validate( currentScreen )
 
-	// console.log(errors)
+	console.log(errors)
 
 	if (errors.length > 0) {
 		var field = errors[0].field
@@ -262,6 +262,11 @@ function validate( screen ) {
 
 function validateTicket(errors) {
 	var price = calculatePrice()
+	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
+	var college = $('input#booking_college2').val()
+
+	console.log("college = " + college)
+	console.log("ticketPricing = " + ticketPricing)
 
 	if( isNaN( price ) ) {
 		errors.push({
@@ -270,6 +275,17 @@ function validateTicket(errors) {
 		})
 		alert("Please select a valid ticket type")
 	}
+
+	if(ticketPricing == 'STUDENT_FE' || ticketPricing == 'STUDENT_HE') {
+		if(college == '') {
+			errors.push({
+				field : 'ticket_id',
+				error : ' must be given'
+			})
+			alert("Please enter your school or college to get discount")
+		}
+	}
+
 }
 
 function validateField( field, errors ) {
@@ -538,13 +554,13 @@ function getMeetingsByDayAndTime( day, time ) {
 /** ******************* */
 
 function toggleTickets() {
-// console.log("toggleTickets()")
+	console.log("toggleTickets()")
 
 	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
 	var ticketType = $('select#booking_ticketType').val()
 
-// console.log("selected ticketPricing : " + ticketPricing)
-// console.log("selected ticketType : " + ticketType)
+	console.log("selected ticketPricing : " + ticketPricing)
+	console.log("selected ticketType : " + ticketType)
 
 	if(ticketType == '' || typeof ticketType == 'undefined') {
 		$('div#ticketDayContainer').hide();
@@ -583,6 +599,13 @@ function toggleTickets() {
 			 $('div#ticketAfterPartyContainer').show();
 			 break;
 		 default:
+	}
+
+	if(ticketPricing == 'STUDENT_FE' || ticketPricing == 'STUDENT_HE') {
+		console.log("is student");
+		$('div#collegeSchoolContainer').show();
+	} else {
+		$('div#collegeSchoolContainer').hide();
 	}
 
 	var price = calculatePrice()
