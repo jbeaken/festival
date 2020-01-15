@@ -53,6 +53,13 @@
     </div>
 </div>
 
+<div id="collegeSchoolContainer" class="form-group" style="display : none;">
+	<label class="col-sm-3 control-label ticket-label">Enter school/college to get your discount</label>
+	<div class="col-sm-9">
+		<input type="text" id="booking_college2" name="college2" class="form-control" value="" placeholder="College or School">
+	</div>
+</div>
+
 <div id="ticketDayContainer" style="display: none;">
 	<label class="col-sm-3 control-label">Days:</label>
 	<div class="col-sm-2">
@@ -102,7 +109,7 @@
 	</div>
 	<div class="col-sm-2">
 		<label>Sunday</label>
-		<select id="dayTicketSunday" name="ticket.sunday" class="form-control" onchange="javascript:toggleTickets()">
+		<select id="dayTicketSunday" name="ticket.sunday" class="form-control" onchange="javascript:`toggleTickets`()">
 				<option value="">-- None --</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
