@@ -262,11 +262,8 @@ function validate( screen ) {
 
 function validateTicket(errors) {
 	var price = calculatePrice()
-	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
-	var college = $('input#booking_college2').val()
 
-	console.log("college = " + college)
-	console.log("ticketPricing = " + ticketPricing)
+
 
 	if( isNaN( price ) ) {
 		errors.push({
@@ -274,10 +271,16 @@ function validateTicket(errors) {
 			error : ' must be given'
 		})
 		alert("Please select a valid ticket type")
+		return
 	}
 
+	var ticketPricing = $('input[name="ticket.pricing"]:checked').val()
+	console.log("ticketPricing = " + ticketPricing)
+
 	if(ticketPricing == 'STUDENT_FE' || ticketPricing == 'STUDENT_HE') {
-		if(college == '') {
+		var college = $('input#booking_college2').val()
+		console.log("college = " + college)
+		if(college.trim() == '') {
 			errors.push({
 				field : 'ticket_id',
 				error : ' must be given'
