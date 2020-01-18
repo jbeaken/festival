@@ -722,11 +722,11 @@ function getNoOfDaysSelected() {
 	if(!isNaN( saturday )) noOfDays += saturday
 	if(!isNaN( sunday )) noOfDays += sunday
 
-// console.log("thursday : " + thursday)
-// console.log("friday : " + friday)
-// console.log("saturday : " + saturday)
-// console.log("sunday : " + sunday)
-// console.log("getNoOfDaysSelected : " + noOfDays)
+console.log("thursday : " + thursday)
+console.log("friday : " + friday)
+console.log("saturday : " + saturday)
+console.log("sunday : " + sunday)
+console.log("getNoOfDaysSelected : " + noOfDays)
 
 	return noOfDays
 }
