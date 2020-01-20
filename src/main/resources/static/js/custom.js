@@ -369,8 +369,7 @@ function getBooking() {
 
 	booking.firstname = $('input#booking_firstname').val()
 	booking.lastname = $('input#booking_lastname').val()
-	booking.college = $('input#booking_college').val()
-	booking.college2 = $('input#booking_college2').val()
+	booking.college = $('input#booking_college').val() + "-" + $('input#booking_college2').val()
 	booking.tradeUnion = $('input#booking_tradeUnion').val()
 	booking.otherMembership = $('input#booking_otherMembership').val()
 	booking.hearAbout = $('select#booking_hear_about').val()
