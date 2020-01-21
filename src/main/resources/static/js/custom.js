@@ -263,8 +263,6 @@ function validate( screen ) {
 function validateTicket(errors) {
 	var price = calculatePrice()
 
-
-
 	if( isNaN( price ) ) {
 		errors.push({
 			field : 'ticket_id',
@@ -278,7 +276,8 @@ function validateTicket(errors) {
 	console.log("ticketPricing = " + ticketPricing)
 
 	if(ticketPricing == 'STUDENT_FE' || ticketPricing == 'STUDENT_HE') {
-		var college = $('input#booking_college2').val()
+		//There are two fields for college, so check other field hasn't already been filled
+		var college = $('input#booking_college').val() +  $('input#booking_college2').val()
 		console.log("college = " + college)
 		if(college.trim() == '') {
 			errors.push({
