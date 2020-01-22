@@ -383,6 +383,12 @@ function getBooking() {
 	booking.postcode = $('input#booking_postcode').val()
 	booking.discountCode = $('input#booking_discount').val()
 
+	//College has two fields
+	booking.college = $('input#booking_college').val()
+	var college2 = $('input#booking_college2').val()
+
+	if(college2.trim() != '') booking.college += "-" + college2
+
 	if ($('input#crecheRequiredRadioYes').is(":checked") == true) {
 		console.log("buidling crech")
 		var creche = {}
