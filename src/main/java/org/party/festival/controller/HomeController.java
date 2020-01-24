@@ -414,7 +414,7 @@ public class HomeController {
 
 		String html = emailHeader;
 
-		html += "<h1>Thank you for booking a ticket for " + website.getName() + " " + website.getName() + ".</h1>";
+		html += "<h1>Thank you for booking a ticket for " + website.getName() + " " + website.getYear() + ".</h1>";
 		html += "<p>Dear " + booking.getFullname() + "</p>";
 
 		String emailText = website.getEmailText();
