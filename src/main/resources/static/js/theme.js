@@ -4,7 +4,7 @@
 
 var $window = $(window);
 
-$window.load(function() {
+$window.on('load', function() {
 	
 	console.log("Window load. In preloader")
 
@@ -24,7 +24,7 @@ $window.load(function() {
             //Check for undefined as save server hit??
             var img = new Image();
             img.src = lsrc;
-            $(img).load(function() {
+            $(img).on("load", function() {
                 this_image.src = this.src;
             });
         });
@@ -278,7 +278,7 @@ $(function() {
 
 
     //Swipebox (gallery.html)
-    $('a#swipeBoxButton').click( function( e ) {
+    $('a#swipeBoxButton').on("click", function( e ) {
     	e.preventDefault();
     	$.swipebox( [
  	            { href:'/img/conference/3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
