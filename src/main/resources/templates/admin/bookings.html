@@ -73,6 +73,7 @@
                   <th>Booking Date</th>
                   <th>Full Name</th>
                   <th>Email</th>
+                  <th>College</th>
                   <th>Telephone</th>
                   <th>Ticket</th>
                   <th>Info</th>
@@ -90,6 +91,7 @@
                   <th th:text="${booking.status}">status</th>
                   <th th:text="${#dates.format(booking.date, 'dd MMM HH:mm')}">date</th>
                   <th th:text="${booking.fullname}">fullname</th>
+                  <th th:text="${booking.email}">email</th>
                   <th th:text="${booking.email}">email</th>
                   <th th:text="${booking.telephone}">telephone</th>
                   <th th:text="${booking.ticket.type}">type</th>
