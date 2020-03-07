@@ -23,7 +23,7 @@
 				<li><a href="#section_pricing" th:if="${content.showPricing == true}">Tickets</a></li>
 				<li><a href="#section_booking" id="anchor_section_booking"><span id="navbar_booking">Book</span></a></li>
 				<li><a href="#section_gallery" th:if="${content.showGallery == true}">Gallery</a></li>
-				<li class="hidden-xs" th:if="${content.showVideo == true}"><a rel="navbar-youtube" class="swipebox" title="Promo video for Marxism Festival">Video</a></li>
+				<li class="hidden-xs" th:if="${content.showVideo == true}"><a th:attr="href=${content.videoUrl}" rel="navbar-youtube" class="swipebox" title="Promo video for Marxism Festival">Video</a></li>
 				<li class="visible-xs hidden-sm" th:if="${content.showVideo == true}"><a th:attr="href=${content.videoUrl}"  title="Promo video for Marxism Festival">Video</a></li>
 				<li><a href="#section_contact" th:if="${content.showContact == true}">Contact</a></li>
 			</ul>
