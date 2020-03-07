@@ -278,23 +278,23 @@ $(function() {
 
 
     //Swipebox (gallery.html)
-    $('a#swipeBoxButton').on("click", function( e ) {
-    	e.preventDefault();
-    	$.swipebox( [
- 	            { href:'/img/conference/3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
- 	            { href:'/img/conference/1.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
- 	            { href:'/img/conference/2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
- 	            { href:'/img/conference/4.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-        		{ href:'/img/conference/5.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-        		{ href:'/img/conference/6.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-        		{ href:'/img/conference/7.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
-        		{ href:'/img/conference/8.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
-        	],
-            {
-                hideBarsDelay : 0 // 0 to always show caption and action bar
-            }
-        );
-    } );
+    // $('a#swipeBoxButton').on("click", function( e ) {
+    // 	e.preventDefault();
+    // 	$.swipebox( [
+ 	//             { href:'/img/conference/3.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+ 	//             { href:'/img/conference/1.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+ 	//             { href:'/img/conference/2.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+ 	//             { href:'/img/conference/4.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    //     		{ href:'/img/conference/5.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    //     		{ href:'/img/conference/6.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    //     		{ href:'/img/conference/7.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' },
+    //     		{ href:'/img/conference/8.jpg', title:'Photo credit by  <a href="https://guy-smallman-photos.photoshelter.com/" target="_blank">Guy Smallman 2018</a>' }
+    //     	],
+    //         {
+    //             hideBarsDelay : 0 // 0 to always show caption and action bar
+    //         }
+    //     );
+    // } );
 
     $( '.swipebox' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video') } } );
     $( '.swipebox_culture' ).swipebox( {autoplayVideos: true, beforeOpen: function() { sendGA('/video_culture') } } );
